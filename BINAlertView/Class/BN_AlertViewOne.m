@@ -159,7 +159,7 @@ static CGFloat kH_title = 45;
     CGFloat kH_label = CGRectGetHeight(self.label.frame);
 
 
-    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.frame)*0.66, CGRectGetHeight(self.frame) - kH_CellHeight*2);
+    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.frame)*8, CGRectGetHeight(self.frame) - kH_CellHeight*2);
     CGFloat kH_contain = (kH_tableView + kH_label) < maxSize.height ? (kH_tableView + kH_label) : maxSize.height;
     
     CGRect rect = self.containView.frame;
@@ -168,6 +168,8 @@ static CGFloat kH_title = 45;
     self.containView.frame = rect;
 
     self.containView.center = self.center;
+
+    [self.tableView reloadData];
 
 }
 

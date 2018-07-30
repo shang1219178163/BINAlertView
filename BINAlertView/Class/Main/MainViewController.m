@@ -28,6 +28,7 @@
 @interface MainViewController ()
 
 @property (nonatomic, strong) NSArray *itemList;
+@property (nonatomic, strong) NSDictionary *dict;
 
 @end
 
@@ -266,6 +267,7 @@
     
     return 1;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return 20;

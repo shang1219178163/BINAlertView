@@ -114,6 +114,7 @@
 		518373491F7E22FD00248179 /* BINTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373311F7E22FD00248179 /* BINTextView.m */; };
 		5183734A1F7E22FD00248179 /* WHKLeftMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373331F7E22FD00248179 /* WHKLeftMenuView.m */; };
 		518373571F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */; };
+		51862E4B20BB8F3F0080BD4E /* DesignPatternsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862E4A20BB8F3F0080BD4E /* DesignPatternsController.m */; };
 		518A034320AEDD1000B6142C /* BN_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518A034220AEDD1000B6142C /* BN_ShareView.m */; };
 		518BDE242065FBE800DC925D /* NSObject+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = 518BDE232065FBE800DC925D /* NSObject+Testing.m */; };
 		518FD84C204801A200FD7ADA /* UIApplication+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD846204801A000FD7ADA /* UIApplication+Helper.m */; };
@@ -334,6 +335,8 @@
 		5183734E1F7E238000248179 /* BINAlertView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BINAlertView-Prefix.pch"; sourceTree = "<group>"; };
 		518373531F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
 		518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
+		51862E4920BB8F3F0080BD4E /* DesignPatternsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignPatternsController.h; sourceTree = "<group>"; };
+		51862E4A20BB8F3F0080BD4E /* DesignPatternsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignPatternsController.m; sourceTree = "<group>"; };
 		518A034120AEDD1000B6142C /* BN_ShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_ShareView.h; sourceTree = "<group>"; };
 		518A034220AEDD1000B6142C /* BN_ShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_ShareView.m; sourceTree = "<group>"; };
 		518BDE222065FBE800DC925D /* NSObject+Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Testing.h"; sourceTree = "<group>"; };
@@ -748,6 +751,8 @@
 				517ECA4120A2E66700158A0D /* ButtonViewController.m */,
 				516FF69120B00E20001989FD /* TmpViewController.h */,
 				516FF69220B00E20001989FD /* TmpViewController.m */,
+				51862E4920BB8F3F0080BD4E /* DesignPatternsController.h */,
+				51862E4A20BB8F3F0080BD4E /* DesignPatternsController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 				518372F51F7E117D00248179 /* UIColor+Helper.m in Sources */,
 				518373481F7E22FD00248179 /* BINTextField.m in Sources */,
 				5183733A1F7E22FD00248179 /* BINGuidePageView.m in Sources */,
+				51862E4B20BB8F3F0080BD4E /* DesignPatternsController.m in Sources */,
 				518FD862204803C100FD7ADA /* Utilities_DigitalMedia.m in Sources */,
 				517D3911206CDD04005BC021 /* DKSButton.m in Sources */,
 				512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */,
