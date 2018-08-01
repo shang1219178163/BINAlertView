@@ -287,16 +287,21 @@ void dispatchAfterDelay(double delay ,void(^block)()){
  @return 富文本字符串
  */
 - (NSAttributedString *)getAttString:(NSString *)text textTaps:(NSArray *)textTaps font:(id)font tapFont:(id)tapFont tapColor:(UIColor *)tapColor alignment:(NSTextAlignment)alignment{
+    return [self getAttString:text textTaps:textTaps font:font tapFont:tapFont color:[UIColor blackColor] tapColor:tapFont alignment:alignment];
 
-    NSAssert(textTaps.count >0, @"textTaps不能为空!");
+}
+
+- (NSAttributedString *)getAttString:(NSString *)text textTaps:(NSArray *)textTaps font:(id)font tapFont:(id)tapFont color:(UIColor *)color tapColor:(UIColor *)tapColor alignment:(NSTextAlignment)alignment{
+    
+    NSAssert(textTaps.count > 0, @"textTaps不能为空!");
     NSAssert([font isKindOfClass:[UIFont class]] || [font isKindOfClass:[NSNumber class]], @"请检查font格式!");
     
     // 设置段落
-    NSDictionary *paraDict = [self attrParaDictWithFont:font textColor:[UIColor blackColor] alignment:alignment];
+    NSDictionary *paraDict = [self attrParaDictWithFont:font textColor:color alignment:alignment];
     NSMutableAttributedString * attString = [[NSMutableAttributedString alloc] initWithString:text attributes:paraDict];
     
     for (NSString *textTap in textTaps) {
-        NSAssert([text containsString:textTap],@"textTaps中有不被字符串包含的元素");
+        //        NSAssert([text containsString:textTap],@"textTaps中有不被字符串包含的元素");
         
         NSRange range = [text rangeOfString:textTap];
         // 创建文字属性
@@ -306,7 +311,6 @@ void dispatchAfterDelay(double delay ,void(^block)()){
     }
     return (NSAttributedString *)attString;
 }
-
 
 /**
  标题前加*

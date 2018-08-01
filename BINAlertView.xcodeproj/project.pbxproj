@@ -28,6 +28,7 @@
 		51036FD420A18D54009D8B7B /* BN_ItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51036FD320A18D54009D8B7B /* BN_ItemsView.m */; };
 		5105C4842060B322007579B0 /* 修改.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105C4822060B322007579B0 /* 修改.png */; };
 		5105C4852060B322007579B0 /* 警告.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105C4832060B322007579B0 /* 警告.png */; };
+		51070E2E2110624A00CAE45E /* BN_MonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51070E2D2110624A00CAE45E /* BN_MonthView.m */; };
 		512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861B21F95AD2900CD1372 /* MQVerCodeInputView.m */; };
 		512861B61F95AD2900CD1372 /* UIView+MQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861B41F95AD2900CD1372 /* UIView+MQ.m */; };
 		512861D21F95AD6D00CD1372 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 512861B81F95AD6D00CD1372 /* Info.plist */; };
@@ -70,6 +71,7 @@
 		517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3906206CBEFF005BC021 /* LeftMenuViewController.m */; };
 		517D3911206CDD04005BC021 /* DKSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3910206CDD03005BC021 /* DKSButton.m */; };
 		517ECA4220A2E66700158A0D /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517ECA4120A2E66700158A0D /* ButtonViewController.m */; };
+		51800F8121114A460098B8B3 /* BN_PairLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51800F8021114A460098B8B3 /* BN_PairLabelView.m */; };
 		51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C492049471800799B48 /* MBProgressHUD.m */; };
 		51803C562049483100799B48 /* MBProgressHUD+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C552049483100799B48 /* MBProgressHUD+Helper.m */; };
 		51803C5A204948AF00799B48 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C59204948AE00799B48 /* UIView+Toast.m */; };
@@ -162,6 +164,8 @@
 		51036FD320A18D54009D8B7B /* BN_ItemsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_ItemsView.m; sourceTree = "<group>"; };
 		5105C4822060B322007579B0 /* 修改.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "修改.png"; sourceTree = "<group>"; };
 		5105C4832060B322007579B0 /* 警告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "警告.png"; sourceTree = "<group>"; };
+		51070E2C2110624900CAE45E /* BN_MonthView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_MonthView.h; sourceTree = "<group>"; };
+		51070E2D2110624A00CAE45E /* BN_MonthView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_MonthView.m; sourceTree = "<group>"; };
 		512861B11F95AD2900CD1372 /* MQVerCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQVerCodeInputView.h; sourceTree = "<group>"; };
 		512861B21F95AD2900CD1372 /* MQVerCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQVerCodeInputView.m; sourceTree = "<group>"; };
 		512861B31F95AD2900CD1372 /* UIView+MQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MQ.h"; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 		517D3910206CDD03005BC021 /* DKSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSButton.m; sourceTree = "<group>"; };
 		517ECA4020A2E66700158A0D /* ButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonViewController.h; sourceTree = "<group>"; };
 		517ECA4120A2E66700158A0D /* ButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonViewController.m; sourceTree = "<group>"; };
+		51800F7F21114A460098B8B3 /* BN_PairLabelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_PairLabelView.h; sourceTree = "<group>"; };
+		51800F8021114A460098B8B3 /* BN_PairLabelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_PairLabelView.m; sourceTree = "<group>"; };
 		51803C482049471800799B48 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		51803C492049471800799B48 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		51803C542049483000799B48 /* MBProgressHUD+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Helper.h"; sourceTree = "<group>"; };
@@ -763,6 +769,10 @@
 				518FD853204802DE00FD7ADA /* Main */,
 				34098D5019EFB159006806A6 /* MyView.h */,
 				34098D5119EFB159006806A6 /* MyView.m */,
+				51800F7F21114A460098B8B3 /* BN_PairLabelView.h */,
+				51800F8021114A460098B8B3 /* BN_PairLabelView.m */,
+				51070E2C2110624900CAE45E /* BN_MonthView.h */,
+				51070E2D2110624A00CAE45E /* BN_MonthView.m */,
 				516CFD4120B7A2320029C40D /* BN_AlertView.h */,
 				516CFD4220B7A2320029C40D /* BN_AlertView.m */,
 				516CFD4720B7BAEA0029C40D /* BN_AlertViewOne.h */,
@@ -920,6 +930,7 @@
 				5183733E1F7E22FD00248179 /* BINPhotoBrowserView.m in Sources */,
 				51803C5A204948AF00799B48 /* UIView+Toast.m in Sources */,
 				518373491F7E22FD00248179 /* BINTextView.m in Sources */,
+				51800F8121114A460098B8B3 /* BN_PairLabelView.m in Sources */,
 				512861D31F95AD6E00CD1372 /* MASCompositeConstraint.m in Sources */,
 				34098D4F19EF9784006806A6 /* CustomAlertView.m in Sources */,
 				512861D41F95AD6E00CD1372 /* MASConstraint.m in Sources */,
@@ -983,6 +994,7 @@
 				518372F41F7E117D00248179 /* UIButton+EdgeInsets.m in Sources */,
 				5181E9F7207B132900F6C895 /* PopoverViewCell.m in Sources */,
 				517ECA4220A2E66700158A0D /* ButtonViewController.m in Sources */,
+				51070E2E2110624A00CAE45E /* BN_MonthView.m in Sources */,
 				518372F01F7E117D00248179 /* NSMutableDictionary+Helper.m in Sources */,
 				512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */,
 				512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */,

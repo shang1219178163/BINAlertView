@@ -47,6 +47,7 @@
 	// Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
+    
     self.title = @"Main";
     self.view.backgroundColor = [UIColor cyanColor];
     
