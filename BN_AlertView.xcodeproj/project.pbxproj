@@ -17,7 +17,7 @@
 		34098D3319EF962B006806A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1819EF962A006806A6 /* Foundation.framework */; };
 		34098D3419EF962B006806A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1C19EF962A006806A6 /* UIKit.framework */; };
 		34098D3C19EF962B006806A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34098D3A19EF962B006806A6 /* InfoPlist.strings */; };
-		34098D3E19EF962B006806A6 /* BINAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D3D19EF962B006806A6 /* BINAlertViewTests.m */; };
+		34098D3E19EF962B006806A6 /* BN_AlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D3D19EF962B006806A6 /* BN_AlertViewTests.m */; };
 		34098D4C19EF965C006806A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D4B19EF965C006806A6 /* MainViewController.m */; };
 		34098D4F19EF9784006806A6 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D4E19EF9784006806A6 /* CustomAlertView.m */; };
 		34098D5219EFB159006806A6 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34098D5119EFB159006806A6 /* MyView.m */; };
@@ -47,8 +47,8 @@
 		512861E71F95C47300CD1372 /* BINTableViewHandleSections.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861E61F95C47300CD1372 /* BINTableViewHandleSections.m */; };
 		513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */; };
 		5159EFCF20A3EB6700958198 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5159EFCE20A3EB6700958198 /* UIView+Animation.m */; };
+		516C6F242112B36D00BAD24D /* BINAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 516C6F222112B36C00BAD24D /* BINAlertView.m */; };
 		516CFD4020B7A01B0029C40D /* NSArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD3F20B7A01A0029C40D /* NSArray+Helper.m */; };
-		516CFD4320B7A2320029C40D /* BN_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4220B7A2320029C40D /* BN_AlertView.m */; };
 		516CFD4920B7BAEA0029C40D /* BN_AlertViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */; };
 		516CFD4C20B7BB260029C40D /* BN_AlertViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4B20B7BB260029C40D /* BN_AlertViewTwo.m */; };
 		516CFD5120B7BC010029C40D /* GeneralConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4F20B7BC000029C40D /* GeneralConst.m */; };
@@ -75,7 +75,7 @@
 		51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C492049471800799B48 /* MBProgressHUD.m */; };
 		51803C562049483100799B48 /* MBProgressHUD+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C552049483100799B48 /* MBProgressHUD+Helper.m */; };
 		51803C5A204948AF00799B48 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 51803C59204948AE00799B48 /* UIView+Toast.m */; };
-		518057691F94DB68008D1C0E /* BINAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518057671F94DB68008D1C0E /* BINAlertView.m */; };
+		518057691F94DB68008D1C0E /* BN_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518057671F94DB68008D1C0E /* BN_AlertView.m */; };
 		5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F0207B132900F6C895 /* PopoverAction.m */; };
 		5181E9F6207B132900F6C895 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F2207B132900F6C895 /* PopoverView.m */; };
 		5181E9F7207B132900F6C895 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F4207B132900F6C895 /* PopoverViewCell.m */; };
@@ -132,24 +132,24 @@
 			containerPortal = 34098D0D19EF962A006806A6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 34098D1419EF962A006806A6;
-			remoteInfo = BINAlertView;
+			remoteInfo = BN_AlertView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34098D1519EF962A006806A6 /* BINAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BINAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34098D1519EF962A006806A6 /* BN_AlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BN_AlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34098D1819EF962A006806A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34098D1A19EF962A006806A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		34098D1C19EF962A006806A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		34098D2019EF962A006806A6 /* BINAlertView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BINAlertView-Info.plist"; sourceTree = "<group>"; };
+		34098D2019EF962A006806A6 /* BN_AlertView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BN_AlertView-Info.plist"; sourceTree = "<group>"; };
 		34098D2219EF962A006806A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34098D2419EF962A006806A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		34098D2A19EF962A006806A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		34098D3019EF962B006806A6 /* BINAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BINAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34098D3019EF962B006806A6 /* BN_AlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BN_AlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34098D3119EF962B006806A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		34098D3919EF962B006806A6 /* BINAlertViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BINAlertViewTests-Info.plist"; sourceTree = "<group>"; };
+		34098D3919EF962B006806A6 /* BN_AlertViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BN_AlertViewTests-Info.plist"; sourceTree = "<group>"; };
 		34098D3B19EF962B006806A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		34098D3D19EF962B006806A6 /* BINAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BINAlertViewTests.m; sourceTree = "<group>"; };
+		34098D3D19EF962B006806A6 /* BN_AlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertViewTests.m; sourceTree = "<group>"; };
 		34098D4A19EF965C006806A6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		34098D4B19EF965C006806A6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		34098D4D19EF9783006806A6 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
@@ -205,10 +205,10 @@
 		513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5159EFCD20A3EB6600958198 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		5159EFCE20A3EB6700958198 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		516C6F222112B36C00BAD24D /* BINAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINAlertView.m; sourceTree = "<group>"; };
+		516C6F232112B36C00BAD24D /* BINAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINAlertView.h; sourceTree = "<group>"; };
 		516CFD3E20B7A01A0029C40D /* NSArray+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Helper.h"; sourceTree = "<group>"; };
 		516CFD3F20B7A01A0029C40D /* NSArray+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Helper.m"; sourceTree = "<group>"; };
-		516CFD4120B7A2320029C40D /* BN_AlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertView.h; sourceTree = "<group>"; };
-		516CFD4220B7A2320029C40D /* BN_AlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertView.m; sourceTree = "<group>"; };
 		516CFD4720B7BAEA0029C40D /* BN_AlertViewOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewOne.h; sourceTree = "<group>"; };
 		516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertViewOne.m; sourceTree = "<group>"; };
 		516CFD4A20B7BB260029C40D /* BN_AlertViewTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewTwo.h; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 		51803C552049483100799B48 /* MBProgressHUD+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Helper.m"; sourceTree = "<group>"; };
 		51803C58204948AE00799B48 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		51803C59204948AE00799B48 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		518057661F94DB68008D1C0E /* BINAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINAlertView.h; sourceTree = "<group>"; };
-		518057671F94DB68008D1C0E /* BINAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINAlertView.m; sourceTree = "<group>"; };
+		518057661F94DB68008D1C0E /* BN_AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_AlertView.h; sourceTree = "<group>"; };
+		518057671F94DB68008D1C0E /* BN_AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_AlertView.m; sourceTree = "<group>"; };
 		5181E9EF207B132900F6C895 /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
 		5181E9F0207B132900F6C895 /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
 		5181E9F1207B132900F6C895 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 		518373321F7E22FD00248179 /* WHKLeftMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHKLeftMenuView.h; sourceTree = "<group>"; };
 		518373331F7E22FD00248179 /* WHKLeftMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHKLeftMenuView.m; sourceTree = "<group>"; };
 		5183734D1F7E232F00248179 /* HZPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPhotoBrowserConfig.h; sourceTree = "<group>"; };
-		5183734E1F7E238000248179 /* BINAlertView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BINAlertView-Prefix.pch"; sourceTree = "<group>"; };
+		5183734E1F7E238000248179 /* BN_AlertView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BN_AlertView-Prefix.pch"; sourceTree = "<group>"; };
 		518373531F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
 		518373541F7E23BF00248179 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		51862E4920BB8F3F0080BD4E /* DesignPatternsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignPatternsController.h; sourceTree = "<group>"; };
@@ -389,8 +389,8 @@
 		34098D0C19EF962A006806A6 = {
 			isa = PBXGroup;
 			children = (
-				34098D1E19EF962A006806A6 /* BINAlertView */,
-				34098D3719EF962B006806A6 /* BINAlertViewTests */,
+				34098D1E19EF962A006806A6 /* BN_AlertView */,
+				34098D3719EF962B006806A6 /* BN_AlertViewTests */,
 				34098D1719EF962A006806A6 /* Frameworks */,
 				34098D1619EF962A006806A6 /* Products */,
 			);
@@ -399,8 +399,8 @@
 		34098D1619EF962A006806A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34098D1519EF962A006806A6 /* BINAlertView.app */,
-				34098D3019EF962B006806A6 /* BINAlertViewTests.xctest */,
+				34098D1519EF962A006806A6 /* BN_AlertView.app */,
+				34098D3019EF962B006806A6 /* BN_AlertViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		34098D1E19EF962A006806A6 /* BINAlertView */ = {
+		34098D1E19EF962A006806A6 /* BN_AlertView */ = {
 			isa = PBXGroup;
 			children = (
 				518FD85F204803C000FD7ADA /* AppDelegate.h */,
@@ -436,34 +436,34 @@
 				34098D2A19EF962A006806A6 /* Images.xcassets */,
 				34098D1F19EF962A006806A6 /* Supporting Files */,
 			);
-			path = BINAlertView;
+			path = BN_AlertView;
 			sourceTree = "<group>";
 		};
 		34098D1F19EF962A006806A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */,
-				34098D2019EF962A006806A6 /* BINAlertView-Info.plist */,
+				34098D2019EF962A006806A6 /* BN_AlertView-Info.plist */,
 				34098D2119EF962A006806A6 /* InfoPlist.strings */,
 				34098D2419EF962A006806A6 /* main.m */,
-				5183734E1F7E238000248179 /* BINAlertView-Prefix.pch */,
+				5183734E1F7E238000248179 /* BN_AlertView-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		34098D3719EF962B006806A6 /* BINAlertViewTests */ = {
+		34098D3719EF962B006806A6 /* BN_AlertViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				34098D3D19EF962B006806A6 /* BINAlertViewTests.m */,
+				34098D3D19EF962B006806A6 /* BN_AlertViewTests.m */,
 				34098D3819EF962B006806A6 /* Supporting Files */,
 			);
-			path = BINAlertViewTests;
+			path = BN_AlertViewTests;
 			sourceTree = "<group>";
 		};
 		34098D3819EF962B006806A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				34098D3919EF962B006806A6 /* BINAlertViewTests-Info.plist */,
+				34098D3919EF962B006806A6 /* BN_AlertViewTests-Info.plist */,
 				34098D3A19EF962B006806A6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -769,20 +769,20 @@
 				518FD853204802DE00FD7ADA /* Main */,
 				34098D5019EFB159006806A6 /* MyView.h */,
 				34098D5119EFB159006806A6 /* MyView.m */,
+				516C6F232112B36C00BAD24D /* BINAlertView.h */,
+				516C6F222112B36C00BAD24D /* BINAlertView.m */,
 				51800F7F21114A460098B8B3 /* BN_PairLabelView.h */,
 				51800F8021114A460098B8B3 /* BN_PairLabelView.m */,
 				51070E2C2110624900CAE45E /* BN_MonthView.h */,
 				51070E2D2110624A00CAE45E /* BN_MonthView.m */,
-				516CFD4120B7A2320029C40D /* BN_AlertView.h */,
-				516CFD4220B7A2320029C40D /* BN_AlertView.m */,
 				516CFD4720B7BAEA0029C40D /* BN_AlertViewOne.h */,
 				516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */,
 				516CFD4A20B7BB260029C40D /* BN_AlertViewTwo.h */,
 				516CFD4B20B7BB260029C40D /* BN_AlertViewTwo.m */,
 				34098D4D19EF9783006806A6 /* CustomAlertView.h */,
 				34098D4E19EF9784006806A6 /* CustomAlertView.m */,
-				518057661F94DB68008D1C0E /* BINAlertView.h */,
-				518057671F94DB68008D1C0E /* BINAlertView.m */,
+				518057661F94DB68008D1C0E /* BN_AlertView.h */,
+				518057671F94DB68008D1C0E /* BN_AlertView.m */,
 				517C2406206B998C00149016 /* BINTabBarView.h */,
 				517C2407206B998C00149016 /* BINTabBarView.m */,
 				517D3902206CBEA8005BC021 /* BN_TabBarView.h */,
@@ -810,9 +810,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		34098D1419EF962A006806A6 /* BINAlertView */ = {
+		34098D1419EF962A006806A6 /* BN_AlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertView" */;
+			buildConfigurationList = 34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "BN_AlertView" */;
 			buildPhases = (
 				34098D1119EF962A006806A6 /* Sources */,
 				34098D1219EF962A006806A6 /* Frameworks */,
@@ -822,14 +822,14 @@
 			);
 			dependencies = (
 			);
-			name = BINAlertView;
-			productName = BINAlertView;
-			productReference = 34098D1519EF962A006806A6 /* BINAlertView.app */;
+			name = BN_AlertView;
+			productName = BN_AlertView;
+			productReference = 34098D1519EF962A006806A6 /* BN_AlertView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		34098D2F19EF962B006806A6 /* BINAlertViewTests */ = {
+		34098D2F19EF962B006806A6 /* BN_AlertViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertViewTests" */;
+			buildConfigurationList = 34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "BN_AlertViewTests" */;
 			buildPhases = (
 				34098D2C19EF962B006806A6 /* Sources */,
 				34098D2D19EF962B006806A6 /* Frameworks */,
@@ -840,9 +840,9 @@
 			dependencies = (
 				34098D3619EF962B006806A6 /* PBXTargetDependency */,
 			);
-			name = BINAlertViewTests;
-			productName = BINAlertViewTests;
-			productReference = 34098D3019EF962B006806A6 /* BINAlertViewTests.xctest */;
+			name = BN_AlertViewTests;
+			productName = BN_AlertViewTests;
+			productReference = 34098D3019EF962B006806A6 /* BN_AlertViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -859,7 +859,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 34098D1019EF962A006806A6 /* Build configuration list for PBXProject "BINAlertView" */;
+			buildConfigurationList = 34098D1019EF962A006806A6 /* Build configuration list for PBXProject "BN_AlertView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -871,8 +871,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34098D1419EF962A006806A6 /* BINAlertView */,
-				34098D2F19EF962B006806A6 /* BINAlertViewTests */,
+				34098D1419EF962A006806A6 /* BN_AlertView */,
+				34098D2F19EF962B006806A6 /* BN_AlertViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -923,7 +923,7 @@
 				5181E9F6207B132900F6C895 /* PopoverView.m in Sources */,
 				512861DA1F95AD6E00CD1372 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				518372F71F7E117D00248179 /* UIImage+Helper.m in Sources */,
-				518057691F94DB68008D1C0E /* BINAlertView.m in Sources */,
+				518057691F94DB68008D1C0E /* BN_AlertView.m in Sources */,
 				51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */,
 				516CFD4020B7A01B0029C40D /* NSArray+Helper.m in Sources */,
 				518373451F7E22FD00248179 /* BINShareModel.m in Sources */,
@@ -967,6 +967,7 @@
 				518372FA1F7E117D00248179 /* UITableViewCell+Helper.m in Sources */,
 				518372EF1F7E117D00248179 /* NSMutableArray+Helper.m in Sources */,
 				516CFD4C20B7BB260029C40D /* BN_AlertViewTwo.m in Sources */,
+				516C6F242112B36D00BAD24D /* BINAlertView.m in Sources */,
 				518372FE1F7E117D00248179 /* UIViewController+Cloudox.m in Sources */,
 				5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */,
 				51803C4A2049471800799B48 /* MBProgressHUD.m in Sources */,
@@ -982,7 +983,6 @@
 				516CFD4920B7BAEA0029C40D /* BN_AlertViewOne.m in Sources */,
 				518BDE242065FBE800DC925D /* NSObject+Testing.m in Sources */,
 				518373471F7E22FD00248179 /* BINShareView.m in Sources */,
-				516CFD4320B7A2320029C40D /* BN_AlertView.m in Sources */,
 				512861D81F95AD6E00CD1372 /* MASViewConstraint.m in Sources */,
 				518372FD1F7E117D00248179 /* UIViewController+addView.m in Sources */,
 				518373461F7E22FD00248179 /* BINShareModelView.m in Sources */,
@@ -1016,7 +1016,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34098D3E19EF962B006806A6 /* BINAlertViewTests.m in Sources */,
+				34098D3E19EF962B006806A6 /* BN_AlertViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,7 +1025,7 @@
 /* Begin PBXTargetDependency section */
 		34098D3619EF962B006806A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 34098D1419EF962A006806A6 /* BINAlertView */;
+			target = 34098D1419EF962A006806A6 /* BN_AlertView */;
 			targetProxy = 34098D3519EF962B006806A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1083,7 +1083,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1116,7 +1116,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1129,9 +1129,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiaolei zhang (K2RX8G3XRB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
-				INFOPLIST_FILE = "BINAlertView/BINAlertView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
+				INFOPLIST_FILE = "BN_AlertView/BN_AlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1143,9 +1143,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
-				INFOPLIST_FILE = "BINAlertView/BINAlertView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
+				INFOPLIST_FILE = "BN_AlertView/BN_AlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1155,19 +1155,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BINAlertView.app/BINAlertView";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BN_AlertView.app/BN_AlertView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
+				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BINAlertViewTests/BINAlertViewTests-Info.plist";
+				INFOPLIST_FILE = "BN_AlertViewTests/BN_AlertViewTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1178,15 +1178,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BINAlertView.app/BINAlertView";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BN_AlertView.app/BN_AlertView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BINAlertView/BINAlertView-Prefix.pch";
-				INFOPLIST_FILE = "BINAlertViewTests/BINAlertViewTests-Info.plist";
+				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
+				INFOPLIST_FILE = "BN_AlertViewTests/BN_AlertViewTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1196,7 +1196,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		34098D1019EF962A006806A6 /* Build configuration list for PBXProject "BINAlertView" */ = {
+		34098D1019EF962A006806A6 /* Build configuration list for PBXProject "BN_AlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34098D3F19EF962B006806A6 /* Debug */,
@@ -1205,7 +1205,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertView" */ = {
+		34098D4119EF962B006806A6 /* Build configuration list for PBXNativeTarget "BN_AlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34098D4219EF962B006806A6 /* Debug */,
@@ -1214,7 +1214,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "BINAlertViewTests" */ = {
+		34098D4419EF962B006806A6 /* Build configuration list for PBXNativeTarget "BN_AlertViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34098D4519EF962B006806A6 /* Debug */,

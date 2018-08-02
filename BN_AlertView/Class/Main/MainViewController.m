@@ -36,8 +36,7 @@
 
 -(NSArray *)itemList{
     if (!_itemList) {
-        _itemList = @[@"后备",@"妊娠",@"分娩",@"待配",@"公猪",@"保育",@"育肥",@"育成"];
-        _itemList = [NSArray arrayWithItemPrefix:@"btn_" startIndex:0 count:12 type:@0];
+        _itemList = [NSArray arrayWithItemPrefix:@"btn_" startIndex:0 count:16 type:@0];
     }
     return _itemList;
 }
@@ -52,9 +51,7 @@
     self.view.backgroundColor = [UIColor cyanColor];
     
     [self addRightBtn];
-//    [self addBtnLaunchDialog];
     
-//    [self.view addSubview:[self createStarsWithStarCount:5 hasGesture:YES target:self aSelector:@selector(tapStar:)]];
     CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
     UIView * containView = [UIView createViewWithRect:rect items:self.itemList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
         [self handleActionBtn:item];

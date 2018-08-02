@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CustomeAlertView.xcodeproj">
+      location = "self:/Users/hsf/Documents/GitHub/BINAlertView/BN_AlertView.xcodeproj">
    </FileRef>
 </Workspace>
