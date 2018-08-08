@@ -49,8 +49,8 @@
 }
 
 - (void)createControls{
-    CGFloat width = (CGRectGetWidth(self.frame) - kPadding*(self.titleList.count - 1))/3.3;
-    
+    CGFloat width = (CGRectGetWidth(self.frame) - 10*2)/3.3;
+
     NSString * title = @"";
     CGRect rect = CGRectZero;
     for (NSInteger i = 0; i < self.titleList.count; i++) {
@@ -59,20 +59,20 @@
         switch (i) {
             case 0:
             {
-                rect = CGRectMake(0, (CGRectGetHeight(self.frame) - 30)*0.5, width, 30);
+                rect = CGRectMake(10, (CGRectGetHeight(self.frame) - 30)*0.5, width, 30);
                 
             }
                 break;
             case 2:
             {
-                rect = CGRectMake(CGRectGetMaxX(rect)+kPadding, CGRectGetMinY(rect), width*0.3, CGRectGetHeight(rect));
+                rect = CGRectMake(CGRectGetMaxX(rect), CGRectGetMinY(rect), width*0.3, CGRectGetHeight(rect));
                 
             }
                 break;
             case 1:
             case 3:
             {
-                rect = CGRectMake(CGRectGetMaxX(rect)+kPadding, CGRectGetMinY(rect), width, CGRectGetHeight(rect));
+                rect = CGRectMake(CGRectGetMaxX(rect), CGRectGetMinY(rect), width, CGRectGetHeight(rect));
                 
             }
                 break;
