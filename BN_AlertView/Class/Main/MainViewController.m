@@ -40,7 +40,7 @@
 #pragma mark - - layz
 -(BN_RangeDateView *)dateView{
     if (!_dateView) {
-        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(0, 200, kScreen_width*0.66, 44)];
+        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(20, 250, kScreen_width*0.66, 44)];
         _dateView.block = ^(BN_RangeDateView *view, NSString *dateStart, NSString *dateEnd) {
             //            DDLog(@"_%@___%@_",[dateStart toTimestampShort], [dateEnd toTimestampFull]);
             //            DDLog(@"_%@___%@_",[view.dateStart toTimestampShort], [view.dateEnd toTimestampFull]);

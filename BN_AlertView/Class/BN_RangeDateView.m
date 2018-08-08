@@ -49,6 +49,8 @@
 }
 
 - (void)createControls{
+    CGFloat width = (CGRectGetWidth(self.frame) - kPadding*(self.titleList.count - 1))/3.3;
+    
     NSString * title = @"";
     CGRect rect = CGRectZero;
     for (NSInteger i = 0; i < self.titleList.count; i++) {
@@ -57,20 +59,20 @@
         switch (i) {
             case 0:
             {
-                CGFloat xGap = (CGRectGetWidth(self.frame) - (80 + 100*2 + 30 + kPadding*3)*self.rate)/2.0;
-                rect = CGRectMake(xGap, (CGRectGetHeight(self.frame) - 30)*0.5, 80*self.rate, 30);
+                rect = CGRectMake(0, (CGRectGetHeight(self.frame) - 30)*0.5, width, 30);
+                
             }
                 break;
             case 2:
             {
-                rect = CGRectMake(CGRectGetMaxX(rect)+kPadding, CGRectGetMinY(rect), 30*self.rate, CGRectGetHeight(rect));
+                rect = CGRectMake(CGRectGetMaxX(rect)+kPadding, CGRectGetMinY(rect), width*0.3, CGRectGetHeight(rect));
                 
             }
                 break;
             case 1:
             case 3:
             {
-                rect = CGRectMake(CGRectGetMaxX(rect)+kPadding, CGRectGetMinY(rect), 100*self.rate, CGRectGetHeight(rect));
+                rect = CGRectMake(CGRectGetMaxX(rect)+kPadding, CGRectGetMinY(rect), width, CGRectGetHeight(rect));
                 
             }
                 break;
@@ -90,6 +92,7 @@
 
         }
         [self addSubview:label];
+    
         [self.itemList addObject:label];
     }
 }
