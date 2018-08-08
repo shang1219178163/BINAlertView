@@ -11,6 +11,42 @@
 
 #pragma mark - -MacroUtilities通用
 
+#ifdef DEBUG
+//#define DDLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#define DDLog(FORMAT, ...) {\
+NSString *formatStr = @"yyyy-MM-dd HH:mm:ss.SSSSSSZ";\
+NSMutableDictionary *threadDic = [[NSThread currentThread] threadDictionary];\
+NSDateFormatter *formatter = [threadDic objectForKey:formatStr];\
+if (!formatter) {\
+    formatter = [[NSDateFormatter alloc]init];\
+    formatter.dateFormat = formatStr;\
+    formatter.locale = [NSLocale currentLocale];\
+    formatter.timeZone = [NSTimeZone systemTimeZone];\
+    [threadDic setObject:formatter forKey:formatStr];\
+}\
+NSString *str = [formatter stringFromDate:[NSDate date]];\
+fprintf(stderr,"%s【line -%d】%s %s\n",[str UTF8String], __LINE__,__PRETTY_FUNCTION__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);\
+}
+
+#else
+#define DDLog(...)
+#endif
+
+
+#if __has_feature(objc_arc)
+// ARC
+#else
+// MRC
+#endif
+
+#if TARGET_OS_IPHONE
+//iPhone Device
+#endif
+#if TARGET_IPHONE_SIMULATOR
+//iPhone Simulator
+#endif
+
 
 #define kAdd_By_BIN //add by BIN
 
@@ -18,32 +54,20 @@
 
 #define kRootVC   ([UIApplication sharedApplication].keyWindow.rootViewController)
 
-// 获取RGB颜色
-#define kCOLOR_RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define kCOLOR_RGB(r,g,b) kRGBA(r,g,b,1.0f)
-#define kCOLOR_dim [UIColor colorWithWhite:0.2f alpha: 0.5];////white 0-1为黑到白,alpha透明度
-
-#define kCOLOR_RGB_Init(r,g,b,a) [[UIColor alloc]initWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];
-
-// 十六进制颜色
-#define kCOLOR_HEX(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
-
 //颜色
 #define kC_TextColor [UIColor colorWithHexString:@"#333333"]
 #define kC_TextColor_Title [UIColor colorWithHexString:@"#666666"]
 #define kC_TextColor_TitleSub [UIColor colorWithHexString:@"#999999"]
-//橘色
-#define kC_ThemeCOLOR [UIColor colorWithHexString:@"#fea914"]
-#define kC_BackgroudColor [UIColor colorWithHexString:@"#f8f8f8"]
-//#define kC_BackgroudColor [UIColor lightTextColor]
+//主题色
+//#define kC_ThemeCOLOR [UIColor colorWithHexString:@"#29b4f5"]
+#define kC_ThemeCOLOR [UIColor colorWithHexString:@"#0082e0"]
 
-//#define kC_LineColor [UIColor colorWithHexString:@"#e0e0e0"]
-#define kC_LineColor [UIColor redColor]
+//#define kC_BackgroudColor [UIColor colorWithHexString:@"#f8f8f8"]
+#define kC_BackgroudColor [UIColor colorWithHexString:@"#E9E9E9"]//233,233,233
 
-#define kC_RandomColor [UIColor colorWithHue:(arc4random() % 256 / 256.0)  \
-            saturation:(arc4random() % 128 / 256.0) + 0.5  \
-           brightness:(arc4random() % 128 / 256.0) + 0.5  \
-                alpha:1];
+
+#define kC_LineColor [UIColor colorWithHexString:@"#e0e0e0"]
+
 //绿色
 #define kC_ThemeCOLOR_One [UIColor colorWithHexString:@"#25b195"]
 //水蓝色
@@ -54,12 +78,11 @@
 #define kC_BtnColor_H [UIColor colorWithHexString:@"#f1a013"]
 #define kC_BtnColor_D [UIColor colorWithHexString:@"#999999"]
 
-//#define kC_MARK_COLOR [UIColor colorWithHexString:@"#f35f39"]
-
-//图片最大尺寸500k
-#define kFileSize_image 1*1024*1024
+#define kC_BlueColor    kCOLOR_RGBA(63, 153,231,1)
 
 #define kPageSize 20
+//图片最大尺寸500k
+#define kFileSize_image 1*1024*1024
 
 //button背景
 #define kIMG_btnImage [UIImage imageWithColor:[UIColor colorWithHexString:@"#228ce2"]]
@@ -73,13 +96,10 @@
 #define kStrongSelf(type)  __strong __typeof(type) strongSelf = type;
 
 //强弱引用(进化)
-//#define kWeakObjc(type)    __weak __typeof(type) weak##type = type;
-//#define kStrongObjc(type)  __strong __typeof(type) strong##type = type;
+#define kWeakObj(type)    __weak __typeof(type) weak##type = type;
+#define kStrongObj(type)  __strong __typeof(type) strong##type = type;
 
 #define kHiddenHUDAndAvtivity kRemoveBackView;kHiddenHUD;HideNetworkActivityIndicator()
-
-//系统版本判断
-#define iOS(version) (([[[UIDevice currentDevice] systemVersion] floatValue] >= version)?1:0)
 
 //keyWindow
 #define kKeyWindow  ([UIApplication sharedApplication].keyWindow)
@@ -134,6 +154,56 @@
 
 #define kS_scaleOrder  0.7
 
-#define kH_SegmentOfCustomeHeight  60
+#define kH_SegmentOfCustom  50
+#define kH_SegmentControl  44
+#define kH_TopView  50
+
+#define kH_searchBar  36
+#define kH_searchBarBackgroud  56
+
+//#define kH_CellHeight 60
+#define kH_CellHeight_single 50
+
+#define kH_FilterView 45
+#define kH_CellHeight_Filter 40
+
+#pragma mark- -others其他
+
+#define dispatch_main_sync_safe(block)                    \
+    if ([NSThread isMainThread]) {                        \
+        block();                                          \
+    } else {                                              \
+        dispatch_sync(dispatch_get_main_queue(), block);  \
+    }
+
+#define dispatch_main_async_safe(block)                   \
+    if ([NSThread isMainThread]) {                        \
+        block();                                          \
+    } else {                                              \
+        dispatch_async(dispatch_get_main_queue(), block); \
+    }
+
+
+#define  kAdjustsScrollViewInsets_NO(scrollView,vc)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
+[scrollView performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
+} else {\
+vc.automaticallyAdjustsScrollViewInsets = NO;\
+}\
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+
+////设置加载提示框（第三方框架：Toast）
+//#define LRToast(str)  CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle]; \
+//[keyWindow  makeToast:str duration:0.6 position:CSToastPositionCenter style:style];\
+//keyWindow.userInteractionEnabled = NO; \
+//dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{\
+//keyWindow.userInteractionEnabled = YES;\
+//});
+
 
 #endif

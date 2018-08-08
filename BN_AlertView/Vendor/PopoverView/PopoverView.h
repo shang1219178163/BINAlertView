@@ -3,9 +3,9 @@
 #import <UIKit/UIKit.h>
 #import "PopoverAction.h"
 
-#define kItem_title         @"kItem_title"
-#define kItem_image         @"kItem_image"
-#define kItem_controller    @"kItem_controller"
+//#define kItem_title         @"kItem_title"
+//#define kItem_image         @"kItem_image"
+//#define kItem_controller    @"kItem_controller"
 
 // 弹窗箭头的样式
 typedef NS_ENUM(NSUInteger, PopoverViewArrowStyle) {

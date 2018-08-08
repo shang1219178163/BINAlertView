@@ -16,8 +16,8 @@ static const CGFloat kX_GAP_OF_WINDOW = 30;//弹窗距离屏幕边界距离
 
 static const CGFloat kH_BTN = 40;//底下按钮高度
 
-#define kActionTitle_Sure       @"确定"
-#define kActionTitle_Cancell    @"取消"
+//#define kActionTitle_Sure       @"确定"
+//#define kActionTitle_Cancell    @"取消"
 
 @class BINAlertView;
 

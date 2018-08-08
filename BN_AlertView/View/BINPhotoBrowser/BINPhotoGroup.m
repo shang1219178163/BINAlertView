@@ -33,7 +33,7 @@
         
         UIImageView * imgView = [self createImgViewWithRect:CGRectZero image:[UIImage imageNamed:@"whiteplaceholder"] tag:idx hasTapGesture:YES];
         if (obj.originImage) {
-            UIImage * thumbnailImage = [Utilities_DigitalMedia thumbnailWithImageWithoutScale:obj.originImage size:kThumbnailImageSize];
+            UIImage * thumbnailImage = [Utilities_DM thumbnailWithImageWithoutScale:obj.originImage size:kThumbnailImageSize];
             imgView.image = thumbnailImage;
 //            NSLog(@"setPhotoItemArray_%@",imgView.image);
         }
@@ -89,7 +89,7 @@
 {
     //    return [self.subviews[index] currentImage];
     UIImage *originImage = [self.photoItemArray[index] originImage];
-    return [Utilities_DigitalMedia thumbnailWithImageWithoutScale:originImage size:kThumbnailImageSize];
+    return [Utilities_DM thumbnailWithImageWithoutScale:originImage size:kThumbnailImageSize];
 }
 
 

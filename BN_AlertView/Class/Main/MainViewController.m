@@ -13,6 +13,7 @@
 
 #import "MyView.h"
 #import "BINAlertView.h"
+#import "BN_RangeDateView.h"
 
 #import "BN_AlertView.h"
 #import "BN_AlertViewOne.h"
@@ -30,9 +31,26 @@
 @property (nonatomic, strong) NSArray *itemList;
 @property (nonatomic, strong) NSDictionary *dict;
 
+@property (nonatomic, strong) BN_RangeDateView * dateView;
+
 @end
 
 @implementation MainViewController
+
+#pragma mark - - layz
+-(BN_RangeDateView *)dateView{
+    if (!_dateView) {
+        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(0, 200, kScreen_width*0.66, 44)];
+        _dateView.block = ^(BN_RangeDateView *view, NSString *dateStart, NSString *dateEnd) {
+            //            DDLog(@"_%@___%@_",[dateStart toTimestampShort], [dateEnd toTimestampFull]);
+            //            DDLog(@"_%@___%@_",[view.dateStart toTimestampShort], [view.dateEnd toTimestampFull]);
+
+            
+        };
+    }
+    return _dateView;
+}
+
 
 -(NSArray *)itemList{
     if (!_itemList) {
@@ -59,6 +77,8 @@
     }];
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
+    
+    [self.view addSubview:self.dateView];
     
     [self.view getViewLayer];
     

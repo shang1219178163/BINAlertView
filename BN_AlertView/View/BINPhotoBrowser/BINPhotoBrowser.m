@@ -9,7 +9,7 @@
 #import "BINPhotoBrowser.h"
 #import "BINPhotoBrowserView.h"
 #import "BINPhotoBrowserConfig.h"
-#import "Utilities_DigitalMedia.h"
+#import "Utilities_DM.h"
 
 
 #define kAnimationDuration 0.35f

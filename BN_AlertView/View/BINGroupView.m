@@ -167,7 +167,7 @@
     [sender setBackgroundImage:[UIImage imageWithColor:backgroudColor] forState:UIControlStateNormal];
     [sender setTitleColor:textColor forState:UIControlStateNormal];
     
-    [sender getLayerAllCorners:layerColor];
+    [sender addCornersAll:1 type:@0];
     
 }
 

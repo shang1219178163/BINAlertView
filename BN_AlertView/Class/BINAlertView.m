@@ -366,13 +366,14 @@ static const CGFloat padding = 10;
         
         CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding - labelGapX, viewHeight);
         
-        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:modol.content placeholder:modol.placeHolder font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+
+        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:modol.content placeholder:modol.placeHolder font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault tag:i];
         [backgroudView addSubview:label];
         [backgroudView addSubview:textField];
         
         textField.borderStyle = UITextBorderStyleNone;
-        [textField.layer addSublayer:[textField createLayerByPatternType:@"2"]];//下线条
-        
+        [textField.layer addSublayer:[textField createLayerType:@"2"]];//下线条
+
         textField.backgroundColor = [UIColor cyanColor];
         
     }

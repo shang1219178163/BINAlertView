@@ -13,7 +13,7 @@
 #import "BINPhotoBrowserView.h"
 
 #import "BINPhotoBrowserConfig.h"
-#import "Utilities_DigitalMedia.h"
+#import "Utilities_DM.h"
 
 @interface BINPhotoGroup : UIView
 

@@ -16,7 +16,6 @@
 
 #import "MacroBIN.h"
 #import "MacroUtilities.h"
-#import "MarcoFuntions.h"
 
 #import "GeneralConst.h"
 #import "GlobleConst.h"
@@ -28,5 +27,6 @@
 #import "UIView+AddView.h"
 #import "UIView+Helper.h"
 #import "NSArray+Helper.h"
+
 
 #endif

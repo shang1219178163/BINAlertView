@@ -14,16 +14,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    NSString * controlName = @"MainViewController";
+    [UIApplication setupRootControllerName:controlName];
     
-    UIViewController * controller = [NSClassFromString(@"MainViewController") new];
-//    controller = [NSClassFromString(@"MainNewViewController") new];
-//    controller = [NSClassFromString(@"TmpViewController") new];
-
-    UINavigationController * navContoller = [[UINavigationController alloc]initWithRootViewController:controller];
-    
-    [UIApplication setupWindow:navContoller];
     [UIApplication setupAppearance];
     return YES;
 }

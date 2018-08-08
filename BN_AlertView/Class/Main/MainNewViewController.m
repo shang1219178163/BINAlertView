@@ -103,7 +103,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
 
     [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
-        [self goController:@"LeftMenuViewController"];
+        [self goController:@"LeftMenuViewController" title:nil obj:nil];
         
     }];
 
@@ -149,7 +149,7 @@
 }
 
 - (void)handleActionItem:(UIBarButtonItem *)sender{
-    [self goController:@"StackListViewController"];
+    [self goController:@"StackListViewController" title:nil obj:nil];
 
     
 }
@@ -217,11 +217,12 @@
             [btn setBackgroundImage:[UIImage imageWithColor:kC_ThemeCOLOR_Two] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
-            [btn getLayerAllCorners:kC_ThemeCOLOR_Two];
+            [btn addCornersAll:1 type:@0];
+            
         }else{
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             [btn setTitleColor:kC_TextColor_Title forState:UIControlStateNormal];
-            [btn getLayerAllCorners:kC_LineColor];
+            [btn addCornersAll:1 type:@0];
 
         }
     }
@@ -439,9 +440,7 @@
         case 13:
         {
             NSArray * items = [@"产房,保育,育肥" componentsSeparatedByString:@","];
-        
-            [self.segmentCtrl reloadItems:items itemWidth:60];
-            
+            [self.segmentCtrl setSegmentItems:items];
         }
             break;
         case 14:

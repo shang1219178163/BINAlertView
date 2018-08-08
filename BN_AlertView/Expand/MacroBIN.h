@@ -6,9 +6,11 @@
 //  Copyright (c) 2017年 WeiHouKeJi. All rights reserved.
 //
 
-#ifndef HuiZhuBang_MacroBIN_h
-#define HuiZhuBang_MacroBIN_h
+#ifndef HuiZhuBang_MacroBN_h
+#define HuiZhuBang_MacroBN_h
 
+#define kX_GAP_BTN  20
+#define kH_BtnView  40
 
 #define kDDLogFuncton   DDLog(@"%@,%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd))
 #define kDDLogFrame(viewframe)   DDLog(@"Frame__%@",NSStringFromCGRect(viewframe))
