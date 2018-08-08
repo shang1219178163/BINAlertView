@@ -9,14 +9,11 @@
 #import "BN_RangeDateView.h"
 
 
-#import "BINDatePicker.h"
+#import "BN_DatePicker.h"
 
 @interface BN_RangeDateView()
 
-//@property (nonatomic, assign, readwrite) CGSize itemSize;
 @property (nonatomic, strong, readwrite) NSMutableArray *itemList;
-
-@property (nonatomic, assign) CGFloat rate;
 
 @end
 
@@ -35,13 +32,10 @@
         self.frame = frame;
         self.backgroundColor = [UIColor whiteColor];
         
-        self.rate = CGRectGetWidth(self.frame)/kScreen_width;
-        
-        NSString * dateStr = @"2018-08-08";
-        _titleList = @[@"查询日期",dateStr,@"-",dateStr];
-        
-        _dateStart = _titleList[1];
-        _dateEnd = _titleList[3];
+        _dateStart = [NSString timeFromNow];
+        _dateEnd = [NSString timeFromNow];;
+
+        _titleList = @[@"查询日期",_dateStart,@"-",_dateEnd];
         
         [self createControls];
     }
@@ -80,7 +74,7 @@
                 break;
         }
         
-        UILabel * label = [UIView createLabelWithRect:rect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"2" font:16 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+        UILabel * label = [UIView createLabelWithRect:rect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"2" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
         if (i%2 == 1) {
             label.text = [title toDateShort];
             label.layer.borderColor = UIColor.lightGrayColor.CGColor;
@@ -110,8 +104,8 @@
 #pragma mark - - BINDatePicker
 - (void)createDatePick:(id)date tag:(NSInteger)tag{
     [[self superview]endEditing:YES];
-    BINDatePicker *datePicker = [[BINDatePicker alloc]initWithCancelButtonTitle:@"取消" confirmBtnTitle:@"确认"];
-    //    datePicker.datePickerMode = UIDatePickerModeDateAndTime
+    BN_DatePicker *datePicker = [[BN_DatePicker alloc]initWithCancelBtnTitle:@"取消" confirmBtnTitle:@"确认"];
+    datePicker.datePickerMode = UIDatePickerModeDate;
     datePicker.minimumDate = [NSDate distantPast];
     datePicker.maximumDate = [NSDate distantFuture];
     datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
@@ -122,7 +116,7 @@
     if ([date isKindOfClass:[NSString class]]) date = [NSDate dateWithString:date];
     datePicker.date = date ? date: [NSDate date];
     [datePicker show];
-    [datePicker actionWithBlock:^(UIDatePicker *datePicker, NSInteger btnIndex) {
+    datePicker.block = ^(UIDatePicker *datePicker, NSInteger btnIndex) {
         NSString * dateStr = [self stringWithDate:datePicker.date];
         DDLog(@"dateStr_%@_%ld",dateStr,btnIndex);
         if (btnIndex == 1) {
@@ -151,7 +145,7 @@
             }
             DDLog(@"\n_%@_%@",self.dateStart,self.dateEnd);
         }
-    }];
+    };
 }
 
 #pragma mark- -layz

@@ -72,7 +72,7 @@
 		5181E9F6207B132900F6C895 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F2207B132900F6C895 /* PopoverView.m */; };
 		5181E9F7207B132900F6C895 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F4207B132900F6C895 /* PopoverViewCell.m */; };
 		518373091F7E225D00248179 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373081F7E225D00248179 /* NextViewController.m */; };
-		518373391F7E22FD00248179 /* BINDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5183730E1F7E22FD00248179 /* BINDatePicker.m */; };
+		518373391F7E22FD00248179 /* BN_DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5183730E1F7E22FD00248179 /* BN_DatePicker.m */; };
 		5183733A1F7E22FD00248179 /* BINGuidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373101F7E22FD00248179 /* BINGuidePageView.m */; };
 		5183733B1F7E22FD00248179 /* BINIconLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373121F7E22FD00248179 /* BINIconLabelView.m */; };
 		5183733C1F7E22FD00248179 /* BINImgLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518373141F7E22FD00248179 /* BINImgLabelView.m */; };
@@ -302,8 +302,8 @@
 		5181E9F4207B132900F6C895 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		518373071F7E225D00248179 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		518373081F7E225D00248179 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
-		5183730D1F7E22FD00248179 /* BINDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINDatePicker.h; sourceTree = "<group>"; };
-		5183730E1F7E22FD00248179 /* BINDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINDatePicker.m; sourceTree = "<group>"; };
+		5183730D1F7E22FD00248179 /* BN_DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_DatePicker.h; sourceTree = "<group>"; };
+		5183730E1F7E22FD00248179 /* BN_DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_DatePicker.m; sourceTree = "<group>"; };
 		5183730F1F7E22FD00248179 /* BINGuidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINGuidePageView.h; sourceTree = "<group>"; };
 		518373101F7E22FD00248179 /* BINGuidePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINGuidePageView.m; sourceTree = "<group>"; };
 		518373111F7E22FD00248179 /* BINIconLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINIconLabelView.h; sourceTree = "<group>"; };
@@ -740,8 +740,6 @@
 				51036FD320A18D54009D8B7B /* BN_ItemsView.m */,
 				51795B691F4432FB002AF228 /* BINStarsView.h */,
 				51795B6A1F4432FB002AF228 /* BINStarsView.m */,
-				5183730D1F7E22FD00248179 /* BINDatePicker.h */,
-				5183730E1F7E22FD00248179 /* BINDatePicker.m */,
 				5183730F1F7E22FD00248179 /* BINGuidePageView.h */,
 				518373101F7E22FD00248179 /* BINGuidePageView.m */,
 				518373111F7E22FD00248179 /* BINIconLabelView.h */,
@@ -1116,6 +1114,8 @@
 				518FD853204802DE00FD7ADA /* Main */,
 				34098D5019EFB159006806A6 /* MyView.h */,
 				34098D5119EFB159006806A6 /* MyView.m */,
+				5183730D1F7E22FD00248179 /* BN_DatePicker.h */,
+				5183730E1F7E22FD00248179 /* BN_DatePicker.m */,
 				5186C674211A92FD005DC075 /* BN_RangeDateView.h */,
 				5186C675211A92FD005DC075 /* BN_RangeDateView.m */,
 				516C6F232112B36C00BAD24D /* BINAlertView.h */,
@@ -1386,7 +1386,7 @@
 				5186C7A7211A9C03005DC075 /* NSObject+ModelHelper.m in Sources */,
 				5186C702211A9708005DC075 /* NSObject+swizzling.m in Sources */,
 				34098D5219EFB159006806A6 /* MyView.m in Sources */,
-				518373391F7E22FD00248179 /* BINDatePicker.m in Sources */,
+				518373391F7E22FD00248179 /* BN_DatePicker.m in Sources */,
 				5183733C1F7E22FD00248179 /* BINImgLabelView.m in Sources */,
 				5183733D1F7E22FD00248179 /* BINPhotoBrowser.m in Sources */,
 				5186C745211A9B0B005DC075 /* SDWebImagePrefetcher.m in Sources */,

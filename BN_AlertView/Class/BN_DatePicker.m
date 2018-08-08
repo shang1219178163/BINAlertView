@@ -1,18 +1,18 @@
 //
-//  BINDatePicker.m
+//  BINDataPicker.m
 //  BINView
 //
-//  Created by BIN on 2017/9/13.
+//  Created by hsf on 2017/9/13.
 //  Copyright © 2017年 BIN. All rights reserved.
 //
 
-#import "BINDatePicker.h"
+#import "BN_DatePicker.h"
 
 #define kH_NaviagtionBarHeight 44
 #define kDatePickerHeight 180
 
 
-@interface BINDatePicker()
+@interface BN_DatePicker()
 
 @property(nonatomic,strong) UIView *maskView;
 @property(nonatomic,strong) UIView *containView;
@@ -20,15 +20,11 @@
 
 @end
 
-@implementation BINDatePicker
+@implementation BN_DatePicker
 
--(id)initWithCancelButtonTitle:(NSString *)cancelButtonTitle confirmBtnTitle:(NSString *)confirmButtonTitle{
+-(instancetype)initWithCancelBtnTitle:(NSString *)cancelBtnTitle confirmBtnTitle:(NSString *)confirmBtnTitle{
     self = [super init];
     if (self) {
-        self.datePickerMode = UIDatePickerModeDate;
-        self.minimumDate = [NSDate distantPast];
-        self.maximumDate = [NSDate distantFuture];
-        self.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
         
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         // config maskView's frame
@@ -49,13 +45,13 @@
         toolBar.tintColor = [UIColor blackColor];//字体颜色
         toolBar.barTintColor = [UIColor whiteColor];//背景
         
-        NSString *cancelTitle = [NSString stringWithFormat:@"   %@",cancelButtonTitle];
+        NSString *cancelTitle = [NSString stringWithFormat:@"   %@",cancelBtnTitle];
         UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
         [cancelItem setTintColor:[UIColor redColor]];
 
         UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
         
-        NSString *confirmTitle = [NSString stringWithFormat:@"%@    ",confirmButtonTitle];
+        NSString *confirmTitle = [NSString stringWithFormat:@"%@    ",confirmBtnTitle];
         UIBarButtonItem *confirmItem = [[UIBarButtonItem alloc] initWithTitle:confirmTitle style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
         [confirmItem setTintColor:[UIColor blackColor]];
 
@@ -123,23 +119,18 @@
 
 #pragma mark Cancel and Confirm
 -(void)cancel{
-    if (self.blockDatePicker) {
-        self.blockDatePicker(self, 0);
+    if (self.block) {
+        self.block(self, 0);
     }
     [self dismissDatePicker];
 }
 
 
 -(void)confirm{
-    if (self.blockDatePicker) {
-        self.blockDatePicker(self, 1);
+    if (self.block) {
+        self.block(self, 1);
     }
     [self dismissDatePicker];
-}
-
--(void)actionWithBlock:(BlockDatePicker)blockDatePicker{
-    self.blockDatePicker = blockDatePicker;
-    
 }
 
 

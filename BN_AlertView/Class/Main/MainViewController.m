@@ -80,7 +80,7 @@
     
     [self.view addSubview:self.dateView];
     
-    [self.view getViewLayer];
+//    [self.view getViewLayer];
     
 }
 
