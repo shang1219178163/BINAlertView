@@ -202,7 +202,7 @@
  关联方法待改进
  */
 - (void)addActionHandler:(void(^)(id obj, id item, NSInteger idx))handler{
-    if (self.tag < kTAG_VIEW) self.tag = kTAG_VIEW;
+//    if (self.tag < kTAG_VIEW) self.tag = kTAG_VIEW;
 
     if ([self isKindOfClass:[UIButton class]]) {
         [(UIButton *)self addTarget:self action:@selector(handleActionBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -241,7 +241,7 @@
         if (block) block(sender, sender, segmentCtl.selectedSegmentIndex);
 
     }else{
-        if (block) block(sender, sender, ((UIButton *)sender).tag - kTAG_VIEW);
+        if (block) block(sender, sender, ((UIButton *)sender).tag);
 
     }
 }
@@ -252,7 +252,7 @@
 - (void)handleActionTapGesture:(UITapGestureRecognizer *)tapGesture{
     void(^block)(id obj, id item, NSInteger idx) = objc_getAssociatedObject(self, @selector(addActionHandler:));
     if (block){
-        block(tapGesture, tapGesture.view, tapGesture.view.tag - kTAG_VIEW);
+        block(tapGesture, tapGesture.view, tapGesture.view.tag);
 
     }
 }
@@ -617,6 +617,7 @@
             default:
                 break;
         }
+        DDLog(@"view_%@",@(view.tag));
         [backgroudView addSubview:view];
         [view addActionHandler:^(id obj, id item, NSInteger idx) {
             handler(obj, item, idx);

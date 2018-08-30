@@ -85,7 +85,7 @@
 }
 
 - (void)handleActionBtn:(UIButton *)sender{
-    
+    DDLog(@"%@",@(sender.tag));
     switch (sender.tag) {
         case 0:
         {
