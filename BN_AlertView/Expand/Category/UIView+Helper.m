@@ -629,7 +629,7 @@
 }
 
 
-+ (BINAlertView *)creatAlertViewTitle:(NSString *)title array:(NSArray *)array dict:(NSDictionary *)dict mustList:(NSArray *)mustList btnTitles:(NSArray *)btnTitles{
++ (BN_AlertViewZero *)creatAlertViewTitle:(NSString *)title array:(NSArray *)array dict:(NSDictionary *)dict mustList:(NSArray *)mustList btnTitles:(NSArray *)btnTitles{
     
     NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
     for (NSInteger i = 0; i < array.count; i++) {
@@ -648,7 +648,7 @@
         [marr addObject:model];
     }
     
-    BINAlertView * alertView = [BINAlertView alertViewWithTitle:title items:marr btnTitles:btnTitles];
+    BN_AlertViewZero * alertView = [BN_AlertViewZero alertViewWithTitle:title items:marr btnTitles:btnTitles];
     return alertView;
     
 }

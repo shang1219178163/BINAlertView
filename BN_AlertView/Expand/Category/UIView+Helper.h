@@ -12,7 +12,7 @@
 
 #import "BINTextField.h"
 #import "BINTextView.h"
-#import "BINAlertView.h"
+#import "BN_AlertViewZero.h"
 
 typedef void(^BlockView)(UIView * view,id item, id obj);
 
@@ -127,7 +127,7 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 
 + (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler;
 
-+ (BINAlertView *)creatAlertViewTitle:(NSString *)title array:(NSArray *)array dict:(NSDictionary *)dict mustList:(NSArray *)mustList btnTitles:(NSArray *)btnTitles;
++ (BN_AlertViewZero *)creatAlertViewTitle:(NSString *)title array:(NSArray *)array dict:(NSDictionary *)dict mustList:(NSArray *)mustList btnTitles:(NSArray *)btnTitles;
 
 - (void)setOriginX:(CGFloat)originX;
 - (void)setOriginY:(CGFloat)originY;

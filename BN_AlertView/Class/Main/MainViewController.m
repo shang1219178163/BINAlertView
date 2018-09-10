@@ -12,7 +12,7 @@
 #import <objc/message.h>
 
 #import "MyView.h"
-#import "BINAlertView.h"
+#import "BN_AlertViewZero.h"
 #import "BN_RangeDateView.h"
 
 #import "BN_AlertView.h"
@@ -102,9 +102,9 @@
             break;
         case 1:
         {
-            BINAlertView * alertView = [BINAlertView alertViewWithTitle:@"title" message:@"sdfadfdfasfddafadfasdf" customView:nil btnTitles:@[@"取消",@"确认"]];
+            BN_AlertViewZero * alertView = [BN_AlertViewZero alertViewWithTitle:@"title" message:@"只用了两年时间，天津东边的一片盐碱地，就让创造了蛇口神话的袁庚都为之紧张。……" customView:nil btnTitles:@[@"取消",@"确认"]];
             [alertView show];
-            [alertView actionWithBlock:^(BINAlertView *alertView, NSInteger btnIndex) {
+            [alertView actionWithBlock:^(BN_AlertViewZero *alertView, NSInteger btnIndex) {
                 NSLog(@"%@====%@",alertView,@(btnIndex));
                 
                 

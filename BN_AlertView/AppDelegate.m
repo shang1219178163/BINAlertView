@@ -16,6 +16,8 @@
 {
     // Override point for customization after application launch.
     NSString * controlName = @"MainViewController";
+//    controlName = @"ControlViewController";
+    
     [UIApplication setupRootControllerName:controlName];
     
     [UIApplication setupAppearance];

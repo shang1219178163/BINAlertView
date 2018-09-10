@@ -8,7 +8,7 @@
 
 #import "NextViewController.h"
 
-#import "BINAlertView.h"
+#import "BN_AlertViewZero.h"
 
 #import "DKSButton.h"
 

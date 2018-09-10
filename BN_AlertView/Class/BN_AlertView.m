@@ -1,7 +1,7 @@
 
 //
 //  BN_AlertView.m
-//  BINAlertView
+//  BN_AlertViewZero
 //
 //  Created by hsf on 2018/5/25.
 //  Copyright © 2018年 SouFun. All rights reserved.

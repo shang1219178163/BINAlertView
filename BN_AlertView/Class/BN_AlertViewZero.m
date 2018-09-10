@@ -1,13 +1,12 @@
+//
+//  BN_AlertViewZero.m
+//  BN_AlertView
+//
+//  Created by hsf on 2018/8/30.
+//  Copyright © 2018年 SouFun. All rights reserved.
+//
 
-//
-//  BINAlertView.m
-//  CustomeAlertView
-//
-//  Created by hsf on 2017/9/29.
-//  Copyright © 2017年 SouFun. All rights reserved.
-//
-
-#import "BINAlertView.h"
+#import "BN_AlertViewZero.h"
 
 #import "UIView+AddView.h"
 #import "UIView+Helper.h"
@@ -16,7 +15,7 @@
 
 static const CGFloat padding = 10;
 
-@interface BINAlertView ()<UITextViewDelegate>
+@interface BN_AlertViewZero ()<UITextViewDelegate>
 
 @property (nonatomic, assign ,readwrite) CGFloat maxWidth;
 
@@ -31,7 +30,7 @@ static const CGFloat padding = 10;
 
 @end
 
-@implementation BINAlertView
+@implementation BN_AlertViewZero
 
 -(NSMutableArray *)textFieldList{
     if (!_textFieldList) {
@@ -52,29 +51,10 @@ static const CGFloat padding = 10;
     return heigth;
 }
 
-/**
- 研究中...
- */
-//-(instancetype)shareInstance{
-//    static BINAlertView *instance = nil;
-//
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        instance = [[BINAlertView alloc]init];
-//
-//    });
-//    return instance;
-//}
-//
-//- (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles{
-//    
-//    BINAlertView *alertView = [[BINAlertView alloc]initWithTitle:title message:msg customView:customView btnTitles:btnTitles];
-//    return alertView;
-//}
 
-+ (BINAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles{
++ (BN_AlertViewZero *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles{
     
-    BINAlertView *alertView = [[BINAlertView alloc]initWithTitle:title message:msg customView:customView btnTitles:btnTitles];
+    BN_AlertViewZero *alertView = [[BN_AlertViewZero alloc]initWithTitle:title message:msg customView:customView btnTitles:btnTitles];
     return alertView;
 }
 
@@ -110,7 +90,7 @@ static const CGFloat padding = 10;
             labelRectTitle = CGRectMake(kXY_GAP, kXY_GAP, maxWidth, 0);
             self.labTitle.frame = labelRectTitle;
         }
-     
+        
         if (customView != nil) {
             customeViewSize = CGSizeMake(maxWidth, CGRectGetHeight(customView.frame) < maxHeight ? CGRectGetHeight(customView.frame) : maxHeight);
             customView.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(labelRectTitle)+padding, customeViewSize.width, customeViewSize.height);
@@ -118,24 +98,24 @@ static const CGFloat padding = 10;
                 CGRect rect = view.frame;
                 if (rect.size.width > CGRectGetWidth(customView.frame)) {
                     rect.size.width = CGRectGetWidth(customView.frame);
-
+                    
                 }
                 view.frame = rect;
             }
             
             [self addSubview:customView];
             self.customView = customView;
-//            self.customView.clipsToBounds = YES;
+            //            self.customView.clipsToBounds = YES;
             
             CGFloat topYGap = title ? CGRectGetMaxY(self.labTitle.frame) : kXY_GAP;
             self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), topYGap+CGRectGetHeight(customView.frame) + kH_BTN + padding*2);
-
+            
         }else{
             if (msg != nil) {
                 msgSize = [self sizeWithText:msg font:@(KFZ_Second) width:maxWidth];
                 msgSize.height =  msgSize.height < kH_LABEL ? kH_LABEL: msgSize.height;
                 msgSize.height =  msgSize.height > maxHeight ? maxHeight: msgSize.height;
-
+                
                 msgRect = CGRectMake(CGRectGetMinX(labelRectTitle), CGRectGetMaxY(labelRectTitle) + padding, maxWidth, msgSize.height);
                 UITextView * textView = [UIView createTextShowWithRect:msgRect text:msg font:KFZ_Second textAlignment:NSTextAlignmentCenter];
                 [self addSubview:textView];
@@ -151,14 +131,14 @@ static const CGFloat padding = 10;
                     textView.scrollEnabled = NO;    // 不允许滚动，当textview的大小足以容纳它的text的时候，需要设置scrollEnabed为NO，否则会出现光标乱滚动的情况
                 }
                 self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetMinY(msgRect) + CGRectGetHeight(textView.frame) + padding + kH_BTN);
-
+                
             }else{
                 self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame),CGRectGetMaxY(labelRectTitle) + padding + kH_BTN);
             }
-         }
+        }
         
         [self createBtnsWithBtnTitles:btnTitles];
-
+        
         //无标题 无BTN时可以提示信息使用
         if (!title && !btnTitles) {
             CGRect rect = self.frame;
@@ -171,8 +151,8 @@ static const CGFloat padding = 10;
         }
         self.backgroundColor = [UIColor whiteColor];
         self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
-//        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
-//        self.center = CGPointMake(center.x, center.y*2/3);
+        //        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+        //        self.center = CGPointMake(center.x, center.y*2/3);
     }
     return self;
 }
@@ -192,7 +172,7 @@ static const CGFloat padding = 10;
                 [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                 
             }else{
-//                [btn setTitleColor:kC_RGBA(13, 95, 255, 1.0) forState:UIControlStateNormal];
+                //                [btn setTitleColor:kC_RGBA(13, 95, 255, 1.0) forState:UIControlStateNormal];
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 
             }
@@ -212,30 +192,30 @@ static const CGFloat padding = 10;
             topLayer.frame = CGRectMake(0, 0, btn.bounds.size.width, kW_LayerBorderWidth);
             topLayer.backgroundColor = borderColor.CGColor;
             [btn.layer addSublayer:topLayer];
-//                //左边框
-//                CALayer * leftLayer = [CALayer layer];
-//                leftLayer.frame = CGRectMake(0, 0, kW_LayerBorderWidth, btn.bounds.size.height);
-//                leftLayer.backgroundColor = borderColor.CGColor;
-//                [btn.layer addSublayer:leftLayer];
-//                //下边框
-//                CALayer * bottomLayer = [CALayer layer];
-//                bottomLayer.frame = CGRectMake(0, (btn.bounds.size.height - kW_LayerBorderWidth), btn.bounds.size.width, kW_LayerBorderWidth);
-//                bottomLayer.backgroundColor = borderColor.CGColor;
-//                //右边框
-//                CALayer * rightLayer = [CALayer layer];
-//                rightLayer.frame = CGRectMake((btn.bounds.size.width - kW_LayerBorderWidth), 0, kW_LayerBorderWidth, btn.bounds.size.height);
-//                rightLayer.backgroundColor = borderColor.CGColor;
-//                [btn.layer addSublayer:rightLayer];
+            //                //左边框
+            //                CALayer * leftLayer = [CALayer layer];
+            //                leftLayer.frame = CGRectMake(0, 0, kW_LayerBorderWidth, btn.bounds.size.height);
+            //                leftLayer.backgroundColor = borderColor.CGColor;
+            //                [btn.layer addSublayer:leftLayer];
+            //                //下边框
+            //                CALayer * bottomLayer = [CALayer layer];
+            //                bottomLayer.frame = CGRectMake(0, (btn.bounds.size.height - kW_LayerBorderWidth), btn.bounds.size.width, kW_LayerBorderWidth);
+            //                bottomLayer.backgroundColor = borderColor.CGColor;
+            //                //右边框
+            //                CALayer * rightLayer = [CALayer layer];
+            //                rightLayer.frame = CGRectMake((btn.bounds.size.width - kW_LayerBorderWidth), 0, kW_LayerBorderWidth, btn.bounds.size.height);
+            //                rightLayer.backgroundColor = borderColor.CGColor;
+            //                [btn.layer addSublayer:rightLayer];
         }
     }
-   
+    
 }
 
 - (void)show{
     [self addActivityBackgroundView];
-        self.transform = CGAffineTransformMakeScale(0.01, 0.01);
-//    self.transform = CGAffineTransformMakeScale(2.01, 2.01);
-
+    self.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    //    self.transform = CGAffineTransformMakeScale(2.01, 2.01);
+    
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.transform = CGAffineTransformIdentity;
         self.backgroundColor = [UIColor whiteColor];
@@ -265,7 +245,7 @@ static const CGFloat padding = 10;
 
 - (void)handleBtnAction:(UIButton *)sender{
     NSLog(@"%@",sender.titleLabel.text);
-
+    
     if (self.blockAlertView) {
         self.blockAlertView(self, sender.tag - kTAG_BTN);
     }
@@ -326,9 +306,9 @@ static const CGFloat padding = 10;
     }
 }
 
-+ (BINAlertView *)alertViewWithTitle:(NSString *)title items:(NSArray *)items btnTitles:(NSArray *)btnTitles{
++ (BN_AlertViewZero *)alertViewWithTitle:(NSString *)title items:(NSArray *)items btnTitles:(NSArray *)btnTitles{
     UIView * customView = [self createViewByItems:items width:kWidth_customView];
-    BINAlertView *alertView = [BINAlertView alertViewWithTitle:title message:nil customView:customView btnTitles:btnTitles];
+    BN_AlertViewZero *alertView = [BN_AlertViewZero alertViewWithTitle:title message:nil customView:customView btnTitles:btnTitles];
     
     alertView.textFieldList = [NSMutableArray arrayWithCapacity:0];
     for (UIView * view in customView.subviews) {
@@ -345,7 +325,7 @@ static const CGFloat padding = 10;
 + (UIView *)createViewByItems:(NSArray *)items width:(CGFloat)width{
     
     CGFloat labelGapX = 20;
-
+    
     CGFloat viewHeight = 30;
     CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
     UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
@@ -366,14 +346,14 @@ static const CGFloat padding = 10;
         
         CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding - labelGapX, viewHeight);
         
-
+        
         UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:modol.content placeholder:modol.placeHolder font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault tag:i];
         [backgroudView addSubview:label];
         [backgroudView addSubview:textField];
         
         textField.borderStyle = UITextBorderStyleNone;
         [textField.layer addSublayer:[textField createLayerType:@"2"]];//下线条
-
+        
         textField.backgroundColor = [UIColor cyanColor];
         
     }

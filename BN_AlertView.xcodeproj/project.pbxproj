@@ -51,7 +51,7 @@
 		51698C74213775C70069C2B2 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C6D213775C70069C2B2 /* GTMBase64.m */; };
 		51698C75213775C70069C2B2 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C6E213775C70069C2B2 /* NSData+CommonCrypto.m */; };
 		51698C76213775C70069C2B2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C6F213775C70069C2B2 /* NSData+Base64.m */; };
-		516C6F242112B36D00BAD24D /* BINAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 516C6F222112B36C00BAD24D /* BINAlertView.m */; };
+		51698C7921378BCA0069C2B2 /* BN_AlertViewZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C7821378BCA0069C2B2 /* BN_AlertViewZero.m */; };
 		516CFD4920B7BAEA0029C40D /* BN_AlertViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */; };
 		516CFD4C20B7BB260029C40D /* BN_AlertViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4B20B7BB260029C40D /* BN_AlertViewTwo.m */; };
 		516E87D72064A00D0037C75B /* BINGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E87D62064A00D0037C75B /* BINGroupView.m */; };
@@ -107,7 +107,6 @@
 		5186C712211A9708005DC075 /* StaticNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C6DD211A9707005DC075 /* StaticNSString.m */; };
 		5186C713211A9708005DC075 /* GlobleConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C6DE211A9707005DC075 /* GlobleConst.m */; };
 		5186C71B211A9951005DC075 /* Utilities_DM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C719211A9951005DC075 /* Utilities_DM.m */; };
-		5186C71F211A9AE4005DC075 /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C71E211A9AE3005DC075 /* UIImageView+CornerRadius.m */; };
 		5186C73E211A9B0B005DC075 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C723211A9B0B005DC075 /* SDWebImageManager.m */; };
 		5186C73F211A9B0B005DC075 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C724211A9B0B005DC075 /* SDWebImageDecoder.m */; };
 		5186C740211A9B0B005DC075 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186C726211A9B0B005DC075 /* UIImageView+HighlightedWebCache.m */; };
@@ -183,6 +182,9 @@
 		5186C808211A9F2A005DC075 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5186C805211A9F2A005DC075 /* Info.plist */; };
 		518A034320AEDD1000B6142C /* BN_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518A034220AEDD1000B6142C /* BN_ShareView.m */; };
 		518FD863204803C100FD7ADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD860204803C000FD7ADA /* AppDelegate.m */; };
+		51D0702021465E24006925BB /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0701F21465E24006925BB /* UIImageView+CornerRadius.m */; };
+		51D0702321465E82006925BB /* BN_SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0702221465E82006925BB /* BN_SegmentedControl.m */; };
+		51D0702621465EA7006925BB /* ControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0702521465EA7006925BB /* ControlViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,8 +273,8 @@
 		51698C6D213775C70069C2B2 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		51698C6E213775C70069C2B2 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		51698C6F213775C70069C2B2 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		516C6F222112B36C00BAD24D /* BINAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINAlertView.m; sourceTree = "<group>"; };
-		516C6F232112B36C00BAD24D /* BINAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINAlertView.h; sourceTree = "<group>"; };
+		51698C7721378BCA0069C2B2 /* BN_AlertViewZero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewZero.h; sourceTree = "<group>"; };
+		51698C7821378BCA0069C2B2 /* BN_AlertViewZero.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertViewZero.m; sourceTree = "<group>"; };
 		516CFD4720B7BAEA0029C40D /* BN_AlertViewOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewOne.h; sourceTree = "<group>"; };
 		516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertViewOne.m; sourceTree = "<group>"; };
 		516CFD4A20B7BB260029C40D /* BN_AlertViewTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewTwo.h; sourceTree = "<group>"; };
@@ -383,8 +385,6 @@
 		5186C6E1211A9707005DC075 /* GeneralConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralConst.h; sourceTree = "<group>"; };
 		5186C719211A9951005DC075 /* Utilities_DM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities_DM.m; sourceTree = "<group>"; };
 		5186C71A211A9951005DC075 /* Utilities_DM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities_DM.h; sourceTree = "<group>"; };
-		5186C71D211A9AE3005DC075 /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
-		5186C71E211A9AE3005DC075 /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
 		5186C721211A9B0B005DC075 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		5186C722211A9B0B005DC075 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		5186C723211A9B0B005DC075 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
@@ -537,6 +537,12 @@
 		518A034220AEDD1000B6142C /* BN_ShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_ShareView.m; sourceTree = "<group>"; };
 		518FD85F204803C000FD7ADA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		518FD860204803C000FD7ADA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		51D0701E21465E24006925BB /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
+		51D0701F21465E24006925BB /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
+		51D0702121465E81006925BB /* BN_SegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_SegmentedControl.h; sourceTree = "<group>"; };
+		51D0702221465E82006925BB /* BN_SegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_SegmentedControl.m; sourceTree = "<group>"; };
+		51D0702421465EA7006925BB /* ControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlViewController.h; sourceTree = "<group>"; };
+		51D0702521465EA7006925BB /* ControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -955,16 +961,6 @@
 			path = swizzling;
 			sourceTree = "<group>";
 		};
-		5186C71C211A9AE3005DC075 /* UIImageView+CornerRadius */ = {
-			isa = PBXGroup;
-			children = (
-				5186C71D211A9AE3005DC075 /* UIImageView+CornerRadius.h */,
-				5186C71E211A9AE3005DC075 /* UIImageView+CornerRadius.m */,
-			);
-			name = "UIImageView+CornerRadius";
-			path = "../../../../../WeiHou/WeiHouBao/Pods/ZYCornerRadius/ZYCornerRadius/UIImageView+CornerRadius";
-			sourceTree = "<group>";
-		};
 		5186C720211A9B0B005DC075 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1073,6 +1069,7 @@
 		518FD84E204801D400FD7ADA /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				51D0701D21465E24006925BB /* UIImageView+CornerRadius */,
 				51698C62213775C70069C2B2 /* AESCrypt-ObjC */,
 				5186C800211A9F2A005DC075 /* FLAnimatedImage */,
 				5186C7E0211A9EAF005DC075 /* MJExtension */,
@@ -1080,7 +1077,6 @@
 				5186C7D2211A9CB9005DC075 /* FCUUID */,
 				5186C7CE211A9C40005DC075 /* YBAttributeTextTapAction */,
 				5186C720211A9B0B005DC075 /* SDWebImage */,
-				5186C71C211A9AE3005DC075 /* UIImageView+CornerRadius */,
 				5181E9EE207B132900F6C895 /* PopoverView */,
 				517D390E206CDD03005BC021 /* DKSButton */,
 				51803C57204948AE00799B48 /* Toast */,
@@ -1129,6 +1125,8 @@
 				516FF69220B00E20001989FD /* TmpViewController.m */,
 				51862E4920BB8F3F0080BD4E /* DesignPatternsController.h */,
 				51862E4A20BB8F3F0080BD4E /* DesignPatternsController.m */,
+				51D0702421465EA7006925BB /* ControlViewController.h */,
+				51D0702521465EA7006925BB /* ControlViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1139,24 +1137,26 @@
 				518FD853204802DE00FD7ADA /* Main */,
 				34098D5019EFB159006806A6 /* MyView.h */,
 				34098D5119EFB159006806A6 /* MyView.m */,
+				51D0702121465E81006925BB /* BN_SegmentedControl.h */,
+				51D0702221465E82006925BB /* BN_SegmentedControl.m */,
 				5183730D1F7E22FD00248179 /* BN_DatePicker.h */,
 				5183730E1F7E22FD00248179 /* BN_DatePicker.m */,
 				5186C674211A92FD005DC075 /* BN_RangeDateView.h */,
 				5186C675211A92FD005DC075 /* BN_RangeDateView.m */,
-				516C6F232112B36C00BAD24D /* BINAlertView.h */,
-				516C6F222112B36C00BAD24D /* BINAlertView.m */,
 				51800F7F21114A460098B8B3 /* BN_PairLabelView.h */,
 				51800F8021114A460098B8B3 /* BN_PairLabelView.m */,
 				51070E2C2110624900CAE45E /* BN_MonthView.h */,
 				51070E2D2110624A00CAE45E /* BN_MonthView.m */,
+				51698C7721378BCA0069C2B2 /* BN_AlertViewZero.h */,
+				51698C7821378BCA0069C2B2 /* BN_AlertViewZero.m */,
+				518057661F94DB68008D1C0E /* BN_AlertView.h */,
+				518057671F94DB68008D1C0E /* BN_AlertView.m */,
 				516CFD4720B7BAEA0029C40D /* BN_AlertViewOne.h */,
 				516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */,
 				516CFD4A20B7BB260029C40D /* BN_AlertViewTwo.h */,
 				516CFD4B20B7BB260029C40D /* BN_AlertViewTwo.m */,
 				34098D4D19EF9783006806A6 /* CustomAlertView.h */,
 				34098D4E19EF9784006806A6 /* CustomAlertView.m */,
-				518057661F94DB68008D1C0E /* BN_AlertView.h */,
-				518057671F94DB68008D1C0E /* BN_AlertView.m */,
 				517C2406206B998C00149016 /* BINTabBarView.h */,
 				517C2407206B998C00149016 /* BINTabBarView.m */,
 				517D3902206CBEA8005BC021 /* BN_TabBarView.h */,
@@ -1165,6 +1165,15 @@
 				518A034220AEDD1000B6142C /* BN_ShareView.m */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		51D0701D21465E24006925BB /* UIImageView+CornerRadius */ = {
+			isa = PBXGroup;
+			children = (
+				51D0701E21465E24006925BB /* UIImageView+CornerRadius.h */,
+				51D0701F21465E24006925BB /* UIImageView+CornerRadius.m */,
+			);
+			path = "UIImageView+CornerRadius";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1214,6 +1223,10 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = SouFun;
 				TargetAttributes = {
+					34098D1419EF962A006806A6 = {
+						DevelopmentTeam = J6N2BU2FVC;
+						ProvisioningStyle = Automatic;
+					};
 					34098D2F19EF962B006806A6 = {
 						TestTargetID = 34098D1419EF962A006806A6;
 					};
@@ -1284,10 +1297,12 @@
 				5181E9F6207B132900F6C895 /* PopoverView.m in Sources */,
 				5186C7D7211A9CBA005DC075 /* FCUUID.m in Sources */,
 				512861DA1F95AD6E00CD1372 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				51698C7921378BCA0069C2B2 /* BN_AlertViewZero.m in Sources */,
 				5186C676211A92FD005DC075 /* BN_RangeDateView.m in Sources */,
 				5186C7AC211A9C03005DC075 /* NSMutableArray+Helper.m in Sources */,
 				5186C7CA211A9C03005DC075 /* NSUserDefaults+Helper.m in Sources */,
 				518057691F94DB68008D1C0E /* BN_AlertView.m in Sources */,
+				51D0702321465E82006925BB /* BN_SegmentedControl.m in Sources */,
 				51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */,
 				518373451F7E22FD00248179 /* BINShareModel.m in Sources */,
 				5183733E1F7E22FD00248179 /* BINPhotoBrowserView.m in Sources */,
@@ -1337,6 +1352,7 @@
 				5186C7FD211A9EB0005DC075 /* NSString+MJExtension.m in Sources */,
 				5186C7A5211A9C03005DC075 /* NSData+Helper.m in Sources */,
 				517C23EB206B454B00149016 /* WHKTableViewFiftyFiveCell.m in Sources */,
+				51D0702021465E24006925BB /* UIImageView+CornerRadius.m in Sources */,
 				5186C7B6211A9C03005DC075 /* UIButton+EdgeInsets.m in Sources */,
 				51698C70213775C70069C2B2 /* NSString+Base64.m in Sources */,
 				5186C7F9211A9EB0005DC075 /* NSObject+MJCoding.m in Sources */,
@@ -1350,7 +1366,6 @@
 				5186C7DF211A9D1E005DC075 /* Utilities.m in Sources */,
 				517C2408206B998C00149016 /* BINTabBarView.m in Sources */,
 				516CFD4C20B7BB260029C40D /* BN_AlertViewTwo.m in Sources */,
-				516C6F242112B36D00BAD24D /* BINAlertView.m in Sources */,
 				5186C7C5211A9C03005DC075 /* UITableViewCell+Helper.m in Sources */,
 				5186C743211A9B0B005DC075 /* UIImage+MultiFormat.m in Sources */,
 				5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */,
@@ -1378,7 +1393,6 @@
 				5186C741211A9B0B005DC075 /* SDWebImageDownloader.m in Sources */,
 				512861B51F95AD2900CD1372 /* MQVerCodeInputView.m in Sources */,
 				518373441F7E22FD00248179 /* BINShareDataModel.m in Sources */,
-				5186C71F211A9AE4005DC075 /* UIImageView+CornerRadius.m in Sources */,
 				5186C7BB211A9C03005DC075 /* NSObject+FaceDetect.m in Sources */,
 				51698C72213775C70069C2B2 /* AESCrypt.m in Sources */,
 				5186C7B7211A9C03005DC075 /* UIDevice+Helper.m in Sources */,
@@ -1428,6 +1442,7 @@
 				5186C744211A9B0B005DC075 /* SDWebImageCompat.m in Sources */,
 				518373421F7E22FD00248179 /* BINPickerViewNew.m in Sources */,
 				5186C7F6211A9EB0005DC075 /* MJPropertyType.m in Sources */,
+				51D0702621465EA7006925BB /* ControlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1546,12 +1561,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xiaolei zhang (K2RX8G3XRB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J6N2BU2FVC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
 				INFOPLIST_FILE = "BN_AlertView/BN_AlertView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1561,11 +1579,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J6N2BU2FVC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
 				INFOPLIST_FILE = "BN_AlertView/BN_AlertView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
