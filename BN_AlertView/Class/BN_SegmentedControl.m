@@ -9,18 +9,29 @@
 #import "BN_SegmentedControl.h"
 #import <QuartzCore/QuartzCore.h>
 
+#import "CATextLayer+Helper.h"
+
 @interface BN_SegmentedControl ()
 
 @property (nonatomic, strong) CALayer *segmentLayer;
+
 @property (nonatomic, readwrite) CGFloat w_item;
 
 @property (nonatomic, readwrite) NSMutableParagraphStyle *paragraphStyle;
 
 @property (nonatomic, readwrite) NSMutableDictionary *attDic;
+@property (nonatomic, readwrite) NSMutableArray *itemList;
 
 @end
 
 @implementation BN_SegmentedControl
+
+-(NSMutableArray *)itemList{
+    if (!_itemList) {
+        _itemList = [NSMutableArray array];
+    }
+    return _itemList;
+}
 
 -(NSMutableDictionary *)attDic{
     if (!_attDic) {
@@ -43,13 +54,17 @@
     return _paragraphStyle;
 }
 
-- (id)initWithSectionTitles:(NSArray *)sectiontitles {
-    self = [super initWithFrame:CGRectZero];
-    if (self) {
-        self.list = sectiontitles;
-        [self setDefaults];
-    }
-    return self;
+
+-(void)setDict:(NSDictionary *)dict{
+    _dict = dict;
+    
+    __block NSMutableArray * marr = @[].mutableCopy;
+    [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key isEqualToString:kItemTitle])
+            [marr addObject:obj];
+        
+    }];
+    self.list = marr.copy;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -63,6 +78,9 @@
 
 
 - (void)setDefaults {
+    
+    self.indicatorMode = BN_IndicatorDefault;
+    
     self.height = 32.0f;
     self.h_indicator = 5.0f;
     
@@ -75,7 +93,7 @@
     self.selectedIndex = 0;
     self.segmentEdgeInset = UIEdgeInsetsMake(0, 5, 0, 5);
 
-    self.indicatorMode = BN_IndicatorSizeToString;
+    self.indicatorSizeMode = BN_IndicatorSizeToString;
     
     self.segmentLayer = CALayer.layer;
 
@@ -95,22 +113,43 @@
         
         CGFloat y = (self.height - h_text)/2.0;
         CGRect rect = CGRectMake(self.w_item * idx, y, self.w_item, h_text);
-//        NSLog(@"!!!rect:%@",NSStringFromCGRect(rect));
+        //        NSLog(@"!!!rect:%@",NSStringFromCGRect(rect));
+//        [obj drawInRect:rect withAttributes:_attDic];
+
+        CATextLayer *titleLayer = [CATextLayer createRect:rect string:obj font:self.font textColor:self.textColor alignmentMode:kCAAlignmentCenter];
+        [self.layer addSublayer:titleLayer];
         
-        [obj drawInRect:rect withAttributes:_attDic];
+        [self.itemList addObject:titleLayer];
         
         self.segmentLayer.frame = [self updateFrameForIndicator];
         self.segmentLayer.backgroundColor = self.indicatorColor.CGColor;
         [self.layer addSublayer:self.segmentLayer];
-
+        
     }];
 }
 
 - (CGRect)updateFrameForIndicator {
     
+    if (self.indicatorMode == BN_IndicatorBox) {
+        self.segmentLayer.opacity = 0.3;
+        if (self.indicatorSizeMode == BN_IndicatorSizeToFill) {
+            return CGRectMake(self.w_item * self.selectedIndex, 0, self.w_item, self.height);
+            
+        }
+        
+        CGFloat w_text = [self.list[self.selectedIndex] sizeWithAttributes:self.attDic].width;
+        
+        CGFloat widthEndOfIndex = self.w_item * (self.selectedIndex + 1);
+        CGFloat widthBeforeIndex = self.w_item * self.selectedIndex;
+        
+        CGFloat x = (widthEndOfIndex - widthBeforeIndex)/2 + (widthBeforeIndex - w_text/2);
+        return CGRectMake(x, 0, w_text, self.height);
+        
+    }
+    
     CGFloat y = self.isIndicatorTop == YES ? 0.0 : self.height - self.h_indicator;
-    if (self.indicatorMode == BN_IndicatorFillsSegment) {
-        return CGRectMake(self.w_item * self.selectedIndex, y, self.w_item, self.h_indicator);
+    if (self.indicatorSizeMode == BN_IndicatorSizeToFill) {
+        return CGRectMake(self.w_item * self.selectedIndex, 0, self.w_item, self.height);
 
     }
     
@@ -161,6 +200,12 @@
     if (CGRectContainsPoint(self.bounds, touchLocation)) {
         NSInteger segment = touchLocation.x / self.w_item;
         
+        [self.itemList enumerateObjectsUsingBlock:^(CATextLayer *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            UIColor * color = segment == idx ? self.textColor_H : self.textColor;
+            [self.itemList[idx] setForegroundColor:color.CGColor];
+            
+        }];
+
         if (segment != self.selectedIndex) {
             [self setSelectedIndex:segment animated:YES];
         }

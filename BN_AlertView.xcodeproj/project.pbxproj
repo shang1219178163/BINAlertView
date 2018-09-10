@@ -183,8 +183,9 @@
 		518A034320AEDD1000B6142C /* BN_ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518A034220AEDD1000B6142C /* BN_ShareView.m */; };
 		518FD863204803C100FD7ADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518FD860204803C000FD7ADA /* AppDelegate.m */; };
 		51D0702021465E24006925BB /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0701F21465E24006925BB /* UIImageView+CornerRadius.m */; };
-		51D0702321465E82006925BB /* BN_SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0702221465E82006925BB /* BN_SegmentedControl.m */; };
 		51D0702621465EA7006925BB /* ControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0702521465EA7006925BB /* ControlViewController.m */; };
+		51D07033214670ED006925BB /* BN_SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D07032214670ED006925BB /* BN_SegmentedControl.m */; };
+		51D0703621467158006925BB /* CATextLayer+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D0703521467158006925BB /* CATextLayer+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -539,10 +540,12 @@
 		518FD860204803C000FD7ADA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		51D0701E21465E24006925BB /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
 		51D0701F21465E24006925BB /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
-		51D0702121465E81006925BB /* BN_SegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_SegmentedControl.h; sourceTree = "<group>"; };
-		51D0702221465E82006925BB /* BN_SegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_SegmentedControl.m; sourceTree = "<group>"; };
 		51D0702421465EA7006925BB /* ControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlViewController.h; sourceTree = "<group>"; };
 		51D0702521465EA7006925BB /* ControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlViewController.m; sourceTree = "<group>"; };
+		51D07031214670EC006925BB /* BN_SegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_SegmentedControl.h; sourceTree = "<group>"; };
+		51D07032214670ED006925BB /* BN_SegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_SegmentedControl.m; sourceTree = "<group>"; };
+		51D0703421467158006925BB /* CATextLayer+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CATextLayer+Helper.h"; sourceTree = "<group>"; };
+		51D0703521467158006925BB /* CATextLayer+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CATextLayer+Helper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -859,6 +862,8 @@
 			isa = PBXGroup;
 			children = (
 				5186C785211A9BFC005DC075 /* CategoryHeader.h */,
+				51D0703421467158006925BB /* CATextLayer+Helper.h */,
+				51D0703521467158006925BB /* CATextLayer+Helper.m */,
 				5186C790211A9BFE005DC075 /* MBProgressHUD+Helper.h */,
 				5186C79B211A9C01005DC075 /* MBProgressHUD+Helper.m */,
 				5186C771211A9BF7005DC075 /* NSArray+Helper.h */,
@@ -1137,8 +1142,8 @@
 				518FD853204802DE00FD7ADA /* Main */,
 				34098D5019EFB159006806A6 /* MyView.h */,
 				34098D5119EFB159006806A6 /* MyView.m */,
-				51D0702121465E81006925BB /* BN_SegmentedControl.h */,
-				51D0702221465E82006925BB /* BN_SegmentedControl.m */,
+				51D07031214670EC006925BB /* BN_SegmentedControl.h */,
+				51D07032214670ED006925BB /* BN_SegmentedControl.m */,
 				5183730D1F7E22FD00248179 /* BN_DatePicker.h */,
 				5183730E1F7E22FD00248179 /* BN_DatePicker.m */,
 				5186C674211A92FD005DC075 /* BN_RangeDateView.h */,
@@ -1296,13 +1301,13 @@
 				34098D2519EF962A006806A6 /* main.m in Sources */,
 				5181E9F6207B132900F6C895 /* PopoverView.m in Sources */,
 				5186C7D7211A9CBA005DC075 /* FCUUID.m in Sources */,
+				51D07033214670ED006925BB /* BN_SegmentedControl.m in Sources */,
 				512861DA1F95AD6E00CD1372 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				51698C7921378BCA0069C2B2 /* BN_AlertViewZero.m in Sources */,
 				5186C676211A92FD005DC075 /* BN_RangeDateView.m in Sources */,
 				5186C7AC211A9C03005DC075 /* NSMutableArray+Helper.m in Sources */,
 				5186C7CA211A9C03005DC075 /* NSUserDefaults+Helper.m in Sources */,
 				518057691F94DB68008D1C0E /* BN_AlertView.m in Sources */,
-				51D0702321465E82006925BB /* BN_SegmentedControl.m in Sources */,
 				51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */,
 				518373451F7E22FD00248179 /* BINShareModel.m in Sources */,
 				5183733E1F7E22FD00248179 /* BINPhotoBrowserView.m in Sources */,
@@ -1428,6 +1433,7 @@
 				5186C7B2211A9C03005DC075 /* UIView+Helper.m in Sources */,
 				5186C7A7211A9C03005DC075 /* NSObject+ModelHelper.m in Sources */,
 				5186C702211A9708005DC075 /* NSObject+swizzling.m in Sources */,
+				51D0703621467158006925BB /* CATextLayer+Helper.m in Sources */,
 				34098D5219EFB159006806A6 /* MyView.m in Sources */,
 				518373391F7E22FD00248179 /* BN_DatePicker.m in Sources */,
 				5183733C1F7E22FD00248179 /* BINImgLabelView.m in Sources */,

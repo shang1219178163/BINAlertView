@@ -22,15 +22,16 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-    BN_SegmentedControl *control = [[BN_SegmentedControl alloc] initWithSectionTitles:@[@"Library", @"Trending", @"News"]];
-    control.frame = CGRectMake(10, 40, 300, 40);
+    BN_SegmentedControl *control = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 40, 300, 40)];
+    control.list = @[@"Library", @"Trending", @"News"];
     control.tag = 1;
     control.isIndicatorTop = YES;
     [control addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:control];
     
     
-    BN_SegmentedControl *control2 = [[BN_SegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three", @"4", @"Five"]];
+    BN_SegmentedControl *control2 = [[BN_SegmentedControl alloc] init];
+    control2.list = @[@"One", @"Two", @"Three", @"4", @"Five"];
     control2.block = ^(BN_SegmentedControl *view, NSUInteger index) {
         NSLog(@"Selected index %lu (via block)", (unsigned long)index);
         
@@ -40,7 +41,16 @@
     control2.backgroundColor = UIColor.blackColor;
     control2.textColor = UIColor.whiteColor;
     control2.indicatorColor = UIColor.redColor;
-    control2.indicatorMode = BN_IndicatorFillsSegment;
+    
+    control2.backgroundColor = kC_HEX(0x3498db);
+    control2.textColor = UIColor.whiteColor;
+    control2.textColor_H = kC_HEX(0x34495e);
+    control2.textColor_H = UIColor.redColor;
+
+    control2.indicatorColor = kC_HEX(0x34495e);
+    
+//    control2.indicatorSizeMode = BN_IndicatorSizeToFill;
+    control2.indicatorMode = BN_IndicatorBox;
     control2.isIndicatorTop = NO;
     control2.segmentEdgeInset = UIEdgeInsetsMake(0, 6, 0, 6);
     control2.center = CGPointMake(160, 120);

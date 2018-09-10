@@ -8,20 +8,34 @@
 
 #import <UIKit/UIKit.h>
 
-enum BN_IndicatorMode {
+static NSString * kItemTitle = @"kItemTitle";
+static NSString * kItemImg_N = @"kItemImg_N";
+static NSString * kItemImg_H = @"kItemImg_H";
+
+enum BN_IndicatorSizeMode {
     BN_IndicatorSizeToString = 0, // Indicator width will only be as big as the text width
-    BN_IndicatorFillsSegment = 1, // Indicator width will fill the whole segment
+    BN_IndicatorSizeToFill = 1, // Indicator width will fill the whole segment
     
 };
+
+enum BN_IndicatorMode {
+    BN_IndicatorDefault = 0, // Indicator width will only be as big as the text width
+    BN_IndicatorBox = 1, // Indicator width will fill the whole segment
+    
+};
+
 
 @interface BN_SegmentedControl : UIControl
 
 @property (nonatomic, strong) NSArray *list;
+@property (nonatomic, strong) NSDictionary *dict;
 
 @property (nonatomic, strong) UIFont *font; // default is [UIFont fontWithName:@"Avenir-Light" size:19.0f]
 @property (nonatomic, strong) UIColor *textColor; // default is [UIColor blackColor]
+@property (nonatomic, strong) UIColor *textColor_H;
 @property (nonatomic, strong) UIColor *backgroundColor; // default is [UIColor whiteColor]
 @property (nonatomic, strong) UIColor *indicatorColor; // default is 52, 181, 229
+@property (nonatomic, assign) enum BN_IndicatorSizeMode indicatorSizeMode; // Default is HMSelectionIndicatorResizesToStringWidth
 @property (nonatomic, assign) enum BN_IndicatorMode indicatorMode; // Default is HMSelectionIndicatorResizesToStringWidth
 
 @property (nonatomic, assign) BOOL isIndicatorTop;
@@ -33,7 +47,6 @@ enum BN_IndicatorMode {
 
 @property (nonatomic, copy) void (^block)(BN_SegmentedControl * view,NSUInteger index); // you can also use addTarget:action:forControlEvents:
 
-- (id)initWithSectionTitles:(NSArray *)sectiontitles;
 - (void)setSelectedIndex:(NSUInteger)index animated:(BOOL)animated;
 //
 
