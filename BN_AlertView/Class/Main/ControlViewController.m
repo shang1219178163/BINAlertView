@@ -22,16 +22,21 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-    BN_SegmentedControl *control = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 40, 300, 40)];
-    control.list = @[@"Library", @"Trending", @"News"];
+    BN_SegmentedControl *control = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 40, kScreen_width - 20, 40)];
+    control.titles = @[@"Library", @"Trending", @"News"];
     control.tag = 1;
     control.isIndicatorTop = YES;
     [control addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:control];
     
     
-    BN_SegmentedControl *control2 = [[BN_SegmentedControl alloc] init];
-    control2.list = @[@"One", @"Two", @"Three", @"4", @"Five"];
+    BN_SegmentedControl *control2 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(0, 100, kScreen_width, 50)];
+    control2.titles = @[@"One", @"Two", @"Three", @"4", @"Five", @"Six",
+                        @"Seven",@"Eight",@"Nine",@"Ten",@"eleven",@"twelve",
+                        @"thirteen",@"fourteen",@"fifteen",@"sixteen",@"seventeen",
+                        @"eighteen",@"nineteen",@"twenty",@"twenty-one",@"twenty-two",
+                        @"twenty-three",@"twenty-four",@"twenty-five",@"twenty-six",@"twenty-seven",
+                        @"twenty-eight",@"twenty-nine",@"thirty"];
     control2.block = ^(BN_SegmentedControl *view, NSUInteger index) {
         NSLog(@"Selected index %lu (via block)", (unsigned long)index);
         
@@ -50,24 +55,80 @@
     control2.indicatorColor = kC_HEX(0x34495e);
     
 //    control2.indicatorSizeMode = BN_IndicatorSizeToFill;
-    control2.indicatorMode = BN_IndicatorBox;
+//    control2.indicatorMode = BN_IndicatorBox;
     control2.isIndicatorTop = NO;
-    control2.segmentEdgeInset = UIEdgeInsetsMake(0, 6, 0, 6);
-    control2.center = CGPointMake(160, 120);
+    control2.isScroll = YES;
+//    control2.segmentEdgeInset = UIEdgeInsetsMake(0, 6, 0, 6);
+    control2.center = CGPointMake((kScreen_width)/2, 120);
     control2.tag = 2;
     [self.view addSubview:control2];
     
     
     
-    BN_SegmentedControl *control3 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 200, 300, 50)];
+    BN_SegmentedControl *control3 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 150, kScreen_width - 20, 50)];
     NSLog(@"!!!framY:%.2f,    H:%.2f",control3.frame.origin.y,control3.frame.size.height);
-    control3.list = @[@"Worldwide", @"Local", @"Headlines"];
+    control3.titles = @[@"Worldwide", @"Local", @"Headlines"];
     control3.selectedIndex = 1;
     control3.backgroundColor = UIColor.lightGrayColor;
     control3.textColor = UIColor.whiteColor;
     control3.indicatorColor = UIColor.blackColor;
     control3.tag = 3;
     [self.view addSubview:control3];
+    
+    
+    NSArray *titles = @[@"1", @"2222", @"33333", @"4"];
+    NSArray *images = @[@"1",@"2",@"3",@"4"];
+    NSArray *selectedImages = @[@"1-selected",@"2-selected",@"3-selected",@"4-selected"];
+
+    
+    BN_SegmentedControl *control4 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 220, kScreen_width - 20, 50)];
+    control4.titles = titles;
+    control4.images = images;
+    control4.selectedImages = selectedImages;
+
+    control4.type = BN_ControlTypeTextImage;
+    control4.iconMode = BN_ImgTypeRight;
+
+    control4.indicatorMode = BN_IndicatorBox;
+
+    control4.backgroundColor = kC_HEX(0x3498db);
+    control4.textColor = UIColor.whiteColor;
+    control4.textColor_H = kC_HEX(0x34495e);
+    control4.textColor_H = UIColor.redColor;
+
+    control4.indicatorColor = kC_HEX(0x34495e);
+    
+    control4.tag = 1;
+    control4.isIndicatorTop = YES;
+    [control4 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:control4];
+    
+    NSArray *titles5 = @[@"1", @"2222", @"33333", @"4"];
+    NSArray *images5 = @[@"1",@"2",@"3",@"4"];
+    NSArray *selectedImages5 = @[@"1-selected",@"2-selected",@"3-selected",@"4-selected"];
+    
+    BN_SegmentedControl *control5 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 300, kScreen_width - 20, 50)];
+    control5.titles = titles5;
+    control5.images = images5;
+    control5.selectedImages = selectedImages5;
+    
+    control5.type = BN_ControlTypeTextImage;
+//    control5.iconMode = BN_ImgTypeRight;
+    control5.imgSize = CGSizeMake(35, 35);
+    
+    control5.indicatorMode = BN_IndicatorBox;
+    
+    control5.backgroundColor = kC_HEX(0x3498db);
+    control5.textColor = UIColor.whiteColor;
+    control5.textColor_H = kC_HEX(0x34495e);
+    control5.textColor_H = UIColor.redColor;
+    
+    control5.indicatorColor = kC_HEX(0x34495e);
+    
+    control5.tag = 1;
+    control5.isIndicatorTop = YES;
+    [control5 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:control5];
     
     [self.view getViewLayer];
 }
