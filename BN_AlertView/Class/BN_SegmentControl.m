@@ -1,12 +1,12 @@
 //
-//  BN_SegmentedControl.m
-//  BN_SegmentedControl
+//  BN_SegmentControl.m
+//  BN_SegmentControl
 //
 //  Created by Hesham Abd-Elmegid on 23/12/12.
 //  Copyright (c) 2012 Hesham Abd-Elmegid. All rights reserved.
 //
 
-#import "BN_SegmentedControl.h"
+#import "BN_SegmentControl.h"
 #import <QuartzCore/QuartzCore.h>
 
 #import "CALayer+Helper.h"
@@ -15,7 +15,7 @@
 @interface HMScrollView : UIScrollView
 @end
 
-@interface BN_SegmentedControl ()<UIScrollViewDelegate>
+@interface BN_SegmentControl ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) CALayer *indicatorLayer;
 
@@ -63,7 +63,7 @@
 @end
 
 
-@implementation BN_SegmentedControl
+@implementation BN_SegmentControl
 
 
 -(HMScrollView *)scrollView{

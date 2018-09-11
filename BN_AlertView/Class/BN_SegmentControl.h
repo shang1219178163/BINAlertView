@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, BN_ImgType) {
     BN_ImgTypeRight,
 };
 
-@interface BN_SegmentedControl : UIControl
+@interface BN_SegmentControl : UIControl
 
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) NSArray *images;
@@ -64,7 +64,7 @@ typedef NS_ENUM(NSInteger, BN_ImgType) {
 @property (nonatomic, assign) UIEdgeInsets segmentEdgeInset; // default is UIEdgeInsetsMake(0, 5, 0, 5)
 @property (nonatomic, assign) CGSize imgSize; // default is 32.0
 
-@property (nonatomic, copy) void (^block)(BN_SegmentedControl * view,NSUInteger index); // you can also use addTarget:action:forControlEvents:
+@property (nonatomic, copy) void (^block)(BN_SegmentControl * view,NSUInteger index); // you can also use addTarget:action:forControlEvents:
 
 - (void)setSelectedIndex:(NSUInteger)index animated:(BOOL)animated;
 //

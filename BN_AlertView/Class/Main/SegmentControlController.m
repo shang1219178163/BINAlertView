@@ -1,20 +1,20 @@
 //
-//  ControlViewController.m
+//  SegmentControlController.m
 //  BN_AlertView
 //
 //  Created by hsf on 2018/9/10.
 //  Copyright © 2018年 SouFun. All rights reserved.
 //
 
-#import "ControlViewController.h"
+#import "SegmentControlController.h"
 
-#import "BN_SegmentedControl.h"
+#import "BN_SegmentControl.h"
 
-@interface ControlViewController ()
+@interface SegmentControlController ()
 
 @end
 
-@implementation ControlViewController
+@implementation SegmentControlController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,7 +22,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-    BN_SegmentedControl *control = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 40, kScreen_width - 20, 40)];
+    BN_SegmentControl *control = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 40, kScreen_width - 20, 40)];
     control.titles = @[@"Library", @"Trending", @"News"];
     control.tag = 1;
     control.isIndicatorTop = YES;
@@ -30,14 +30,14 @@
     [self.view addSubview:control];
     
     
-    BN_SegmentedControl *control2 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(0, 100, kScreen_width, 50)];
+    BN_SegmentControl *control2 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(0, 100, kScreen_width, 50)];
     control2.titles = @[@"One", @"Two", @"Three", @"4", @"Five", @"Six",
                         @"Seven",@"Eight",@"Nine",@"Ten",@"eleven",@"twelve",
                         @"thirteen",@"fourteen",@"fifteen",@"sixteen",@"seventeen",
                         @"eighteen",@"nineteen",@"twenty",@"twenty-one",@"twenty-two",
                         @"twenty-three",@"twenty-four",@"twenty-five",@"twenty-six",@"twenty-seven",
                         @"twenty-eight",@"twenty-nine",@"thirty"];
-    control2.block = ^(BN_SegmentedControl *view, NSUInteger index) {
+    control2.block = ^(BN_SegmentControl *view, NSUInteger index) {
         NSLog(@"Selected index %lu (via block)", (unsigned long)index);
         
     };
@@ -65,7 +65,7 @@
     
     
     
-    BN_SegmentedControl *control3 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 150, kScreen_width - 20, 50)];
+    BN_SegmentControl *control3 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 150, kScreen_width - 20, 50)];
     NSLog(@"!!!framY:%.2f,    H:%.2f",control3.frame.origin.y,control3.frame.size.height);
     control3.titles = @[@"Worldwide", @"Local", @"Headlines"];
     control3.selectedIndex = 1;
@@ -81,7 +81,7 @@
     NSArray *selectedImages = @[@"1-selected",@"2-selected",@"3-selected",@"4-selected"];
 
     
-    BN_SegmentedControl *control4 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 220, kScreen_width - 20, 50)];
+    BN_SegmentControl *control4 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 220, kScreen_width - 20, 50)];
     control4.titles = titles;
     control4.images = images;
     control4.selectedImages = selectedImages;
@@ -107,7 +107,7 @@
     NSArray *images5 = @[@"1",@"2",@"3",@"4"];
     NSArray *selectedImages5 = @[@"1-selected",@"2-selected",@"3-selected",@"4-selected"];
     
-    BN_SegmentedControl *control5 = [[BN_SegmentedControl alloc] initWithFrame:CGRectMake(10, 300, kScreen_width - 20, 50)];
+    BN_SegmentControl *control5 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 300, kScreen_width - 20, 50)];
     control5.titles = titles5;
     control5.images = images5;
     control5.selectedImages = selectedImages5;
@@ -133,7 +133,7 @@
     [self.view getViewLayer];
 }
 
-- (void)segmentedControlChangedValue:(BN_SegmentedControl *)segmentedControl {
+- (void)segmentedControlChangedValue:(BN_SegmentControl *)segmentedControl {
     NSLog(@"Selected index %i (via UIControlEventValueChanged)", segmentedControl.selectedIndex);
 }
 
