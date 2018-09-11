@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString * kItemTitle = @"kItemTitle";
-static NSString * kItemImg_N = @"kItemImg_N";
-static NSString * kItemImg_H = @"kItemImg_H";
-
-
 typedef NS_ENUM(NSInteger,BN_IndicatorSizeMode) {
     BN_IndicatorSizeToString = 0,
     BN_IndicatorSizeToFill = 1
