@@ -11,6 +11,7 @@
 
 #import "CALayer+Helper.h"
 #import "CATextLayer+Helper.h"
+#import "CATransaction+Helper.h"
 
 @interface HMScrollView : UIScrollView
 @end
@@ -524,19 +525,30 @@
         // Restore CALayer animations
         self.indicatorLayer.actions = nil;
         
-        [CATransaction begin];
-        [CATransaction setAnimationDuration:0.5f];
-        [CATransaction setCompletionBlock:^{
-
+        [CATransaction animationDuration:0.35 animations:^{
+            self.indicatorLayer.frame = [self updateFrameForIndicator];
+            [self updateSelectedItemWithIndex:index];
+            
+        } completion:^{
             if (self.superview)
                 [self sendActionsForControlEvents:UIControlEventValueChanged];
             
             if (self.block)
                 self.block(self,index);
         }];
-        self.indicatorLayer.frame = [self updateFrameForIndicator];
-        [self updateSelectedItemWithIndex:index];
-        [CATransaction commit];
+//        [CATransaction begin];
+//        [CATransaction setAnimationDuration:0.5f];
+//        [CATransaction setCompletionBlock:^{
+//
+//            if (self.superview)
+//                [self sendActionsForControlEvents:UIControlEventValueChanged];
+//
+//            if (self.block)
+//                self.block(self,index);
+//        }];
+//        self.indicatorLayer.frame = [self updateFrameForIndicator];
+//        [self updateSelectedItemWithIndex:index];
+//        [CATransaction commit];
     } else {
         // Disable CALayer animations
         NSDictionary * actionDic = @{

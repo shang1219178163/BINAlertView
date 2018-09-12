@@ -44,6 +44,8 @@
 		512861DC1F95AD6E00CD1372 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861D11F95AD6D00CD1372 /* ViewController+MASAdditions.m */; };
 		512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512861DE1F95ADBC00CD1372 /* MainNewViewController.m */; };
 		513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */; };
+		51689FD8214894C800320D5B /* CATransition+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51689FD7214894C800320D5B /* CATransition+Helper.m */; };
+		51689FDB2148955F00320D5B /* CATransaction+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 51689FDA2148955F00320D5B /* CATransaction+Helper.m */; };
 		51698C70213775C70069C2B2 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C63213775C70069C2B2 /* NSString+Base64.m */; };
 		51698C71213775C70069C2B2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 51698C64213775C70069C2B2 /* LICENSE */; };
 		51698C72213775C70069C2B2 /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C65213775C70069C2B2 /* AESCrypt.m */; };
@@ -278,6 +280,10 @@
 		512861DD1F95ADBC00CD1372 /* MainNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNewViewController.h; sourceTree = "<group>"; };
 		512861DE1F95ADBC00CD1372 /* MainNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNewViewController.m; sourceTree = "<group>"; };
 		513F8C7F1F430B680031C8C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		51689FD6214894C800320D5B /* CATransition+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransition+Helper.h"; sourceTree = "<group>"; };
+		51689FD7214894C800320D5B /* CATransition+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransition+Helper.m"; sourceTree = "<group>"; };
+		51689FD92148955F00320D5B /* CATransaction+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransaction+Helper.h"; sourceTree = "<group>"; };
+		51689FDA2148955F00320D5B /* CATransaction+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransaction+Helper.m"; sourceTree = "<group>"; };
 		51698C63213775C70069C2B2 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		51698C64213775C70069C2B2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		51698C65213775C70069C2B2 /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
@@ -924,6 +930,10 @@
 				51D0703521467158006925BB /* CATextLayer+Helper.m */,
 				51D07037214674DA006925BB /* CALayer+Helper.h */,
 				51D07038214674DA006925BB /* CALayer+Helper.m */,
+				51689FD6214894C800320D5B /* CATransition+Helper.h */,
+				51689FD7214894C800320D5B /* CATransition+Helper.m */,
+				51689FD92148955F00320D5B /* CATransaction+Helper.h */,
+				51689FDA2148955F00320D5B /* CATransaction+Helper.m */,
 				5186C790211A9BFE005DC075 /* MBProgressHUD+Helper.h */,
 				5186C79B211A9C01005DC075 /* MBProgressHUD+Helper.m */,
 				5186C771211A9BF7005DC075 /* NSArray+Helper.h */,
@@ -1449,7 +1459,9 @@
 				5186C7DF211A9D1E005DC075 /* Utilities.m in Sources */,
 				517C2408206B998C00149016 /* BINTabBarView.m in Sources */,
 				516CFD4C20B7BB260029C40D /* BN_AlertViewTwo.m in Sources */,
+				51689FDB2148955F00320D5B /* CATransaction+Helper.m in Sources */,
 				5186C7C5211A9C03005DC075 /* UITableViewCell+Helper.m in Sources */,
+				51689FD8214894C800320D5B /* CATransition+Helper.m in Sources */,
 				5186C743211A9B0B005DC075 /* UIImage+MultiFormat.m in Sources */,
 				5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */,
 				5186C7C1211A9C03005DC075 /* NSDateFormatter+Helper.m in Sources */,
