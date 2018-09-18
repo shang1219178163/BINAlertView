@@ -9,14 +9,14 @@
 
 #import "CATransition+Helper.h"
 
-NSString * const kCATransitionCube = @"cube";
-NSString * const kCATransitionSuckEffect = @"suckEffect";
-NSString * const kCATransitionOglFlip = @"oglFlip";
-NSString * const kCATransitionRippleEffect = @"rippleEffect";
-NSString * const kCATransitionPageCurl = @"pageCurl";
-NSString * const kCATransitionPageUnCurl = @"pageUnCurl";
-NSString * const kCATransitionCameraIrisHollowOpen = @"cameraIrisHollowOpen";
-NSString * const kCATransitionCameraIrisHollowClose = @"cameraIrisHollowClose";
+//NSString * const kCATransitionCube = @"cube";
+//NSString * const kCATransitionSuckEffect = @"suckEffect";
+//NSString * const kCATransitionOglFlip = @"oglFlip";
+//NSString * const kCATransitionRippleEffect = @"rippleEffect";
+//NSString * const kCATransitionPageCurl = @"pageCurl";
+//NSString * const kCATransitionPageUnCurl = @"pageUnCurl";
+//NSString * const kCATransitionCameraIrisHollowOpen = @"cameraIrisHollowOpen";
+//NSString * const kCATransitionCameraIrisHollowClose = @"cameraIrisHollowClose";
 
 @implementation CATransition (Helper)
 

@@ -26,7 +26,7 @@
 
 #import "NextViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController ()<UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, strong) NSArray *itemList;
 @property (nonatomic, strong) NSDictionary *dict;
@@ -181,6 +181,19 @@
     
     
 }
+-(void)openDocument:(NSString *)fileName{
+    
+    NSArray *fileNameList = [fileName componentsSeparatedByString:@"."];
+    NSString * filePath = [NSBundle.mainBundle pathForResource:fileNameList.firstObject ofType:fileNameList.lastObject];
+    
+    UIDocumentInteractionController * documentController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:filePath]];
+    documentController.delegate = self;
+    
+    documentController.UTI = @"com.adobe.pdf";//You need to set the UTI (Uniform Type Identifiers) for the documentController object so that it can help the system find the appropriate application to open your document. In this case, it is set to “com.adobe.pdf”, which represents a PDF document. Other common UTIs are "com.apple.quicktime-movie" (QuickTime movies), "public.html" (HTML documents), and "public.jpeg" (JPEG files)
+    
+    [documentController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
+    
+}
 
 
 - (void)addRightBtn {
@@ -195,18 +208,6 @@
     
 }
 
-- (void)addBtnLaunchDialog{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setFrame:CGRectMake(10, 80, self.view.bounds.size.width-20, 50)];
-    [btn addTarget:self action:@selector(launchDialog:) forControlEvents:UIControlEventTouchDown];
-    [btn setTitle:@"Launch Dialog" forState:UIControlStateNormal];
-    [btn setBackgroundColor:[UIColor whiteColor]];
-    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [btn.layer setBorderWidth:0];
-    [btn.layer setCornerRadius:5];
-    [self.view addSubview:btn];
-
-}
 
 //createSpeakStartView
 -(UIView *)createStarsWithStarCount:(NSInteger)starCount hasGesture:(BOOL)hasGesture target:(id)target aSelector:(SEL)aSelector{
