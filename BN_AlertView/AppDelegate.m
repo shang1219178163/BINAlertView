@@ -17,6 +17,8 @@
     // Override point for customization after application launch.
     NSString * controlName = @"MainViewController";
 //    controlName = @"SegmentControlController";
+    controlName = @"AnimationController";
+
     
     [UIApplication setupRootControllerName:controlName];
     

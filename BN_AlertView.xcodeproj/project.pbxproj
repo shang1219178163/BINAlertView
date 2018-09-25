@@ -54,6 +54,8 @@
 		51698C75213775C70069C2B2 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C6E213775C70069C2B2 /* NSData+CommonCrypto.m */; };
 		51698C76213775C70069C2B2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C6F213775C70069C2B2 /* NSData+Base64.m */; };
 		51698C7921378BCA0069C2B2 /* BN_AlertViewZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 51698C7821378BCA0069C2B2 /* BN_AlertViewZero.m */; };
+		5169D6962153164500007AF7 /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5169D6952153164500007AF7 /* AnimationController.m */; };
+		5169D699215324A800007AF7 /* CAShapeLayer+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5169D698215324A800007AF7 /* CAShapeLayer+Helper.m */; };
 		516CFD4920B7BAEA0029C40D /* BN_AlertViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */; };
 		516CFD4C20B7BB260029C40D /* BN_AlertViewTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 516CFD4B20B7BB260029C40D /* BN_AlertViewTwo.m */; };
 		516E87D72064A00D0037C75B /* BINGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E87D62064A00D0037C75B /* BINGroupView.m */; };
@@ -299,6 +301,10 @@
 		51698C6F213775C70069C2B2 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		51698C7721378BCA0069C2B2 /* BN_AlertViewZero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewZero.h; sourceTree = "<group>"; };
 		51698C7821378BCA0069C2B2 /* BN_AlertViewZero.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertViewZero.m; sourceTree = "<group>"; };
+		5169D6942153164500007AF7 /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
+		5169D6952153164500007AF7 /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
+		5169D697215324A800007AF7 /* CAShapeLayer+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAShapeLayer+Helper.h"; sourceTree = "<group>"; };
+		5169D698215324A800007AF7 /* CAShapeLayer+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+Helper.m"; sourceTree = "<group>"; };
 		516CFD4720B7BAEA0029C40D /* BN_AlertViewOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewOne.h; sourceTree = "<group>"; };
 		516CFD4820B7BAEA0029C40D /* BN_AlertViewOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_AlertViewOne.m; sourceTree = "<group>"; };
 		516CFD4A20B7BB260029C40D /* BN_AlertViewTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewTwo.h; sourceTree = "<group>"; };
@@ -926,10 +932,12 @@
 			isa = PBXGroup;
 			children = (
 				5186C785211A9BFC005DC075 /* CategoryHeader.h */,
-				51D0703421467158006925BB /* CATextLayer+Helper.h */,
-				51D0703521467158006925BB /* CATextLayer+Helper.m */,
 				51D07037214674DA006925BB /* CALayer+Helper.h */,
 				51D07038214674DA006925BB /* CALayer+Helper.m */,
+				5169D697215324A800007AF7 /* CAShapeLayer+Helper.h */,
+				5169D698215324A800007AF7 /* CAShapeLayer+Helper.m */,
+				51D0703421467158006925BB /* CATextLayer+Helper.h */,
+				51D0703521467158006925BB /* CATextLayer+Helper.m */,
 				51689FD6214894C800320D5B /* CATransition+Helper.h */,
 				51689FD7214894C800320D5B /* CATransition+Helper.m */,
 				51689FD92148955F00320D5B /* CATransaction+Helper.h */,
@@ -1203,6 +1211,8 @@
 				51862E4A20BB8F3F0080BD4E /* DesignPatternsController.m */,
 				51D0702421465EA7006925BB /* SegmentControlController.h */,
 				51D0702521465EA7006925BB /* SegmentControlController.m */,
+				5169D6942153164500007AF7 /* AnimationController.h */,
+				5169D6952153164500007AF7 /* AnimationController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1427,6 +1437,7 @@
 				517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */,
 				34098D4C19EF965C006806A6 /* MainViewController.m in Sources */,
 				5186C742211A9B0B005DC075 /* UIImage+GIF.m in Sources */,
+				5169D699215324A800007AF7 /* CAShapeLayer+Helper.m in Sources */,
 				5186C7FA211A9EB0005DC075 /* MJExtensionConst.m in Sources */,
 				5186C7A8211A9C03005DC075 /* NSDate+Helper.m in Sources */,
 				51D07039214674DA006925BB /* CALayer+Helper.m in Sources */,
@@ -1448,6 +1459,7 @@
 				51D0702021465E24006925BB /* UIImageView+CornerRadius.m in Sources */,
 				5186C7B6211A9C03005DC075 /* UIButton+EdgeInsets.m in Sources */,
 				51698C70213775C70069C2B2 /* NSString+Base64.m in Sources */,
+				5169D6962153164500007AF7 /* AnimationController.m in Sources */,
 				5186C7F9211A9EB0005DC075 /* NSObject+MJCoding.m in Sources */,
 				5186C7FE211A9EB0005DC075 /* MJPropertyKey.m in Sources */,
 				5186C807211A9F2A005DC075 /* FLAnimatedImageView.m in Sources */,
