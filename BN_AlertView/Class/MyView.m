@@ -16,7 +16,7 @@
 
 #define kX_GAP_OF_WINDOW 15//距离window边界
 
-#define kXY_GAP 10//self上子视图边界
+#define kX_GAP 10//self上子视图边界
 
 #define kFONTSIZE 15
 
@@ -123,7 +123,7 @@
     [UIView animateWithDuration:0.15 delay:0.0 options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.transform = CGAffineTransformIdentity;
-                         self.backgroundColor = [UIColor whiteColor];
+                         self.backgroundColor = UIColor.whiteColor;
                          
                          [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
                          
@@ -141,7 +141,7 @@
 
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 6 ;
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.layer.borderColor = UIColor.whiteColor.CGColor;
         self.layer.borderWidth = 1.0 ;
         
         
@@ -152,12 +152,12 @@
         /*
         if (title != nil) {
             
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, 25) text:@"11111" tag:101 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP, self.frame.size.width - kX_GAP * 2, 25) text:@"11111" tag:101 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         if (msg != nil) {
             
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + 25+5, self.frame.size.width - kXY_GAP * 2, 25) text:@"2222" tag:102 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP + 25+5, self.frame.size.width - kX_GAP * 2, 25) text:@"2222" tag:102 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         if (customeView != nil) {
@@ -173,11 +173,11 @@
 
         */
         CGSize  titleSize = CGSizeZero;
-        CGFloat maxWidth = kScreen_width - (kX_GAP_OF_WINDOW + kXY_GAP)*2;
+        CGFloat maxWidth = kScreen_width - (kX_GAP_OF_WINDOW + kX_GAP)*2;
         if (title != nil) {
             
             titleSize = [self sizeWithText:title font:@(kFONTSIZE) width:maxWidth];
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:title tag:101 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP, self.frame.size.width - kX_GAP * 2, kH_LABLE) text:title tag:101 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         
@@ -191,21 +191,21 @@
             }
             
             customeViewSize = customeView.frame.size;
-            customeView.frame = CGRectMake(0, kXY_GAP + titleSize.height + 5,CGRectGetWidth(self.frame), CGRectGetHeight(customeView.frame));
+            customeView.frame = CGRectMake(0, kX_GAP + titleSize.height + 5,CGRectGetWidth(self.frame), CGRectGetHeight(customeView.frame));
 
 //            customeViewSize = customeView.frame.size;
-//            if (customeView.frame.size.width < self.frame.size.width - kXY_GAP * 2) {
+//            if (customeView.frame.size.width < self.frame.size.width - kX_GAP * 2) {
 //                
-//                customeView.frame = CGRectMake((self.frame.size.width - customeView.frame.size.width)/2, kXY_GAP + titleSize.height + 5, customeView.frame.size.width, customeView.frame.size.height);
+//                customeView.frame = CGRectMake((self.frame.size.width - customeView.frame.size.width)/2, kX_GAP + titleSize.height + 5, customeView.frame.size.width, customeView.frame.size.height);
 //
 //            }else{
-//                customeView.frame = CGRectMake(kXY_GAP, kXY_GAP + titleSize.height + 5, self.frame.size.width - kXY_GAP * 2, customeView.frame.size.height);
+//                customeView.frame = CGRectMake(kX_GAP, kX_GAP + titleSize.height + 5, self.frame.size.width - kX_GAP * 2, customeView.frame.size.height);
 //            }
             [self addSubview:customeView];
         }else{
             
             msgSize = [self sizeWithText:msg font:@(kFONTSIZE) width:maxWidth];
-            [self addLabelWithRect:CGRectMake(kXY_GAP, kXY_GAP + kH_LABLE + 5, self.frame.size.width - kXY_GAP * 2, kH_LABLE) text:msg tag:102 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP + kH_LABLE + 5, self.frame.size.width - kX_GAP * 2, kH_LABLE) text:msg tag:102 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
 
         }
         
@@ -218,14 +218,14 @@
             
             if (customeView != nil) {
                 
-                self.frame = CGRectMake(0, 0, self.frame.size.width,kXY_GAP + titleSize.height + 5 + customeViewSize.height + btnSize.height);
+                self.frame = CGRectMake(0, 0, self.frame.size.width,kX_GAP + titleSize.height + 5 + customeViewSize.height + btnSize.height);
                 
                 CGFloat maxHeight = kScreen_height - 64 * 2;
                 if (CGRectGetHeight(self.frame) > maxHeight) {
                     
                     self.frame = CGRectMake(0, 0, self.frame.size.width,maxHeight);
 
-                    customeView.frame = CGRectMake(CGRectGetMinX(customeView.frame), CGRectGetMinY(customeView.frame),CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - (kXY_GAP * 2 + kH_LABLE + kH_BTN));
+                    customeView.frame = CGRectMake(CGRectGetMinX(customeView.frame), CGRectGetMinY(customeView.frame),CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - (kX_GAP * 2 + kH_LABLE + kH_BTN));
                     
                     customeView.clipsToBounds = YES;
                     for (UIView * view in customeView.subviews) {
@@ -241,7 +241,7 @@
 
             }else{
                 
-                self.frame = CGRectMake(0, 0, self.frame.size.width,kXY_GAP + titleSize.height + 5 + msgSize.height + btnSize.height);
+                self.frame = CGRectMake(0, 0, self.frame.size.width,kX_GAP + titleSize.height + 5 + msgSize.height + btnSize.height);
             }
             
             
@@ -252,7 +252,7 @@
             
         }
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UIColor.whiteColor;
         self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
         
         self.delegate = delegate;//代理

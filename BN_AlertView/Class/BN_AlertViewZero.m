@@ -42,7 +42,7 @@ static const CGFloat padding = 10;
 }
 
 -(CGFloat)maxWidth{
-    CGFloat width = kScreen_width - kX_GAP_OF_WINDOW * 2 - kXY_GAP*2;
+    CGFloat width = kScreen_width - kX_GAP_OF_WINDOW * 2 - kX_GAP*2;
     return width;
 }
 
@@ -66,7 +66,7 @@ static const CGFloat padding = 10;
         
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 8 ;
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.layer.borderColor = UIColor.whiteColor.CGColor;
         self.layer.borderWidth = 1.0 ;
         
         if (CGRectEqualToRect(self.frame, CGRectZero)) {
@@ -76,24 +76,24 @@ static const CGFloat padding = 10;
         CGFloat maxWidth = self.maxWidth;
         CGFloat maxHeight = self.maxHeight;
         
-        CGRect labelRectTitle = CGRectMake(kXY_GAP, kXY_GAP, maxWidth, kH_LABEL);
+        CGRect labelRectTitle = CGRectMake(kX_GAP, kX_GAP, maxWidth, kH_LABEL);
         CGSize msgSize = CGSizeZero;
         CGRect msgRect = CGRectZero;
         CGSize customeViewSize = CGSizeZero;
         
         if (title != nil) {
-            UILabel * lableTitle = [UIView createLabelWithRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_First backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+            UILabel * lableTitle = [UIView createLabelWithRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_First backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
             [self addSubview:lableTitle];
             self.labTitle = lableTitle;
             
         }else{
-            labelRectTitle = CGRectMake(kXY_GAP, kXY_GAP, maxWidth, 0);
+            labelRectTitle = CGRectMake(kX_GAP, kX_GAP, maxWidth, 0);
             self.labTitle.frame = labelRectTitle;
         }
         
         if (customView != nil) {
             customeViewSize = CGSizeMake(maxWidth, CGRectGetHeight(customView.frame) < maxHeight ? CGRectGetHeight(customView.frame) : maxHeight);
-            customView.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(labelRectTitle)+padding, customeViewSize.width, customeViewSize.height);
+            customView.frame = CGRectMake(kX_GAP, CGRectGetMaxY(labelRectTitle)+padding, customeViewSize.width, customeViewSize.height);
             for (UIView * view in customView.subviews) {
                 CGRect rect = view.frame;
                 if (rect.size.width > CGRectGetWidth(customView.frame)) {
@@ -107,7 +107,7 @@ static const CGFloat padding = 10;
             self.customView = customView;
             //            self.customView.clipsToBounds = YES;
             
-            CGFloat topYGap = title ? CGRectGetMaxY(self.labTitle.frame) : kXY_GAP;
+            CGFloat topYGap = title ? CGRectGetMaxY(self.labTitle.frame) : kX_GAP;
             self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), topYGap+CGRectGetHeight(customView.frame) + kH_BTN + padding*2);
             
         }else{
@@ -149,7 +149,7 @@ static const CGFloat padding = 10;
             self.textView.center = self.center;
             self.textView.textAlignment = NSTextAlignmentCenter;
         }
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UIColor.whiteColor;
         self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
         //        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
         //        self.center = CGPointMake(center.x, center.y*2/3);
@@ -180,30 +180,30 @@ static const CGFloat padding = 10;
             if (i != btnCount - 1) {
                 //右边框
                 CALayer * rightLayer = [CALayer layer];
-                rightLayer.frame = CGRectMake((btn.bounds.size.width - kW_LayerBorderWidth), 0, kW_LayerBorderWidth, btn.bounds.size.height);
-                rightLayer.backgroundColor = kC_LineColor.CGColor;
+                rightLayer.frame = CGRectMake((btn.bounds.size.width - kW_LayerBorder), 0, kW_LayerBorder, btn.bounds.size.height);
+                rightLayer.backgroundColor = UIColor.lineColor.CGColor;
                 [btn.layer addSublayer:rightLayer];
                 
             }
             
-            UIColor *borderColor = kC_LineColor;
+            UIColor *borderColor = UIColor.lineColor;
             //上边框
             CALayer * topLayer = [CALayer layer];
-            topLayer.frame = CGRectMake(0, 0, btn.bounds.size.width, kW_LayerBorderWidth);
+            topLayer.frame = CGRectMake(0, 0, btn.bounds.size.width, kW_LayerBorder);
             topLayer.backgroundColor = borderColor.CGColor;
             [btn.layer addSublayer:topLayer];
             //                //左边框
             //                CALayer * leftLayer = [CALayer layer];
-            //                leftLayer.frame = CGRectMake(0, 0, kW_LayerBorderWidth, btn.bounds.size.height);
+            //                leftLayer.frame = CGRectMake(0, 0, kW_LayerBorder, btn.bounds.size.height);
             //                leftLayer.backgroundColor = borderColor.CGColor;
             //                [btn.layer addSublayer:leftLayer];
             //                //下边框
             //                CALayer * bottomLayer = [CALayer layer];
-            //                bottomLayer.frame = CGRectMake(0, (btn.bounds.size.height - kW_LayerBorderWidth), btn.bounds.size.width, kW_LayerBorderWidth);
+            //                bottomLayer.frame = CGRectMake(0, (btn.bounds.size.height - kW_LayerBorder), btn.bounds.size.width, kW_LayerBorder);
             //                bottomLayer.backgroundColor = borderColor.CGColor;
             //                //右边框
             //                CALayer * rightLayer = [CALayer layer];
-            //                rightLayer.frame = CGRectMake((btn.bounds.size.width - kW_LayerBorderWidth), 0, kW_LayerBorderWidth, btn.bounds.size.height);
+            //                rightLayer.frame = CGRectMake((btn.bounds.size.width - kW_LayerBorder), 0, kW_LayerBorder, btn.bounds.size.height);
             //                rightLayer.backgroundColor = borderColor.CGColor;
             //                [btn.layer addSublayer:rightLayer];
         }
@@ -218,7 +218,7 @@ static const CGFloat padding = 10;
     
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.transform = CGAffineTransformIdentity;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UIColor.whiteColor;
         [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
     } completion:^(BOOL finished) {
         if(self.btnMarr.count == 0){

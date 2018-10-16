@@ -36,7 +36,7 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = UIColor.whiteColor;
     
     self.itemList = @[
                       @{

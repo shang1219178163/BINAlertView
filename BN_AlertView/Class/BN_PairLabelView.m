@@ -67,8 +67,8 @@
         _labOne = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectZero];
             lab.font = [UIFont systemFontOfSize:16];
-            //            lab.textColor = [UIColor whiteColor];
-            //            lab.backgroundColor = kC_ThemeCOLOR;
+            //            lab.textColor = UIColor.whiteColor;
+            //            lab.backgroundColor = UIColor.themeColor;
             
             lab.numberOfLines = 0;
             lab.lineBreakMode = NSLineBreakByCharWrapping;
@@ -87,7 +87,7 @@
         _labTwo = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectZero];
             lab.font = [UIFont systemFontOfSize:16];
-            //            lab.textColor = [UIColor whiteColor];
+            //            lab.textColor = UIColor.whiteColor;
             //            lab.backgroundColor = [UIColor orangeColor];
             
             lab.numberOfLines = 0;

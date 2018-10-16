@@ -1,0 +1,61 @@
+PODS:
+  - AESCrypt-ObjC (1.0.2)
+  - BN_Category (1.1.6):
+    - AESCrypt-ObjC
+    - BN_Globle
+    - BN_Kit
+    - FLAnimatedImage
+    - GTMBase64
+    - MBProgressHUD
+    - MJExtension
+    - SDWebImage
+    - Toast
+    - YYModel
+  - BN_Globle (1.1.3)
+  - BN_Kit (1.1.7):
+    - BN_Globle
+  - FLAnimatedImage (1.0.12)
+  - GTMBase64 (1.0.1)
+  - MBProgressHUD (1.1.0)
+  - MJExtension (3.0.15.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - Toast (4.0.0)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - BN_Category
+  - BN_Globle
+  - BN_Kit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AESCrypt-ObjC
+    - BN_Category
+    - BN_Globle
+    - BN_Kit
+    - FLAnimatedImage
+    - GTMBase64
+    - MBProgressHUD
+    - MJExtension
+    - SDWebImage
+    - Toast
+    - YYModel
+
+SPEC CHECKSUMS:
+  AESCrypt-ObjC: 6d930ff891a61b90505855e9447959a84be80715
+  BN_Category: 995aadf2a28eeec05af0b6977a773182f4ce287a
+  BN_Globle: 0ef16d33fe4991543bf87796ed9ce669fb41d4be
+  BN_Kit: 9bda33c0537d51cac81f6cc39b70d20603b5ec18
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GTMBase64: f0f91be06a7a20b84c8e4fee30c0430395091d82
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 84541b8593a11bab6a161f58f0506ee3ff592d6a
+
+COCOAPODS: 1.5.0

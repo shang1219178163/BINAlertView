@@ -17,14 +17,14 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(20, 0, 90, 40);
-    button.backgroundColor = kC_ThemeCOLOR;
+    button.backgroundColor = UIColor.themeColor;
     [button setImage:[UIImage imageNamed:@"img_like_W"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"img_like_W"] forState:UIControlStateHighlighted];
     
     //button图片的偏移量，距上左下右分别(10, 10, 10, 60)像素点
     [button setTitle:@"点赞" forState:UIControlStateNormal];
     [button setTitle:@"取消" forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     
     //button标题的偏移量，这个偏移量是相对于图片的
     button.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);

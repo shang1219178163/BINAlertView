@@ -128,7 +128,7 @@
             button.titleLabel.textColor = [UIColor redColor];
         } else {
             tempView.backgroundColor = [UIColor grayColor];
-            button.titleLabel.textColor = [UIColor whiteColor];
+            button.titleLabel.textColor = UIColor.whiteColor;
         }
     }
 }
@@ -198,7 +198,7 @@
 -(UIScrollView *)scrollView{
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kH_topView, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - kH_topView)];
-        _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.backgroundColor = UIColor.whiteColor;
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         

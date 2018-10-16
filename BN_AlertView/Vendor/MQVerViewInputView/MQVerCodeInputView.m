@@ -65,7 +65,7 @@
     UIView *lastView;
     for (int i=0; i<self.maxLenght; i++) {
         UIView *subView = [UIView new];
-        subView.backgroundColor = [UIColor whiteColor];
+        subView.backgroundColor = UIColor.whiteColor;
         subView.cornerRadius = 4;
         subView.borderWidth = (0.5);
         subView.userInteractionEnabled = NO;

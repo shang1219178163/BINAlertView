@@ -169,7 +169,7 @@
     [label setTag:tag];
     
     label.backgroundColor = [UIColor greenColor];
-    //    label.backgroundColor = [UIColor whiteColor];
+    //    label.backgroundColor = UIColor.whiteColor;
     
     //    label.layer.borderWidth = 1;
     //    label.layer.borderColor = kC_RedColor.CGColor;

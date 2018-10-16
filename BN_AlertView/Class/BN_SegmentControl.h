@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, BN_ImgType) {
 @property (nonatomic, strong) UIFont *font; // default is [UIFont fontWithName:@"Avenir-Light" size:19.0f]
 @property (nonatomic, strong) UIColor *textColor; // default is [UIColor blackColor]
 @property (nonatomic, strong) UIColor *textColor_H;
-@property (nonatomic, strong) UIColor *backgroundColor; // default is [UIColor whiteColor]
+@property (nonatomic, strong) UIColor *backgroundColor; // default is UIColor.whiteColor
 @property (nonatomic, strong) UIColor *indicatorColor; // default is 52, 181, 229
 
 @property (nonatomic, assign) BN_ControlType type;

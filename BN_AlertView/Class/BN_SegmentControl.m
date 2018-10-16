@@ -524,8 +524,8 @@
     if (animated) {
         // Restore CALayer animations
         self.indicatorLayer.actions = nil;
-        
-        [CATransaction animationDuration:0.35 animations:^{
+    
+        [CATransaction animDuration:0.35 animations:^{
             self.indicatorLayer.frame = [self updateFrameForIndicator];
             [self updateSelectedItemWithIndex:index];
             

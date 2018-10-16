@@ -76,7 +76,7 @@ float PopoverViewDegreesToRadians(float angle)
     
     if (_style == PopoverViewStyleDefault) {
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UIColor.whiteColor;
     }
     else {
         
@@ -95,7 +95,7 @@ float PopoverViewDegreesToRadians(float angle)
     _arrowStyle = PopoverViewArrowStyleRound;
     
     // current view
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = UIColor.whiteColor;
     
     // keyWindow
     _keyWindow = [UIApplication sharedApplication].keyWindow;

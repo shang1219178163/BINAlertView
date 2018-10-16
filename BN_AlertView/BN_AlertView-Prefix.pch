@@ -14,19 +14,19 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
-#import "MacroBIN.h"
-#import "MacroUtilities.h"
+//#import "MacroBIN.h"
+//#import "MacroUtilities.h"
+//#import "GeneralConst.h"
+//#import "GlobleConst.h"
+//#import "CategoryHeader.h"
+//#import "MBProgressHUD+Helper.h"
+//#import "UIView+AddView.h"
+//#import "UIView+Helper.h"
+//#import "NSArray+Helper.h"
 
-#import "GeneralConst.h"
-#import "GlobleConst.h"
-
-#import "CategoryHeader.h"
-
-#import "MBProgressHUD+Helper.h"
-
-#import "UIView+AddView.h"
-#import "UIView+Helper.h"
-#import "NSArray+Helper.h"
+#import "BN_Globle.h"
+#import "BN_Kit.h"
+#import "BN_Category.h"
 
 
 #endif

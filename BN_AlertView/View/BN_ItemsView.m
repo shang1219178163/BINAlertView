@@ -60,13 +60,13 @@
                 break;
             case 1://UIImageVIew
             {
-                view = [UIView createImageViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                view = [UIView createImgViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
                 
             }
                 break;
             case 2://UILabel
             {
-                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
                 
             }
                 break;
@@ -129,13 +129,13 @@
                     break;
                 case 1://UIImageVIew
                 {
-                    view = [UIView createImageViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                    view = [UIView createImgViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
                     
                 }
                     break;
                 case 2://UILabel
                 {
-                    view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+                    view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
                     
                 }
                     break;

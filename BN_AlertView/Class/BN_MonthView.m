@@ -50,7 +50,7 @@
         NSString * text = change[NSKeyValueChangeNewKey];
         if (text && [text containsString:@"月"]) {
             NSArray * textTaps = [text componentsSeparatedByString:@"月"];
-            NSAttributedString * attString = [self getAttString:text textTaps:textTaps font:@17 tapFont:@36 color:[UIColor whiteColor] tapColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+            NSAttributedString * attString = [self getAttString:text textTaps:textTaps font:@17 tapFont:@36 color:UIColor.whiteColor tapColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
             self.labMonth.attributedText = attString;
         }
     }
@@ -76,8 +76,8 @@
         _labYear = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 30)];
             lab.font = [UIFont systemFontOfSize:16];
-            lab.textColor = [UIColor whiteColor];
-            lab.backgroundColor = kC_ThemeCOLOR;
+            lab.textColor = UIColor.whiteColor;
+            lab.backgroundColor = UIColor.themeColor;
             
             lab.numberOfLines = 0;
             lab.lineBreakMode = NSLineBreakByCharWrapping;
@@ -96,7 +96,7 @@
         _labMonth = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 30)];
             lab.font = [UIFont systemFontOfSize:16];
-            lab.textColor = [UIColor whiteColor];
+            lab.textColor = UIColor.whiteColor;
             lab.backgroundColor = [UIColor orangeColor];
             
             lab.numberOfLines = 0;

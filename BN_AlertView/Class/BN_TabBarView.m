@@ -23,11 +23,11 @@
         /*********************************************************************/
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:_items];
         _segmentCtrl.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), kH_topView);
-        _segmentCtrl.backgroundColor = [UIColor whiteColor];
+        _segmentCtrl.backgroundColor = UIColor.whiteColor;
         _segmentCtrl.tintColor = [UIColor cyanColor];
         _segmentCtrl.selectedSegmentIndex = 0;
         _segmentCtrl.layer.borderWidth = 1;
-        _segmentCtrl.layer.borderColor = [UIColor whiteColor].CGColor;
+        _segmentCtrl.layer.borderColor = UIColor.whiteColor.CGColor;
         
         NSDictionary * dict = @{
                                 NSForegroundColorAttributeName :   [UIColor blackColor],
@@ -37,7 +37,7 @@
         
         [_segmentCtrl setTitleTextAttributes:dict forState:UIControlStateNormal];
         [_segmentCtrl addTarget:self action:@selector(handleActionSegment:) forControlEvents:UIControlEventValueChanged];
-        [_segmentCtrl setDividerImage:[UIImage imageWithColor:[UIColor whiteColor]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [_segmentCtrl setDividerImage:[UIImage imageWithColor:UIColor.whiteColor] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     return _segmentCtrl;
     
@@ -133,7 +133,7 @@
 -(UIScrollView *)scrollView{
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kH_topView, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - kH_topView)];
-        _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.backgroundColor = UIColor.whiteColor;
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         

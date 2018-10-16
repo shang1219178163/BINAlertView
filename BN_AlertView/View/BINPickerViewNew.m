@@ -72,7 +72,7 @@
         //UIToolbar
         UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.containView.frame), kH_NaviagtionBarHeight)];
         toolBar.tintColor = [UIColor blackColor];//字体颜色
-        toolBar.barTintColor = [UIColor whiteColor];//背景
+        toolBar.barTintColor = UIColor.whiteColor;//背景
         
         //顶部按钮
         NSString *cancelTitle = [NSString stringWithFormat:@"   %@",cancelBtnTitle];
@@ -122,7 +122,7 @@
         _pickerView.delegate = self;
         _pickerView.showsSelectionIndicator = YES;
 
-        _pickerView.backgroundColor = [UIColor whiteColor];
+        _pickerView.backgroundColor = UIColor.whiteColor;
         
     }
     return _pickerView;

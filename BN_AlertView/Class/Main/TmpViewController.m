@@ -83,7 +83,6 @@
 }
 
 - (void)handleActionBtnSub:(UIButton *)sender{
-    kDDLogFuncton;
     
 }
 

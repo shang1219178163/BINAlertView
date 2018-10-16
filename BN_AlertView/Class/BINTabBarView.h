@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 static  NSInteger kCount_Item = 3;//屏幕显示几个
-static  CGFloat kH_topView = 60;//itemsView高度
-static  CGFloat kH_slideView = 5;//指示器高度
+//static  CGFloat kH_topView = 60;//itemsView高度
+//static  CGFloat kH_slideView = 5;//指示器高度
 
 @interface BINTabBarView : UIView
 

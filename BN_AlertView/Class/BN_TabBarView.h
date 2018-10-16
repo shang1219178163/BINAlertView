@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-static  CGFloat kH_topView = 44;//itemsView高度
-static  CGFloat kH_slideView = 5;//指示器高度
+//static  CGFloat kH_topView = 44;//itemsView高度
+//static  CGFloat kH_slideView = 5;//指示器高度
 
 @interface BN_TabBarView : UIView
 

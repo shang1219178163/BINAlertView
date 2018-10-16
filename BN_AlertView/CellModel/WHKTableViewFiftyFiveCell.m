@@ -43,13 +43,11 @@
     //文字+segment
     [self.contentView addSubview:self.labelLeft];
     [self.contentView addSubview:self.segmentCtrl];
-    [self.contentView addSubview:self.lineTop];
     
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [UIView DisplayLastLineViewWithInset:self.separatorInset cell:self];
     
     //文字+segment
     CGSize labLeftSize = [self sizeWithText:self.labelLeft.text font:self.labelLeft.font width:kScreen_width];
@@ -82,18 +80,9 @@
 
 #pragma mark - -layz
 
--(UIView *)lineTop{
-    if (!_lineTop) {
-        _lineTop = [UIView createLineWithRect:CGRectMake(0, 0, kScreen_width, kH_LINE_VIEW) isDash:NO tag:kTAG_VIEW+10];
-        _lineTop.hidden = YES;
-        
-    }
-    return _lineTop;
-}
-
 -(UILabel *)labelLeft{
     if (!_labelLeft) {
-        _labelLeft = [UILabel createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Second backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentLeft];
+        _labelLeft = [UILabel createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
     }
     return _labelLeft;
 }
@@ -107,8 +96,8 @@
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"item0",@"item1"]];
         _segmentCtrl.frame = CGRectMake(0, 0, kScreen_width, 44);
         
-        _segmentCtrl.backgroundColor = [UIColor whiteColor];
-        _segmentCtrl.tintColor = kC_ThemeCOLOR;
+        _segmentCtrl.backgroundColor = UIColor.whiteColor;
+        _segmentCtrl.tintColor = UIColor.themeColor;
         
         _segmentCtrl.selectedSegmentIndex = 0;
   

@@ -30,11 +30,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.frame = frame;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UIColor.whiteColor;
         
-        _dateStart = [NSString timeFromNow];
-        _dateEnd = [NSString timeFromNow];;
-
+  
+        _dateStart = NSDate.date.timeStamp;
+        _dateEnd = NSDate.date.timeStamp;
         _titleList = @[@"查询日期",_dateStart,@"-",_dateEnd];
         
         [self createControls];
@@ -74,7 +74,7 @@
                 break;
         }
         
-        UILabel * label = [UIView createLabelWithRect:rect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"2" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+        UILabel * label = [UIView createLabelWithRect:rect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"2" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
         if (i%2 == 1) {
             label.text = [title toDateShort];
             label.layer.borderColor = UIColor.lightGrayColor.CGColor;
@@ -96,7 +96,7 @@
     NSInteger idx = tap.view.tag - kTAG_LABEL;
     
     NSString * dateBegin = idx == 1 ? self.dateStart : self.dateEnd;
-    if (dateBegin.length != 10) dateBegin = [NSString timeFromNow];
+    if (dateBegin.length != 10) dateBegin = NSDate.date.timeStamp;
     [self createDatePick:label.text tag:(kTAG_DATE_PICKER+idx)];
     
 }

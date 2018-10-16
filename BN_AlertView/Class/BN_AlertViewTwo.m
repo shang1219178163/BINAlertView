@@ -61,7 +61,7 @@ static CGFloat kRatio_ViewWidth = 0.7;
 //        [btn.layer addSublayer:[btn createLayerType:@0]];
 //        [btn.layer addSublayer:[btn createLayerType:@3]];
         
-        UIColor * textColor = [_items[i] isEqualToString:@"取消"] ? [UIColor redColor] : kC_ThemeCOLOR;
+        UIColor * textColor = [_items[i] isEqualToString:@"取消"] ? [UIColor redColor] : UIColor.themeColor;
         [btn setTitleColor:textColor forState:UIControlStateNormal];
         
         [self.containView addSubview:btn];
@@ -82,13 +82,13 @@ static CGFloat kRatio_ViewWidth = 0.7;
     [super layoutSubviews];
     
     CGSize maxSize = CGSizeMake(CGRectGetWidth(self.frame)*kRatio_ViewWidth, CGRectGetHeight(self.frame) - 60*2);
-    CGFloat maxWidth = maxSize.width - kXY_GAP*2;
+    CGFloat maxWidth = maxSize.width - kX_GAP*2;
     CGSize msgSize = [self sizeWithText:self.labelSub.text font:self.labelSub.font width:maxWidth];
     
     CGFloat height = self.label.text == nil ? 0.0 : kH_title;
     self.label.frame = CGRectMake(0, 0, maxSize.width, height);
     self.imgView.frame = CGRectMake(0, CGRectGetMaxY(self.label.frame) + kY_GAP, maxSize.width, 50);
-    self.labelSub.frame = CGRectMake(kXY_GAP, CGRectGetMaxY(self.imgView.frame) + kY_GAP, maxWidth, msgSize.height);
+    self.labelSub.frame = CGRectMake(kX_GAP, CGRectGetMaxY(self.imgView.frame) + kY_GAP, maxWidth, msgSize.height);
     
     
     CGRect rectItem = CGRectZero;
@@ -161,12 +161,12 @@ static CGFloat kRatio_ViewWidth = 0.7;
         _label = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 30)];
             lab.font = [UIFont systemFontOfSize:16];
-            lab.textColor = [UIColor whiteColor];
+            lab.textColor = UIColor.whiteColor;
             lab.textAlignment = NSTextAlignmentCenter;
             
             lab.numberOfLines = 0;
             lab.userInteractionEnabled = YES;
-            lab.backgroundColor = kC_ThemeCOLOR;
+            lab.backgroundColor = UIColor.themeColor;
             
             lab;
         });
@@ -179,12 +179,12 @@ static CGFloat kRatio_ViewWidth = 0.7;
         _labelSub = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 30)];
             lab.font = [UIFont systemFontOfSize:16];
-//            lab.textColor = [UIColor whiteColor];
+//            lab.textColor = UIColor.whiteColor;
             lab.textAlignment = NSTextAlignmentCenter;
             
             lab.numberOfLines = 0;
             lab.userInteractionEnabled = YES;
-//            lab.backgroundColor = kC_ThemeCOLOR;
+//            lab.backgroundColor = UIColor.themeColor;
             
             lab;
         });
@@ -196,7 +196,7 @@ static CGFloat kRatio_ViewWidth = 0.7;
     if (!_containView) {
         _containView = ({
             UIView * view = [[UIView alloc]initWithFrame:self.bounds];
-            view.backgroundColor = [UIColor whiteColor];
+            view.backgroundColor = UIColor.whiteColor;
             
             view;
         });

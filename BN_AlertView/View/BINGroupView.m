@@ -63,11 +63,11 @@
             UIButton * btn = [UIView createBtnWithRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:type target:self aSelector:@selector(handleActionBtn:)];
             
             if ([self.selectedList containsObject:title]) {
-                [self handleSender:btn backgroudColor:kC_ThemeCOLOR_Two textColor:[UIColor whiteColor] layerColor:kC_ThemeCOLOR_Two];
+                [self handleSender:btn backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
                 
             }
             else{
-                [self handleSender:btn backgroudColor:[UIColor whiteColor] textColor:kC_TextColor layerColor:kC_LineColor];
+                [self handleSender:btn backgroudColor:UIColor.whiteColor textColor:kC_TextColor layerColor:UIColor.lineColor];
                 
             }
             [self addSubview:btn];
@@ -87,10 +87,10 @@
         for (UIButton *sender in self.subviews) {
             NSString * title = sender.titleLabel.text;
             if ([self.selectedList containsObject:title]) {
-                [self handleSender:sender backgroudColor:kC_ThemeCOLOR_Two textColor:[UIColor whiteColor] layerColor:kC_ThemeCOLOR_Two];
+                [self handleSender:sender backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
                 
             }else{
-                [self handleSender:sender backgroudColor:[UIColor whiteColor] textColor:kC_TextColor_Title layerColor:kC_LineColor];
+                [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
                 
             }
         }
@@ -105,11 +105,11 @@
     if (self.isOnlyOne == NO) {
         if (![self.selectedList containsObject:title]) {
             [self.selectedList addObject:title];
-            [self handleSender:sender backgroudColor:kC_ThemeCOLOR_Two textColor:[UIColor whiteColor] layerColor:kC_ThemeCOLOR_Two];
+            [self handleSender:sender backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
             
         }else{
             [self.selectedList removeObject:title];
-            [self handleSender:sender backgroudColor:[UIColor whiteColor] textColor:kC_TextColor_Title layerColor:kC_LineColor];
+            [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
             
         }
     }
@@ -124,10 +124,10 @@
 
                 if ([btn isEqual:sender]) {
                     [self.selectedList addObject:title];
-                    [self handleSender:btn backgroudColor:kC_ThemeCOLOR_Two textColor:[UIColor whiteColor] layerColor:kC_ThemeCOLOR_Two];
+                    [self handleSender:btn backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
 
                 }else{
-                    [self handleSender:btn backgroudColor:[UIColor whiteColor] textColor:kC_TextColor_Title layerColor:kC_LineColor];
+                    [self handleSender:btn backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
 
                 }
             }
@@ -141,10 +141,10 @@
     
     for (UIButton *sender in self.subviews) {
         if ([self.selectedList containsObject:sender.titleLabel.text]) {
-            [self handleSender:sender backgroudColor:kC_ThemeCOLOR_Two textColor:[UIColor whiteColor] layerColor:kC_ThemeCOLOR_Two];
+            [self handleSender:sender backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
             
         }else{
-            [self handleSender:sender backgroudColor:colorBackNormal textColor:kC_TextColor_Title layerColor:kC_LineColor];
+            [self handleSender:sender backgroudColor:colorBackNormal textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
             
         }
     }
@@ -153,10 +153,10 @@
 -(void)setColorBackSelected:(UIColor *)colorBackSelected{
     for (UIButton *sender in self.subviews) {
         if ([self.selectedList containsObject:sender.titleLabel.text]) {
-            [self handleSender:sender backgroudColor:colorBackSelected textColor:[UIColor whiteColor] layerColor:kC_ThemeCOLOR_Two];
+            [self handleSender:sender backgroudColor:colorBackSelected textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
             
         }else{
-            [self handleSender:sender backgroudColor:[UIColor whiteColor] textColor:kC_TextColor_Title layerColor:kC_LineColor];
+            [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
             
         }
     }
@@ -167,17 +167,17 @@
     [sender setBackgroundImage:[UIImage imageWithColor:backgroudColor] forState:UIControlStateNormal];
     [sender setTitleColor:textColor forState:UIControlStateNormal];
     
-    [sender addCornersAll:1 type:@0];
-    
+    [sender addCorners:UIRectCornerAllCorners width:.5 color:UIColor.lineColor];
+
 }
 
 
 //- (void)handleBackgroudColor:(UIColor *)backgroudColor textColor:(UIColor *)textColor layerColor:(UIColor *)layerColor{
 //
-//    [sender setBackgroundImage:[UIImage imageWithColor:kC_ThemeCOLOR_Two] forState:UIControlStateNormal];
-//    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [sender setBackgroundImage:[UIImage imageWithColor:UIColor.themeColor] forState:UIControlStateNormal];
+//    [sender setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 //
-//    [sender getLayerAllCorners:kC_ThemeCOLOR_Two];
+//    [sender getLayerAllCorners:UIColor.themeColor];
 //
 //}
 

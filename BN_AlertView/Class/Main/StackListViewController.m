@@ -42,11 +42,11 @@
         /*********************************************************************/
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天",@"item"]];
         _segmentCtrl.frame = CGRectMake(0, kScreen_height/2.0, kScreen_width, 44);
-        _segmentCtrl.backgroundColor = [UIColor whiteColor];
+        _segmentCtrl.backgroundColor = UIColor.whiteColor;
         _segmentCtrl.tintColor = [UIColor cyanColor];
         _segmentCtrl.selectedSegmentIndex = 0;
         _segmentCtrl.layer.borderWidth = 1;
-        _segmentCtrl.layer.borderColor = [UIColor whiteColor].CGColor;
+        _segmentCtrl.layer.borderColor = UIColor.whiteColor.CGColor;
         
         NSDictionary * dict = @{
                                 NSForegroundColorAttributeName :   [UIColor blackColor],
@@ -58,7 +58,7 @@
 //        [_segmentCtrl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
         
         //    [_segmentCtrl setDividerImage:[UIImage imageNamed:@"31"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [_segmentCtrl setDividerImage:[UIImage imageWithColor:[UIColor whiteColor]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [_segmentCtrl setDividerImage:[UIImage imageWithColor:UIColor.whiteColor] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     return _segmentCtrl;
     

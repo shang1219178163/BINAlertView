@@ -242,7 +242,7 @@ static CGFloat kH_title = 45;
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.textLabel.text = array[indexPath.row];
-    cell.textLabel.textColor = kC_ThemeCOLOR;
+    cell.textLabel.textColor = UIColor.themeColor;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
 
     return cell;
@@ -280,7 +280,7 @@ static CGFloat kH_title = 45;
 
     UILabel * label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.text = title;
-    label.textColor = [UIColor whiteColor];
+    label.textColor = UIColor.whiteColor;
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor greenColor];
     
@@ -300,7 +300,7 @@ static CGFloat kH_title = 45;
 
     UILabel * label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.text = title;
-    label.textColor = [UIColor whiteColor];
+    label.textColor = UIColor.whiteColor;
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor yellowColor];
 
@@ -319,7 +319,7 @@ static CGFloat kH_title = 45;
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
             tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            //        tableView.separatorColor = kC_LineColor;
+            //        tableView.separatorColor = UIColor.lineColor;
             tableView.backgroundColor = [UIColor greenColor];
             //        tableView.backgroundColor = kC_BackgroudColor;
             
@@ -344,12 +344,12 @@ static CGFloat kH_title = 45;
         _label = ({
             UILabel * lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 30)];
             lab.font = [UIFont systemFontOfSize:16];
-            lab.textColor = [UIColor whiteColor];
+            lab.textColor = UIColor.whiteColor;
             lab.textAlignment = NSTextAlignmentCenter;
             
             lab.numberOfLines = 0;
             lab.userInteractionEnabled = YES;
-            lab.backgroundColor = kC_ThemeCOLOR;
+            lab.backgroundColor = UIColor.themeColor;
             
             lab;
         });

@@ -54,11 +54,11 @@
         /*********************************************************************/
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天"]];
         _segmentCtrl.frame = CGRectMake(0, kScreen_height/2.0, kScreen_width, 44);
-        _segmentCtrl.backgroundColor = [UIColor whiteColor];
+        _segmentCtrl.backgroundColor = UIColor.whiteColor;
         _segmentCtrl.tintColor = [UIColor cyanColor];
         _segmentCtrl.selectedSegmentIndex = 0;
         _segmentCtrl.layer.borderWidth = 1;
-        _segmentCtrl.layer.borderColor = [UIColor whiteColor].CGColor;
+        _segmentCtrl.layer.borderColor = UIColor.whiteColor.CGColor;
         
         NSDictionary * dict = @{
                                 NSForegroundColorAttributeName :   [UIColor blackColor],
@@ -70,7 +70,7 @@
         [_segmentCtrl addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
         
         //    [_segmentCtrl setDividerImage:[UIImage imageNamed:@"31"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [_segmentCtrl setDividerImage:[UIImage imageWithColor:[UIColor whiteColor]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [_segmentCtrl setDividerImage:[UIImage imageWithColor:UIColor.whiteColor] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     return _segmentCtrl;
     
@@ -186,13 +186,13 @@
                 break;
             case 1://UIImageVIew
             {
-                view = [UIView createImageViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                view = [UIView createImgViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
                 
             }
                 break;
             case 2://UILabel
             {
-                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:[UIColor whiteColor] alignment:NSTextAlignmentCenter];
+                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
                 
             }
                 break;
@@ -214,15 +214,13 @@
     for (UIButton * btn in sender.superview.subviews) {
         
         if ([btn isEqual:sender]) {
-            [btn setBackgroundImage:[UIImage imageWithColor:kC_ThemeCOLOR_Two] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            
-            [btn addCornersAll:1 type:@0];
-            
+            [btn setBackgroundImage:[UIImage imageWithColor:UIColor.themeColor] forState:UIControlStateNormal];
+            [btn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+            [btn addCorners:UIRectCornerAllCorners width:.5 color:UIColor.lineColor];
         }else{
-            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+            [btn setBackgroundImage:[UIImage imageWithColor:UIColor.whiteColor] forState:UIControlStateNormal];
             [btn setTitleColor:kC_TextColor_Title forState:UIControlStateNormal];
-            [btn addCornersAll:1 type:@0];
+            [btn addCorners:UIRectCornerAllCorners width:.5 color:UIColor.lineColor];
 
         }
     }
@@ -426,7 +424,7 @@
             promoteSgement.frame=CGRectMake(0, kScreen_width/2.0+80, kScreen_width, 40);
             [promoteSgement setSelectedSegmentIndex:0];//默认选择第一个
             promoteSgement.tintColor = [UIColor yellowColor];//去掉颜色 现在整个segment都看不见
-            promoteSgement.backgroundColor = [UIColor whiteColor];
+            promoteSgement.backgroundColor = UIColor.whiteColor;
             NSDictionary* selectedTextAttributes = @{
                                                      NSFontAttributeName:[UIFont systemFontOfSize:15],
                                                      NSForegroundColorAttributeName:[UIColor colorWithRed:212/256.0 green:21/256.0 blue:10/256.0 alpha:1]};
@@ -452,8 +450,8 @@
             break;
         case 15:
         {
-//            [sender BN_aimationBigValues:nil];
-            [sender BN_aimationBigShapeWithColor:[UIColor redColor]];
+            CAAnimationGroup * animGroup = [sender addAnimationBigShapeWithColor:UIColor.redColor];
+            [sender.layer addAnimation:animGroup forKey:@"big"];
         }
             break;
         default:
@@ -477,7 +475,7 @@
     UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWidth_customView, 200)];
     view.backgroundColor = [UIColor cyanColor];
     
-    UIImageView * imgView = [UIView createImageViewWithRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), 40) image:image tag:300 patternType:@"0"];
+    UIImageView * imgView = [UIView createImgViewWithRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), 40) image:image tag:300 patternType:@"0"];
     [view addSubview:imgView];
     
     NSString * text = msg;
@@ -525,8 +523,8 @@
     CGFloat minX = (CGRectGetWidth(backgroudView.frame) - verCodeViewSize.width)/2.0;
     DDLog(@"%.2f",minX);
     MQVerCodeInputView *verCodeView = [[MQVerCodeInputView alloc]initWithFrame:CGRectMake(0, kPadding, verCodeViewSize.width, verCodeViewSize.height)];
-    verCodeView.viewColorHL = kC_LineColor;
-    verCodeView.viewColor = kC_LineColor;
+    verCodeView.viewColorHL = UIColor.lineColor;
+    verCodeView.viewColor = UIColor.lineColor;
     
     verCodeView.maxLenght = count;//最大长度
     verCodeView.keyBoardType = UIKeyboardTypeNumberPad;
@@ -664,7 +662,7 @@
 //            tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //            tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
 //            tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//            //        tableView.separatorColor = kC_LineColor;
+//            //        tableView.separatorColor = UIColor.lineColor;
 //            tableView.backgroundColor = [UIColor greenColor];
 //            //        tableView.backgroundColor = kC_BackgroudColor;
 //

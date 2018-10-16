@@ -42,26 +42,14 @@
 
 - (void)createView{
     //
-    UIView * topLine = [UIView createLineWithRect:CGRectMake(0, 0, kScreen_width, kH_LINE_VIEW) isDash:NO tag:kTAG_VIEW+10];
-    [self.contentView addSubview:topLine];
-    self.lineTop = topLine;
-    self.lineTop.hidden = YES;
+
 
 }
 
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    for (UIView *subview in self.contentView.superview.subviews) {
-        if ([NSStringFromClass(subview.class) hasSuffix:@"SeparatorView"]) {
-            subview.hidden = NO;
-            CGRect frame = subview.frame;
-            frame.origin.x += self.separatorInset.left;
-//            frame.size.width -= self.separatorInset.right;
-//            frame.size.width = kScreen_width;
-            subview.frame = frame;
-        }
-    }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

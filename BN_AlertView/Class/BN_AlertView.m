@@ -157,9 +157,9 @@
 
     UILabel * label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.text = @"请选择";
-    label.textColor = [UIColor whiteColor];
+    label.textColor = UIColor.whiteColor;
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = kC_ThemeCOLOR;
+    label.backgroundColor = UIColor.themeColor;
 
     return label;
 
@@ -186,7 +186,7 @@
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
             tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            //        tableView.separatorColor = kC_LineColor;
+            //        tableView.separatorColor = UIColor.lineColor;
             tableView.backgroundColor = [UIColor greenColor];
             //        tableView.backgroundColor = kC_BackgroudColor;
             

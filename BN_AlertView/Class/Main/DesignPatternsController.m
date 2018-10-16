@@ -95,7 +95,7 @@
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
             tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            //        tableView.separatorColor = kC_LineColor;
+            //        tableView.separatorColor = UIColor.lineColor;
             tableView.backgroundColor = [UIColor greenColor];
             //        tableView.backgroundColor = kC_BackgroudColor;
             

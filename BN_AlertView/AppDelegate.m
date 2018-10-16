@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "UIApplication+Helper.h"
 
 @implementation AppDelegate
 
@@ -20,7 +19,7 @@
     controlName = @"AnimationController";
 
     
-    [UIApplication setupRootControllerName:controlName];
+    [UIApplication setupRootController:controlName];
     
     [UIApplication setupAppearance];
     return YES;

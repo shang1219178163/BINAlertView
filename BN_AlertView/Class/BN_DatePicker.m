@@ -43,7 +43,7 @@
         //config UIToolbar
         UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.containView.frame), kH_NaviagtionBarHeight)];
         toolBar.tintColor = [UIColor blackColor];//字体颜色
-        toolBar.barTintColor = [UIColor whiteColor];//背景
+        toolBar.barTintColor = UIColor.whiteColor;//背景
         
         NSString *cancelTitle = [NSString stringWithFormat:@"   %@",cancelBtnTitle];
         UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
@@ -65,7 +65,7 @@
         
         // config system DatePicker frame;
         self.frame = CGRectMake(0, CGRectGetMaxY(lineView.frame), CGRectGetWidth(self.containView.frame), kDatePickerHeight);
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = UIColor.whiteColor;
         [self.containView addSubview:self];
         
         

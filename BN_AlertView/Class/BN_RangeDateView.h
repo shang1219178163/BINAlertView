@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static  CGFloat kH_topView = 50;
+//static  CGFloat kH_topView = 50;
 
 @interface BN_RangeDateView : UIView
 

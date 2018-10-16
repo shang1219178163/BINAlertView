@@ -160,7 +160,7 @@ static const CGFloat padding = 5;
     if (_sheetView == nil) {
         
         _sheetView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_backgroundView.frame), CGRectGetHeight(_backgroundView.frame) - (self.btnTitle.length == 0 ? 0.0 :H_BtnCancell))];
-        _sheetView.backgroundColor = [UIColor whiteColor];
+        _sheetView.backgroundColor = UIColor.whiteColor;
 //        _sheetView.alpha = 0.8;
         
         //	如果有标题，添加标题
@@ -181,7 +181,7 @@ static const CGFloat padding = 5;
         _topLab.text = @"分享至";
         _topLab.font = [UIFont systemFontOfSize:15];
         _topLab.textColor = [UIColor blackColor];
-        _topLab.backgroundColor = [UIColor whiteColor];
+        _topLab.backgroundColor = UIColor.whiteColor;
 
 //        _topLab.backgroundColor = [UIColor yellowColor];
         _topLab.textAlignment = NSTextAlignmentCenter;
@@ -208,7 +208,7 @@ static const CGFloat padding = 5;
         _btnCancel.frame = CGRectMake(0, CGRectGetHeight(_backgroundView.frame) - H_BtnCancell, CGRectGetWidth(_backgroundView.frame), H_BtnCancell);
         //	取消按钮
         [_btnCancel setTitle:@"取消" forState:UIControlStateNormal];
-        _btnCancel.backgroundColor = [UIColor whiteColor];
+        _btnCancel.backgroundColor = UIColor.whiteColor;
         [_btnCancel setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         //	点击按钮，取消，收起面板，移除视图
         [_btnCancel addTarget:self action:@selector(tappedCancel) forControlEvents:UIControlEventTouchUpInside];
