@@ -17,7 +17,7 @@
     NSString * controlName = @"MainViewController";
 //    controlName = @"SegmentControlController";
     controlName = @"AnimationController";
-
+    controlName = @"ContactListController";
     
     [UIApplication setupRootController:controlName];
     

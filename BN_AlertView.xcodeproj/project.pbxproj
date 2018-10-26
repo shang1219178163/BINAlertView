@@ -58,6 +58,9 @@
 		516FF69F20B00E65001989FD /* Twitter_round@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516FF69920B00E65001989FD /* Twitter_round@2x.png */; };
 		5170B4BF1FC26AF600873EA8 /* StackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5170B4BE1FC26AF600873EA8 /* StackListViewController.m */; };
 		51795B6B1F4432FB002AF228 /* BINStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51795B6A1F4432FB002AF228 /* BINStarsView.m */; };
+		51797C3B2178224200FF05E7 /* ContactListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51797C3A2178224200FF05E7 /* ContactListController.m */; };
+		51797C3E2178230100FF05E7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51797C3C2178230100FF05E7 /* Contacts.framework */; };
+		51797C3F2178230100FF05E7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51797C3D2178230100FF05E7 /* ContactsUI.framework */; };
 		517C2408206B998C00149016 /* BINTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C2407206B998C00149016 /* BINTabBarView.m */; };
 		517D3904206CBEA8005BC021 /* BN_TabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3903206CBEA8005BC021 /* BN_TabBarView.m */; };
 		517D3907206CBEFF005BC021 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D3906206CBEFF005BC021 /* LeftMenuViewController.m */; };
@@ -214,6 +217,10 @@
 		5170B4BE1FC26AF600873EA8 /* StackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackListViewController.m; sourceTree = "<group>"; };
 		51795B691F4432FB002AF228 /* BINStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BINStarsView.h; sourceTree = "<group>"; };
 		51795B6A1F4432FB002AF228 /* BINStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BINStarsView.m; sourceTree = "<group>"; };
+		51797C392178224200FF05E7 /* ContactListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactListController.h; sourceTree = "<group>"; };
+		51797C3A2178224200FF05E7 /* ContactListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactListController.m; sourceTree = "<group>"; };
+		51797C3C2178230100FF05E7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		51797C3D2178230100FF05E7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		517C2406206B998C00149016 /* BINTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BINTabBarView.h; sourceTree = "<group>"; };
 		517C2407206B998C00149016 /* BINTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BINTabBarView.m; sourceTree = "<group>"; };
 		517D3902206CBEA8005BC021 /* BN_TabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_TabBarView.h; sourceTree = "<group>"; };
@@ -318,6 +325,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51797C3E2178230100FF05E7 /* Contacts.framework in Frameworks */,
+				51797C3F2178230100FF05E7 /* ContactsUI.framework in Frameworks */,
 				34098D1B19EF962A006806A6 /* CoreGraphics.framework in Frameworks */,
 				34098D1D19EF962A006806A6 /* UIKit.framework in Frameworks */,
 				34098D1919EF962A006806A6 /* Foundation.framework in Frameworks */,
@@ -373,6 +382,8 @@
 		34098D1719EF962A006806A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51797C3C2178230100FF05E7 /* Contacts.framework */,
+				51797C3D2178230100FF05E7 /* ContactsUI.framework */,
 				34098D1819EF962A006806A6 /* Foundation.framework */,
 				34098D1A19EF962A006806A6 /* CoreGraphics.framework */,
 				34098D1C19EF962A006806A6 /* UIKit.framework */,
@@ -652,6 +663,8 @@
 				51D0702521465EA7006925BB /* SegmentControlController.m */,
 				5169D6942153164500007AF7 /* AnimationController.h */,
 				5169D6952153164500007AF7 /* AnimationController.m */,
+				51797C392178224200FF05E7 /* ContactListController.h */,
+				51797C3A2178224200FF05E7 /* ContactListController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -941,6 +954,7 @@
 				517ECA4220A2E66700158A0D /* ButtonViewController.m in Sources */,
 				51070E2E2110624A00CAE45E /* BN_MonthView.m in Sources */,
 				512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */,
+				51797C3B2178224200FF05E7 /* ContactListController.m in Sources */,
 				512861D71F95AD6E00CD1372 /* MASViewAttribute.m in Sources */,
 				34098D5219EFB159006806A6 /* MyView.m in Sources */,
 				518373391F7E22FD00248179 /* BN_DatePicker.m in Sources */,
