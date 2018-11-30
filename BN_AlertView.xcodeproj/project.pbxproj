@@ -83,6 +83,7 @@
 		517F312E2147510E00380B50 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 517F311E2147510E00380B50 /* 1.png */; };
 		517F312F2147510E00380B50 /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 517F311F2147510E00380B50 /* 2@2x.png */; };
 		51800F8121114A460098B8B3 /* BN_PairLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51800F8021114A460098B8B3 /* BN_PairLabelView.m */; };
+		5180563D218C4B92002EC155 /* CycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5180563C218C4B92002EC155 /* CycleViewController.m */; };
 		518057691F94DB68008D1C0E /* BN_AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 518057671F94DB68008D1C0E /* BN_AlertView.m */; };
 		5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F0207B132900F6C895 /* PopoverAction.m */; };
 		5181E9F6207B132900F6C895 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181E9F2207B132900F6C895 /* PopoverView.m */; };
@@ -249,6 +250,8 @@
 		517F311F2147510E00380B50 /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
 		51800F7F21114A460098B8B3 /* BN_PairLabelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BN_PairLabelView.h; sourceTree = "<group>"; };
 		51800F8021114A460098B8B3 /* BN_PairLabelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BN_PairLabelView.m; sourceTree = "<group>"; };
+		5180563B218C4B92002EC155 /* CycleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleViewController.h; sourceTree = "<group>"; };
+		5180563C218C4B92002EC155 /* CycleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleViewController.m; sourceTree = "<group>"; };
 		518057661F94DB68008D1C0E /* BN_AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_AlertView.h; sourceTree = "<group>"; };
 		518057671F94DB68008D1C0E /* BN_AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_AlertView.m; sourceTree = "<group>"; };
 		5181E9EF207B132900F6C895 /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
@@ -665,6 +668,8 @@
 				5169D6952153164500007AF7 /* AnimationController.m */,
 				51797C392178224200FF05E7 /* ContactListController.h */,
 				51797C3A2178224200FF05E7 /* ContactListController.m */,
+				5180563B218C4B92002EC155 /* CycleViewController.h */,
+				5180563C218C4B92002EC155 /* CycleViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -926,6 +931,7 @@
 				512861DC1F95AD6E00CD1372 /* ViewController+MASAdditions.m in Sources */,
 				5186C7DC211A9CDC005DC075 /* UICKeyChainStore.m in Sources */,
 				51D0702021465E24006925BB /* UIImageView+CornerRadius.m in Sources */,
+				5180563D218C4B92002EC155 /* CycleViewController.m in Sources */,
 				5169D6962153164500007AF7 /* AnimationController.m in Sources */,
 				51E66444217579B200855503 /* WHKTableViewZeroCell.m in Sources */,
 				518373431F7E22FD00248179 /* BINRadioView.m in Sources */,

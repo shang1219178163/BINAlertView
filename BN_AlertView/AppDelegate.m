@@ -11,16 +11,15 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     // Override point for customization after application launch.
-    NSString * controlName = @"MainViewController";
+    NSString * control = @"MainViewController";
 //    controlName = @"SegmentControlController";
-    controlName = @"AnimationController";
-    controlName = @"ContactListController";
+    control = @"AnimationController";
+    control = @"ContactListController";
+    control = @"CycleViewController";
     
-    [UIApplication setupRootController:controlName];
-    
+    [UIApplication setupRootController:control];
     [UIApplication setupAppearance];
     return YES;
 }
