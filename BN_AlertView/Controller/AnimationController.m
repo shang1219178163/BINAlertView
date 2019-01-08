@@ -50,7 +50,7 @@
     
     CGRect rect = CGRectMake(10, 10, 100, 100);
     CGPathRef path = [UIBezierPath bezierPathWithOvalInRect:(CGRect){{0, 0}, rect.size}].CGPath; //设置绘制路径
-    CAShapeLayer *myShapeLayer = [CAShapeLayer layerWithRect:rect path:path strokeEnd:0.66 fillColor:UIColor.yellowColor strokeColor:UIColor.redColor lineWidth:5];
+    CAShapeLayer *myShapeLayer = [CAShapeLayer layerRect:rect path:path strokeEnd:0.66 fillColor:UIColor.yellowColor strokeColor:UIColor.redColor lineWidth:5];
 
     //以subLayer的形式添加给self.view
     [self.view.layer addSublayer:myShapeLayer];

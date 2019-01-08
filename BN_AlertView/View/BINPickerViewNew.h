@@ -48,7 +48,7 @@
  将此array传入BINPickerViewNew初始化方法即可
  - (void)btnClickNew{
      //    self.array = @[@"A",@"B",@"C",@"D",@"E"];
-     BINPickerViewNew * pickerView = [[BINPickerViewNew alloc]initWithPickerData:self.array patternType:@"2" cancelBtnTitle:@"取消" confirmButtonTitle:@"确定"];
+     BINPickerViewNew * pickerView = [[BINPickerViewNew alloc]initWithPickerData:self.array type:@2 cancelBtnTitle:@"取消" confirmButtonTitle:@"确定"];
      [pickerView actionSelectRow:2 inComponent:0];
      //    [pickerView actionSelectRow:3 inComponent:1];
      [self.view addSubview:pickerView];
@@ -87,7 +87,7 @@ typedef void(^BlockPickViewNew)(UIPickerView *pickerView,NSInteger row1,NSIntege
 
 @property (nonatomic, strong) NSString *title;
 
-- (instancetype)initWithPickerData:(NSArray *)array patternType:(NSString *)patternType cancelBtnTitle:(NSString *)cancelBtnTitle confirmButtonTitle:(NSString *)confirmBtnTitle;
+- (instancetype)initWithPickerData:(NSArray *)array type:(NSString *)patternType cancelBtnTitle:(NSString *)cancelBtnTitle confirmButtonTitle:(NSString *)confirmBtnTitle;
 
 - (void )actionSelectRow:(NSInteger)row inComponent:(NSInteger)component;
 

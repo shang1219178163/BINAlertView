@@ -35,7 +35,7 @@
         UIImageView *imgView = [[UIImageView alloc]init];
         [self addSubview:imgView];
         
-        UILabel * labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"0" font:KFZ_Fifth backgroudColor:nil alignment:NSTextAlignmentLeft];
+        UILabel * labelTitle = [self createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@0 font:kFZ_Fifth backgroudColor:nil alignment:NSTextAlignmentLeft];
         [self addSubview:labelTitle];
         
         //
@@ -75,7 +75,7 @@
 //
 //        [self addSubview:imgView];
 //        
-//        UILabel * labelTitle = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];
+//        UILabel * labelTitle = [self createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_Third backgroudColor:nil alignment:NSTextAlignmentLeft];
 //        labelTitle.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + padding, CGRectGetMinY(frame), CGRectGetWidth(frame) - CGRectGetMaxX(imgView.frame) - padding, CGRectGetHeight(frame));
 //        [self addSubview:labelTitle];
 //
@@ -105,7 +105,7 @@
 }
 
 #pragma mark - -otherFuntions
-- (UILabel *)createLabelWithRect:(CGRect)rect text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType font:(CGFloat)font  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
+- (UILabel *)createLabelRect:(CGRect)rect text:(NSString *)text textColor:(UIColor *)textColor tag:(NSInteger)tag type:(NSString *)patternType font:(CGFloat)font  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
 {
     UILabel * label = [[UILabel alloc] initWithFrame:rect];
     

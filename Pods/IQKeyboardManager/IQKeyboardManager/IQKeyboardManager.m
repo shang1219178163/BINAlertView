@@ -556,7 +556,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
         static __weak UIWindow *_keyWindow = nil;
         
         /*  (Bug ID: #23, #25, #73)   */
-        UIWindow *originalKeyWindow = [[UIApplication sharedApplication] keyWindow];
+        UIWindow *originalKeyWindow = UIApplication.sharedApplication.keyWindow;
         
         //If original key window is not nil and the cached keywindow is also not original keywindow then changing keywindow.
         if (originalKeyWindow &&
@@ -627,7 +627,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
     CGSize kbSize = _kbSize;
     kbSize.height += keyboardDistanceFromTextField;
     
-    CGFloat navigationBarAreaHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + rootController.navigationController.navigationBar.frame.size.height;
+    CGFloat navigationBarAreaHeight = [UIApplication.sharedApplication statusBarFrame].size.height + rootController.navigationController.navigationBar.frame.size.height;
     CGFloat layoutAreaHeight = rootController.view.layoutMargins.top;
     
     CGFloat topLayoutGuide = MAX(navigationBarAreaHeight, layoutAreaHeight) + 5;
@@ -2058,7 +2058,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
        didEndEditingNotificationName:UITextViewTextDidEndEditingNotification];
     
     //  Registering for orientation changes notification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willChangeStatusBarOrientation:) name:UIApplicationWillChangeStatusBarOrientationNotification object:[UIApplication sharedApplication]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willChangeStatusBarOrientation:) name:UIApplicationWillChangeStatusBarOrientationNotification object:UIApplication.sharedApplication];
 }
 
 -(void)unregisterAllNotifications
@@ -2080,7 +2080,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
        didEndEditingNotificationName:UITextViewTextDidEndEditingNotification];
     
     //  Unregistering for orientation changes notification
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillChangeStatusBarOrientationNotification object:[UIApplication sharedApplication]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillChangeStatusBarOrientationNotification object:UIApplication.sharedApplication];
 }
 
 -(void)showLog:(NSString*)logString

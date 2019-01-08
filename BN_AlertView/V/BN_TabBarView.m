@@ -49,7 +49,7 @@
 
 }
 
-+ (BN_TabBarView *)viewWithRect:(CGRect)frame items:(NSArray *)items{
++ (BN_TabBarView *)viewRect:(CGRect)frame items:(NSArray *)items{
     BN_TabBarView * view = [[BN_TabBarView alloc]initWithFrame:frame items:items];
     return view;
     

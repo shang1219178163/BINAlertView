@@ -10,7 +10,7 @@
 
 @implementation BN_ItemsView
 
-+ (BN_ItemsView *)viewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
++ (BN_ItemsView *)viewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
     
     BN_ItemsView * view = [[self alloc]initWithFrame:rect];
     view.items = items;
@@ -55,18 +55,18 @@
         switch ([_type integerValue] ) {
             case 0://uibutton
             {
-                view = [UIView createBtnWithRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"5" target:nil aSelector:nil];
+                view = [UIView createBtnRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i type:@"5" target:nil aSelector:nil];
             }
                 break;
             case 1://UIImageVIew
             {
-                view = [UIView createImgViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                view = [UIView createImgViewRect:itemRect image:title tag:kTAG_IMGVIEW+i type:@0];
                 
             }
                 break;
             case 2://UILabel
             {
-                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+                view = [UIView createLabelRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i type:@0 font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
                 
             }
                 break;
@@ -83,13 +83,13 @@
     }
 }
 /*
-+ (BN_ItemsView *)viewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
++ (BN_ItemsView *)viewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
 
-    BN_ItemsView * itemsView = [[self alloc]initWithRect:rect items:items numberOfRow:numberOfRow itemHeight:itemHeight padding:padding type:type handler:handler];
+    BN_ItemsView * itemsView = [[self alloc]initRect:rect items:items numberOfRow:numberOfRow itemHeight:itemHeight padding:padding type:type handler:handler];
     return itemsView;
 }
     
-- (instancetype)initWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
+- (instancetype)initRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
 
     self = [super initWithFrame:rect];
     if (self) {
@@ -124,18 +124,18 @@
             switch ([type integerValue] ) {
                 case 0://uibutton
                 {
-                    view = [UIView createBtnWithRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"5" target:nil aSelector:nil];
+                    view = [UIView createBtnRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i type:@"5" target:nil aSelector:nil];
                 }
                     break;
                 case 1://UIImageVIew
                 {
-                    view = [UIView createImgViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                    view = [UIView createImgViewRect:itemRect image:title tag:kTAG_IMGVIEW+i type:@0];
                     
                 }
                     break;
                 case 2://UILabel
                 {
-                    view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+                    view = [UIView createLabelRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i type:@0 font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
                     
                 }
                     break;

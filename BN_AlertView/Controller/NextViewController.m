@@ -83,12 +83,12 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
                       ];
     
     
-    UIView * view = [self createViewWithRect:CGRectMake(0, 80, kScreen_width, 60) items:self.itemList];
+    UIView * view = [self createViewRect:CGRectMake(0, 80, kScreen_width, 60) items:self.itemList];
     [self.view addSubview:view];
     
 }
 
-- (UIView *)createViewWithRect:(CGRect)rect items:(NSArray<NSDictionary *> *)items{
+- (UIView *)createViewRect:(CGRect)rect items:(NSArray<NSDictionary *> *)items{
     
     UIView * containView = [[UIView alloc]initWithFrame:rect];
     containView.backgroundColor = [UIColor greenColor];
@@ -100,14 +100,14 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
         
         NSDictionary * dict = items[i];
         
-        UIButton * btn = [self createBtnWithRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame)) title:dict[BN_ItemTitle] tag:i];
+        UIButton * btn = [self createBtnRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame)) title:dict[BN_ItemTitle] tag:i];
         [view addSubview:btn];
         [containView addSubview:view];
     }
     return containView;
 }
 
-- (UIButton *)createBtnWithRect:(CGRect)rect title:(NSString *)title tag:(NSInteger)tag{
+- (UIButton *)createBtnRect:(CGRect)rect title:(NSString *)title tag:(NSInteger)tag{
 //    UIButton *button = [[UIButton alloc] initWithFrame:rect];
     DKSButton *button = [DKSButton buttonWithType:UIButtonTypeCustom withSpace:10];
     button.buttonStyle = DKSButtonImageTop;

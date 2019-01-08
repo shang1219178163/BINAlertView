@@ -47,14 +47,14 @@
     control2.textColor = UIColor.whiteColor;
     control2.indicatorColor = UIColor.redColor;
     
-    control2.backgroundColor = UIColorFromHex(0x3498db);
-    control2.backgroundColor = UIColorFromHex(0x3498db);
+    control2.backgroundColor = UIColorHexValue(0x3498db);
+    control2.backgroundColor = UIColorHexValue(0x3498db);
 
     control2.textColor = UIColor.whiteColor;
-    control2.textColor_H = UIColorFromHex(0x34495e);
+    control2.textColor_H = UIColorHexValue(0x34495e);
     control2.textColor_H = UIColor.redColor;
 
-    control2.indicatorColor = UIColorFromHex(0x34495e);
+    control2.indicatorColor = UIColorHexValue(0x34495e);
     
 //    control2.indicatorSizeMode = BN_IndicatorSizeToFill;
 //    control2.indicatorMode = BN_IndicatorBox;
@@ -93,12 +93,12 @@
 
     control4.indicatorMode = BN_IndicatorBox;
 
-    control4.backgroundColor = UIColorFromHex(0x3498db);
+    control4.backgroundColor = UIColorHexValue(0x3498db);
     control4.textColor = UIColor.whiteColor;
-    control4.textColor_H = UIColorFromHex(0x34495e);
+    control4.textColor_H = UIColorHexValue(0x34495e);
     control4.textColor_H = UIColor.redColor;
 
-    control4.indicatorColor = UIColorFromHex(0x34495e);
+    control4.indicatorColor = UIColorHexValue(0x34495e);
     
     control4.tag = 1;
     control4.isIndicatorTop = YES;
@@ -120,12 +120,12 @@
     
     control5.indicatorMode = BN_IndicatorBox;
     
-    control5.backgroundColor = UIColorFromHex(0x3498db);
+    control5.backgroundColor = UIColorHexValue(0x3498db);
     control5.textColor = UIColor.whiteColor;
-    control5.textColor_H = UIColorFromHex(0x34495e);
+    control5.textColor_H = UIColorHexValue(0x34495e);
     control5.textColor_H = UIColor.redColor;
     
-    control5.indicatorColor = UIColorFromHex(0x34495e);
+    control5.indicatorColor = UIColorHexValue(0x34495e);
     
     control5.tag = 1;
     control5.isIndicatorTop = YES;

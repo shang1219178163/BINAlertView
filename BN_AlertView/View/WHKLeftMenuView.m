@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIWindow *window = UIApplication.sharedApplication.keyWindow;
 
         self.maskView = [[UIView alloc] initWithFrame:window.bounds];
         self.maskView.backgroundColor = [UIColor blackColor];
@@ -34,7 +34,7 @@
         [self.maskView addGestureRecognizer:tap];
         
         
-        CGFloat menuWidth = CGRectGetWidth(window.frame)* kLeftMenuRatio;
+        CGFloat menuWidth = CGRectGetWidth(window.frame)* kRatio_LeftMenu;
         self.frame = CGRectMake(-menuWidth, 0, menuWidth, CGRectGetHeight(window.frame));
         self.backgroundColor = [UIColor greenColor];
 
@@ -46,7 +46,7 @@
 
 
 -(void)show{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
     [window addSubview:self.maskView];
     [window addSubview:self];
 

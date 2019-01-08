@@ -35,9 +35,7 @@
 
 @implementation StackListViewController
 
-
 -(UISegmentedControl *)segmentCtrl{
-    
     if (!_segmentCtrl) {
         /*********************************************************************/
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天",@"item"]];
@@ -61,7 +59,6 @@
         [_segmentCtrl setDividerImage:[UIImage imageWithColor:UIColor.whiteColor] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     return _segmentCtrl;
-    
 }
 
 - (void)viewDidLoad {
@@ -75,8 +72,14 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
     
     
-    [self createBarBtnItemWithTitle:@"+" imageName:nil isLeft:NO target:self aSelector:@selector(add:) isHidden:NO];
-//    [self createBarBtnItemWithTitle:@"-" imageName:nil isLeft:YES target:self aSelector:@selector(jian:) isHidden:NO];
+    [self createBarItemTitle:@"+" imageName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
+        NSString * element = [NSString stringWithFormat:@"item%@",@(self.itemList.count)];
+        [self.itemList addObject:element];
+        
+        [self initSlideWithCount];
+    }];
+
+
     self.itemList = [NSMutableArray arrayWithCapacity:0];
     
     self.itemList = @[@"abc",@"eeee",@"gggg "].mutableCopy;
@@ -89,20 +92,12 @@
     [self initSlideWithCount];
 }
 
-
-- (void)add:(id)sender {
-    NSString * item = [NSString stringWithFormat:@"item%@",@(self.itemList.count)];
-    [self.itemList addObject:item];
-    
-    [self initSlideWithCount];
-}
-
 -(void) initSlideWithCount{
     [_tabBarView removeFromSuperview];
 
     CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
 //    _tabBarView = [[BINTabBarView alloc] initWithFrame:rect items:self.itemList];
-    _tabBarView = [BINTabBarView viewWithRect:rect items:self.itemList];
+    _tabBarView = [BINTabBarView viewRect:rect items:self.itemList];
     [self.view addSubview:_tabBarView];
     _tabBarView.selectedPage = 1;
     

@@ -34,7 +34,7 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
         self.images = images;
         
         if ([self isFirstLauch]) {
-            UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+            UIWindow *window = UIApplication.sharedApplication.windows.lastObject;
             [window addSubview:self];
             
             [self addImages];
@@ -42,7 +42,7 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
             [self removeFromSuperview];
             self.hidden = YES;
         }
-        UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+        UIWindow *window = UIApplication.sharedApplication.windows.lastObject;
         [window addSubview:self];
         
         [self addImages];
@@ -103,7 +103,7 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
                    
                     CGRect btnRect = CGRectMake(btnPadding + (btnWith + btnPadding)*i,  CGRectGetHeight(self.scrollView.frame) * 0.8, btnWith, btnHeight);
                     
-                    UIButton * btn = [UIButton createBtnWithRect:btnRect title:btnTitleArr[i] font:KFZ_Second image:nil tag:kTAG_BTN+i patternType:@"4" target:self aSelector:@selector(handleAction:)];
+                    UIButton * btn = [UIButton createBtnRect:btnRect title:btnTitleArr[i] font:kFZ_Second image:nil tag:kTAG_BTN+i type:@"4" target:self aSelector:@selector(handleAction:)];
                     
                     [imageView addSubview:btn];
                 }

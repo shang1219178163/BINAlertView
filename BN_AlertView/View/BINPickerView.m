@@ -26,7 +26,7 @@
     self = [super init];
     if (self) {
         
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIWindow *window = UIApplication.sharedApplication.keyWindow;
         
         self.maskView = [[UIView alloc] initWithFrame:window.bounds];
         self.maskView.backgroundColor = [UIColor blackColor];
@@ -90,7 +90,7 @@
 
 -(void)show
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
     [window addSubview:self.maskView];
     [window addSubview:self.containView];
     

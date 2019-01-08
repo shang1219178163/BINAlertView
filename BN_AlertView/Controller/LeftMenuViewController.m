@@ -38,9 +38,13 @@
     //    [self.view addSubview:self.tableView];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
     
+    [self createBarItemTitle:@"+" imageName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
+        [self add:item];
+    }];
     
-    [self createBarBtnItemWithTitle:@"+" imageName:nil isLeft:NO target:self aSelector:@selector(add:) isHidden:NO];
-    //    [self createBarBtnItemWithTitle:@"-" imageName:nil isLeft:YES target:self aSelector:@selector(jian:) isHidden:NO];
+//    [self createBarItemTitle:@"+" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
+//        [self jian:item];
+//    }];
     self.itemList = [NSMutableArray arrayWithCapacity:0];
     
     self.itemList = @[@"abc",@"eeee",@"gggg",@"mmmm"].mutableCopy;
@@ -66,7 +70,7 @@
     
     CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
     //    _tabBarView = [[BINTabBarView alloc] initWithFrame:rect items:self.itemList];
-    _tabBarView = [BN_TabBarView viewWithRect:rect items:self.itemList];
+    _tabBarView = [BN_TabBarView viewRect:rect items:self.itemList];
     [self.view addSubview:_tabBarView];
     _tabBarView.selectedPage = 1;
     

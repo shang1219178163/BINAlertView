@@ -118,7 +118,7 @@ static CGFloat kRatio_ViewWidth = 0.7;
 }
 
 - (void)show{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
     [window addSubview:self];
     [window addSubview:self.containView];
     

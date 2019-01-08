@@ -15,11 +15,10 @@
     // Override point for customization after application launch.
     NSString * control = @"MainViewController";
     
-//    controlName = @"SegmentControlController";
-    control = @"AnimationController";
-    control = @"ContactListController";
-    control = @"CycleViewController";
-    control = @"MainNewViewController";
+//    control = @"SegmentControlController";
+//    control = @"AnimationController";
+//    control = @"ContactListController";
+//    control = @"CycleViewController";
 
     [UIApplication setupRootController:control];
     [UIApplication setupAppearance];

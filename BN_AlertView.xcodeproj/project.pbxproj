@@ -116,8 +116,6 @@
 		51D07033214670ED006925BB /* BN_SegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D07032214670ED006925BB /* BN_SegmentControl.m */; };
 		51E66444217579B200855503 /* WHKTableViewZeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E66440217579B200855503 /* WHKTableViewZeroCell.m */; };
 		51E66445217579B200855503 /* WHKTableViewFiftyFiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E66443217579B200855503 /* WHKTableViewFiftyFiveCell.m */; };
-		51E6644621757A4B00855503 /* BN_AlertViewTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34098D3919EF962B006806A6 /* BN_AlertViewTests-Info.plist */; };
-		51E6644721757A5000855503 /* BN_AlertView-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34098D2019EF962A006806A6 /* BN_AlertView-Info.plist */; };
 		D994968FFA3F7A8E80753B0C /* libPods-BN_AlertViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCB61CE8418C8BA0709152A /* libPods-BN_AlertViewTests.a */; };
 /* End PBXBuildFile section */
 
@@ -402,8 +400,9 @@
 			children = (
 				518FD85F204803C000FD7ADA /* AppDelegate.h */,
 				518FD860204803C000FD7ADA /* AppDelegate.m */,
+				518FD853204802DE00FD7ADA /* Controller */,
 				51E6643F217579B200855503 /* CellModel */,
-				518FD8542048031100FD7ADA /* Class */,
+				518FD8542048031100FD7ADA /* ViewNew */,
 				518FD84E204801D400FD7ADA /* Vendor */,
 				5183730A1F7E22FD00248179 /* View */,
 				518FD8502048028500FD7ADA /* Resoure */,
@@ -643,7 +642,7 @@
 			path = Resoure;
 			sourceTree = "<group>";
 		};
-		518FD853204802DE00FD7ADA /* Main */ = {
+		518FD853204802DE00FD7ADA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				34098D4A19EF965C006806A6 /* MainViewController.h */,
@@ -671,13 +670,12 @@
 				5180563B218C4B92002EC155 /* CycleViewController.h */,
 				5180563C218C4B92002EC155 /* CycleViewController.m */,
 			);
-			path = Main;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		518FD8542048031100FD7ADA /* Class */ = {
+		518FD8542048031100FD7ADA /* ViewNew */ = {
 			isa = PBXGroup;
 			children = (
-				518FD853204802DE00FD7ADA /* Main */,
 				34098D5019EFB159006806A6 /* MyView.h */,
 				34098D5119EFB159006806A6 /* MyView.m */,
 				51D07031214670EC006925BB /* BN_SegmentControl.h */,
@@ -707,7 +705,8 @@
 				518A034120AEDD1000B6142C /* BN_ShareView.h */,
 				518A034220AEDD1000B6142C /* BN_ShareView.m */,
 			);
-			path = Class;
+			name = ViewNew;
+			path = V;
 			sourceTree = "<group>";
 		};
 		51D0701D21465E24006925BB /* UIImageView+CornerRadius */ = {
@@ -777,7 +776,7 @@
 		34098D0D19EF962A006806A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = SouFun;
 				TargetAttributes = {
 					34098D1419EF962A006806A6 = {
@@ -841,7 +840,6 @@
 				513F8C801F430B680031C8C6 /* Default-568h@2x.png in Resources */,
 				516FF69C20B00E65001989FD /* Facebook_round@2x.png in Resources */,
 				34E450CA1A7F0D1800AAFB18 /* star_h.jpg in Resources */,
-				51E6644721757A5000855503 /* BN_AlertView-Info.plist in Resources */,
 				517F31282147510E00380B50 /* 2-selected.png in Resources */,
 				517F31252147510E00380B50 /* 2-selected@2x.png in Resources */,
 			);
@@ -851,7 +849,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51E6644621757A4B00855503 /* BN_AlertViewTests-Info.plist in Resources */,
 				34098D3C19EF962B006806A6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1038,23 +1035,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1077,23 +1087,35 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1119,6 +1141,7 @@
 				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
 				INFOPLIST_FILE = "BN_AlertView/BN_AlertView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soufun.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
@@ -1138,6 +1161,7 @@
 				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
 				INFOPLIST_FILE = "BN_AlertView/BN_AlertView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soufun.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
@@ -1148,7 +1172,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 887575A8588773CA4659A98C /* Pods-BN_AlertViewTests.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BN_AlertView.app/BN_AlertView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1162,6 +1185,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "BN_AlertViewTests/BN_AlertViewTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soufun.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1172,7 +1196,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2179D080F2520C94DD5D7F50 /* Pods-BN_AlertViewTests.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BN_AlertView.app/BN_AlertView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1182,6 +1205,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BN_AlertView/BN_AlertView-Prefix.pch";
 				INFOPLIST_FILE = "BN_AlertViewTests/BN_AlertViewTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soufun.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

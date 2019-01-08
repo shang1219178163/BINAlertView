@@ -19,8 +19,6 @@
 #import "BN_AlertViewOne.h"
 #import "BN_AlertViewTwo.h"
 
-#define COLOR_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-
 #define kCOUNT_IMAGEVIEW 6
 #define kTAG_IMGVIEW 300
 
@@ -71,7 +69,7 @@
     [self addRightBtn];
     
     CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
-    UIView * containView = [UIView createViewWithRect:rect items:self.itemList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
+    UIView * containView = [UIView createViewRect:rect items:self.itemList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
         [self handleActionBtn:item];
         
     }];
@@ -324,7 +322,7 @@
     
     NSLog(@"%ld",(long)indexPath.row);
     
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow * window = UIApplication.sharedApplication.keyWindow;
     MyView * myView = (MyView *)[window viewWithTag:105];
     [myView dismissMyView];
 }
@@ -376,7 +374,7 @@
 -(void)tapStar:(UITapGestureRecognizer *)tap{
    
     NSLog(@"i8 mg_%ld",(long)tap.view.tag);
-//    UIWindow * window  = [[UIApplication sharedApplication] keyWindow];
+//    UIWindow * window  = UIApplication.sharedApplication.keyWindow;
     for (int i = kTAG_IMGVIEW; i < kTAG_IMGVIEW + kCOUNT_IMAGEVIEW ; i++) {
         
         UIImageView * imgV = (UIImageView *)[tap.view.superview viewWithTag:i];

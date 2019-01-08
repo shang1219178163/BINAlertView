@@ -16,7 +16,7 @@
 
 @implementation BINTabBarView
 
-+ (BINTabBarView *)viewWithRect:(CGRect)frame items:(NSArray *)items{
++ (BINTabBarView *)viewRect:(CGRect)frame items:(NSArray *)items{
     BINTabBarView * view = [[BINTabBarView alloc]initWithFrame:frame items:items];
     return view;
     
@@ -133,7 +133,7 @@
     }
 }
 
-- (UIButton *)createBtnWithRect:(CGRect)rect title:(NSString *)title tag:(NSInteger)tag{
+- (UIButton *)createBtnRect:(CGRect)rect title:(NSString *)title tag:(NSInteger)tag{
     UIButton *button = [[UIButton alloc] initWithFrame:rect];
     button.tag = tag;
     [button setTitle:title forState:UIControlStateNormal];
@@ -174,7 +174,7 @@
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * itemWidth, 0, itemWidth, kH_topView)];
             view.backgroundColor = i % 2 == 0 ? [UIColor lightGrayColor] : [UIColor grayColor];
             
-            UIButton * button = [self createBtnWithRect:CGRectMake(0, 0, itemWidth, kH_topView) title:_items[i] tag:i];
+            UIButton * button = [self createBtnRect:CGRectMake(0, 0, itemWidth, kH_topView) title:_items[i] tag:i];
             [view addSubview:button];
             
             [_itemViews addObject:view];

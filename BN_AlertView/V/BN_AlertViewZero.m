@@ -82,7 +82,7 @@ static const CGFloat padding = 10;
         CGSize customeViewSize = CGSizeZero;
         
         if (title != nil) {
-            UILabel * lableTitle = [UIView createLabelWithRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_First backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+            UILabel * lableTitle = [UIView createLabelRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_First backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
             [self addSubview:lableTitle];
             self.labTitle = lableTitle;
             
@@ -112,12 +112,12 @@ static const CGFloat padding = 10;
             
         }else{
             if (msg != nil) {
-                msgSize = [self sizeWithText:msg font:@(KFZ_Second) width:maxWidth];
+                msgSize = [self sizeWithText:msg font:@(kFZ_Second) width:maxWidth];
                 msgSize.height =  msgSize.height < kH_LABEL ? kH_LABEL: msgSize.height;
                 msgSize.height =  msgSize.height > maxHeight ? maxHeight: msgSize.height;
                 
                 msgRect = CGRectMake(CGRectGetMinX(labelRectTitle), CGRectGetMaxY(labelRectTitle) + padding, maxWidth, msgSize.height);
-                UITextView * textView = [UIView createTextShowWithRect:msgRect text:msg font:KFZ_Second textAlignment:NSTextAlignmentCenter];
+                UITextView * textView = [UIView createTextShowRect:msgRect text:msg font:kFZ_Second textAlignment:NSTextAlignmentCenter];
                 [self addSubview:textView];
                 self.textView = textView;
                 textView.frame = CGRectMake(CGRectGetMinX(labelRectTitle), CGRectGetMaxY(labelRectTitle) + padding, CGRectGetWidth(msgRect), textView.contentSize.height);
@@ -150,8 +150,8 @@ static const CGFloat padding = 10;
             self.textView.textAlignment = NSTextAlignmentCenter;
         }
         self.backgroundColor = UIColor.whiteColor;
-        self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
-        //        CGPoint center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+        self.center = [UIApplication.sharedApplication.windows.firstObject center];
+        //        CGPoint center = [UIApplication.sharedApplication.windows.firstObject center];
         //        self.center = CGPointMake(center.x, center.y*2/3);
     }
     return self;
@@ -164,7 +164,7 @@ static const CGFloat padding = 10;
         for (NSInteger i = 0; i < btnCount; i++) {
             
             CGRect btnRect = CGRectMake(CGRectGetWidth(self.frame)/btnCount * i, CGRectGetHeight(self.frame) - kH_BTN, CGRectGetWidth(self.frame)/btnCount, kH_BTN);
-            UIButton * btn = [UIView createBtnWithRect:btnRect title:btnTitles[i] font:KFZ_First image:nil tag:kTAG_BTN+i patternType:@"2" target:self aSelector:@selector(handleBtnAction:)];
+            UIButton * btn = [UIView createBtnRect:btnRect title:btnTitles[i] font:kFZ_First image:nil tag:kTAG_BTN+i type:@2 target:self aSelector:@selector(handleBtnAction:)];
             [self addSubview:btn];
             [self.btnMarr addObject:btn];
             
@@ -219,10 +219,10 @@ static const CGFloat padding = 10;
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.transform = CGAffineTransformIdentity;
         self.backgroundColor = UIColor.whiteColor;
-        [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
+        [UIApplication.sharedApplication.windows.firstObject addSubview:self];
     } completion:^(BOOL finished) {
         if(self.btnMarr.count == 0){
-            self.textView.font = [UIFont systemFontOfSize:KFZ_Second];
+            self.textView.font = [UIFont systemFontOfSize:kFZ_Second];
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
             
         }
@@ -290,17 +290,17 @@ static const CGFloat padding = 10;
         _maskView.backgroundColor = [UIColor blackColor];
         _maskView.alpha = 0.1f;
         
-        [[[UIApplication sharedApplication] keyWindow] addSubview:_maskView];
+        [UIApplication.sharedApplication.keyWindow addSubview:_maskView];
         return;
     }
-    if (![_maskView isDescendantOfView:[[UIApplication sharedApplication] keyWindow]]) {
-        [[[UIApplication sharedApplication] keyWindow] addSubview:_maskView];
+    if (![_maskView isDescendantOfView:UIApplication.sharedApplication.keyWindow]) {
+        [UIApplication.sharedApplication.keyWindow addSubview:_maskView];
     }
 }
 //移除活动指示器背景图
 - (void)removeActivityBackgroundView{
     if (_maskView) {
-        if ([_maskView isDescendantOfView:[[UIApplication sharedApplication] keyWindow]]) {
+        if ([_maskView isDescendantOfView:UIApplication.sharedApplication.keyWindow]) {
             [_maskView removeFromSuperview];
         }
     }
@@ -342,17 +342,17 @@ static const CGFloat padding = 10;
             rectLab = CGRectMake(labelGapX, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
             
         }
-        UILabel * label = [UIView createLabelWithRect:rectLab text:modol.title textColor:nil tag:kTAG_LABEL+i patternType:@"2" font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+        UILabel * label = [UIView createLabelRect:rectLab text:modol.title textColor:nil tag:kTAG_LABEL+i type:@2 font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         
         CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding - labelGapX, viewHeight);
         
         
-        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:modol.content placeholder:modol.placeHolder font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault tag:i];
+        UITextField * textField = [UIView createTextFieldRect:rectTextField text:modol.content placeholder:modol.placeHolder font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault tag:i];
         [backgroudView addSubview:label];
         [backgroudView addSubview:textField];
         
         textField.borderStyle = UITextBorderStyleNone;
-        [textField.layer addSublayer:[textField createLayerType:@"2"]];//下线条
+        [textField.layer addSublayer:[textField createLayerType:@2]];//下线条
         
         textField.backgroundColor = [UIColor cyanColor];
         

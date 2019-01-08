@@ -107,7 +107,7 @@
 //    [self.superview addSubview:grayView];
     [self.parView addSubview:self];
     [self setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
+    [[[UIApplication.sharedApplication windows] firstObject] addSubview:self];
 
     [UIView animateWithDuration:0.2f delay:0.0 options:UIViewAnimationOptionCurveEaseInOut
 					 animations:^{
@@ -129,7 +129,7 @@
 
 - (void)deviceOrientationDidChange: (NSNotification *)notification{
     
-    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    UIInterfaceOrientation interfaceOrientation = [UIApplication.sharedApplication statusBarOrientation];
     
     CGFloat startRotation = [[self valueForKeyPath:@"layer.transform.rotation.z"] floatValue];
     CGAffineTransform rotation;
@@ -159,7 +159,7 @@
 					 completion:^(BOOL finished){
                          // fix errors caused by being rotated one too many times
                          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                             UIInterfaceOrientation endInterfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+                             UIInterfaceOrientation endInterfaceOrientation = [UIApplication.sharedApplication statusBarOrientation];
                              if (interfaceOrientation != endInterfaceOrientation) {
                                  // TODO user moved phone again before than animation ended: rotation animation can introduce errors here
                              }

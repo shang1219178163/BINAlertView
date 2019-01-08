@@ -18,9 +18,6 @@
 
 #import "BN_ItemsView.h"
 
-#import "UIView+Animation.h"
-
-
 #import "NextViewController.h"
 
 @interface MainNewViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -102,14 +99,14 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
 
-    [self createBarBtnItemWithTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
+    [self createBarItemTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
         [self goController:@"LeftMenuViewController" title:nil obj:nil];
         
     }];
 
 
     CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
-    UIView * containView = [UIView createViewWithRect:rect items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
+    UIView * containView = [UIView createViewRect:rect items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
         [self handleActionBtn:item];
         
     }];
@@ -119,7 +116,7 @@
     self.containView = containView;
     
     CGRect rectNew = CGRectMake(20, CGRectGetMaxY(self.containView.frame) + 20, kScreen_width - 20*2, 0);
-    UIView * containViewNew = [UIView createViewWithRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
+    UIView * containViewNew = [UIView createViewRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
         DDLog(@"%ld",((UIView *)item).tag);
 
     }];
@@ -127,7 +124,7 @@
 //    [self.view addSubview:containViewNew];
     
     
-    BN_ItemsView * itemsView = [BN_ItemsView viewWithRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
+    BN_ItemsView * itemsView = [BN_ItemsView viewRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
         DDLog(@"%ld",((UIView *)item).tag);
         
     }];
@@ -154,7 +151,7 @@
     
 }
 
-- (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
+- (UIView *)createViewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
     
     //    CGFloat padding = 15;
     //    CGFloat viewHeight = 30;
@@ -181,18 +178,18 @@
         switch ([type integerValue] ) {
             case 0://uibutton
             {
-                view = [UIView createBtnWithRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:@"5" target:nil aSelector:nil];
+                view = [UIView createBtnRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i type:@"5" target:nil aSelector:nil];
             }
                 break;
             case 1://UIImageVIew
             {
-                view = [UIView createImgViewWithRect:itemRect image:title tag:kTAG_IMGVIEW+i patternType:@"0"];
+                view = [UIView createImgViewRect:itemRect image:title tag:kTAG_IMGVIEW+i type:@0];
                 
             }
                 break;
             case 2://UILabel
             {
-                view = [UIView createLabelWithRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i patternType:@"0" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+                view = [UIView createLabelRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i type:@0 font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
                 
             }
                 break;
@@ -219,7 +216,7 @@
             [btn addCorners:UIRectCornerAllCorners width:.5 color:UIColor.lineColor];
         }else{
             [btn setBackgroundImage:[UIImage imageWithColor:UIColor.whiteColor] forState:UIControlStateNormal];
-            [btn setTitleColor:kC_TextColor_Title forState:UIControlStateNormal];
+            [btn setTitleColor:UIColor.titleColor forState:UIControlStateNormal];
             [btn addCorners:UIRectCornerAllCorners width:.5 color:UIColor.lineColor];
 
         }
@@ -270,16 +267,9 @@
             break;
         case 4:
         {
-            UIWindow * window = [[UIApplication sharedApplication]keyWindow];
-//            [MBProgressHUD showHUDinView:window animated:YES];
-//
-//            if ([MBProgressHUD HUDForView:window]) {
-//                MBProgressHUD *hud = [MBProgressHUD HUDForView:window];
-//                [hud changeHUDtext:@"标题" detailText:@"详情" duration:2];
-//
-//            }
+            UIWindow * window = UIApplication.sharedApplication.keyWindow;
             
-            [self showAlertWithTitle:@"添加猪品种" placeholderList:@[@"(必填)品种名称(汉字)",@"(选填)品种代号(英文字母)"] msg:nil
+            [self showAlertTitle:@"添加猪品种" placeholderList:@[@"(必填)品种名称(汉字)",@"(选填)品种代号(英文字母)"] msg:nil
                      actionTitleList:@[kActionTitle_Cancell,kActionTitle_Sure] handler:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nullable action) {
                          DDLog(@"___%@",alertController.textFields.firstObject);
                          DDLog(@"________%@",alertController.textFields.lastObject);
@@ -292,7 +282,7 @@
             CGRect rect = CGRectMake(20, (kScreen_height - 64)/2.0, kScreen_width - 20*2, 0);
    
             NSArray * selectedList = @[_elementList[1],_elementList[3]];
-            BINGroupView * groupView = [[BINGroupView alloc]initWithRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
+            BINGroupView * groupView = [[BINGroupView alloc]initRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
 //            groupView.isOnlyOne = YES;
             groupView.backgroundColor = [UIColor orangeColor];
             [self.view addSubview:groupView];
@@ -308,7 +298,7 @@
             CGRect rect = CGRectMake(20, (kScreen_height - 64)/2.0, kScreen_width - 20*2, 0);
             
             NSArray * selectedList = @[_elementList[1],_elementList[3]];
-            BINGroupView * groupView = [BINGroupView viewWithRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
+            BINGroupView * groupView = [BINGroupView viewRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
             groupView.isOnlyOne = YES;
             groupView.backgroundColor = [UIColor orangeColor];
             [self.view addSubview:groupView];
@@ -438,7 +428,8 @@
         case 13:
         {
             NSArray * items = [@"产房,保育,育肥" componentsSeparatedByString:@","];
-            [self.segmentCtrl setSegmentItems:items];
+            self.segmentCtrl.itemList = items;
+
         }
             break;
         case 14:
@@ -475,17 +466,21 @@
     UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kWidth_customView, 200)];
     view.backgroundColor = [UIColor cyanColor];
     
-    UIImageView * imgView = [UIView createImgViewWithRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), 40) image:image tag:300 patternType:@"0"];
+    UIImageView * imgView = [UIView createImgViewRect:CGRectMake(0, 0, CGRectGetWidth(view.frame), 40) image:image tag:300 type:@0];
     [view addSubview:imgView];
     
     NSString * text = msg;
     CGSize size = [self sizeWithText:text font:@15 width:CGRectGetWidth(view.frame)];
     
     CGRect rect = CGRectMake(0, CGRectGetMaxY(imgView.frame)+kY_GAP, CGRectGetWidth(view.frame), size.height);
-    UILabel * label = [UIView createLabelWithRect:rect text:text textColor:nil tag:kTAG_LABEL patternType:@"0" font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+    UILabel * label = [UIView createLabelRect:rect text:text textColor:nil tag:kTAG_LABEL type:@0 font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
     [view addSubview:label];
     
-    [view setHeight:(CGRectGetHeight(label.frame) + CGRectGetHeight(imgView.frame) + kY_GAP*2)];
+    
+    CGFloat height = CGRectGetHeight(label.frame) + CGRectGetHeight(imgView.frame) + kY_GAP*2;
+    CGRect frame = view.frame;
+    frame.size.height = height;
+    view.frame = frame;
     
     return view;
     
@@ -594,7 +589,7 @@
     
     NSLog(@"%ld",(long)indexPath.row);
     
-//    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+//    UIWindow * window = UIApplication.sharedApplication.keyWindow;
 //    MyView * myView = (MyView *)[window viewWithTag:105];
 //    [myView dismissMyView];
 }
@@ -626,15 +621,15 @@
 //            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
 //
 //        }
-//        UILabel * label = [UIView createLabelWithRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i patternType:@"2" font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+//        UILabel * label = [UIView createLabelRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i type:@2 font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
 //
 //        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
-//        UITextField * textField = [UIView createTextFieldWithRect:rectTextField text:@"" placeholder:itemDict[items[i]] font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+//        UITextField * textField = [UIView createTextFieldRect:rectTextField text:@"" placeholder:itemDict[items[i]] font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
 //        [backgroudView addSubview:label];
 //        [backgroudView addSubview:textField];
 //
 //        textField.borderStyle = UITextBorderStyleNone;
-//        [textField.layer addSublayer:[textField createLayerByPatternType:@"2"]];//下线条
+//        [textField.layer addSublayer:[textField createLayerBytype:@2]];//下线条
 //
 //    }
 //    return backgroudView;

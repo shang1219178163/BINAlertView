@@ -65,7 +65,7 @@
 }
 
 - (void)show{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
     [window addSubview:self];
     [window addSubview:self.tableView];
     

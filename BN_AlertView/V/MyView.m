@@ -10,10 +10,6 @@
 
 #define iOS(version) (([[[UIDevice currentDevice] systemVersion] intValue] >= version)?1:0)
 
-
-#define kScreen_width  [[UIScreen mainScreen]bounds].size.width
-#define kScreen_height [[UIScreen mainScreen]bounds].size.height
-
 #define kX_GAP_OF_WINDOW 15//距离window边界
 
 #define kX_GAP 10//self上子视图边界
@@ -23,12 +19,10 @@
 #define kH_LABLE 25//lable高度
 #define kH_BTN 50//btn高度
 
-//RGB色值
-#define COLOR_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
 @implementation MyView
 
-- (void)addLabelWithRect:(CGRect)rect text:(NSString *)text tag:(NSInteger)tag font:(CGFloat)font textColor:(UIColor *)textColor backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
+- (void)addLabelRect:(CGRect)rect text:(NSString *)text tag:(NSInteger)tag font:(CGFloat)font textColor:(UIColor *)textColor backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
 {
     if (![self viewWithTag:tag]) {
 		UILabel * label = [[UILabel alloc] initWithFrame:rect];
@@ -62,7 +56,7 @@
     [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
 
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:COLOR_RGBA(30, 117, 217, 1) forState:UIControlStateNormal];
+    [btn setTitleColor:UIColorRGBA(30, 117, 217, 1) forState:UIControlStateNormal];
 
     [btn addTarget:self action:@selector(btnCommand:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
@@ -125,7 +119,7 @@
                          self.transform = CGAffineTransformIdentity;
                          self.backgroundColor = UIColor.whiteColor;
                          
-                         [[[[UIApplication sharedApplication]windows]firstObject]addSubview:self];
+                         [UIApplication.sharedApplication.windows.firstObject addSubview:self];
                          
                      }
                      completion:NULL
@@ -152,12 +146,12 @@
         /*
         if (title != nil) {
             
-            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP, self.frame.size.width - kX_GAP * 2, 25) text:@"11111" tag:101 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelRect:CGRectMake(kX_GAP, kX_GAP, self.frame.size.width - kX_GAP * 2, 25) text:@"11111" tag:101 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         if (msg != nil) {
             
-            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP + 25+5, self.frame.size.width - kX_GAP * 2, 25) text:@"2222" tag:102 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelRect:CGRectMake(kX_GAP, kX_GAP + 25+5, self.frame.size.width - kX_GAP * 2, 25) text:@"2222" tag:102 font:15 textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         if (customeView != nil) {
@@ -177,7 +171,7 @@
         if (title != nil) {
             
             titleSize = [self sizeWithText:title font:@(kFONTSIZE) width:maxWidth];
-            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP, self.frame.size.width - kX_GAP * 2, kH_LABLE) text:title tag:101 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelRect:CGRectMake(kX_GAP, kX_GAP, self.frame.size.width - kX_GAP * 2, kH_LABLE) text:title tag:101 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
         }
         
         
@@ -205,7 +199,7 @@
         }else{
             
             msgSize = [self sizeWithText:msg font:@(kFONTSIZE) width:maxWidth];
-            [self addLabelWithRect:CGRectMake(kX_GAP, kX_GAP + kH_LABLE + 5, self.frame.size.width - kX_GAP * 2, kH_LABLE) text:msg tag:102 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+            [self addLabelRect:CGRectMake(kX_GAP, kX_GAP + kH_LABLE + 5, self.frame.size.width - kX_GAP * 2, kH_LABLE) text:msg tag:102 font:kFONTSIZE textColor:nil backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
 
         }
         
@@ -253,7 +247,7 @@
         }
         
         self.backgroundColor = UIColor.whiteColor;
-        self.center = [[[[UIApplication sharedApplication]windows]firstObject]center];
+        self.center = [UIApplication.sharedApplication.windows.firstObject center];
         
         self.delegate = delegate;//代理
         
@@ -270,18 +264,18 @@
         _activityOnView.backgroundColor = [UIColor blackColor];
         _activityOnView.alpha = 0.1f;
         
-        [[[UIApplication sharedApplication] keyWindow] addSubview:_activityOnView];
+        [UIApplication.sharedApplication.keyWindow addSubview:_activityOnView];
         return;
     }
-    if (![_activityOnView isDescendantOfView:[[UIApplication sharedApplication] keyWindow]]) {
-        [[[UIApplication sharedApplication] keyWindow] addSubview:_activityOnView];
+    if (![_activityOnView isDescendantOfView:UIApplication.sharedApplication.keyWindow]) {
+        [UIApplication.sharedApplication.keyWindow addSubview:_activityOnView];
     }
 }
 //移除活动指示器背景图
 -(void)removeActivityBackgroundView{
     //    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"cancelBackgroundView" object:nil];
     if (_activityOnView) {
-        if ([_activityOnView isDescendantOfView:[[UIApplication sharedApplication] keyWindow]]) {
+        if ([_activityOnView isDescendantOfView:UIApplication.sharedApplication.keyWindow]) {
             [_activityOnView removeFromSuperview];
         }
         _activityOnView=nil;

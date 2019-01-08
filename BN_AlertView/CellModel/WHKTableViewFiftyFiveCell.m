@@ -82,14 +82,14 @@
 
 -(UILabel *)labelLeft{
     if (!_labelLeft) {
-        _labelLeft = [UILabel createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+        _labelLeft = [UILabel createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
     }
     return _labelLeft;
 }
 
 -(UISegmentedControl *)segmentCtrl{
     if (!_segmentCtrl) {
-//        _segmentCtrl = [UIView createSegmentCtlWithRect:CGRectMake(0, 0, kScreen_width, 44) items:@[@"item0",@"item1",@"item2",@"item3"] selectedIndex:0 type:@"0"];
+//        _segmentCtrl = [UIView createSegmentCtlWithRect:CGRectMake(0, 0, kScreen_width, 44) items:@[@"item0",@"item1",@"item2",@"item3"] selectedIndex:0 type:@0];
 //        _segmentCtrl.selectedSegmentIndex = 0;
         //        _segmentCtrl.frame = CGRectZero;
         

@@ -26,14 +26,14 @@
     
 }
 
-+ (BINGroupView *)viewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding selectedList:(NSArray *)selectedList{
++ (BINGroupView *)viewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding selectedList:(NSArray *)selectedList{
     
-    BINGroupView *view = [[BINGroupView alloc]initWithRect:rect items:items numberOfRow:numberOfRow itemHeight:itemHeight padding:padding selectedList:selectedList];
+    BINGroupView *view = [[BINGroupView alloc]initRect:rect items:items numberOfRow:numberOfRow itemHeight:itemHeight padding:padding selectedList:selectedList];
     return view;
 }
 
 
-- (id)initWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding selectedList:(NSArray *)selectedList{
+- (id)initRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding selectedList:(NSArray *)selectedList{
     self = [super init];
     if (self) {
         self.items = items;
@@ -60,14 +60,14 @@
             NSString * title = items[i];
             CGRect btnRect = CGRectMake(x, y, w, h);
             NSString * type = [selectedList containsObject:title] ? @"8": @"0";
-            UIButton * btn = [UIView createBtnWithRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i patternType:type target:self aSelector:@selector(handleActionBtn:)];
+            UIButton * btn = [UIView createBtnRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i type:type target:self aSelector:@selector(handleActionBtn:)];
             
             if ([self.selectedList containsObject:title]) {
                 [self handleSender:btn backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
                 
             }
             else{
-                [self handleSender:btn backgroudColor:UIColor.whiteColor textColor:kC_TextColor layerColor:UIColor.lineColor];
+                [self handleSender:btn backgroudColor:UIColor.whiteColor textColor:UIColor.titleColor layerColor:UIColor.lineColor];
                 
             }
             [self addSubview:btn];
@@ -90,7 +90,7 @@
                 [self handleSender:sender backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
                 
             }else{
-                [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
+                [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:UIColor.titleColor layerColor:UIColor.lineColor];
                 
             }
         }
@@ -109,7 +109,7 @@
             
         }else{
             [self.selectedList removeObject:title];
-            [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
+            [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:UIColor.titleColor layerColor:UIColor.lineColor];
             
         }
     }
@@ -127,7 +127,7 @@
                     [self handleSender:btn backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
 
                 }else{
-                    [self handleSender:btn backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
+                    [self handleSender:btn backgroudColor:UIColor.whiteColor textColor:UIColor.titleColor layerColor:UIColor.lineColor];
 
                 }
             }
@@ -144,7 +144,7 @@
             [self handleSender:sender backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
             
         }else{
-            [self handleSender:sender backgroudColor:colorBackNormal textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
+            [self handleSender:sender backgroudColor:colorBackNormal textColor:UIColor.titleColor layerColor:UIColor.lineColor];
             
         }
     }
@@ -156,7 +156,7 @@
             [self handleSender:sender backgroudColor:colorBackSelected textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
             
         }else{
-            [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:kC_TextColor_Title layerColor:UIColor.lineColor];
+            [self handleSender:sender backgroudColor:UIColor.whiteColor textColor:UIColor.titleColor layerColor:UIColor.lineColor];
             
         }
     }

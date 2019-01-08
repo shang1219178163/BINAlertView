@@ -35,7 +35,7 @@
 
 @implementation BINPickerViewNew
 
-- (instancetype)initWithPickerData:(NSArray *)array patternType:(NSString *)patternType cancelBtnTitle:(NSString *)cancelBtnTitle confirmButtonTitle:(NSString *)confirmBtnTitle
+- (instancetype)initWithPickerData:(NSArray *)array type:(NSString *)patternType cancelBtnTitle:(NSString *)cancelBtnTitle confirmButtonTitle:(NSString *)confirmBtnTitle
 {
     
     self = [super init];
@@ -55,7 +55,7 @@
         }
 
         //UI
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIWindow *window = UIApplication.sharedApplication.keyWindow;
         
         self.maskView = [[UIView alloc] initWithFrame:window.bounds];
         self.maskView.backgroundColor = [UIColor blackColor];
@@ -130,7 +130,7 @@
 
 -(void)show
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
     [window addSubview:self.maskView];
     [window addSubview:self.containView];
     

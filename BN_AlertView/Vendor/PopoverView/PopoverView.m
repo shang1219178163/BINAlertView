@@ -98,7 +98,7 @@ float PopoverViewDegreesToRadians(float angle)
     self.backgroundColor = UIColor.whiteColor;
     
     // keyWindow
-    _keyWindow = [UIApplication sharedApplication].keyWindow;
+    _keyWindow = UIApplication.sharedApplication.keyWindow;
     _windowWidth = CGRectGetWidth(_keyWindow.bounds);
     _windowHeight = CGRectGetHeight(_keyWindow.bounds);
     
@@ -168,7 +168,7 @@ float PopoverViewDegreesToRadians(float angle)
     currentH += kPopoverViewArrowHeight;
     
     // 限制最高高度, 免得选项太多时超出屏幕
-    CGFloat maxHeight = _isUpward ? (_windowHeight - toPoint.y - kPopoverViewMargin) : (toPoint.y - CGRectGetHeight([UIApplication sharedApplication].statusBarFrame));
+    CGFloat maxHeight = _isUpward ? (_windowHeight - toPoint.y - kPopoverViewMargin) : (toPoint.y - CGRectGetHeight(UIApplication.sharedApplication.statusBarFrame));
     if (currentH > maxHeight) { // 如果弹窗高度大于最大高度的话则限制弹窗高度等于最大高度并允许tableView滑动.
         currentH = maxHeight;
         _tableView.scrollEnabled = YES;

@@ -122,7 +122,7 @@ static const CGFloat padding = 5;
 }
 
 - (void)show{
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [UIApplication.sharedApplication.keyWindow addSubview:self];
 
 }
 
