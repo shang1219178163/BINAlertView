@@ -1,15 +1,17 @@
 //
 //  UIButton+Helper.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/12/27.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 //#import "NSObject+Helper.h"//优点全部子类使用;使用性能较差需要一级级去查找
 
 @interface UIButton (Helper)
+
+- (NSMutableAttributedString *)setContent:(NSString *)content attDic:(NSDictionary *)attDic forState:(UIControlState)state;
 
 /**
  导航栏按钮
@@ -36,6 +38,8 @@
 - (void)startCountdown60s;
 
 - (void)startCountdown:(NSTimeInterval)count;
+
+- (void)startTime:(NSInteger)timeout title:(NSString *)tittle waitTittle:(NSString *)waitTittle;
 
 - (void)startDisplayLink;
 

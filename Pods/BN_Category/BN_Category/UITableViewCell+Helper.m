@@ -1,9 +1,9 @@
 //
 //  UITableViewCell+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/1/9.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UITableViewCell+Helper.h"
@@ -26,15 +26,12 @@
 
 - (CGFloat)cellHeightFor:(NSIndexPath *)indexPath keyPath:(NSString *)keyPath{
     
-    NSString * cachKey = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
+    NSString *cachKey = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
     NSNumber *cachHeight = self.mdict[cachKey];
-    
     if (cachHeight) {
         return [cachHeight floatValue];
-    }else{
-        
     }
-    return 50;
+    return 60;
 }
 
 
@@ -52,6 +49,8 @@
                 label.backgroundColor = UIColor.greenColor;
                 label;
         });
+        objc_setAssociatedObject(self, @selector(label), obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
     }
     return obj;
     
@@ -61,7 +60,6 @@
     objc_setAssociatedObject(self, @selector(label), label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
 }
-
 
 -(UIImageView *)imgView{
     id obj = objc_getAssociatedObject(self, _cmd);
@@ -74,10 +72,11 @@
             imgView;
             
         });
+        objc_setAssociatedObject(self, @selector(imgView), obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
     }
     return obj;
 }
-
 
 +(instancetype)cellWithTableView:(UITableView *)tableView identifier:(NSString *)identifier{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -92,7 +91,7 @@
 }
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    NSString *identifier = NSStringFromClass([self class]);
+    NSString *identifier = NSStringFromClass(self.class);
     return [self cellWithTableView:tableView identifier:identifier];
 }
 

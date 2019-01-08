@@ -2,7 +2,7 @@
 //  NSObject+Date.h
 //  ProductTemplet
 //
-//  Created by hsf on 2018/9/29.
+//  Created by BIN on 2018/9/29.
 //  Copyright © 2018年 BN. All rights reserved.
 //
 
@@ -29,7 +29,6 @@
 #pragma mark- -字符串转日期
 - (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format;
 - (NSDate *)dateWithString:(NSString *)dateString;
-
 
 #pragma mark- -日期转字符串
 - (NSString *)stringWithDate:(NSDate *)date format:(NSString *)format;

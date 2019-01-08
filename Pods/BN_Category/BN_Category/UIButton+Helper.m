@@ -1,9 +1,9 @@
 //
 //  UIButton+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/12/27.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import "UIButton+Helper.h"
@@ -13,10 +13,20 @@
 #import "UIScreen+Helper.h"
 
 #import "UIColor+Helper.h"
+#import "UILabel+Helper.h"
 
 #import "BN_Globle.h"
 
 @implementation UIButton (Helper)
+
+/**
+ UIButton不同状态下设置富文本标题
+ */
+- (NSMutableAttributedString *)setContent:(NSString *)content attDic:(NSDictionary *)attDic forState:(UIControlState)state{
+    NSMutableAttributedString *attString = [self.titleLabel setContent:content attDic:attDic];
+    [self setAttributedTitle:attString forState:state];
+    return attString;
+}
 
 +(UIButton *)buttonWithSize:(CGSize)size
                     image_N:(id)image_N
@@ -111,6 +121,37 @@
     dispatch_resume(_timer);
 }
 
+-(void)startTime:(NSInteger)timeout title:(NSString *)tittle waitTittle:(NSString *)waitTittle{
+    __block NSInteger timeOut=timeout; //倒计时时间
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeOut<=0){ //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                [self setTitle:tittle forState:UIControlStateNormal];
+                self.userInteractionEnabled = YES;
+            });
+        } else {
+            //            int minutes = timeout / 60;
+            int seconds = timeOut % 60;
+            NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                NSLog(@"____%@",strTime);
+                [self setTitle:[NSString stringWithFormat:@"%@%@",strTime,waitTittle] forState:UIControlStateNormal];
+                self.userInteractionEnabled = NO;
+                
+            });
+            timeOut--;
+            
+        }
+    });
+    dispatch_resume(_timer);
+    
+}
 
 /**
  CADisplayLink是一个能让我们以和屏幕刷新率同步的频率将特定的内容画到屏幕上的定时器类。
@@ -129,7 +170,7 @@
 }
 
 
-+ (UIView *)buttonWithRect:(CGRect)rect attDict:(NSDictionary *)dict tag:(NSInteger)tag{
++ (UIView *)buttonRect:(CGRect)rect attDict:(NSDictionary *)dict tag:(NSInteger)tag{
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(20, 0, 90, 40);
@@ -170,12 +211,12 @@
     if ([image isKindOfClass:[NSString class]]) {
         img = [UIImage imageNamed:image];
         
-    }else{
+    } else {
         img = image;
         
     }
     
-    switch ([type integerValue]) {
+    switch (type.integerValue) {
         case 1:
         {
             //字+图
@@ -196,7 +237,7 @@
 //    CGSize sizeLab = sender.titleLabel.bounds.size;
 //    CGSize sizeImg = sender.imageView.bounds.size;
 //
-//    switch ([type integerValue]) {
+//    switch (type.integerValue) {
 //        case 1:
 //        {
 //            //字+图

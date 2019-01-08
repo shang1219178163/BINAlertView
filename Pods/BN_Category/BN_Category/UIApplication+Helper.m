@@ -1,21 +1,20 @@
 
 //
 //  UIApplication+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/12/28.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import "UIApplication+Helper.h"
 #import <objc/runtime.h>
 
-
 @implementation UIApplication (Helper)
 
 + (UIWindow *)keyWindow{
     UIWindow *window = UIApplication.sharedApplication.delegate.window;
-    if (window == nil) {
+    if (!window) {
         window = [[UIWindow alloc]initWithFrame:UIScreen.mainScreen.bounds];
         window.backgroundColor = UIColor.whiteColor;
         [window makeKeyAndVisible];
@@ -23,13 +22,11 @@
         
     }
     return window;
-    
 }
 
 +(void)setKeyWindow:(UIWindow *)keyWindow{
-    if (keyWindow == nil) return;
+    if (!keyWindow) return;
     UIApplication.sharedApplication.delegate.window = keyWindow;
-    
 }
 
 + (UIViewController *)rootController{
@@ -38,65 +35,69 @@
 }
 
 +(void)setRootController:(UIViewController *)rootVC{
-    if (rootVC == nil) return;
+    if (!rootVC) return;
     UIApplication.keyWindow.rootViewController = rootVC;
     
 }
 
-+(NSString *)app_Name{
-    NSDictionary *infoDict = [NSBundle.mainBundle infoDictionary];
++ (UITabBarController *)tabBarController{
+    if ([UIApplication.rootController isKindOfClass:[UITabBarController class]]) {
+        return (UITabBarController *)UIApplication.rootController;
+    }
+    return nil;
+}
+
++(NSString *)appName{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
     return  infoDict[@"CFBundleDisplayName"] ? : infoDict[@"CFBundleName"];
 }
 
-+(UIImage *)app_Icon{
-    NSDictionary *infoDict = [NSBundle.mainBundle infoDictionary];
-    
++(UIImage *)appIcon{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
     NSString *icon = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
     UIImage * image = [UIImage imageNamed:icon];
     return image;
-    
 }
 
-+(NSString *)app_Version{
-    NSDictionary *infoDict = [NSBundle.mainBundle infoDictionary];
++(NSString *)appVer{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
     return  infoDict[@"CFBundleShortVersionString"];
 }
 
-+(NSString *)app_build{
-    NSDictionary *infoDict = [NSBundle.mainBundle infoDictionary];
++(NSString *)appBuild{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
     return  infoDict[@"CFBundleVersion"];
 }
 
-+(NSString *)phone_SystemVersion{
-    return  [UIDevice.currentDevice systemVersion];
-    
++(NSString *)phoneSystemVer{
+    return UIDevice.currentDevice.systemVersion;
 }
 
-+(NSString *)phone_SystemName{
-    return  [UIDevice.currentDevice systemName];
-    
++(NSString *)phoneSystemName{
+    return UIDevice.currentDevice.systemName;
 }
 
-+(NSString *)phone_Name{
++(NSString *)phoneName{
     if (UIDevice.currentDevice) {
-        UIDevice * device = UIDevice.currentDevice;
-        return device.name;
+        return UIDevice.currentDevice.name;
     }
     return @"";
 }
 
-+(NSString *)phone_Model{
-    return  [UIDevice.currentDevice model];
-    
++(NSString *)phoneModel{
+    return UIDevice.currentDevice.model;
 }
 
-+(NSString *)phone_localizedModel{
-    return  [UIDevice.currentDevice localizedModel];
-    
++(NSString *)phoneLocalizedModel{
+    return UIDevice.currentDevice.localizedModel;
 }
 
-+ (void)setupRootController:(id)controller{
-    if ([controller isKindOfClass:[NSString class]]) controller = [NSClassFromString(controller) new];
++ (void)setupRootController:(id)controller isAdjust:(BOOL)isAdjust{
+    if ([controller isKindOfClass:[NSString class]]) controller = [[NSClassFromString(controller) alloc] init];
+    if (!isAdjust) {
+        UIApplication.rootController = controller;
+        return;
+    }
     
     if ([controller isKindOfClass:[UINavigationController class]] || [controller isKindOfClass:[UITabBarController class]]) {
         UIApplication.rootController = controller;
@@ -109,50 +110,72 @@
     }
 }
 
-//+ (void)setupRootController:(id)controller{
-//    if ([controller isKindOfClass:[NSString class]]) controller = [NSClassFromString(controller) new];
-//
-//    UIApplication * app = UIApplication.sharedApplication;
-//    app.delegate.window = [[UIWindow alloc]initWithFrame:UIScreen.mainScreen.bounds];
-//    app.delegate.window.backgroundColor = UIColor.whiteColor;
-//
-//    if ([controller isKindOfClass:[UINavigationController class]] || [controller isKindOfClass:[UITabBarController class]]) {
-//        app.delegate.window.rootViewController = controller;
-//
-//    }else{
-//        UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:controller];
-//        app.delegate.window.rootViewController = navController;
-//
-//    }
-//    [app.delegate.window makeKeyAndVisible];
-//}
++ (void)setupRootController:(id)controller{
+    [UIApplication setupRootController:controller isAdjust:YES];
+    
+}
 
 + (void)setupAppearance{
-    [self setupNavigationbar];
-    [self setupTableView];
+    [self setupAppearanceNavigationBar];
+    [self setupAppearanceTabBar];
+    UIButton.appearance.exclusiveTouch = NO;
+
+    UITableViewCell.appearance.separatorInset = UIEdgeInsetsZero;
+    UITableViewCell.appearance.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    UIScrollView.appearance.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+
     if (@available(iOS 11.0, *)) {
+        UITableView.appearance.estimatedRowHeight = 0.0;
+        UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
+        UITableView.appearance.estimatedSectionFooterHeight = 0.0;
+
         UICollectionView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 
     }
+    
+    UITabBar.appearance.tintColor = UIColor.themeColor;
+    UITabBar.appearance.barTintColor = UIColor.whiteColor;
+    
+    if (@available(iOS 10.0, *)) {
+        UITabBar.appearance.unselectedItemTintColor = UIColor.grayColor;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    
+//    UITabBarItem *selectedItem = UITabBar.appearance.selectedItem;
+//    selectedItem.image = [selectedItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//
+//    NSArray *items = UITabBar.appearance.items;
+//    for (UITabBarItem * item in items) {
+//        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    }
+
+//    UITabBarItem.appearance setTitleTextAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#> forState:<#(UIControlState)#>
 }
 
-+ (void)setupNavigationbar{
-    
-    UINavigationBar * navigationBar = UINavigationBar.appearance;
-    [navigationBar setBarTintColor:UIColor.themeColor];
-    [navigationBar setTintColor:UIColor.whiteColor];
-    [navigationBar setTitleTextAttributes:@{
-                                            NSForegroundColorAttributeName  :   UIColor.whiteColor,
-                                            
-                                            }];
++ (void)setupAppearanceNavigationBar{
+    UINavigationBar.appearance.tintColor = UIColor.whiteColor;
+    UINavigationBar.appearance.barTintColor = UIColor.themeColor;
+    NSDictionary * dic = @{
+                           NSForegroundColorAttributeName   :   UIColor.whiteColor,
+                           NSFontAttributeName  :   [UIFont boldSystemFontOfSize:UIFont.systemFontSize+1.0],
+                           };
+    UINavigationBar.appearance.titleTextAttributes = dic;
 
+//    [UINavigationBar.appearance setBarTintColor:UIColor.themeColor];
+//    [UINavigationBar.appearance setTintColor:UIColor.whiteColor];
+//    [UINavigationBar.appearance setTitleTextAttributes:@{
+//                                                         NSForegroundColorAttributeName  :   UIColor.whiteColor,
+//                                            
+//                                                         }];
+   
     //    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     //    [navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
     
-    if (iOSVersion(11)) {
+    if (iOSVer(11)) {
 //        UIImage *origImage = [UIImage imageNamed:@"img_btnBack.png"];
 //        //系统返回按钮处的title偏移到可视范围之外
 //        //iOS11 和 iOS11以下分别处理
@@ -170,26 +193,31 @@
     }
 }
 
-+ (void)setupTableView{
-    if (@available(iOS 11.0, *)) {
-        UITableView.appearance.estimatedRowHeight = 0.0;
-        UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
-        UITableView.appearance.estimatedSectionFooterHeight = 0.0;
-
-    }
++ (void)setupAppearanceTabBar{
+    UITabBarItem.appearance.titlePositionAdjustment = UIOffsetMake(0, -5.0);
+    UITabBar.appearance.translucent = NO;
 }
 
-
-+ (void)setupTabBarSelectedIndex:(NSUInteger)selectedIndex{
-    UIViewController *rootController = UIApplication.sharedApplication.delegate.window.rootViewController;
-    if ([rootController isKindOfClass:[UITabBarController class]]) {
-        ((UITabBarController *)rootController).selectedIndex = selectedIndex;
-    }else{
-        NSParameterAssert([rootController isKindOfClass:[UITabBarController class]]);
++ (BOOL)openURL:(NSString *)urlStr tips:(NSString *)tips{
+    UIApplication * app = UIApplication.sharedApplication;
+    NSURL *url = [NSURL URLWithString:urlStr];
+    BOOL isOpenUrl = [app canOpenURL:url];
+    if (isOpenUrl) {
+        if (iOSVer(10)) {
+            [app openURL:url options:@{} completionHandler:nil];
+            
+        } else {
+            [app openURL:url];
+        }
+    }
+    else{
+        [UIApplication.rootController showAlertTitle:tips msg:tips];
         
     }
+    return isOpenUrl;
     
 }
+
 
 
 @end

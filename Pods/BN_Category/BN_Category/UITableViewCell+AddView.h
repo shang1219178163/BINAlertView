@@ -18,10 +18,9 @@
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 
-@property (nonatomic, assign) CGSize  imgViewLeftSize;
+@property (nonatomic, strong, class, readonly) NSString * identifier;
 
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) CGSize  imgViewLeftSize;
 
 @property (nonatomic, strong) UILabel * labelRight;
 
@@ -40,8 +39,5 @@
 @property (nonatomic, strong) BN_TextField * textField;
 @property (nonatomic, strong) BN_TextView * textView;
 @property (nonatomic, strong) BN_RadioView * radioView;
-
-
-- (id)getTextFieldRightView:(NSString *)unitString;
 
 @end

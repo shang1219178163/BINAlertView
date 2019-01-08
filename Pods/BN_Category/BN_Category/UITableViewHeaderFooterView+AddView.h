@@ -1,9 +1,9 @@
 //
 //  UITableViewHeaderFooterView+AddView.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/8/24.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,9 +12,6 @@
 #import "UIView+Helper.h"
 
 @interface UITableViewHeaderFooterView (AddView)
-
-@property (nonatomic, assign, readonly) CGFloat width;
-@property (nonatomic, assign, readonly) CGFloat height;
 
 @property (nonatomic, strong) UIImageView * viewIndicator;
 @property (nonatomic, strong) UIImageView * imgViewLeft;

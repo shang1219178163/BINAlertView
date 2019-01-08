@@ -13,10 +13,25 @@ NSString * const kNIl_TEXT            =   @"--";
 
 #pragma mark - - kSet
 
-NSString * const kSet_number            =   @"0123456789";
-NSString * const kSet_float             =   @"0123456789.";
-NSString * const kSet_alpha             =   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-NSString * const kSet_alpha_num         =   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+NSString * const kSetNumber            =   @"0123456789";
+NSString * const kSetFloat             =   @"0123456789.";
+NSString * const kSetAlpha             =   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+NSString * const kSetAlpha_Num         =   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+NSString * const kSetAlpha_Float         =   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.";
+
+
+#pragma mark - - File
+
+const NSInteger kPageSize = 20;
+const NSInteger kFileSize_image = 1*1024*1024;
+
+//plist文件路径
+NSString * const kPlistFilePath = @"/Library/File_Plist/";
+//plist文件名
+NSString * const kPlistName_common = @"HuiZhuBang_common.plist";
+NSString * const kPlistKey_vehicleTypeDict = @"key_vehicleTypeDict";
+NSString * const kPlistKey_vehicleTypeArr = @"key_vehicleTypeArr";
+NSString * const kPlistKey_vehicleTypeIconArr = @"key_vehicleTypeIconArr";
 
 #pragma mark - - kTag
 
@@ -43,6 +58,10 @@ const NSInteger kTAG_UItableViewCell = 1500;
 const NSInteger kTAG_ICAROUSEL = 950;
 const NSInteger kTAG_PAGE_CONTROL = 951;
 
+const NSInteger kComponent_0 = 0 ;
+const NSInteger kComponent_1 = 1 ;
+const NSInteger kComponent_2 = 2 ;
+
 #pragma mark - -MacroGeometry与计算有关的尺寸属性
 
 const CGFloat kH_StatusBar = 20;
@@ -68,9 +87,11 @@ const CGFloat kW_LayerBorder = 0.5;
 const CGFloat kWH_ArrowRight = 25;
 const CGFloat kTimerValue = 65;
 const CGFloat kRatio_IDCard = 1.58;
-const CGFloat kAnimationDuration_Toast = 1.0;
-const CGFloat kAnimationDuration_Drop = 0.5;
-const CGFloat kLeftMenuRatio = 0.8;
+const CGFloat kRatio_LeftMenu = 0.8;
+
+const CGFloat kAnimDuration = 0.3;
+const CGFloat kAnimDuration_Toast = 1.0;
+const CGFloat kAnimDuration_Drop = 0.5;
 
 const CGFloat kW_item = 80;
 const CGFloat kW_progressView = 130;
@@ -86,39 +107,51 @@ const CGFloat kW_LINE_Vert =  3.0;
 
 #pragma mark - -font
 
-const CGFloat KFZ_First =  18;
-const CGFloat KFZ_Second = 16;
-const CGFloat KFZ_Third =  14;
-const CGFloat KFZ_Fouth =  12;
-const CGFloat KFZ_Fifth =  10;
+const CGFloat kFZ_First =  18;
+const CGFloat kFZ_Second = 16;
+const CGFloat kFZ_Third =  14;
+const CGFloat kFZ_Fouth =  12;
+const CGFloat kFZ_Fifth =  10;
 
 #pragma mark - -视图
 
-NSString * const kIMAGE_arrowRight = @"img_arrowRight.png";
-NSString * const kIMAGE_arrowDown = @"img_arrowDown_black.png";
-NSString * const kIMAGE_arrowBack = @"img_btnBack.png";
+NSString * const kIMG_arrowRight = @"img_arrowRight_gray";
+NSString * const kIMG_arrowDown = @"img_arrowDown_black";
+NSString * const kIMG_arrowBack = @"img_arrowLeft_white";
+NSString * const kIMG_arrowUp = @"img_arrowUp_blue";
 
-NSString * const kIMAGE_default_User = @"img_portrait_Default.png";
-NSString * const kIMAGE_default_User_N = @"img_headPortrait_N.png";
-NSString * const kIMAGE_default_User_H = @"img_headPortrait_H.png";
-NSString * const kIMAGE_defaultAddPhoto = @"img_photoAddDefault.png";
-NSString * const kIMAGE_photoDelete = @"img_Picture_Delete.png";
+NSString * const kIMG_portrait = @"img_portrait_N";
+NSString * const kIMG_portrait_N = @"img_portrait_N";
+NSString * const kIMG_portrait_H = @"img_portrait_H";
+NSString * const kIMG_pictureAdd = @"img_pictureAdd";
+NSString * const kIMG_pictureDelete = @"img_pictureDelete";
 
-NSString * const kIMAGE_default_failed = @"imageFailedDefault.png";
-NSString * const kIMAGE_default_failed_S = @"imageFailedDefault_S.png";
+NSString * const kIMG_defaultFailed = @"img_failedDefault";
+NSString * const kIMG_defaultFailed_S = @"img_failedDefault_S";
 
-NSString * const kIMAGE_SexBoy = @"img_sex_boy.png";
-NSString * const kIMAGE_SexGril = @"img_sex_gril.png";
+NSString * const kIMG_sexBoy = @"img_sex_boy";
+NSString * const kIMG_sexGril = @"img_sex_gril";
 
-NSString * const kIMAGE_elemetDecrease = @"decrease_elemet";
-NSString * const kIMAGE_elemetIncrease = @"increase_elemet";
+NSString * const kIMG_elemetDec = @"img_elemet_decrease";
+NSString * const kIMG_elemetInc = @"img_elemet_increase";
 
-NSString * const kIMAGE_scan = @"img_scan.png";
-NSString * const kIMAGE_NFC = @"img_NFC.png";
-NSString * const kIMAGE_update = @"img_dialog_update";
-NSString * const kIMAGE_inquiry = @"img_dialog_inquiry";
-NSString * const kIMAGE_warning = @"img_dialog_warning";
+NSString * const kIMG_scan = @"img_scan";
+NSString * const kIMG_NFC = @"img_NFC";
 
+NSString * const kIMG_inquiry = @"img_dialog_inquiry";
+NSString * const kIMG_update = @"img_dialog_update";
+NSString * const kIMG_warning = @"img_dialog_warning";
+
+NSString * const kIMG_notice = @"img_notice";
+NSString * const kIMG_location_H = @"img_location_H";
+NSString * const kIMG_more = @"img_more";
+
+NSString * const kIMG_selected_NO = @"btn_selected_NO";
+NSString * const kIMG_selected_YES = @"btn_selected_YES";
+NSString * const kIMG_Add = @"btn_add";
+
+NSString * const kIMG_like_H = @"img_like_H";
+NSString * const kIMG_like_W = @"img_like_W";
 
 NSString * const kMsg_NetWorkRequesting = @"网络请求中...";
 NSString * const kMsg_NetWorkFailed = @"网络请求失败,请稍后再试";
@@ -147,7 +180,9 @@ NSString * const kActionTitle_Recover = @"恢复";
 
 #pragma mark - - 通用
 
-NSString * const kDes_week              =   @"星期一,星期二,星期三,星期四,星期五,星期六,星期天,";
+NSString * const kDes_week              =   @"星期一,星期二,星期三,星期四,星期五,星期六,星期天";
+NSString * const kDes_month             =   @"正月, 二月, 三月, 四月, 五月, 六月, 七月, 八月,九月, 十月, 冬月, 腊月";
+NSString * const kDes_day              =   @"初一, 初二, 初三, 初四, 初五, 初六, 初七, 初八, 初九, 初十,十一, 十二, 十三, 十四, 十五, 十六, 十七, 十八, 十九, 二十, 廿一, 廿二, 廿三, 廿四, 廿五, 廿六, 廿七, 廿八, 廿九, 三十, 三十一";
 
 NSString * const kItem_obj              =   @"kItem_obj";
 NSString * const kItem_objSeleted       =   @"kItem_objSeleted";

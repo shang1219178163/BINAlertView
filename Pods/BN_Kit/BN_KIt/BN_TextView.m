@@ -56,7 +56,7 @@
     if (self.text.length == 0) {
         self.placeHolderLabel.hidden = NO;
         
-    }else{
+    } else {
         self.placeHolderLabel.hidden = YES;
         
     }
@@ -97,7 +97,7 @@
     if (self.text.length == 0 && self.placeHolderLabel.text.length > 0) {
         self.placeHolderLabel.hidden = NO;
         
-    }else{
+    } else {
         self.placeHolderLabel.hidden = YES;
 
     }
@@ -119,7 +119,7 @@
 //    if ([text isKindOfClass:[NSString class]]) {
 //        size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attrDict context:nil].size;
 //
-//    }else{
+//    } else {
 //        size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
 //
 //    }

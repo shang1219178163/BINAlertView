@@ -92,7 +92,7 @@
     if (self.progress > 1) {
 //        DDLog(@"传入数值范围为 0-1");
         self.progress = 1;
-    }else if (self.progress < 0){
+    } else if (self.progress < 0){
 //        DDLog(@"传入数值范围为 0-1");
         self.progress = 0;
         return;

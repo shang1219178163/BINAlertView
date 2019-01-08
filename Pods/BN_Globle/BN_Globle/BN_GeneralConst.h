@@ -17,6 +17,19 @@ UIKIT_EXTERN NSString * const kSet_number ;
 UIKIT_EXTERN NSString * const kSet_alpha ;
 UIKIT_EXTERN NSString * const kSet_alpha_num ;
 
+#pragma mark - - File
+
+UIKIT_EXTERN const NSInteger kPageSize ;
+UIKIT_EXTERN const NSInteger kFileSize_image ;
+
+//plist文件路径
+UIKIT_EXTERN NSString * const kPlistFilePath ;
+//plist文件名
+UIKIT_EXTERN NSString * const kPlistName_common ;
+UIKIT_EXTERN NSString * const kPlistKey_vehicleTypeDict ;
+UIKIT_EXTERN NSString * const kPlistKey_vehicleTypeArr ;
+UIKIT_EXTERN NSString * const kPlistKey_vehicleTypeIconArr ;
+
 #pragma mark - - kTag
 
 UIKIT_EXTERN const NSInteger kTAG_LABEL ;
@@ -42,6 +55,11 @@ UIKIT_EXTERN const NSInteger kTAG_UItableViewCell ;
 UIKIT_EXTERN const NSInteger kTAG_ICAROUSEL ;
 UIKIT_EXTERN const NSInteger kTAG_PAGE_CONTROL ;
 
+UIKIT_EXTERN const NSInteger kComponent_0 ;
+UIKIT_EXTERN const NSInteger kComponent_1 ;
+UIKIT_EXTERN const NSInteger kComponent_2 ;
+
+
 #pragma mark - -MacroGeometry与计算有关的尺寸属性
 
 UIKIT_EXTERN const CGFloat kH_StatusBar ;
@@ -65,9 +83,11 @@ UIKIT_EXTERN const CGFloat kW_LayerBorder ;
 UIKIT_EXTERN const CGFloat kWH_ArrowRight ;
 UIKIT_EXTERN const CGFloat kTimerValue ;
 UIKIT_EXTERN const CGFloat kRatio_IDCard ;
-UIKIT_EXTERN const CGFloat kAnimationDuration_Toast ;
-UIKIT_EXTERN const CGFloat kAnimationDuration_Drop ;
-UIKIT_EXTERN const CGFloat kLeftMenuRatio ;
+UIKIT_EXTERN const CGFloat kRatio_LeftMenu ;
+
+UIKIT_EXTERN const CGFloat kAnimDuration;
+UIKIT_EXTERN const CGFloat kAnimDuration_Toast ;
+UIKIT_EXTERN const CGFloat kAnimDuration_Drop ;
 
 UIKIT_EXTERN const CGFloat kW_item ;
 UIKIT_EXTERN const CGFloat kW_progressView ;
@@ -82,38 +102,51 @@ UIKIT_EXTERN const CGFloat kW_LINE_Vert ;
 
 #pragma mark - -font
 
-UIKIT_EXTERN const CGFloat KFZ_First ;
-UIKIT_EXTERN const CGFloat KFZ_Second ;
-UIKIT_EXTERN const CGFloat KFZ_Third ;
-UIKIT_EXTERN const CGFloat KFZ_Fouth ;
-UIKIT_EXTERN const CGFloat KFZ_Fifth ;
+UIKIT_EXTERN const CGFloat kFZ_First ;
+UIKIT_EXTERN const CGFloat kFZ_Second ;
+UIKIT_EXTERN const CGFloat kFZ_Third ;
+UIKIT_EXTERN const CGFloat kFZ_Fouth ;
+UIKIT_EXTERN const CGFloat kFZ_Fifth ;
 
 #pragma mark - -视图
 
-UIKIT_EXTERN NSString * const kIMAGE_arrowRight;
-UIKIT_EXTERN NSString * const kIMAGE_arrowDown;
-UIKIT_EXTERN NSString * const kIMAGE_arrowBack;
+UIKIT_EXTERN NSString * const kIMG_arrowRight ;
+UIKIT_EXTERN NSString * const kIMG_arrowDown ;
+UIKIT_EXTERN NSString * const kIMG_arrowBack ;
+UIKIT_EXTERN NSString * const kIMG_arrowUp ;
 
-UIKIT_EXTERN NSString * const kIMAGE_default_User;
-UIKIT_EXTERN NSString * const kIMAGE_default_User_N;
-UIKIT_EXTERN NSString * const kIMAGE_default_User_H;
-UIKIT_EXTERN NSString * const kIMAGE_defaultAddPhoto;
-UIKIT_EXTERN NSString * const kIMAGE_photoDelete;
+UIKIT_EXTERN NSString * const kIMG_portrait ;
+UIKIT_EXTERN NSString * const kIMG_portrait_N ;
+UIKIT_EXTERN NSString * const kIMG_portrait_H ;
+UIKIT_EXTERN NSString * const kIMG_pictureAdd ;
+UIKIT_EXTERN NSString * const kIMG_pictureDelete ;
 
-UIKIT_EXTERN NSString * const kIMAGE_default_failed;
-UIKIT_EXTERN NSString * const kIMAGE_default_failed_S;
+UIKIT_EXTERN NSString * const kIMG_defaultFailed ;
+UIKIT_EXTERN NSString * const kIMG_defaultFailed_S ;
 
-UIKIT_EXTERN NSString * const kIMAGE_SexBoy;
-UIKIT_EXTERN NSString * const kIMAGE_SexGril;
+UIKIT_EXTERN NSString * const kIMG_sexBoy ;
+UIKIT_EXTERN NSString * const kIMG_sexGril ;
 
-UIKIT_EXTERN NSString * const kIMAGE_elemetDecrease;
-UIKIT_EXTERN NSString * const kIMAGE_elemetIncrease;
+UIKIT_EXTERN NSString * const kIMG_elemetDec ;
+UIKIT_EXTERN NSString * const kIMG_elemetInc ;
 
-UIKIT_EXTERN NSString * const kIMAGE_scan ;
-UIKIT_EXTERN NSString * const kIMAGE_NFC ;
-UIKIT_EXTERN NSString * const kIMAGE_update ;
-UIKIT_EXTERN NSString * const kIMAGE_inquiry ;
-UIKIT_EXTERN NSString * const kIMAGE_warning ;
+UIKIT_EXTERN NSString * const kIMG_scan ;
+UIKIT_EXTERN NSString * const kIMG_NFC ;
+
+UIKIT_EXTERN NSString * const kIMG_inquiry ;
+UIKIT_EXTERN NSString * const kIMG_update ;
+UIKIT_EXTERN NSString * const kIMG_warning ;
+
+UIKIT_EXTERN NSString * const kIMG_notice ;
+UIKIT_EXTERN NSString * const kIMG_location_H ;
+UIKIT_EXTERN NSString * const kIMG_more ;
+
+UIKIT_EXTERN NSString * const kIMG_selected_NO ;
+UIKIT_EXTERN NSString * const kIMG_selected_YES ;
+UIKIT_EXTERN NSString * const kIMG_Add ;
+
+UIKIT_EXTERN NSString * const kIMG_like_H ;
+UIKIT_EXTERN NSString * const kIMG_like_W ;
 
 UIKIT_EXTERN NSString * const kMsg_NetWorkRequesting;
 UIKIT_EXTERN NSString * const kMsg_NetWorkFailed;
@@ -142,6 +175,8 @@ UIKIT_EXTERN NSString * const kActionTitle_Recover;
 #pragma mark - - 通用
 
 UIKIT_EXTERN NSString * const kDes_week ;
+UIKIT_EXTERN NSString * const kDes_month ;
+UIKIT_EXTERN NSString * const kDes_day ;
 
 UIKIT_EXTERN NSString * const kItem_obj ;
 UIKIT_EXTERN NSString * const kItem_objSeleted ;

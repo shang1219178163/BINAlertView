@@ -1,10 +1,10 @@
 
 //
 //  UITableViewHeaderFooterView+AddView.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/8/24.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UITableViewHeaderFooterView+AddView.h"
@@ -33,26 +33,16 @@
 }
 
 +(instancetype)viewWithTableView:(UITableView *)tableView{
-    NSString *identifier = NSStringFromClass([self class]);
+    NSString *identifier = NSStringFromClass(self.class);
     return [self viewWithTableView:tableView identifier:identifier];
 }
 
 #pragma mark -- layz
 
--(CGFloat)width{
-    return CGRectGetWidth(self.contentView.frame);
-    
-}
-
--(CGFloat)height{
-    return CGRectGetHeight(self.contentView.frame);
-    
-}
-
 -(UILabel *)labelLeft{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
         
         //        lab = ({
         //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -72,8 +62,8 @@
 
 -(UILabel *)labelLeftMark{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+1 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+1 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
         
         //        lab = ({
         //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -93,8 +83,8 @@
 
 -(UILabel *)labelLeftSub{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+2 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+2 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
         
         //        lab = ({
         //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -116,8 +106,8 @@
 
 -(UILabel *)labelLeftSubMark{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+3 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+3 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
         
         //        lab = ({
         //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -138,7 +128,7 @@
 
 -(UIImageView *)viewIndicator{
     UIImageView * imgV = objc_getAssociatedObject(self, _cmd);
-    if (imgV == nil) {
+    if (!imgV) {
         imgV = ({
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imgView.userInteractionEnabled = YES;
@@ -156,7 +146,7 @@
 
 -(UIImageView *)imgViewLeft{
     UIImageView * imgV = objc_getAssociatedObject(self, _cmd);
-    if (imgV == nil) {
+    if (!imgV) {
         imgV = ({
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imgView.userInteractionEnabled = YES;
@@ -174,15 +164,16 @@
 
 -(UIImageView *)imgViewRight{
     UIImageView * imgV = objc_getAssociatedObject(self, _cmd);
-    if (imgV == nil) {
+    if (!imgV) {
         imgV = ({
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imgView.userInteractionEnabled = YES;
             imgView.contentMode = UIViewContentModeScaleAspectFit;
             //            imgView.backgroundColor = UIColor.orangeColor;
-            imgView.frame = CGRectMake(self.width - kX_GAP - kWH_ArrowRight, (self.height - kWH_ArrowRight)/2.0, kWH_ArrowRight, kWH_ArrowRight);
+            imgView.frame = CGRectMake(self.maxX - kX_GAP - kWH_ArrowRight, (self.maxY - kWH_ArrowRight)/2.0, kWH_ArrowRight, kWH_ArrowRight);
             imgV.tag = kTAG_IMGVIEW + 1;
-            imgView.image = [UIImage imageNamed:kIMAGE_arrowRight];
+            imgView.image = [UIImage imageNamed:kIMG_arrowRight];
+            
             imgView.hidden = YES;
             imgView;
         });
@@ -194,8 +185,8 @@
 
 -(UIButton *)btn{
     UIButton * button = objc_getAssociatedObject(self, _cmd);
-    if (button == nil) {
-        button = [UIView createBtnWithRect:CGRectZero title:@"按钮" font:KFZ_Second image:nil tag:kTAG_BTN patternType:@"7" target:nil aSelector:nil];
+    if (!button) {
+        button = [UIView createBtnRect:CGRectZero title:@"按钮" font:kFZ_Second image:nil tag:kTAG_BTN type:@7 target:nil aSelector:nil];
 //        button = ({
 //            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //            [btn setTitle:@"btn" forState:UIControlStateNormal];

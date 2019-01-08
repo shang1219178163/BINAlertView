@@ -1,9 +1,9 @@
 //
 //  NSArray+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/3/24.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 //enum{
@@ -29,6 +29,18 @@
 #import "NSNumber+Helper.h"
 #import "NSMutableArray+Helper.h"
 #import "NSMutableDictionary+Helper.h"
+
+NSString * const kArr_avg_float = @"@avg.floatValue";
+NSString * const kArr_sum_inter = @"@sum.intValue";
+NSString * const kArr_max_inter = @"@max.intValue";
+NSString * const kArr_min_inter = @"@min.intValue";
+NSString * const kArr_sum_float = @"@sum.floatValue";
+NSString * const kArr_max_float = @"@max.floatValue";
+NSString * const kArr_min_float = @"@min.floatValue";
+NSString * const kArr_upper_list = @"uppercaseString";//大小写转换
+NSString * const kArr_lower_list = @"lowercaseString";//大小写转换
+NSString * const kArrs_unionDist_list = @"@distinctUnionOfArrays.self";//数组内部去重
+NSString * const kArrs_union_list = @"@unionOfArrays.self";
 
 @implementation NSArray (Helper)
 
@@ -58,7 +70,7 @@
     for (NSInteger i = startIndex; i <= startIndex + count; i++) {
         NSString *imgName = [NSString stringWithFormat:@"%@%@",prefix,@(i)];
         
-        switch ([type integerValue]) {
+        switch (type.integerValue) {
             case 1:
             {
                 UIImage *image = [UIImage imageNamed:imgName];
@@ -74,28 +86,6 @@
     }
     return marr.copy;
 }
-
-- (NSArray *)BN_filterModelListByQuery:(NSString *)query isNumValue:(BOOL)isNumValue{
-    
-    NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        id value = [obj valueForKey:query];
-        if ([value isKindOfClass:[NSString class]] && [(NSString *)value containsString:@"."] && ((NSString *)value).length > 5) {
-            value = [[value numberValue] BN_StringValue];
-        }
-        
-        value = isNumValue == NO ? value : [value numberValue];
-        [marr addSafeObjct:value];
-        
-    }];
-    return marr.copy;
-}
-
-- (NSArray *)BN_filterModelListByQuery:(NSString *)query{
-    return [self BN_filterModelListByQuery:query isNumValue:NO];
-    
-}
-    
 
 - (NSMutableArray *)BN_filterByPropertyList:(NSArray *)propertyList isNumValue:(BOOL)isNumValue {
     __block NSMutableArray * listArr = [NSMutableArray array];
@@ -152,7 +142,7 @@
 
 - (id)BN_resultBykeyPath:(NSString *)key valuePath:(NSString *)value isImg:(BOOL)isImg{
     
-    if (value == nil) {
+    if (!value) {
         __block NSMutableArray * marr = [NSMutableArray array];
         [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString * value = [obj valueForKey:key];

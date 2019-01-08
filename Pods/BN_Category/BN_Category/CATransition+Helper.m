@@ -1,15 +1,24 @@
 
 //
 //  CATransition+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/9/12.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "CATransition+Helper.h"
 
 #import "CABasicAnimation+Helper.h"
+
+NSString * const kCATransitionCube = @"cube";
+NSString * const kCATransitionSuckEffect = @"suckEffect";
+NSString * const kCATransitionOglFlip = @"oglFlip";
+NSString * const kCATransitionRippleEffect = @"rippleEffect";
+NSString * const kCATransitionPageCurl = @"pageCurl";
+NSString * const kCATransitionPageUnCurl = @"pageUnCurl";
+NSString * const kCATransitionCameraIrisHollowOpen = @"cameraIrisHollowOpen";
+NSString * const kCATransitionCameraIrisHollowClose = @"cameraIrisHollowClose";
 
 @implementation CATransition (Helper)
 

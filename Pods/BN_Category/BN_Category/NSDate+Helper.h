@@ -10,20 +10,23 @@
 
 #import "NSDateFormatter+Helper.h"
 
-#define kTime_MINUTE    60
+UIKIT_EXTERN const NSInteger kDate_second ;
+UIKIT_EXTERN const NSInteger kDate_minute ;
+UIKIT_EXTERN const NSInteger kDate_hour ;
+UIKIT_EXTERN const NSInteger kDate_day ;
+UIKIT_EXTERN const NSInteger kDate_week ;
+UIKIT_EXTERN const NSInteger kDate_year ;
 
-#define D_MINUTE        60
-#define D_HOUR          3600
-#define D_DAY           86400
-#define D_WEEK          604800
-#define D_YEAR          31556926
-
-static NSString * const kFormat_date = @"yyyy-MM-dd HH:mm:ss";
-static NSString * const kFormat_date_one = @"yyyy-MM-dd";
-static NSString * const kFormat_date_two = @"yyyyMMdd";
-static NSString * const kFormat_date_five = @"yyyyMMddHHmmss";
+FOUNDATION_EXPORT NSString * const kFormat_date ;
+FOUNDATION_EXPORT NSString * const kFormat_date_one ;
+FOUNDATION_EXPORT NSString * const kFormat_date_two ;
+FOUNDATION_EXPORT NSString * const kFormat_date_five ;
 
 @interface NSDate (Helper)
+
+@property (class, nonatomic, readonly) NSArray *monthList;
+@property (class, nonatomic, readonly) NSArray *dayList;
+@property (class, nonatomic, readonly) NSArray *weekList;
 
 //@property (class, nonatomic, strong, readonly) NSString *timeStamp;
 //@property (class, nonatomic, strong, readonly) NSString *now;
@@ -73,7 +76,7 @@ static NSString * const kFormat_date_five = @"yyyyMMddHHmmss";
 
 // Comparing dates
 
-- (BOOL)isEqualToDateIgnoringTime: (NSDate*) aDate;
+- (BOOL)isEqualToDateIgnoringTime:(NSDate *)aDate;
 
 - (BOOL)isToday;
 
@@ -81,7 +84,7 @@ static NSString * const kFormat_date_five = @"yyyyMMddHHmmss";
 
 - (BOOL)isYesterday;
 
-- (BOOL)isSameWeekAsDate: (NSDate*) aDate;
+- (BOOL)isSameWeekAsDate:(NSDate *)aDate;
 
 - (BOOL)isThisWeek;
 
@@ -89,11 +92,11 @@ static NSString * const kFormat_date_five = @"yyyyMMddHHmmss";
 
 - (BOOL)isLastWeek;
 
-- (BOOL)isSameMonthAsDate: (NSDate*) aDate;
+- (BOOL)isSameMonthAsDate:(NSDate *)aDate;
 
 - (BOOL)isThisMonth;
 
-- (BOOL)isSameYearAsDate: (NSDate*) aDate;
+- (BOOL)isSameYearAsDate:(NSDate *)aDate;
 
 - (BOOL)isThisYear;
 
@@ -101,9 +104,9 @@ static NSString * const kFormat_date_five = @"yyyyMMddHHmmss";
 
 - (BOOL)isLastYear;
 
-- (BOOL)isEarlierThanDate: (NSDate*) aDate;
+- (BOOL)isEarlierThanDate:(NSDate *)aDate;
 
-- (BOOL)isLaterThanDate: (NSDate*) aDate;
+- (BOOL)isLaterThanDate:(NSDate *)aDate;
 
 - (BOOL)isInFuture;
 
@@ -117,58 +120,62 @@ static NSString * const kFormat_date_five = @"yyyyMMddHHmmss";
 
 // Adjusting dates
 
-- (NSDate *)dateByAddingDays: (NSInteger) dDays;
+- (NSDate *)dateByAddDays:(NSInteger ) dDays;
 
-- (NSDate *)dateBySubtractingDays: (NSInteger) dDays;
+- (NSDate *)dateBySubtractDays:(NSInteger ) dDays;
 
-- (NSDate *)dateByAddingHours: (NSInteger) dHours;
+- (NSDate *)dateByAddHours:(NSInteger ) dHours;
 
-- (NSDate *)dateBySubtractingHours: (NSInteger) dHours;
+- (NSDate *)dateBySubtractHours:(NSInteger ) dHours;
 
-- (NSDate *)dateByAddingMinutes: (NSInteger) dMinutes;
+- (NSDate *)dateByAddMinutes:(NSInteger ) dMinutes;
 
-- (NSDate *)dateBySubtractingMinutes: (NSInteger) dMinutes;
+- (NSDate *)dateBySubtractMinutes:(NSInteger ) dMinutes;
 
 - (NSDate *)dateAtStartOfDay;
 
+- (NSDate *)dateAfterHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
+
 // Retrieving intervals
 
-- (NSInteger) minutesAfterDate: (NSDate*) aDate;
+- (NSInteger)minutesAfterDate:(NSDate *)aDate;
 
-- (NSInteger) minutesBeforeDate: (NSDate*) aDate;
+- (NSInteger)minutesBeforeDate:(NSDate *)aDate;
 
-- (NSInteger) hoursAfterDate: (NSDate*) aDate;
+- (NSInteger)hoursAfterDate:(NSDate *)aDate;
 
-- (NSInteger) hoursBeforeDate: (NSDate*) aDate;
+- (NSInteger)hoursBeforeDate:(NSDate *)aDate;
 
-- (NSInteger) daysAfterDate: (NSDate*) aDate;
+- (NSInteger)daysAfterDate:(NSDate *)aDate;
 
-- (NSInteger) daysBeforeDate: (NSDate*) aDate;
+- (NSInteger)daysBeforeDate:(NSDate *)aDate;
 
 - (NSInteger)distanceInDaysToDate:(NSDate*)anotherDate;
 
 // Decomposing dates
 
-@property (readonly) NSInteger nearestHour;
+@property (nonatomic, readonly) NSInteger nearestHour;
 
-@property (readonly) NSInteger hour;
+@property (nonatomic, readonly) NSInteger hour;
 
-@property (readonly) NSInteger minute;
+@property (nonatomic, readonly) NSInteger minute;
 
-@property (readonly) NSInteger seconds;
+@property (nonatomic, readonly) NSInteger seconds;
 
-@property (readonly) NSInteger day;
+@property (nonatomic, readonly) NSInteger day;
 
-@property (readonly) NSInteger month;
+@property (nonatomic, readonly) NSInteger month;
 
-@property (readonly) NSInteger week;
+@property (nonatomic, readonly) NSInteger week;
 
-@property (readonly) NSInteger weekday;
+@property (nonatomic, readonly) NSInteger weekday;
 
-@property (readonly) NSInteger weekdayOrdinal;// e.g. 2nd Tuesday of the month == 2
+@property (nonatomic, readonly) NSInteger weekdayOrdinal;// e.g. 2nd Tuesday of the month == 2
 
-@property (readonly) NSInteger year;
+@property (nonatomic, readonly) NSString *weekdayDes;
 
-@property (readonly) NSDateComponents *components;
+@property (nonatomic, readonly) NSInteger year;
+
+@property (nonatomic, readonly) NSDateComponents *components;
 
 @end

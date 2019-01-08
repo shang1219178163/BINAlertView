@@ -1,9 +1,9 @@
 //
 //  NSObject+ModelHelper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/11/28.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import "NSObject+ModelHelper.h"
@@ -14,15 +14,14 @@
 #import "NSNumber+Helper.h"
 #import <MJExtension/MJExtension.h>
 
-
 @implementation NSObject (ModelHelper)
 
--(void)BN_setValidValueFromModel:(id)model{
+-(void)setValidValueFromModel:(id)model{
     //mj_keyValue获取的是已经赋值的部分,值为空的不包含
     NSDictionary * dic = ((NSObject *)self).mj_keyValues;
     NSDictionary * dicModel = ((NSObject *)model).mj_keyValues;
 
-    if ([self class] == [model class]) {
+    if (self.class == [model class]) {
         [dicModel enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
 //            DDLog(@"_%@_%@",key,obj);
             [self setValue:obj forKey:key];
@@ -39,9 +38,6 @@
     }
 }
 
-
-
-
 #pragma make - -runtime
 ///通过运行时获取当前对象的所有属性的名称，以数组的形式返回
 - (NSArray *)allPropertyNames{
@@ -51,7 +47,7 @@
     ///存储属性的个数
     unsigned int propertyCount = 0;
     ///通过运行时获取当前类的属性
-    objc_property_t *propertys = class_copyPropertyList([self class], &propertyCount);
+    objc_property_t *propertys = class_copyPropertyList(self.class, &propertyCount);
     
     //把属性放到数组中
     for (int i = 0; i < propertyCount; i ++) {
@@ -270,7 +266,7 @@
             
         }
         else if ([obj isKindOfClass:[NSNumber class]]) {
-            NSString *string = [(NSNumber *)obj BN_StringValue];
+            NSString *string = [(NSNumber *)obj stringValue];
             [self setValue:string forKey:key];
             
         }
@@ -326,7 +322,7 @@
             
         }
         else if ([obj isKindOfClass:[NSNumber class]]) {
-            NSString *string = [(NSNumber *)obj BN_StringValue];
+            NSString *string = [(NSNumber *)obj stringValue];
             [self setValue:string forKey:key];
             
         }
@@ -387,7 +383,7 @@
     
     unsigned int outCount;
     //获取obj的属性数目
-    objc_property_t *properties = class_copyPropertyList([self class], &outCount);
+    objc_property_t *properties = class_copyPropertyList(self.class, &outCount);
     
     for (int i = 0; i < outCount; i ++) {
         objc_property_t property = properties[i];

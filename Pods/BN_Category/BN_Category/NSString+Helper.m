@@ -1,10 +1,10 @@
 
 //
 //  NSString+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/7/31.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import "NSString+Helper.h"
@@ -22,6 +22,10 @@
 
 @implementation NSString (Helper)
 
+-(NSDecimalNumber *)decNumer{
+    return [NSDecimalNumber decimalNumberWithString:self];
+}
+
 //整形判断
 - (BOOL)isPureInteger{
     NSString * string = self;
@@ -38,11 +42,11 @@
 }
 
 - (id)numberValue{
-    if ([self isPureInteger] == YES) {
+    if ([self isPureInteger]) {
         return @([self integerValue]);
     }
     
-    if ([self isPureFloat] == YES) {
+    if ([self isPureFloat]) {
         return @([self floatValue]);
     }
     return self;
@@ -283,7 +287,7 @@
     
     NSString * timestampA = @"";
     NSString * timestampB = @"";
-    switch ([type integerValue]) {
+    switch (type.integerValue) {
         case 1:
         {
             timestampA = [self toTimestampShort];
@@ -305,10 +309,10 @@
             break;
     }
     
-    if ([timestampA integerValue] >= [timestampB integerValue] && isMax == YES) {
+    if ([timestampA integerValue] >= [timestampB integerValue] && isMax) {
         return self;
         
-    }else{
+    } else {
         return otherDate;
         
     }
@@ -484,34 +488,26 @@
     
 }
 
-
-+(NSString *)resultByAnObject:(NSString *)anObject multiplyAnothor:(NSString *)anothor{
-    
-    CGFloat result = [anObject floatValue] * [anothor floatValue];
-    return [@(result) BN_StringValue];
-
-}
-
 -(NSString *)multiplyAnothor:(NSString *)anothor{
     NSAssert([self isPureInteger] || [self isPureFloat], @"支持持纯数字字符串");
-    if (self == nil || anothor == nil || [self floatValue] == 0.0  || [anothor floatValue] == 0.0) {
+    if (!anothor || [self floatValue] == 0.0  || [anothor floatValue] == 0.0) {
         return @"0";
     }
     
     CGFloat result = [self floatValue] * [anothor floatValue];
-    return [@(result) BN_StringValue];
+    return [@(result) stringValue];
 
 }
 
 
 -(NSString *)divideAnothor:(NSString *)anothor{
     NSAssert([self isPureInteger] || [self isPureFloat], @"支持持纯数字字符串");
-    if (self == nil || anothor == nil || [self floatValue] == 0.0  || [anothor floatValue] == 0.0) {
+    if (!anothor || [self floatValue] == 0.0  || [anothor floatValue] == 0.0) {
         return @"0";
     }
     
     CGFloat result = [self floatValue] / [anothor floatValue];
-    return [@(result) BN_StringValue];
+    return [@(result) stringValue];
 }
 
 -(NSString *)addAnothor:(id)anothor{
@@ -523,11 +519,20 @@
 
 }
 
+- (NSString *)stringWithFront:(NSString *)front back:(NSString *)back{
+    NSParameterAssert([self containsString:front] && [self containsString:back]);
+    NSRange rangeStart = [self rangeOfString:front];
+    NSRange rangeEnd = [self rangeOfString:back];
+    
+    NSRange range = NSMakeRange(rangeStart.location + rangeStart.length, rangeEnd.location - rangeStart.location - rangeStart.length);
+    NSString * result = [self substringWithRange:range];
+    return result;
+}
+
 - (BOOL)isBeyondWithLow:(NSString *)low high:(NSString *)high{
     if ([self floatValue] < [low floatValue] || [self floatValue] > [high floatValue]) return YES;
     return  NO;
 }
-
 
 - (void)copyToPasteboard:(BOOL)hiddenTips{
     NSAssert([self isKindOfClass:[NSString class]] | [self isKindOfClass:[NSAttributedString class]], @"目前仅支持NSString,NSAttributedString");
@@ -546,7 +551,7 @@
     if (hiddenTips == NO) {
         NSString * tips = [NSString stringWithFormat:@"'%@'已复制!",pasteboard.string];
 //        [(UIView *)UIApplication.keyWindow makeToast:tips duration:1 position:CSToastPositionCenter];
-        [UIApplication.rootController showAlertWithTitle:@"" msg:tips];
+        [UIApplication.rootController showAlertTitle:@"" msg:tips];
         
     }
     
@@ -574,7 +579,7 @@
     
     
     __block BOOL isSuccess = NO;
-    if (iOSVersion(10)) {
+    if (iOSVer(10)) {
         [application openURL:URL options:@{UIApplicationOpenURLOptionUniversalLinksOnly : @YES} completionHandler:^(BOOL success) {
             isSuccess = success;
         }];
@@ -598,7 +603,7 @@
     NSMutableString *str = [[NSMutableString alloc]initWithFormat:@"tel:%@",phoneNum];
     
     __block  BOOL isSuccess = NO;
-    [UIApplication.rootController showAlertWithTitle:nil msg:phoneNum actionTitleList:@[kActionTitle_Cancell,kActionTitle_Call] handler:^(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action) {
+    [UIApplication.rootController showAlertTitle:nil msg:phoneNum actionTitleList:@[kActionTitle_Cancell,kActionTitle_Call] handler:^(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action) {
         if ([action.title isEqualToString:kActionTitle_Call]) {
             isSuccess = [UIApplication.sharedApplication openURL:[NSURL URLWithString:str]];
             

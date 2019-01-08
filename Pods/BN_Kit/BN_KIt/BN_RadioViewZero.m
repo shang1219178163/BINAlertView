@@ -37,7 +37,7 @@ static  NSString *const kObserveKeyPath = @"isSelected";
         tapGesture.numberOfTapsRequired = 1;
         tapGesture.numberOfTouchesRequired = 1;
         //加上这2行,本视图在cell上的时候,cell选择方法也会响应(一般用于地图界面加上东西)
-        if (self.onTheMap == YES) {
+        if (self.onTheMap) {
             tapGesture.cancelsTouchesInView = NO;
             tapGesture.delaysTouchesEnded = NO;
         }
@@ -55,7 +55,7 @@ static  NSString *const kObserveKeyPath = @"isSelected";
 -(void)setIsSelected:(BOOL)isSelected{
     _isSelected = isSelected;
     
-    self.image = isSelected == YES ? [UIImage imageNamed:self.imgName_H] : [UIImage imageNamed:self.imgName_N];
+    self.image = isSelected  ? [UIImage imageNamed:self.imgName_H] : [UIImage imageNamed:self.imgName_N];
 
 }
 
@@ -73,7 +73,7 @@ static  NSString *const kObserveKeyPath = @"isSelected";
 - (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context{
     if([keyPath isEqualToString:@"isSelected"]){
 //        DDLog(@"键值%@: %@ -> %@",keyPath,change[NSKeyValueChangeOldKey],change[NSKeyValueChangeNewKey]);
-        self.image = self.isSelected == YES ? [UIImage imageNamed:self.imgName_H] : [UIImage imageNamed:self.imgName_N];
+        self.image = self.isSelected  ? [UIImage imageNamed:self.imgName_H] : [UIImage imageNamed:self.imgName_N];
 
     }
 }

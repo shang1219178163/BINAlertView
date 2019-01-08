@@ -8,14 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (AddView)
-
-@property (nonatomic, strong, readonly) NSString * _Nullable controllerName;
-@property (nonatomic, strong, readonly) UIViewController * _Nullable frontController;
-
-@property (nonatomic, strong) id obj;
-@property (nonatomic, strong) id objOne;
-
+@interface UIViewController (AddView)<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray * dataList;

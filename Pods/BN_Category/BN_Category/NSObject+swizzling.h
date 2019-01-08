@@ -1,9 +1,9 @@
 //
 //  NSObject+swizzling.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/12/2.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 /**
@@ -17,38 +17,60 @@
 
 @interface NSObject (swizzling)
 
-/**
- (弃用)所有类方法交换都应该走此方法,若此方法不满足需求,请在此类添加新方法
 
- @param clz Class类
- @param origSelector 被替换的方法
- @param newSelector 替换的方法
- @return 是够替换成功
+FOUNDATION_EXPORT Class NSClassFromObj(id clz);
+
+
+/**
+ (源方法)实例方法交换
+
+ @param clz     Class或者NSString类型
+ @return        YES成功,NO失败
  */
-+(BOOL)swizzleMethodClass:(Class)clz origMethod:(SEL)origSelector newMethod:(SEL)newSelector;
+FOUNDATION_EXPORT BOOL SwizzleMethodInstance(id clz, SEL origSelector, SEL replSelector);
 
 /**
- swizzle 类方法
+ (源方法)类方法交换
  
- @param oriSel 原有的方法
- @param swiSel swizzle的方法
+ @param clz     Class或者NSString类型
+ @return        YES成功,NO失败
  */
-+ (void)swizzleClassMethodWithOriginSel:(SEL)oriSel swizzledSel:(SEL)swiSel;
+FOUNDATION_EXPORT BOOL SwizzleMethodClass(id clz, SEL origSelector, SEL replSelector);
 
 /**
- swizzle 实例方法
- 
- @param oriSel 原有的方法
- @param swiSel swizzle的方法
+ 实例方法交换-所有类实例方法交换
+ @param clz     Class或者NSString类型
+ @return        YES成功,NO失败
  */
-+ (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel swizzledSel:(SEL)swiSel;
++ (BOOL)swizzleMethodInstance:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector;
+
+/**
+ 实例方法交换
+ @return        YES成功,NO失败
+ */
++ (BOOL)swizzleMethodInstanceOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
+
+/**
+ 类方法交换
+ 
+ @param clz     Class或者NSString类型
+ @return        YES成功,NO失败
+ */
++ (BOOL)swizzleMethodClass:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector;
+
+/**
+ 类方法交换
+ @return        YES成功,NO失败
+ */
++ (BOOL)swizzleMethodClassOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
+
 /**
  判断方法是否在子类里override了
  
  @param sel 传入要判断的Selector
  @return 返回判断是否被重载的结果
  */
-- (BOOL)isMethodOverride:(Class)clz selector:(SEL)sel;
+- (BOOL)isMethodOverride:(id)clz selector:(SEL)sel;
 
 
 @end

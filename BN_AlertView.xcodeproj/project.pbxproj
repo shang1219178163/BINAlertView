@@ -741,6 +741,7 @@
 				34098D1119EF962A006806A6 /* Sources */,
 				34098D1219EF962A006806A6 /* Frameworks */,
 				34098D1319EF962A006806A6 /* Resources */,
+				9E201D56AC917095D79E9464 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -858,6 +859,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9E201D56AC917095D79E9464 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BN_AlertView/Pods-BN_AlertView-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/BN_Globle/BN_Globle.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BN_Globle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BN_AlertView/Pods-BN_AlertView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC9B8BECFB46B5E6C926BBD3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

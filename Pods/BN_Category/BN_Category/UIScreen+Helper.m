@@ -1,9 +1,9 @@
 //
 //  UIScreen+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/9/18.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UIScreen+Helper.h"
@@ -40,6 +40,12 @@
 
 + (CGFloat)scale{
     return UIScreen.mainScreen.scale;
+}
+
++ (CGSize)DPISize{
+    CGSize size = UIScreen.mainScreen.bounds.size;
+    CGFloat scale = UIScreen.mainScreen.scale;
+    return CGSizeMake(size.width * scale, size.height * scale);
 }
 
 @end

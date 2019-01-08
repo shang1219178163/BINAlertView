@@ -10,6 +10,13 @@
 #import "BN_RadioView.h"
 
 #import "BN_Globle.h"
+//#import "NSBundle+Helper.h"
+
+NSString *const kRadio_title = @"kRadio_title";
+NSString *const kRadio_textColorH = @"kRadio_textColorH";
+NSString *const kRadio_textColorN = @"kRadio_textColorN";
+NSString *const kRadio_imageH = @"kRadio_imageH";
+NSString *const kRadio_imageN = @"kRadio_imageN";
 
 @interface BN_RadioView ()
 
@@ -17,6 +24,7 @@
 @property (nonatomic, strong) NSString * imageSelected;
 
 @property (nonatomic, strong) NSDictionary * attDict;
+@property (nonatomic, strong) NSArray * imgList;
 
 @end
 
@@ -29,14 +37,21 @@
         _attDict = attDict;
         
         self.imageView.frame = CGRectEqualToRect(frame, CGRectZero) ? CGRectMake(0, 0, 30, 30) : CGRectMake(0, 0, CGRectGetHeight(frame), CGRectGetHeight(frame));
-        self.imageView.image = isSelected == YES ? [UIImage imageNamed:attDict[kRadio_imageH]] : [UIImage imageNamed:attDict[kRadio_imageN]];
+        self.imageView.image = isSelected  ? [UIImage imageNamed:attDict[kRadio_imageH]] : [UIImage imageNamed:attDict[kRadio_imageN]];
         
         [self addSubview:self.imageView];
+        
+//        NSBundle *resource_bundle = NSBundleFromParams(self.class, @"BN_Globle");
+//        UIImage * imageH = [UIImage imageNamed:attDict[kRadio_imageH] inBundle:resource_bundle compatibleWithTraitCollection:nil];
+//        UIImage * imageN = [UIImage imageNamed:attDict[kRadio_imageN] inBundle:resource_bundle compatibleWithTraitCollection:nil];
+//
+//        self.imgList = @[imageN,imageH];
+//        self.imageView.image = isSelected  ? imageH : imageN;
         
         self.label.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame) + kPadding, 0, CGRectGetWidth(frame) - CGRectGetMaxX(self.imageView.frame) - kPadding, CGRectGetHeight(frame));
         self.label.text = attDict[kRadio_title];
         if (attDict[kRadio_textColorH] && attDict[kRadio_textColorN]) {
-            self.label.textColor = isSelected == YES ? attDict[kRadio_textColorH] : attDict[kRadio_textColorN];
+            self.label.textColor = isSelected  ? attDict[kRadio_textColorH] : attDict[kRadio_textColorN];
 
         }
         [self addSubview:self.label];
@@ -67,14 +82,14 @@
 -(void)setIsSelected:(BOOL)isSelected{
     _isSelected = isSelected;
     
-    self.imageView.image = isSelected == YES ? [UIImage imageNamed:_attDict[kRadio_imageH]] : [UIImage imageNamed:_attDict[kRadio_imageN]];
-    
+    self.imageView.image = isSelected  ? [UIImage imageNamed:_attDict[kRadio_imageH]] : [UIImage imageNamed:_attDict[kRadio_imageN]];
+
     if (_attDict[kRadio_textColorH]) {
         if (_attDict[kRadio_textColorN]) {
-            self.label.textColor = isSelected == YES ? _attDict[kRadio_textColorH] : _attDict[kRadio_textColorN];
+            self.label.textColor = isSelected  ? _attDict[kRadio_textColorH] : _attDict[kRadio_textColorN];
             
-        }else{
-            self.label.textColor = isSelected == YES ? _attDict[kRadio_textColorH] : UIColor.blackColor;
+        } else {
+            self.label.textColor = isSelected  ? _attDict[kRadio_textColorH] : UIColor.blackColor;
 
         }
     }
@@ -87,8 +102,8 @@
     
     UITapGestureRecognizer * tapGesture = (UITapGestureRecognizer *)[self.gestureRecognizers firstObject];
     //加上这2行,本视图在cell上的时候,cell选择方法也会响应(一般用于地图界面加上东西)
-    tapGesture.cancelsTouchesInView = onTheMap == YES ? NO : YES;
-    tapGesture.delaysTouchesEnded = onTheMap == YES ? NO : YES;
+    tapGesture.cancelsTouchesInView = onTheMap  ? NO : YES;
+    tapGesture.delaysTouchesEnded = onTheMap  ? NO : YES;
 
 }
 
@@ -106,7 +121,7 @@
 
 -(UILabel *)label{
     if (!_label) {
-        _label = [self createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+        _label = [self createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@2 font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
         
     }
     return _label;
@@ -114,7 +129,7 @@
 
 #pragma mark - -funtions
 
-- (UILabel *)createLabelWithRect:(CGRect)rect text:(id)text textColor:(UIColor *)textColor tag:(NSInteger)tag patternType:(NSString *)patternType font:(CGFloat)fontSize  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
+- (UILabel *)createLabelRect:(CGRect)rect text:(id)text textColor:(UIColor *)textColor tag:(NSInteger)tag type:(NSNumber *)type font:(CGFloat)fontSize  backgroudColor:(UIColor *)backgroudColor alignment:(NSTextAlignment)alignment
 {
     UILabel * label = [[UILabel alloc] initWithFrame:rect];
     if ([text isKindOfClass:[NSString class]]) {
@@ -130,7 +145,7 @@
     label.font = [UIFont systemFontOfSize:fontSize];
     label.textAlignment = alignment;
     
-    switch ([patternType integerValue]) {
+    switch (type.integerValue) {
         case 0://无限折行
         {
             label.numberOfLines = 0;

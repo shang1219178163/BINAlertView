@@ -1,10 +1,10 @@
 
 //
 //  UITableView+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/2/28.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UITableView+Helper.h"
@@ -123,7 +123,7 @@
         layer.strokeColor = UIColor.clearColor.CGColor;
         
         
-        if (addLine == YES) {
+        if (addLine) {
             CALayer *lineLayer = [[CALayer alloc] init];
             CGFloat lineHeight = (1.f / UIScreen.mainScreen.scale);
             lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+10, bounds.size.height-lineHeight, bounds.size.width-10, lineHeight);

@@ -2,7 +2,7 @@
 //  CAShapeLayer+Helper.m
 //  ProductTemplet
 //
-//  Created by hsf on 2018/9/29.
+//  Created by BIN on 2018/9/29.
 //  Copyright © 2018年 BN. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @implementation CAShapeLayer (Helper)
 
-+(CAShapeLayer *)layerWithRect:(CGRect)rect path:(CGPathRef)path strokeEnd:(CGFloat)strokeEnd fillColor:(UIColor *)fillColor strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth{
++(CAShapeLayer *)layerRect:(CGRect)rect path:(CGPathRef)path strokeEnd:(CGFloat)strokeEnd fillColor:(UIColor *)fillColor strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth{
     
     //初始化一个实例对象
     CAShapeLayer *layer = CAShapeLayer.layer;

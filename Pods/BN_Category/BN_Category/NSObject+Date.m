@@ -2,7 +2,7 @@
 //  NSObject+Date.m
 //  ProductTemplet
 //
-//  Created by hsf on 2018/9/29.
+//  Created by BIN on 2018/9/29.
 //  Copyright © 2018年 BN. All rights reserved.
 //
 
@@ -46,7 +46,7 @@ Z：     GMT（时区）
         if ([string containsString:@"-"] || [string containsString:@"/"] || [string containsString:@" "] || [string containsString:@"."]) {
             return NO;
         }
-    }else{
+    } else {
         NSNumber * value = (NSNumber *)self;
         if (value.integerValue < (NSInteger)10000000000) {//时间戳都是十位以上
             return NO;
@@ -90,7 +90,7 @@ Z：     GMT（时区）
 - (NSString *)toTimeStampWithFormatter:(NSString *)dateFormatter{
     NSParameterAssert([self isKindOfClass:[NSString class]] || [self isKindOfClass:[NSNumber class]]);
     NSString * time = [self isKindOfClass:[NSString class]] ? (NSString *)self : [(NSNumber *)self stringValue];
-    if ([self isTimeStamp] == YES) {
+    if ([self isTimeStamp]) {
         return time;
     }
     NSDateFormatter *formatter = [NSDateFormatter dateFormat:dateFormatter];
@@ -198,10 +198,10 @@ Z：     GMT（时区）
 - (NSString *)timeByAddingDays:(id)days{
     NSParameterAssert([days isKindOfClass:[NSString class]] || [days isKindOfClass:[NSNumber class]]);
 
-    if (days == nil) days = @0;
+    if (!days) days = @0;
     NSString * dateStr = [self toTimeDate];
     NSDate * date = [self dateWithString:dateStr format:kFormat_date];
-    NSString * newtime = [self stringWithDate:[date dateByAddingDays:[days integerValue]]];
+    NSString * newtime = [self stringWithDate:[date dateByAddDays:[days integerValue]]];
     return newtime;
 }
 
@@ -389,7 +389,7 @@ Z：     GMT（时区）
         if (((NSString *)self).length >= 10) {
             compareDate = [self toDate];
             
-        }else{
+        } else {
             return @"";
             
         }
@@ -434,7 +434,7 @@ Z：     GMT（时区）
         if (((NSString *)self).length >= 10) {
             compareDate = [self toDate];
             
-        }else{
+        } else {
             return @"";
             
         }
@@ -448,7 +448,7 @@ Z：     GMT（时区）
     if ([[dateStr substringWithRange:NSMakeRange(0, 4)] isEqualToString:[timeNow substringWithRange:NSMakeRange(0, 4)]]) {
         dateInfo = [dateStr substringWithRange:NSMakeRange(5, 11)];
         
-    }else{
+    } else {
         dateInfo = [dateStr substringWithRange:NSMakeRange(0, 15)];
         
     }

@@ -1,27 +1,23 @@
 //
 //  UIApplication+Other.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/9/18.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UIApplication+Other.h"
-
-//#import <ShareSDK/ShareSDK.h>
-//#import <ShareSDKConnector/ShareSDKConnector.h>
-//腾讯开放平台（对应QQ和QQ空间）SDK头文件
-//#import <TencentOpenAPI/TencentOAuth.h>
-//#import <TencentOpenAPI/QQApiInterface.h>
-//微信SDK头文件
-//#import "WXApi.h"
-//新浪微博SDK头文件
-//#import “WeiboSDK.h”
-//新浪微博SDK需要在项目Build Settings中的Other Linker Flags添加”-ObjC”
-//#import "UMMobClick/MobClick.h"
-
-
 #import <Photos/Photos.h>
+#import <AVFoundation/AVFoundation.h>
+#import <EventKit/EventKit.h>
+#import <Contacts/Contacts.h>
+#import <Speech/Speech.h>
+#import <HealthKit/HealthKit.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <UserNotifications/UserNotifications.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <CoreLocation/CoreLocation.h>
+#import <HealthKit/HealthKit.h>
 
 #import "UIApplication+Helper.h"
 #import "UIWindow+Helper.h"
@@ -32,31 +28,324 @@
 
 #import "BN_Globle.h"
 #import <YYModel/YYModel.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 //#import <AFNetworking/AFNetworking.h>
 //#import "BN_NetRootAppInfoModel.h"
 
 @implementation UIApplication (Other)
 
-+ (BOOL)hasRightOfPhotosLibrary{
-    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
-    if (status == PHAuthorizationStatusRestricted ||
-        status == PHAuthorizationStatusDenied) {
-        //无权限
-        return NO;
+static NSDictionary *_dictPrivacy = nil;
+
++ (NSDictionary *)dictPrivacy{
+    if (!_dictPrivacy) {
+        _dictPrivacy = @{
+                         @0 : @"相册",
+                         @1 : @"相机",
+                         @2 : @"媒体资料库",
+                         @3 : @"麦克风",
+                         @4 : @"蓝牙",
+                         @5 : @"推送",
+                         @6 : @"语音识别",
+                         @7 : @"日历",
+                         @8 : @"提醒事项",
+                         @9 : @"通讯录",
+                         @10 : @"健康",
+
+                         };
     }
-    return YES;
+    return _dictPrivacy;
+}
+
++ (void)privacy:(PrivacyType)type completion:(void(^)(BOOL response,PrivacyStatus status, NSString *name))completion{
+    NSParameterAssert(completion != nil);
+    switch (type) {
+        case PrivacyTypePhoto: {
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+                else if (status == PHAuthorizationStatusDenied) {
+                    completion(NO,PrivacyStatusDenied,UIApplication.dictPrivacy[@(type)]);
+                }
+                else if (status == PHAuthorizationStatusNotDetermined) {
+                    completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                }
+                else if (status == PHAuthorizationStatusRestricted) {
+                    completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                }
+            }];
+        }
+            break;
+        case PrivacyTypeCamera: {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+                if (granted) {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    if (status == AVAuthorizationStatusAuthorized) {
+                        completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == AVAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == AVAuthorizationStatusNotDetermined) {
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == AVAuthorizationStatusRestricted) {
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else {
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }
+            }];
+        }
+            break;
+        case PrivacyTypeMedia: {
+            if (@available(iOS 9.3, *)) {
+                [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status) {
+                    if (status == MPMediaLibraryAuthorizationStatusAuthorized) {
+                        completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == MPMediaLibraryAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == MPMediaLibraryAuthorizationStatusNotDetermined) {
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == MPMediaLibraryAuthorizationStatusRestricted) {
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else {
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }];
+            } else {
+                // Fallback on earlier versions
+                //虽然没有查看是否开启权限的接口，但是还是需要在Info.plist中添加说明。
+            }
+        }
+            break;
+        case PrivacyTypeMicrophone: {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+                AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+                if (granted) {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    if (status == AVAuthorizationStatusAuthorized) {
+                        completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == AVAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == AVAuthorizationStatusNotDetermined) {
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == AVAuthorizationStatusRestricted) {
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else {
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }
+            }];
+        }
+            break;
+        case PrivacyTypeBluetooth: {
+            if (@available(iOS 10.0, *)) {
+                CBCentralManager *centralManager = [[CBCentralManager alloc] init];
+                CBManagerState state = [centralManager state];
+                if (state == CBManagerStateUnsupported || state == CBManagerStateUnauthorized || state == CBManagerStateUnknown) {
+                    completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+            } else {
+                // Fallback on earlier versions
+                
+            }
+            
+        }break;
+            
+        case PrivacyTypePushNotification: {
+            if (@available(iOS 10.0, *)) {
+                UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+                UNAuthorizationOptions types = UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+                [center requestAuthorizationWithOptions:types completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    if (granted) {
+                        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                            //
+                            completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                            
+                        }];
+                    } else {
+                        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{UIApplicationOpenURLOptionUniversalLinksOnly:@""} completionHandler:^(BOOL success) { }];
+                    }
+                }];
+            } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+                [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge categories:nil]];
+            }
+#pragma clang diagnostic pop
+        }break;
+            
+        case PrivacyTypeSpeech: {
+            if (@available(iOS 10.0, *)) {
+                [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+                    if (status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
+                        completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == SFSpeechRecognizerAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == SFSpeechRecognizerAuthorizationStatusNotDetermined) {
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == SFSpeechRecognizerAuthorizationStatusRestricted) {
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else {
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }];
+            } else {
+                // Fallback on earlier versions
+                //不支持
+            }
+        }
+            break;
+        case PrivacyTypeEvent: {
+            EKEventStore *store = [[EKEventStore alloc] init];
+            [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+                EKAuthorizationStatus status = [EKEventStore  authorizationStatusForEntityType:EKEntityTypeEvent];
+                if (granted) {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    if (status == EKAuthorizationStatusAuthorized) {
+                        completion(YES ,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == EKAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == EKAuthorizationStatusNotDetermined) {
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == EKAuthorizationStatusRestricted) {
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else {
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }
+            }];
+        }
+            break;
+        case PrivacyTypeReminder: {
+            EKEventStore *eventStore = [[EKEventStore alloc] init];
+            [eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError * _Nullable error) {
+                EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+                if (granted) {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    if (status == EKAuthorizationStatusAuthorized) {
+                        completion(YES ,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == EKAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == EKAuthorizationStatusNotDetermined){
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == EKAuthorizationStatusRestricted){
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else{
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }
+            }];
+        }
+            break;
+        case PrivacyTypeContact: {
+            CNContactStore *contactStore = [[CNContactStore alloc] init];
+            [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+                if (granted) {
+                    completion(YES,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                }
+                else {
+                    if (status == EKAuthorizationStatusAuthorized) {
+                        completion(YES ,PrivacyStatusAuthorized, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == CNAuthorizationStatusDenied) {
+                        completion(NO,PrivacyStatusDenied, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == CNAuthorizationStatusRestricted){
+                        completion(NO,PrivacyStatusNotDetermined, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else if (status == CNAuthorizationStatusNotDetermined){
+                        completion(NO,PrivacyStatusRestricted, UIApplication.dictPrivacy[@(type)]);
+                    }
+                    else{
+                        completion(NO,PrivacyStatusUnkonwn, UIApplication.dictPrivacy[@(type)]);
+                    }
+                }
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
++ (BOOL)privacy:(PrivacyType)type handler:(void(^)(BOOL response, NSString *name))handler{
+    __block BOOL isHasRight = NO;
+    [UIApplication privacy:type completion:^(BOOL response, PrivacyStatus status, NSString *name) {
+        isHasRight = response;
+        if(handler) handler(response,name);
+        
+        switch (status) {
+            case PrivacyStatusAuthorized:
+            {
+                //通过
+                
+            }
+                break;
+            case PrivacyStatusDenied:
+            case PrivacyStatusNotDetermined:
+            case PrivacyStatusRestricted:
+            case PrivacyStatusUnkonwn:
+            {
+                NSString * msg = [NSString stringWithFormat:@"请去-> [设置 - 隐私 - %@ - %@] 打开访问开关",UIApplication.dictPrivacy[@(type)],UIApplication.appName];
+                [UIWindow showToastWithTips:msg place:@1];
+                
+            }
+                break;
+            default:
+                break;
+        }
+    }];
+    return isHasRight;
+}
+
+
++ (BOOL)hasRightOfPhotosLibrary{
+    return [UIApplication privacy:PrivacyTypePhoto handler:nil];
 }
 + (BOOL)hasRightOfCameraUsage{
     //相机权限
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (authStatus ==AVAuthorizationStatusRestricted ||//此应用程序没有被授权访问的照片数据。可能是家长控制权限
-        authStatus ==AVAuthorizationStatusDenied)  //用户已经明确否认了这一照片数据的应用程序访问
-    {
-        return NO;
-        
-    }
-    return YES;
+    return [UIApplication privacy:PrivacyTypeCamera handler:nil];
+
 }
 
 + (BOOL)hasRightOfAVCapture{
@@ -70,9 +359,9 @@
                 [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
                     if (granted) {
                         isHasRight = YES;
-                        DDLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                        DDLog(@"用户第一次同意了访问相机权限 - - %@", NSThread.currentThread);
                     } else {
-                        DDLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                        DDLog(@"用户第一次拒绝了访问相机权限 - - %@", NSThread.currentThread);
                     }
                 }];
                 break;
@@ -82,7 +371,7 @@
                 break;
             }
             case AVAuthorizationStatusDenied: {
-                NSString * msg = [NSString stringWithFormat:@"请去-> [设置 - 隐私 - 相机 - %@] 打开访问开关",UIApplication.app_Name];
+                NSString * msg = [NSString stringWithFormat:@"请去-> [设置 - 隐私 - 相机 - %@] 打开访问开关",UIApplication.appName];
                 [UIWindow showToastWithTips:msg place:@1];
                 
                 break;
@@ -97,6 +386,19 @@
         }
     }
     return isHasRight;
+}
+
++ (void)setupIQKeyboardManager{
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
+    keyboardManager.enable = YES; // 控制整个功能是否启用
+    keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
+    keyboardManager.shouldToolbarUsesTextFieldTintColor = YES; // 控制键盘上的工具条文字颜色是否用户自定义
+    keyboardManager.toolbarManageBehaviour = IQAutoToolbarBySubviews; // 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框
+    keyboardManager.enableAutoToolbar = NO; // 控制是否显示键盘上的工具条
+    keyboardManager.shouldShowToolbarPlaceholder = YES; // 是否显示占位文字
+    keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:14]; // 设置占位文字的字体
+    keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
+    
 }
 
 //+ (void)registerShareSDK{
@@ -146,7 +448,7 @@
 //
 //}
 //
-//+ (void)handleMsgShareDataModel:(BN_ShareModel *)dataModel patternType:(NSString *)patternType{
+//+ (void)handleMsgShareDataModel:(BN_ShareModel *)dataModel type:(NSNumber *)type{
 //
 //    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
 //    [shareParams SSDKSetupShareParamsByText:dataModel.shareContent
@@ -156,7 +458,7 @@
 //                                       type:SSDKContentTypeAuto];
 //
 //    SSDKPlatformType thePlatformType = SSDKPlatformSubTypeQZone;
-//    switch ([patternType integerValue]) {
+//    switch (type.integerValue) {
 //        case 0:
 //        {
 //            thePlatformType = SSDKPlatformSubTypeQZone;
@@ -224,19 +526,6 @@
 //     }];
 //}
 
-//+ (void)setupIQKeyboardManager{
-//    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
-//    keyboardManager.enable = YES; // 控制整个功能是否启用
-//    keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
-//    keyboardManager.shouldToolbarUsesTextFieldTintColor = YES; // 控制键盘上的工具条文字颜色是否用户自定义
-//    keyboardManager.toolbarManageBehaviour = IQAutoToolbarBySubviews; // 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框
-//    keyboardManager.enableAutoToolbar = NO; // 控制是否显示键盘上的工具条
-//    keyboardManager.shouldShowToolbarPlaceholder = YES; // 是否显示占位文字
-//    keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:14]; // 设置占位文字的字体
-//    keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
-//    
-//}
-
 //+ (void)registerUMengSDKAppKey:(NSString *)appKey channel:(NSString *)channel{
 //
 //    [MobClick setLogEnabled:YES];
@@ -276,9 +565,9 @@
                     // AppStore版本号大于当前版本号，强制更新
                     if ([appStoreVersion compare:currentVersion options:NSNumericSearch] == NSOrderedDescending) {
                         // 弹窗 更新
-                        [UIApplication.rootController showAlertWithTitle:versionInfo msg:releaseNotes actionTitleList:@[kActionTitle_Call,kActionTitle_Update] handler:^(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action) {
-                            isUpdate = [action.title isEqualToString:kActionTitle_Update] == YES ? YES : NO;
-                            if (isUpdate == YES) {
+                        [UIApplication.rootController showAlertTitle:versionInfo msg:releaseNotes actionTitleList:@[kActionTitle_Call,kActionTitle_Update] handler:^(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action) {
+                            isUpdate = [action.title isEqualToString:kActionTitle_Update];
+                            if (isUpdate) {
                                 // 升级去
                                 
                             }
@@ -322,9 +611,9 @@
 //                // AppStore版本号大于当前版本号，强制更新
 //                if ([appStoreVersion compare:currentVersion options:NSNumericSearch] == NSOrderedDescending) {
 //                    // 弹窗 更新
-//                    [UIApplication.rootController showAlertWithTitle:versionInfo msg:releaseNotes actionTitleList:@[kActionTitle_Call,kActionTitle_Update] handler:^(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action) {
-//                        isUpdate = [action.title isEqualToString:kActionTitle_Update] == YES ? YES : NO;
-//                        if (isUpdate == YES) {
+//                    [UIApplication.rootController showAlertTitle:versionInfo msg:releaseNotes actionTitleList:@[kActionTitle_Call,kActionTitle_Update] handler:^(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action) {
+//                        isUpdate = [action.title isEqualToString:kActionTitle_Update]  ? YES : NO;
+//                        if (isUpdate) {
 //                            // 升级去
 //
 //                        }

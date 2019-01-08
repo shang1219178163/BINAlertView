@@ -3,12 +3,14 @@
 //  UICollectionView+Helper.m
 //  BN_ExcelView
 //
-//  Created by hsf on 2018/4/12.
+//  Created by BIN on 2018/4/12.
 //  Copyright © 2018年 BN. All rights reserved.
 //
 
 #import "UICollectionView+Helper.h"
 #import <objc/runtime.h>
+
+NSString * const UICollectionElementKindSectionItem = @"UICollectionElementKindSectionItem";
 
 @implementation UICollectionView (Helper)
 
@@ -32,10 +34,10 @@
     objc_setAssociatedObject(self, @selector(dictClass), dictClass, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
     for (NSString * key in dictClass.allKeys) {
-        if ([key isEqualToString:UICollectionElementSectionItem]) {
+        if ([key isEqualToString:UICollectionElementKindSectionItem]) {
             [self bn_registerListClass:dictClass[key]];
             
-        }else{
+        } else {
             [self bn_registerListClassReusable:dictClass[key] kind:key];
 
         }
@@ -67,7 +69,7 @@
 - (void)bn_registerListClassReusable:(NSArray *)listClass kind:(NSString *)kind{
     
     for (NSString * className in listClass) {
-        NSString * identifier = [[self class] viewIdentifierByClassName:className kind:kind];
+        NSString * identifier = [self.class viewIdentifierByClassName:className kind:kind];
         [self registerClass:NSClassFromString(className) forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
 //        NSLog(@"%@,%@,%@",NSClassFromString(className),kind,identifier);
     }

@@ -12,24 +12,12 @@
 #import <objc/runtime.h>
 
 #import "UICollectionView+Helper.h"
+#import "UIColor+Helper.h"
+
 
 @implementation UIViewController (AddView)
 
--(id)obj{
-    return objc_getAssociatedObject(self, _cmd);
-}
-
--(void)setObj:(id)obj{
-    objc_setAssociatedObject(self, @selector(obj), obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
--(id)objOne{
-    return objc_getAssociatedObject(self, _cmd);
-}
-
--(void)setObjOne:(id)objOne{
-    objc_setAssociatedObject(self, @selector(objOne), objOne, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+@dynamic heightMdic;
 
 -(NSDictionary *)dictClass{
     return objc_getAssociatedObject(self, _cmd);
@@ -39,99 +27,44 @@
     objc_setAssociatedObject(self, @selector(dictClass), dictClass, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-//-(NSMutableArray *)dataList{
-//    NSMutableArray * list = objc_getAssociatedObject(self, _cmd);
-//    if (list == nil) {
-//        list = [NSMutableArray array];
-//        objc_setAssociatedObject(self, _cmd, list, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//
-//    }
-//    return list;
-//}
-
 -(NSMutableArray *)dataList{
-    return objc_getAssociatedObject(self, _cmd);
+//    return objc_getAssociatedObject(self, _cmd);
+    NSMutableArray * list = objc_getAssociatedObject(self, _cmd);
+    if (!list) {
+        list = [NSMutableArray array];
+        objc_setAssociatedObject(self, _cmd, list, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    }
+    return list;
 }
 
 -(void)setDataList:(NSMutableArray *)dataList{
     objc_setAssociatedObject(self, @selector(dataList), dataList, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(NSString *)controllerName{
-    NSString * className = objc_getAssociatedObject(self, _cmd);
-    if (className == nil) {
-        className = NSStringFromClass([self class]);
-        if ([className containsString:@"Controller"]) {
-            NSRange range = NSMakeRange(0, 0);
-            if ([className rangeOfString:@"ViewController"].location != NSNotFound) {
-                range = [className rangeOfString:@"ViewController"];
-            }
-            else if ([className rangeOfString:@"Controller"].location != NSNotFound){
-                range = [className rangeOfString:@"Controller"];
-            }
-            className = [className substringToIndex:range.location];
-        }
-        objc_setAssociatedObject(self, _cmd, className, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return className;
-}
-
--(UIViewController *)frontController{
-    UIViewController *controller = objc_getAssociatedObject(self, _cmd);
-    if (controller == nil) {
-        NSInteger count = self.navigationController.viewControllers.count;
-        if (count >= 2) {
-            controller = self.navigationController.viewControllers[count - 2];
-
-        }
-        else{
-            controller = [self.navigationController.viewControllers lastObject];
-            
-        }
-        objc_setAssociatedObject(self, _cmd, controller, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    }
-    return controller;
-    
-}
-
 #pragma mark- layz
 
 - (UITableView *)tableView {
     UITableView* table = objc_getAssociatedObject(self, _cmd);
-    if (table == nil) {
-        table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-//        [table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-        table.layer.borderColor = UIColor.grayColor.CGColor;
-        table.layer.borderWidth = 1;
-        
-        if ([self conformsToProtocol:@protocol(UITableViewDataSource)]) {
-            table.dataSource = self;
-            
-        }
-        if ([self conformsToProtocol:@protocol(UITableViewDelegate)]) {
-            table.delegate = self;
-        }
-        
+    if (!table) {
+        table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        table.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;//确保TablView能够正确的调整大小
+        table.separatorInset = UIEdgeInsetsZero;
+        table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        table.rowHeight = 60;
+        table.backgroundColor = UIColor.backgroudColor;
+//        table.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        [table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+        if ([self conformsToProtocol:@protocol(UITableViewDataSource)]) table.dataSource = self;
+        if ([self conformsToProtocol:@protocol(UITableViewDelegate)]) table.delegate = self;      
+
         objc_setAssociatedObject(self, _cmd, table, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return table;
 }
 
-//-(NSMutableArray *)dataList{
-//    NSMutableArray* list = objc_getAssociatedObject(self, _cmd);
-//    if (list == nil) {
-//        list = [NSMutableArray array];
-//        
-//        objc_setAssociatedObject(self, _cmd, list, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//        
-//    }
-//    return list;
-//}
-
--(void)setPageIndex:(NSInteger)pageIndex{
-    objc_setAssociatedObject(self, @selector(pageIndex), @(pageIndex), OBJC_ASSOCIATION_ASSIGN);
-    
+-(void)setTableView:(UITableView *)tableView{
+    objc_setAssociatedObject(self, @selector(tableView), tableView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(NSInteger)pageIndex{
@@ -139,10 +72,14 @@
     
 }
 
+-(void)setPageIndex:(NSInteger)pageIndex{
+    objc_setAssociatedObject(self, @selector(pageIndex), @(pageIndex), OBJC_ASSOCIATION_ASSIGN);
+    
+}
 
 - (UICollectionView *)collectionView{
     UICollectionView* ctv = objc_getAssociatedObject(self, _cmd);
-    if (ctv == nil) {
+    if (!ctv) {
         ctv = ({
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
             //item水平间距
@@ -174,19 +111,19 @@
     return ctv;
 }
 
-//-(NSDictionary *)dictClass{
-//    NSDictionary * dic = objc_getAssociatedObject(self, _cmd);
-//    if (dic == nil) {
-//        dic = [NSDictionary dictionary];
-//        objc_setAssociatedObject(self, _cmd, dic, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//
-//    }
-//    return dic;
-//}
+-(void)setCollectionView:(UICollectionView *)collectionView{
+    objc_setAssociatedObject(self, @selector(collectionView), collectionView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 -(NSMutableDictionary *)heightMdict{
-    return objc_getAssociatedObject(self, _cmd);
-    
+//    return objc_getAssociatedObject(self, _cmd);
+    NSMutableDictionary * dic = objc_getAssociatedObject(self, _cmd);
+    if (!dic) {
+        dic = [NSMutableDictionary dictionary];
+        objc_setAssociatedObject(self, _cmd, dic, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+    }
+    return dic;
 }
 
 -(void)setHeightMdic:(NSMutableDictionary *)heightMdic{

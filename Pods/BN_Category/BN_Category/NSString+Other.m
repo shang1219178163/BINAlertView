@@ -1,9 +1,9 @@
 //
 //  NSString+Other.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/9/18.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "NSString+Other.h"
@@ -11,7 +11,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import "GTMBase64.h"
 
-#import "NSData+Other.h"
+#import "NSData+Helper.h"
 
 static char base64EncodingTable[64] = {
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -172,7 +172,7 @@ static char base64EncodingTable[64] = {
     int length =0;
     if (!value) {
         return NO;
-    }else {
+    } else {
         length = (int)value.length;
         
         if (length !=15 && length !=18) {
@@ -209,7 +209,7 @@ static char base64EncodingTable[64] = {
                 regularExpression = [[NSRegularExpression alloc] initWithPattern:@"^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}$"
                                                                          options:NSRegularExpressionCaseInsensitive
                                                                            error:nil];//测试出生日期的合法性
-            }else {
+            } else {
                 regularExpression = [[NSRegularExpression alloc]initWithPattern:@"^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}$"
                                                                         options:NSRegularExpressionCaseInsensitive
                                                                           error:nil];//测试出生日期的合法性
@@ -220,7 +220,7 @@ static char base64EncodingTable[64] = {
             
             if(numberofMatch >0) {
                 return YES;
-            }else {
+            } else {
                 return NO;
             }
         case 18:
@@ -230,7 +230,7 @@ static char base64EncodingTable[64] = {
                 regularExpression = [[NSRegularExpression alloc] initWithPattern:@"^[1-9][0-9]{5}19[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}[0-9Xx]$"
                                                                          options:NSRegularExpressionCaseInsensitive
                                                                            error:nil];//测试出生日期的合法性
-            }else {
+            } else {
                 regularExpression = [[NSRegularExpression alloc] initWithPattern:@"^[1-9][0-9]{5}19[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}[0-9Xx]$"
                                                                          options:NSRegularExpressionCaseInsensitive
                                                                            error:nil];//测试出生日期的合法性
@@ -247,11 +247,11 @@ static char base64EncodingTable[64] = {
                 M = [JYM substringWithRange:NSMakeRange(Y,1)];// 判断校验位
                 if ([M isEqualToString:[value substringWithRange:NSMakeRange(17,1)]]) {
                     return YES;// 检测ID的校验位
-                }else {
+                } else {
                     return NO;
                 }
                 
-            }else {
+            } else {
                 return NO;
             }
         default:
@@ -289,10 +289,10 @@ static char base64EncodingTable[64] = {
         NSInteger num = [forwardDescArr[i] intValue];
         if (i%2) {//偶数位
             [arrEvenNum addObject:[NSNumber numberWithInteger:num]];
-        }else{//奇数位
+        } else {//奇数位
             if (num * 2 < 9) {
                 [arrOddNum addObject:[NSNumber numberWithInteger:num * 2]];
-            }else{
+            } else {
                 NSInteger decadeNum = (num * 2) / 10;
                 NSInteger unitNum = (num * 2) % 10;
                 [arrOddNum2 addObject:[NSNumber numberWithInteger:unitNum]];
@@ -590,7 +590,7 @@ static char base64EncodingTable[64] = {
 }
 
 + (NSString *)processDecodedString:(NSString *)decoded{
-    if(decoded == nil || decoded.length == 0){
+    if(!decoded || decoded.length == 0){
         return nil;
     }
     const char *tmpStr = [decoded UTF8String];
@@ -605,7 +605,7 @@ static char base64EncodingTable[64] = {
 }
 
 - (NSString *)processDecodedString:(NSString *)decoded{
-    if(decoded == nil || decoded.length == 0){
+    if(!decoded || decoded.length == 0){
         return nil;
     }
     const char *tmpStr = [decoded UTF8String];
@@ -619,8 +619,8 @@ static char base64EncodingTable[64] = {
     
 }
 
-+ (BOOL)validKey:(NSString*)key{
-    if(key == nil || key.length != 16){
++ (BOOL)validKey:(NSString *)key{
+    if(!key|| key.length != 16){
         return NO;
     }
     return YES;

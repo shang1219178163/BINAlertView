@@ -1,9 +1,9 @@
 //
 //  NSString+Helper.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/7/31.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,6 +12,8 @@
 #import "NSString+Other.h"
 
 @interface NSString (Helper)
+
+@property (nonatomic, strong, readonly) NSDecimalNumber *decNumer;
 
 - (BOOL)isPureInteger;
 //浮点形判断：
@@ -87,7 +89,7 @@
 - (NSString *)deleteWhiteSpaceBeginEnd;
 
 /**
- 弃用
+ 
  */
 - (NSString *)stringByTitle;
 
@@ -135,19 +137,18 @@
 
 + (NSString *)ramdomText;
 
-
-/**
- 弃用
-
- */
-+(NSString *)resultByAnObject:(NSString *)anObject multiplyAnothor:(NSString *)anothor;
-
 #pragma mark - - 加减乘除
 -(NSString *)multiplyAnothor:(NSString *)anothor;
 
 -(NSString *)divideAnothor:(NSString *)anothor;
 
 -(NSString *)addAnothor:(id)anothor;
+/**
+ 获取未知的目标字符串
+ @param front 目标字段之前的特征字符串
+ @param back 目标字段之后的特征字符串
+ */
+-(NSString *)stringWithFront:(NSString *)front back:(NSString *)back;
 
 #pragma mark - - other
 - (BOOL)isBeyondWithLow:(NSString *)low high:(NSString *)high;

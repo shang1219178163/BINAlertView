@@ -14,13 +14,11 @@
 #import <BN_Kit/BN_RadioView.h>
 #import <BN_Kit/BN_RadioViewZero.h>
 #import <BN_Kit/BN_CricleProgressView.h>
-#import <BN_Kit/BNNavigationController.h>
 #else
 #import "BN_TextField.h"
 #import "BN_TextView.h"
 #import "BN_RadioView.h"
 #import "BN_RadioViewZero.h"
 #import "BN_CricleProgressView.h"
-#import "BNNavigationController.h"
 #endif
 

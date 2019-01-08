@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *const kRadio_title = @"kRadio_title";
-static NSString *const kRadio_textColorH = @"kRadio_textColorH";
-static NSString *const kRadio_textColorN = @"kRadio_textColorN";
-
-static NSString *const kRadio_imageH = @"kRadio_imageH";
-static NSString *const kRadio_imageN = @"kRadio_imageN";
-
+FOUNDATION_EXPORT NSString *const kRadio_title ;
+FOUNDATION_EXPORT NSString *const kRadio_textColorH ;
+FOUNDATION_EXPORT NSString *const kRadio_textColorN ;
+FOUNDATION_EXPORT NSString *const kRadio_imageH ;
+FOUNDATION_EXPORT NSString *const kRadio_imageN ;
 
 @interface BN_RadioView : UIView
 

@@ -1,9 +1,9 @@
 //
 //  UICollectionViewCell+AddView.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/8/24.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UICollectionViewCell+AddView.h"
@@ -13,10 +13,10 @@
 
 @implementation UICollectionViewCell (AddView)
 
-@dynamic label,labelSub,imgView,height,width;
+@dynamic label,labelSub,imgView;
 
 + (instancetype)viewWithCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
-    NSString * identifier = NSStringFromClass([self class]);
+    NSString * identifier = NSStringFromClass(self.class);
     UICollectionViewCell *view = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     return view;
@@ -28,20 +28,9 @@
     return view;
 }
 
-
--(CGFloat)width{
-    return CGRectGetWidth(self.contentView.frame);
-    
-}
-
--(CGFloat)height{
-    return CGRectGetHeight(self.contentView.frame);
-    
-}
-
 -(UIImageView *)imgView{
     UIImageView * view = objc_getAssociatedObject(self, _cmd);
-    if (view == nil) {
+    if (!view) {
         view = ({
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imgView.userInteractionEnabled = YES;
@@ -58,12 +47,12 @@
 
 -(UILabel *)label{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
+    if (!lab) {
         lab = ({
             UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
-            label.tag = kTAG_LABEL + 4;
+            label.tag = kTAG_LABEL;
             label.font = [UIFont systemFontOfSize:17];
-            label.textAlignment = NSTextAlignmentRight;
+            label.textAlignment = NSTextAlignmentLeft;
 
             label.numberOfLines = 0;
             label.userInteractionEnabled = YES;
@@ -77,10 +66,10 @@
 
 -(UILabel *)labelSub{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
+    if (!lab) {
         lab = ({
             UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
-            label.tag = kTAG_LABEL;
+            label.tag = kTAG_LABEL + 1;
             label.font = [UIFont systemFontOfSize:17];
             label.textAlignment = NSTextAlignmentLeft;
 

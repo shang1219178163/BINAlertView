@@ -2,7 +2,7 @@
 //  UIWindow+Helper.m
 //  ProductTemplet
 //
-//  Created by hsf on 2018/9/30.
+//  Created by BIN on 2018/9/30.
 //  Copyright © 2018年 BN. All rights reserved.
 //
 
@@ -37,7 +37,7 @@
     NSArray * imageList = @[@"loading0",@"loading1",@"loading2",@"loading3",@"loading4",@"loading5",@"loading6",@"loading7",];
     
     CGRect rect = CGRectMake(0, 0, 25, 25);
-    UIImageView * imgView = [UIImageView imgViewWithRect:rect imageList:imageList type:@1];
+    UIImageView * imgView = [UIImageView imgViewRect:rect imageList:imageList type:@1];
     hud.customView = imgView;
 
 }
@@ -111,10 +111,10 @@
         //        style.titleColor = UIColor.blackColor;
         //        style.messageColor = UIColor.blackColor;
         
-        //        [keyWindow makeToast:msg duration:kAnimationDuration_Toast position:position style:style];
+        //        [keyWindow makeToast:msg duration:kAnimDuration_Toast position:position style:style];
         // Make toast with an image, title, and completion block
         [keyWindow makeToast:msg
-                    duration:kAnimationDuration_Toast
+                    duration:kAnimDuration_Toast
                     position:position
                        title:nil
                        image:[UIImage imageNamed:image]

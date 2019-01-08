@@ -13,10 +13,8 @@
 
 #import "BN_Globle.h"
 
-#import "NSObject+Helper.h"
 #import "UIView+Helper.h"
-#import "UIScreen+Helper.h"
-#import "UIColor+Helper.h"
+#import "NSObject+Helper.h"
 
 #import "BN_TextField.h"
 #import "BN_TextView.h"
@@ -39,10 +37,19 @@
 }
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    NSString *identifier = NSStringFromClass([self class]);
-    return [self cellWithTableView:tableView identifier:identifier];
+//    NSString *identifier = NSStringFromClass(self.class);
+    return [self cellWithTableView:tableView identifier:self.identifier];
 }
 
++(NSString *)identifier{
+    id obj = objc_getAssociatedObject(self, _cmd);
+    if (!obj) {
+        obj = NSStringFromClass(self.class);
+        objc_setAssociatedObject(self, @selector(identifier), obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+    }
+    return obj;
+}
 
 #pragma mark - -layz
 
@@ -52,28 +59,16 @@
 
 - (void)setImgViewLeftSize:(CGSize)imgViewLeftSize{
     objc_setAssociatedObject(self, @selector(imgViewLeftSize), @(imgViewLeftSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-}
-
--(CGFloat)width{
-    return CGRectGetWidth(self.contentView.frame);
-    
-}
-
--(CGFloat)height{
-    return CGRectGetHeight(self.contentView.frame);
-    
 }
 
 -(void)setLabelRight:(UILabel *)labelRight{
     objc_setAssociatedObject(self, @selector(labelRight), labelRight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 -(UILabel *)labelRight{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+4 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentRight];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+4 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentRight];
 
 //        lab = ({
 //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -93,13 +88,12 @@
 
 -(void)setLabelLeft:(UILabel *)labelLeft{
     objc_setAssociatedObject(self, @selector(labelLeft), labelLeft, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 -(UILabel *)labelLeft{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
 
 //        lab = ({
 //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -124,8 +118,8 @@
 
 -(UILabel *)labelLeftMark{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+1 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+1 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
 
 //        lab = ({
 //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -145,25 +139,24 @@
 
 -(void)setLabelLeftSub:(UILabel *)labelLeftSub{
     objc_setAssociatedObject(self, @selector(labelLeftSub), labelLeftSub, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 -(UILabel *)labelLeftSub{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+2 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+2 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
 
 //        lab = ({
 //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
 //            label.tag = kTAG_LABEL + 2;
 //
 //            label.font = [UIFont systemFontOfSize:17];
-//            //            label.textColor = UIColor.grayColor;
+//            label.textColor = UIColor.grayColor;
 //            label.textAlignment = NSTextAlignmentLeft;
 //
 //            label.numberOfLines = 0;
 //            label.userInteractionEnabled = YES;
-//            //        label.backgroundColor = UIColor.greenColor;
+//            label.backgroundColor = UIColor.greenColor;
 //            label;
 //        });
         objc_setAssociatedObject(self, _cmd, lab, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -173,13 +166,12 @@
 
 -(void)setLabelLeftSubMark:(UILabel *)labelLeftSubMark{
     objc_setAssociatedObject(self, @selector(labelLeftSubMark), labelLeftSubMark, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 -(UILabel *)labelLeftSubMark{
     UILabel * lab = objc_getAssociatedObject(self, _cmd);
-    if (lab == nil) {
-        lab = [UIView createLabelWithRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+3 patternType:@"2" font:KFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+    if (!lab) {
+        lab = [UIView createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL+3 type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
 
 //        lab = ({
 //            UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -200,12 +192,11 @@
 
 -(void)setImgViewLeft:(UIImageView *)imgViewLeft{
     objc_setAssociatedObject(self, @selector(imgViewLeft), imgViewLeft, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 -(UIImageView *)imgViewLeft{
     UIImageView * imgV = objc_getAssociatedObject(self, _cmd);
-    if (imgV == nil) {
+    if (!imgV) {
         imgV = ({
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imgView.userInteractionEnabled = YES;
@@ -222,19 +213,19 @@
 
 -(void)setImgViewRight:(UIImageView *)imgViewRight{
     objc_setAssociatedObject(self, @selector(imgViewRight), imgViewRight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 -(UIImageView *)imgViewRight{
     UIImageView * imgV = objc_getAssociatedObject(self, _cmd);
-    if (imgV == nil) {
+    if (!imgV) {
         imgV = ({
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imgView.userInteractionEnabled = YES;
             imgView.contentMode = UIViewContentModeScaleAspectFit;
             //            imgView.backgroundColor = UIColor.orangeColor;
-            imgView.frame = CGRectMake(self.width - kX_GAP - kWH_ArrowRight, (self.height - kWH_ArrowRight)/2.0, kWH_ArrowRight, kWH_ArrowRight);
-            imgView.image = [UIImage imageNamed:kIMAGE_arrowRight];
+            imgView.frame = CGRectMake(self.contentView.maxX - kX_GAP - kWH_ArrowRight, (self.contentView.maxY - kWH_ArrowRight)/2.0, kWH_ArrowRight, kWH_ArrowRight);
+            imgView.image = [UIImage imageNamed:kIMG_arrowRight];
+            
             imgView.hidden = YES;
             imgView;
         });
@@ -246,13 +237,12 @@
 
 -(void)setBtn:(UIButton *)btn{
     objc_setAssociatedObject(self, @selector(btn), btn, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 -(UIButton *)btn{
     UIButton * button = objc_getAssociatedObject(self, _cmd);
-    if (button == nil) {
-        button = [UIView createBtnWithRect:CGRectZero title:@"取消订单" font:KFZ_Second image:nil tag:kTAG_BTN patternType:@"7" target:nil aSelector:nil];
+    if (!button) {
+        button = [UIView createBtnRect:CGRectZero title:@"取消订单" font:kFZ_Second image:nil tag:kTAG_BTN type:@7 target:nil aSelector:nil];
 //        button = ({
 //            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //            [btn setTitle:@"btn" forState:UIControlStateNormal];
@@ -272,13 +262,12 @@
 
 -(void)setTextField:(BN_TextField *)textField{
     objc_setAssociatedObject(self, @selector(textField), textField, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 -(BN_TextField *)textField{
     BN_TextField * textField = objc_getAssociatedObject(self, _cmd);
-    if (textField == nil) {
-        textField = [UIView createTextFieldWithRect:CGRectZero text:@"" placeholder:nil font:KFZ_Second textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
+    if (!textField) {
+        textField = [UIView createTextFieldRect:CGRectZero text:@"" placeholder:nil font:kFZ_Second textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
         textField.tag = kTAG_TEXTFIELD;
 
         objc_setAssociatedObject(self, _cmd, textField, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -289,13 +278,12 @@
 
 -(void)setTextView:(BN_TextView *)textView{
     objc_setAssociatedObject(self, @selector(textView), textView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 -(BN_TextView *)textView{
     BN_TextView * tv = objc_getAssociatedObject(self, _cmd);
-    if (tv == nil) {
-        tv = [UIView createTextViewWithRect:CGRectZero text:@"" placeholder:nil font:KFZ_Third textAlignment:NSTextAlignmentLeft keyType:UIKeyboardTypeDefault];
+    if (!tv) {
+        tv = [UIView createTextViewRect:CGRectZero text:@"" placeholder:nil font:kFZ_Third textAlignment:NSTextAlignmentLeft keyType:UIKeyboardTypeDefault];
         
         objc_setAssociatedObject(self, _cmd, tv, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
@@ -305,15 +293,14 @@
 
 - (void)setRadioView:(BN_RadioView *)radioView{
     objc_setAssociatedObject(self, @selector(radioView), radioView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 -(BN_RadioView *)radioView{
     BN_RadioView * view = objc_getAssociatedObject(self, _cmd);
-    if (view == nil) {
+    if (!view) {
         NSDictionary * dic = @{
-                               kRadio_imageN    :   @"img_cir_normal.png",
-                               kRadio_imageH    :   @"img_cir_Selected.png",
+                               kRadio_imageN    :   kIMG_selected_NO,
+                               kRadio_imageH    :   kIMG_selected_YES,
                                };
         
         view = [[BN_RadioView alloc]initWithFrame:CGRectZero attDict:dic isSelected:NO];
@@ -326,7 +313,7 @@
 
 //-(UITextField *)textField{
 //    UITextField * textField = objc_getAssociatedObject(self, _cmd);
-//    if (textField == nil) {
+//    if (!textField) {
 //        textField = ({
 //            UITextField * textField = [[UITextField alloc]initWithFrame:CGRectZero];
 //            textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -352,7 +339,7 @@
 //
 //-(UITextView *)textView{
 //    UITextView * tv = objc_getAssociatedObject(self, _cmd);
-//    if (tv == nil) {
+//    if (!tv) {
 //        tv = ({
 //            UITextView *textView = [[UITextView alloc] initWithFrame:CGRectZero];
 //
@@ -375,43 +362,6 @@
 //    }
 //    return tv;
 //}
-
-#pragma mark - -getTextFieldRightView
-//弃用
-- (id)getTextFieldRightView:(NSString *)unitString{
-    //    NSArray * unitList = @[@"元",@"公斤"];
-    if (unitString != nil && ![unitString isEqualToString:@""]) {
-        if ([unitString containsString:@".png"]) {
-            CGSize size = CGSizeMake(20, 20);
-            UIImageView * imgView = [UIView createImgViewWithRect:CGRectMake(0, 0, size.width, size.height) image:unitString tag:kTAG_IMGVIEW patternType:@"0"];
-            return imgView;
-        }
-        else{
-            CGSize size = [self sizeWithText:unitString font:@(KFZ_Third) width:UIScreen.width];
-            
-            UILabel * label = [UIView createLabelWithRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:kC_TextColor_Title tag:kTAG_LABEL patternType:@"2" font:KFZ_Third backgroudColor:UIColor.clearColor alignment:NSTextAlignmentCenter];
-            return label;
-        }
-    }
-    return nil;
-}
-
-
-- (id)textFieldView:(NSString *)unitString{
-    //    NSArray * unitList = @[@"元",@"公斤"];
-    NSParameterAssert(unitString != nil && ![unitString isEqualToString:@""]);
-    
-    if ([unitString containsString:@".png"]) {
-        CGSize size = CGSizeMake(20, 20);
-        UIImageView * imgView = [UIView createImgViewWithRect:CGRectMake(0, 0, size.width, size.height) image:unitString tag:kTAG_IMGVIEW patternType:@"0"];
-        return imgView;
-    }
-    
-    CGSize size = [self sizeWithText:unitString font:@(KFZ_Third) width:UIScreen.width];
-    UILabel * label = [UIView createLabelWithRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:kC_TextColor_Title tag:kTAG_LABEL patternType:@"2" font:KFZ_Third backgroudColor:UIColor.clearColor alignment:NSTextAlignmentCenter];
-    return label;
- 
-}
 
 
 @end

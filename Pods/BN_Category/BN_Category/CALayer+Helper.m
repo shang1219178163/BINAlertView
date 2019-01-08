@@ -2,7 +2,7 @@
 //  CALayer+Helper.m
 //  BN_AlertView
 //
-//  Created by hsf on 2018/9/10.
+//  Created by BIN on 2018/9/10.
 //  Copyright © 2018年 SouFun. All rights reserved.
 //
 
@@ -225,7 +225,7 @@
         case 7:
         {
             //旋转
-            CABasicAnimation *animation = [self rotation:2 degree:BN_DegreesFromRadian(90) direction:1 repeatCount:CGFLOAT_MAX];
+            CABasicAnimation *animation = [self rotation:2 degree:CGDegreesFromRadian(90) direction:1 repeatCount:CGFLOAT_MAX];
             [self addAnimation:animation forKey:nil];
 
         }

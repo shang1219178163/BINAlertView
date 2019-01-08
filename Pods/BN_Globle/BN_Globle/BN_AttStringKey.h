@@ -10,24 +10,18 @@
 
 @interface BN_AttStringKey : NSObject
 
-+(NSString *)obj;
+@property (class, nonatomic, readonly) NSString *obj;
+@property (class, nonatomic, readonly) NSString *title;
+@property (class, nonatomic, readonly) NSString *font;
 
-+(NSString *)title;
+@property (class, nonatomic, readonly) NSString *textColor;
+@property (class, nonatomic, readonly) NSString *textColor_H;
 
-+(NSString *)controlName;
+@property (class, nonatomic, readonly) NSString *imgName;
+@property (class, nonatomic, readonly) NSString *imgName_H;
 
-+(NSString *)font;
-
-+(NSString *)backgroundColor;
-
-+(NSString *)textColor;
-
-+(NSString *)textColor_H;
-
-+(NSString *)imgName;
-
-+(NSString *)imgName_H;
-
+@property (class, nonatomic, readonly) NSString *controlName;
+@property (class, nonatomic, readonly) NSString *backgroundColor;
 
     
 @end

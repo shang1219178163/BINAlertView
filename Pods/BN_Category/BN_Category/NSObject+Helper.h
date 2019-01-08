@@ -1,9 +1,9 @@
 //
 //  NSObject+Helper.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/8/10.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,43 +13,65 @@
 #import "UIScreen+Helper.h"
 #import "UIColor+Helper.h"
 
-UIKIT_EXTERN NSString * NSStringFromIndexPath(NSIndexPath *indexPath);
-UIKIT_EXTERN NSString * NSStringFromLet(id obj);
+FOUNDATION_EXPORT NSString * RuntimeKeyFromParams(NSObject *obj, NSString *funcAbount);
 
-UIKIT_EXTERN NSString * NSStringFromInt(NSInteger obj);
-UIKIT_EXTERN NSString * NSStringFromFloat(CGFloat obj);
+FOUNDATION_EXPORT NSString * NSStringFromIndexPath(NSIndexPath *indexPath);
+FOUNDATION_EXPORT NSString * NSStringFromHTML(NSString *html);
 
-UIKIT_EXTERN UIImage * UIImageFromColor(UIColor * color);
+FOUNDATION_EXPORT NSString * NSStringFromLet(id obj);
 
-UIKIT_EXTERN UIColor * UIColorFromRGBA(CGFloat r,CGFloat g,CGFloat b,CGFloat a);
-UIKIT_EXTERN UIColor * UIColorFromRGB(CGFloat r,CGFloat g,CGFloat b);
-UIKIT_EXTERN UIColor * UIColorDim(CGFloat White,CGFloat a);
+FOUNDATION_EXPORT NSString * NSStringFromInt(NSInteger obj);
+FOUNDATION_EXPORT NSString * NSStringFromFloat(CGFloat obj);
 
-UIKIT_EXTERN UIColor * UIColorFromRGB_Init(CGFloat r,CGFloat g,CGFloat b,CGFloat a);
-UIKIT_EXTERN UIColor * UIColorFromHex(NSInteger hexValue);
+FOUNDATION_EXPORT NSIndexPath *NSIndexPathFromString(NSString *string);
+FOUNDATION_EXPORT NSIndexPath *NSIndexPathFromIndex(NSInteger section, NSInteger row);
+FOUNDATION_EXPORT NSArray *NSIndexPathsFromIdxInfo(NSInteger section, NSArray *rowList);
+    
+FOUNDATION_EXPORT UIViewController * UICtrFromString(NSString *obj);
+FOUNDATION_EXPORT UINavigationController * UINavCtrFromObj(id obj);
+FOUNDATION_EXPORT NSArray * UINavListFromList(NSArray *list);
+FOUNDATION_EXPORT UITabBarController * UITarBarCtrFromList(NSArray *list);
 
-UIKIT_EXTERN BOOL iOSVersion(CGFloat version);
+FOUNDATION_EXPORT UIColor * UIColorRGB_Init(CGFloat r,CGFloat g,CGFloat b,CGFloat a);
+FOUNDATION_EXPORT UIColor * UIColorRGBA(CGFloat r,CGFloat g,CGFloat b,CGFloat a);
+FOUNDATION_EXPORT UIColor * UIColorRGB(CGFloat r,CGFloat g,CGFloat b);
+FOUNDATION_EXPORT UIColor * UIColorDim(CGFloat White,CGFloat a);
 
-UIKIT_EXTERN CGFloat BN_RadianFromDegrees(CGFloat x);//由角度转换弧度
-UIKIT_EXTERN CGFloat BN_DegreesFromRadian(CGFloat x);//弧度转换角度
+FOUNDATION_EXPORT UIColor * UIColorHex(NSString *hex);
+FOUNDATION_EXPORT UIColor * UIColorHexValue(NSInteger hexValue);
 
-UIKIT_EXTERN CGFloat roundFloat(CGFloat value,NSInteger num);
+FOUNDATION_EXPORT NSArray * RGBAFromColor(UIColor *color);
+FOUNDATION_EXPORT BOOL isLightColor(UIColor *color);
 
+FOUNDATION_EXPORT UIImage * UIImageColor(UIColor * color);
+FOUNDATION_EXPORT UIImage * UIImageNamed(NSString * obj);
+FOUNDATION_EXPORT UIImage * UIImageFromName(NSString *obj, UIImageRenderingMode renderingMode);
+FOUNDATION_EXPORT UIImage * UIImageObj(id obj);
+FOUNDATION_EXPORT bool UIImageEquelToImage(UIImage *image0, UIImage *image1);
 
-@interface NSObject (Helper)
+FOUNDATION_EXPORT BOOL iOSVer(CGFloat version);
 
-void BN_dispatchAsyncMain(void(^block)(void));
-void BN_dispatchAsyncGlobal(void(^block)(void));
-//void dispatchAfterDelay(void(^block)(void));
-void BN_dispatchAfterDelay(double delay ,void(^block)(void));
+FOUNDATION_EXPORT CGFloat CGRadianFromDegrees(CGFloat x);//由角度转换弧度
+FOUNDATION_EXPORT CGFloat CGDegreesFromRadian(CGFloat x);//弧度转换角度
 
-void BN_dispatchApply(id obj ,void(^block)(dispatch_queue_t queue, size_t index));
+FOUNDATION_EXPORT CGFloat roundFloat(CGFloat value,NSInteger num);
+
+NSDictionary<NSAttributedStringKey, id> * AttributeDict(NSNumber * type);
+
+@interface NSObject (Helper)<NSCoding>
+
+void dispatchAsyncMain(void(^block)(void));
+void dispatchAsyncGlobal(void(^block)(void));
+void dispatchAfterMain(double delay ,void(^block)(void));
+void dispatchApplyGlobal(id obj ,void(^block)(size_t index));
 
 /**
  代码块返回单个参数的时候,不适用于id不能代表的类型()
 */
 //@property (nonatomic, copy) BlockObject blockObject;//其他类使用该属性注意性能
 @property (nonatomic, copy) void(^blockObject)(id obj, id item, NSInteger idx);//其他类使用该属性注意性能
+@property (nonatomic, copy) void (^block)(id sender);
+@property (nonatomic, copy, nonnull) NSString *runtimeKey;
 
 - (NSArray *)allPropertyNames:(NSString *)clsName;
 

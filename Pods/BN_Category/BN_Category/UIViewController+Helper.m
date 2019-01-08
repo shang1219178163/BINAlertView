@@ -1,9 +1,9 @@
 //
 //  UIViewController+Helper.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/8/14.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import "UIViewController+Helper.h"
@@ -33,10 +33,6 @@
 }
 
 #pragma make - - 给控制器添加额外属性
--(UIViewController *)frontController{
-    return [self frontViewController:self.currentVC.navigationController];
-
-}
 
 -(UIViewController *)frontVC{
     return objc_getAssociatedObject(self, _cmd);
@@ -76,6 +72,14 @@
 -(void)setObjOne:(id)objOne{
     objc_setAssociatedObject(self, @selector(objOne), objOne, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
+}
+
+-(NSTimeInterval)timeInterval{
+    return [objc_getAssociatedObject(self, _cmd) doubleValue];
+}
+
+-(void)setTimeInterval:(NSTimeInterval)timeInterval{
+    objc_setAssociatedObject(self, @selector(timeInterval), @(timeInterval), OBJC_ASSOCIATION_ASSIGN);
 }
 
 
@@ -220,72 +224,17 @@
     return view;
 }
 
--(NSTimeInterval)timeInterval{
-    return [objc_getAssociatedObject(self, _cmd) doubleValue];
-}
-
--(void)setTimeInterval:(NSTimeInterval)timeInterval{
-    objc_setAssociatedObject(self, @selector(timeInterval), @(timeInterval), OBJC_ASSOCIATION_ASSIGN);
-}
-
-#pragma make - -通用
-- (UIButton *)createBarBtnItemWithTitle:(NSString *)title imageName:(NSString *)imageName isLeft:(BOOL)isLeft target:(id)target aSelector:(SEL)aSelector isHidden:(BOOL)isHidden{
-    
-    UIButton * btn = nil;
-    if (imageName) {
-        btn = [UIButton buttonWithSize:CGSizeMake(40, 40) image_N:imageName image_H:nil imageEdgeInsets:UIEdgeInsetsZero];
-    }else{
-        btn = [UIButton buttonWithSize:CGSizeMake(40, 40) title:title font:15 titleColor_N:nil titleColor_H:nil titleEdgeInsets:UIEdgeInsetsZero];
-       
-    }
-    btn.tag = isLeft == YES ? kTAG_BTN_BackItem : kTAG_BTN_RightItem;
-    
-    [btn addTarget:target action:aSelector forControlEvents:UIControlEventTouchUpInside];
-    btn.hidden = isHidden;
-
-    //
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
-    btn.center = view.center;
-    [view addSubview:btn];
-
-    //统一走父视图方法
-    [btn removeTarget:target action:aSelector forControlEvents:UIControlEventTouchUpInside];
-    //父视图调用子视图方法参数
-    [view addActionHandler:^(id obj, id item, NSInteger idx) {
-        if (btn.hidden == YES) return ;
-        if (NSDate.date.timeIntervalSince1970 - self.timeInterval < 1) return;
-        if (self.timeInterval > 0) self.timeInterval = NSDate.date.timeIntervalSince1970;
-
-        [target performSelectorOnMainThread:aSelector withObject:btn waitUntilDone:YES];
-    }];
-    
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:view];
-    if (isLeft == YES) {
-        self.navigationItem.leftBarButtonItem = item;
-        
-    }else{
-        self.navigationItem.rightBarButtonItem = item;
-        
-    }
-    return btn;
-}
-
-- (void)BN_handleActionBtn:(UIButton *)sender{
-    if (self.blockObject) self.blockObject(sender, nil, 0);
-    
-}
-
-- (UIButton *)createBarBtnItemWithTitle:(NSString *)title imageName:(NSString *)imageName isLeft:(BOOL)isLeft isHidden:(BOOL)isHidden handler:(void(^)(id obj, id item, NSInteger idx))handler{
+- (UIButton *)createBarItemTitle:(NSString *)title imageName:(NSString *)imageName isLeft:(BOOL)isLeft isHidden:(BOOL)isHidden handler:(void(^)(id obj, UIButton * item, NSInteger idx))handler{
     
     UIButton * btn = nil;
     if (imageName) {
         btn = [UIButton buttonWithSize:CGSizeMake(32, 32) image_N:imageName image_H:nil imageEdgeInsets:UIEdgeInsetsZero];
-    }else{
-        btn = [UIButton buttonWithSize:CGSizeMake(40, 40) title:title font:15 titleColor_N:nil titleColor_H:nil titleEdgeInsets:UIEdgeInsetsZero];
         
     }
-    btn.tag = isLeft == YES ? kTAG_BTN_BackItem : kTAG_BTN_RightItem;
-    
+    else{
+        btn = [UIButton buttonWithSize:CGSizeMake(40, 40) title:title font:15 titleColor_N:nil titleColor_H:nil titleEdgeInsets:UIEdgeInsetsZero];
+    }
+    btn.tag = isLeft  ? kTAG_BTN_BackItem : kTAG_BTN_RightItem;
     btn.hidden = isHidden;
     //
     UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
@@ -300,8 +249,8 @@
         
         if (NSDate.date.timeIntervalSince1970 - self.timeInterval < 1) return;
         if (self.timeInterval > 0) self.timeInterval = NSDate.date.timeIntervalSince1970;
-        
-        handler(obj, item, 0);
+    
+        handler(obj, btn, btn.tag);
 
     }];
     
@@ -310,23 +259,22 @@
 
         if (NSDate.date.timeIntervalSince1970 - self.timeInterval < 1) return;
         if (self.timeInterval > 0) self.timeInterval = NSDate.date.timeIntervalSince1970;
-        
-        handler(obj, item, 0);
-        
+
+        handler(obj, item, ((UIButton *)item).tag);
+
     }];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:view];
-    if (isLeft == YES) {
+    if (isLeft) {
         self.navigationItem.leftBarButtonItem = item;
-        
-    }else{
+    }
+    else{
         self.navigationItem.rightBarButtonItem = item;
-        
     }
     return btn;
 }
 
 
-- (UITableViewCell *)getCellByClickView:(UIView *)view{
+- (UITableViewCell *)cellByClickView:(UIView *)view{
     UIView * supView = [view superview];
     while (![supView isKindOfClass:[UITableViewCell class]]) {
         
@@ -336,8 +284,8 @@
     return tableViewCell;
 }
 
-- (NSIndexPath *)getCellIndexPathByClickView:(UIView *)view tableView:(UITableView *)tableView{
-    UITableViewCell * cell = [self getCellByClickView:view];
+- (NSIndexPath *)indexPathByClickView:(UIView *)view tableView:(UITableView *)tableView{
+    UITableViewCell * cell = [self cellByClickView:view];
     NSIndexPath * indexPath = [tableView indexPathForRowAtPoint:cell.center];
     
 //    DDLog(@"%@",indexPath);
@@ -349,7 +297,7 @@
 }
 
 - (id)findController:(NSString *)contollerName navController:(UINavigationController *)navController{
-    if (navController == nil) {
+    if (!navController) {
         navController = self.currentVC.navigationController;
         
     }
@@ -357,15 +305,12 @@
     __block UIViewController * controller = nil;
     [navController.viewControllers enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[NSClassFromString(contollerName) class]]) {
-            
             controller = obj;
             *stop = YES;
         }
     }];
     return controller;
-    
 }
-
 
 - (void)goController:(NSString *)contollerName title:(NSString *)title navController:(UINavigationController *)navController obj:(id)obj objOne:(id)objOne{
     
@@ -454,7 +399,7 @@
 }
 
 -(NSString *)controllerName{
-    NSString * className = NSStringFromClass([self class]);
+    NSString * className = NSStringFromClass(self.class);
     if ([className containsString:@"Controller"]) {
         NSRange range = NSMakeRange(0, 0);
         if ([className rangeOfString:@"ViewController"].location != NSNotFound) {
@@ -521,7 +466,7 @@
     
 }
 
-- (UIViewController *)BN_AddChildControllerView:(NSString *)className{
+- (UIViewController *)addChildControllerView:(NSString *)className{
     UIViewController * controller = [NSClassFromString(className) new];
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
@@ -534,25 +479,24 @@
 }
 
 #pragma mark -------------alert升级方法-------------------
-- (void)showAlertWithTitle:(nullable NSString *)title msg:(nullable NSString *)msg{
-    [self showAlertWithTitle:title placeholderList:nil msg:msg actionTitleList:@[kActionTitle_Know] handler:nil];
+- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg{
+    [self showAlertTitle:title placeholderList:nil msg:msg actionTitleList:@[kActionTitle_Know] handler:nil];
     
 }
 
-- (void)showAlertWithTitle:(nullable NSString *)title msg:(nullable NSString *)msg handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler{
-    [self showAlertWithTitle:title placeholderList:nil msg:msg actionTitleList:@[kActionTitle_Cancell,kActionTitle_Sure] handler:handler];
+- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler{
+    [self showAlertTitle:title placeholderList:nil msg:msg actionTitleList:@[kActionTitle_Cancell,kActionTitle_Sure] handler:handler];
     
 }
 
-- (void)showAlertWithTitle:(nullable NSString *)title msg:(nullable NSString *)msg actionTitleList:(NSArray *_Nonnull)actionTitleList handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler{
-    [self showAlertWithTitle:title placeholderList:nil msg:msg actionTitleList:actionTitleList handler:handler];
+- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg actionTitleList:(NSArray *_Nonnull)actionTitleList handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler{
+    [self showAlertTitle:title placeholderList:nil msg:msg actionTitleList:actionTitleList handler:handler];
     
 }
 
-- (void)showAlertWithTitle:(nullable NSString *)title placeholderList:(NSArray *)placeholderList msg:(NSString *)msg actionTitleList:(NSArray *_Nonnull)actionTitleList handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler{
+- (void)showAlertTitle:(nullable NSString *)title placeholderList:(NSArray *)placeholderList msg:(NSString *)msg actionTitleList:(NSArray *_Nonnull)actionTitleList handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler{
 
     UIWindow * keyWindow = UIApplication.sharedApplication.delegate.window;
-//    [keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
     for (NSString * placeholder in placeholderList) {
@@ -569,7 +513,7 @@
         {
             [keyWindow.rootViewController presentViewController:alertController animated:YES completion:^{
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kAnimationDuration_Toast * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kAnimDuration_Toast * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
                 });
                 
@@ -648,7 +592,7 @@
     }
     else{
         NSString *reviewURL = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software",appID];
-        if (iOSVersion(11)) {
+        if (iOSVer(11)) {
             reviewURL = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@?action=write-review",appID];//替换为对应的APPID
         }
 //        [UIApplication.sharedApplication openURL:[NSURL URLWithString:appEvaluationUrl]];
@@ -663,36 +607,19 @@
     }
 }
 
-- (id)getTextFieldRightView:(NSString *)unitString{
-    //    NSArray * unitList = @[@"元",@"公斤"];
-    if (unitString != nil && ![unitString isEqualToString:@""]) {
-        if ([unitString containsString:@".png"]) {
-            CGSize size = CGSizeMake(20, 20);
-            UIImageView * imgView = [UIView createImgViewWithRect:CGRectMake(0, 0, size.width, size.height) image:unitString tag:kTAG_IMGVIEW patternType:@"0"];
-            return imgView;
-        }
-        else{
-            CGSize size = [self sizeWithText:unitString font:@(KFZ_Third) width:UIScreen.width];
-        
-            UILabel * label = [UIView createLabelWithRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:UIColor.blackColor tag:kTAG_LABEL patternType:@"2" font:KFZ_Third backgroudColor:UIColor.clearColor alignment:NSTextAlignmentCenter];
-            return label;
-        }
-    }
-    return nil;
-}
 
 - (void)callPhone:(NSString *)phoneNumber{
     
     NSArray * titleList = @[@"取消",@"呼叫"];
-    [self showAlertWithTitle:nil msg:phoneNumber actionTitleList:titleList handler:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nullable action) {
+    [self showAlertTitle:nil msg:phoneNumber actionTitleList:titleList handler:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nullable action) {
         if ([action.title isEqualToString:[titleList lastObject]]) {
             
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 NSString * phoneStr = [NSString stringWithFormat:@"tel:%@",phoneNumber];
-                if (iOSVersion(10)) {
+                if (iOSVer(10)) {
                     [UIApplication.sharedApplication openURL:[NSURL URLWithString:phoneStr] options:@{} completionHandler:nil];
                     
-                }else{
+                } else {
                     [UIApplication.sharedApplication openURL:[NSURL URLWithString:phoneStr]];
                     
                 }
@@ -701,15 +628,6 @@
     }];
 }
 
-- (void)showFriendAdd:(NSString *)msg{
-    
-    [self showAlertWithTitle:@"发送成功" msg:msg actionTitleList:@[kActionTitle_Sure] handler:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nullable action) {
-        if ([action.title isEqualToString:kActionTitle_Sure]) {
-            
-        }
-    }];
-
-}
 
 @end
 

@@ -1,10 +1,10 @@
 
 //
 //  UIView+Animation.m
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/5/9.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import "UIView+Animation.h"
@@ -136,7 +136,7 @@
 
 - (NSMutableArray *)keepList{
     NSMutableArray * list = objc_getAssociatedObject(self, _cmd);
-    if (list == nil) {
+    if (!list) {
         list = [NSMutableArray array];
         objc_setAssociatedObject(self, _cmd, list, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
@@ -150,7 +150,7 @@
 
 -(NSMutableArray *)cacheList{
     NSMutableArray * list = objc_getAssociatedObject(self, _cmd);
-    if (list == nil) {
+    if (!list) {
         list = [NSMutableArray array];
         objc_setAssociatedObject(self, _cmd, list, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         

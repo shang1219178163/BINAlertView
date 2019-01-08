@@ -14,11 +14,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     // Override point for customization after application launch.
     NSString * control = @"MainViewController";
+    
 //    controlName = @"SegmentControlController";
     control = @"AnimationController";
     control = @"ContactListController";
     control = @"CycleViewController";
-    
+    control = @"MainNewViewController";
+
     [UIApplication setupRootController:control];
     [UIApplication setupAppearance];
     return YES;

@@ -1,9 +1,9 @@
 //
 //  UIScreen+Helper.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2018/9/18.
-//  Copyright © 2018年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2018年 SHANG. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -19,6 +19,7 @@
 @property (class, nonatomic, assign, readonly) CGFloat width;
 @property (class, nonatomic, assign, readonly) CGFloat height;
 @property (class, nonatomic, assign, readonly) CGFloat scale;
+@property (class, nonatomic, assign, readonly) CGSize  DPISize;
 
 @end
 

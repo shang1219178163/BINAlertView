@@ -1,9 +1,9 @@
 //
 //  UIView+Helper.h
-//  HuiZhuBang
+//  
 //
 //  Created by BIN on 2017/8/15.
-//  Copyright © 2017年 WeiHouKeJi. All rights reserved.
+//  Copyright © 2017年 SHANG. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -17,18 +17,27 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 
 @interface UIView (Helper)
 
-@property (nonatomic, assign) CGFloat x;
-@property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
+//与自动布局类库属性重名冲突,废弃
+//@property (nonatomic, assign) CGFloat x;
+//@property (nonatomic, assign) CGFloat y;
+//@property (nonatomic, assign) CGFloat width;
+//@property (nonatomic, assign) CGFloat height;
+//@property (nonatomic, assign, readonly) CGFloat top;
+//@property (nonatomic, assign, readonly) CGFloat left;
+//@property (nonatomic, assign, readonly) CGFloat bottom;
+//@property (nonatomic, assign, readonly) CGFloat right;
 
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGSize size;
 
-@property (nonatomic, assign, readonly) CGFloat top;
-@property (nonatomic, assign, readonly) CGFloat left;
-@property (nonatomic, assign, readonly) CGFloat bottom;
-@property (nonatomic, assign, readonly) CGFloat right;
+@property (nonatomic, assign, readonly) CGFloat minX;
+@property (nonatomic, assign, readonly) CGFloat midX;
+@property (nonatomic, assign, readonly) CGFloat maxX;
+
+@property (nonatomic, assign, readonly) CGFloat minY;
+@property (nonatomic, assign, readonly) CGFloat midY;
+@property (nonatomic, assign, readonly) CGFloat maxY;
+
 
 @property (nonatomic, copy)BlockView blockView;
 
@@ -45,75 +54,63 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 
 - (UIView *)addCornersAll;
 
-/**
- 添加各种手势
- @param type 手势类型
- @return view
- */
-- (UIView *)addRecognizerWithTarget:(id)target
-                          aSelector:(SEL)aSelector
-                               type:(NSString *)type;
 
+- (UITapGestureRecognizer *)addGestureTap:(void(^)(id sender))block;
 
-/**
- 给view关联点击事件(支持UIView和UIButton可继续扩展其他支持)
- @param handler 返回响应对象
- */
+- (UILongPressGestureRecognizer *)addGestureLongPress:(void(^)(id sender))block forDuration:(NSTimeInterval)minimumPressDuration;
+
+- (UIPanGestureRecognizer *)addGesturePan:(void(^)(id sender))block;
+
+- (UIScreenEdgePanGestureRecognizer *)addGestureEdgPan:(void(^)(id sender))block forEdges:(UIRectEdge)edges;
+
+- (UISwipeGestureRecognizer *)addGestureSwipe:(void(^)(id sender))block forDirection:(UISwipeGestureRecognizerDirection)direction;
+
+- (UIPinchGestureRecognizer *)addGesturePinch:(void(^)(id sender))block;
+
+- (UIRotationGestureRecognizer *)addGestureRotation:(void(^)(id sender))block;
+
 - (void)addActionHandler:(void(^)(id obj, id item, NSInteger idx))handler;
 
-/**
- 寻找特定类型控件
- */
 + (id)getControl:(NSString *)control view:(UIView *)view;
 
-/**
- 获取所有子视图
- */
+
 + (void)getSub:(UIView *)view andLevel:(NSInteger)level;
 
-/**
- 给所有自视图加框
- */
 - (void)getViewLayer;
-
-/**
- (弃用)显示textfield边框
- */
-- (void)showLayer;
 
 - (void)showLayerColor:(UIColor *)layerColor;
 
 /**
  上传证件类VIew
  */
-+ (UIImageView *)createCardViewWithRect:(CGRect)rect title:(NSString *)title image:(id)image tag:(NSInteger)tag target:(id)target aSelector:(SEL)aSelector;
-//+ (UIView *)createCardViewWithRect:(CGRect)rect title:(NSString *)title image:(NSString *)image tag:(NSInteger)tag;
++ (UIImageView *)createCardViewRect:(CGRect)rect title:(NSString *)title image:(id)image tag:(NSInteger)tag target:(id)target aSelector:(SEL)aSelector;
+//+ (UIView *)createCardViewRect:(CGRect)rect title:(NSString *)title image:(NSString *)image tag:(NSInteger)tag;
 
 /**
  BN_TextField创建方法
  */
-+ (BN_TextField *)createTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType;
++ (BN_TextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType;
 
 /**
  搜索框
  */
-+ (BN_TextField *)createTextFieldWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType leftView:(UIView *)leftView leftPadding:(CGFloat)leftPadding rightView:(UIView *)rightView rightPadding:(CGFloat)rightPadding;
++ (BN_TextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(NSInteger)fontSize textAlignment:(NSTextAlignment)textAlignment keyboardType:(UIKeyboardType)keyboardType leftView:(UIView *)leftView leftPadding:(CGFloat)leftPadding rightView:(UIView *)rightView rightPadding:(CGFloat)rightPadding;
 
 
 /**
  带提示的textView
  */
-+ (BN_TextView *)createTextViewWithRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType;
++ (BN_TextView *)createTextViewRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType;
 
 /**
  展示性质的textView,不提供编辑
  */
-+ (UITextView *)createTextShowWithRect:(CGRect)rect text:(id)text font:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment;
++ (UITextView *)createTextShowRect:(CGRect)rect text:(id)text font:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment;
 
 /**
  富文本
  */
-+ (UILabel *)createRichLabWithRect:(CGRect)rect text:(NSString *)text textTaps:(NSArray *)textTaps;
++ (UILabel *)createRichLabRect:(CGRect)rect text:(NSString *)text textTaps:(NSArray *)textTaps;
 
 
 /**
@@ -127,22 +124,9 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
  */
 + (id)getStarViewRect:(CGRect)rect rateStyle:(NSString *)rateStyle currentScore:(CGFloat)currentScore;
 
-+ (UIView *)createViewWithRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding;
++ (UIView *)createViewRect:(CGRect)rect elements:(NSArray *)elements numberOfRow:(NSInteger)numberOfRow viewHeight:(CGFloat)viewHeight padding:(CGFloat)padding;
 
-+ (UIView *)createViewWithRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler;
-
-/**
- 弃用
- */
-- (void)setOriginX:(CGFloat)originX;
-/**
- 弃用
- */
-- (void)setOriginY:(CGFloat)originY;
-/**
- 弃用
- */
-- (void)setHeight:(CGFloat)height originY:(CGFloat)originY;
++ (UIView *)createViewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler;
 
 /**
  向屏幕倾斜
@@ -152,7 +136,7 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 /**
  圆角
  */
-+ (void)setCutCirculayWithView:(UIImageView *)view cornerRadius:(CGFloat )cornerRadius patternType:(NSString *)patternType;
++ (void)setCutCirculayWithView:(UIImageView *)view cornerRadius:(CGFloat )cornerRadius type:(NSNumber *)type;
 
 
 //- (void)tapActionWithView:(void (^) (UIView * view))tapClick;
@@ -177,6 +161,8 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 - (NSIndexPath *)getCellIndexPathByTableView:(UITableView *)tableView;
 
 - (UITableViewCell *)getClickViewCell;
+
+- (id)asoryView:(NSString *)unitString;
 
 //信任值展示,无点击手势
 //+ (id)getStarViewRect:(CGRect)rect rateStyle:(NSString *)rateStyle currentScore:(CGFloat)currentScore;
