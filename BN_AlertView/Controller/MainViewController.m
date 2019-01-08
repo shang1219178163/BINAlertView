@@ -30,25 +30,11 @@
 @property (nonatomic, strong) NSDictionary *dict;
 
 @property (nonatomic, strong) BN_RangeDateView * dateView;
+@property (nonatomic, strong) UISegmentedControl * segmentedCtl;
 
 @end
 
 @implementation MainViewController
-
-#pragma mark - - layz
--(BN_RangeDateView *)dateView{
-    if (!_dateView) {
-        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(20, 250, kScreen_width*0.66, 44)];
-        _dateView.block = ^(BN_RangeDateView *view, NSString *dateStart, NSString *dateEnd) {
-            //            DDLog(@"_%@___%@_",[dateStart toTimestampShort], [dateEnd toTimestampFull]);
-            //            DDLog(@"_%@___%@_",[view.dateStart toTimestampShort], [view.dateEnd toTimestampFull]);
-
-            
-        };
-    }
-    return _dateView;
-}
-
 
 -(NSArray *)itemList{
     if (!_itemList) {
@@ -78,6 +64,9 @@
     
     [self.view addSubview:self.dateView];
     
+    self.segmentedCtl.itemList = @[@"one",@"two",@"three"];
+    self.segmentedCtl.frame = CGRectMake(containView.minX, containView.maxY, kScreen_width - 40, 40);
+    [self.view addSubview:self.segmentedCtl];
 //    [self.view getViewLayer];
     
 }
@@ -179,7 +168,8 @@
     
     
 }
--(void)openDocument:(NSString *)fileName{
+
+- (void)openDocument:(NSString *)fileName{
     
     NSArray *fileNameList = [fileName componentsSeparatedByString:@"."];
     NSString * filePath = [NSBundle.mainBundle pathForResource:fileNameList.firstObject ofType:fileNameList.lastObject];
@@ -193,7 +183,6 @@
     
 }
 
-
 - (void)addRightBtn {
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedOKbtn)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
@@ -205,7 +194,6 @@
     [self.navigationController pushViewController:viewController animated:YES];
     
 }
-
 
 //createSpeakStartView
 -(UIView *)createStarsWithStarCount:(NSInteger)starCount hasGesture:(BOOL)hasGesture target:(id)target aSelector:(SEL)aSelector{
@@ -395,6 +383,54 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - - lazy
+-(BN_RangeDateView *)dateView{
+    if (!_dateView) {
+        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(20, 250, kScreen_width*0.66, 44)];
+        _dateView.block = ^(BN_RangeDateView *view, NSString *dateStart, NSString *dateEnd) {
+            //        DDLog(@"_%@___%@_",[dateStart toTimestampShort], [dateEnd toTimestampFull]);
+            //        DDLog(@"_%@___%@_",[view.dateStart toTimestampShort], [view.dateEnd toTimestampFull]);
+            
+            
+        };
+    }
+    return _dateView;
+}
+
+- (UISegmentedControl *)segmentedCtl{
+    if (!_segmentedCtl){
+        _segmentedCtl = ({
+            NSArray * array = @[@"第一段",@"第二段",@"第三段",@"第四段"];
+            UISegmentedControl *view = [[UISegmentedControl alloc] initWithItems:array];
+            
+            // 去掉颜色,现在整个segment偶看不到,可以相应点击事件
+            view.tintColor = UIColor.clearColor;
+            // 正常状态下
+            NSDictionary * attDic_N = @{
+                                         NSForegroundColorAttributeName : UIColor.blackColor,
+                                         NSFontAttributeName:[UIFont systemFontOfSize:16.0f],
+                                         
+                                         };
+            [view setTitleTextAttributes:attDic_N forState:UIControlStateNormal];
+            
+            // 选中状态下
+            NSDictionary * attDic_H = @{
+                                         NSForegroundColorAttributeName : UIColor.redColor,
+                                         NSFontAttributeName : [UIFont boldSystemFontOfSize:18.0f],
+                                         
+                                         };
+            [view setTitleTextAttributes:attDic_H forState:UIControlStateSelected];
+            
+            [view addActionHandler:^(UIControl * _Nonnull obj) {
+                DDLog(@"%@", obj);
+            } forControlEvents:UIControlEventValueChanged];
+            view;
+        });
+    }
+    return _segmentedCtl;
 }
 
 @end
