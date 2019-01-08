@@ -62,11 +62,15 @@
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
     
+    self.dateView.frame = CGRectMake(containView.minX, containView.maxY+20, kScreen_width - 40, 40);
     [self.view addSubview:self.dateView];
     
+    self.segmentedCtl = [UIView createSegmentRect:CGRectZero items:@[] selectedIndex:1 type:@3];
     self.segmentedCtl.itemList = @[@"one",@"two",@"three"];
-    self.segmentedCtl.frame = CGRectMake(containView.minX, containView.maxY, kScreen_width - 40, 40);
+    self.segmentedCtl.selectedSegmentIndex = 1;
+    self.segmentedCtl.frame = CGRectMake(self.dateView.minX, self.dateView.maxY+20, kScreen_width - 40, 40);
     [self.view addSubview:self.segmentedCtl];
+    
 //    [self.view getViewLayer];
     
 }
