@@ -6,11 +6,12 @@ target 'BN_AlertView' do
   # use_frameworks!
 
   # Pods for BN_AlertView
-#  pod 'BN_Utils'
-  pod 'BN_Globle'
-  pod 'BN_Kit'
-  pod 'BN_Category'
+    pod 'BN_Globle'
+    pod 'BN_Kit'
+    pod 'BN_Category'
 #  pod 'BN_TableViewCell'
+
+    pod 'Masonry'
 
   
   target 'BN_AlertViewTests' do
