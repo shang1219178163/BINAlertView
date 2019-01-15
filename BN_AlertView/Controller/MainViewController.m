@@ -87,8 +87,6 @@
 //    [self.view getViewLayer];
     
 
-    [self.topView setupTitleView];
-    self.topView.indexP = NSIndexPathFromIndex(0, 0);
     self.topView.block = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
         WHKTableViewZeroCell * cell = [WHKTableViewZeroCell cellWithTableView:tableView];
         cell.imageView.image = [UIImage imageNamed:@"dragon"];
@@ -487,7 +485,9 @@
     if (!_topView) {
         _topView = [[BNTopSheetView alloc]initWithFrame:CGRectZero];
         _topView.parController = self;
-        
+        _topView.indexP = NSIndexPathFromIndex(0, 0);
+        [_topView setupTitleView];
+
     }
     return _topView;
 }
