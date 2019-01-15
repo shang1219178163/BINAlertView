@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-UIKIT_EXTERN NSString *const kNIl_TEXT ;
-
 #pragma mark - - kSet
 
 UIKIT_EXTERN NSString * const kSet_number ;
@@ -171,6 +169,14 @@ UIKIT_EXTERN NSString * const kActionTitle_Update;
 
 UIKIT_EXTERN NSString * const kActionTitle_Collect;
 UIKIT_EXTERN NSString * const kActionTitle_Recover;
+
+UIKIT_EXTERN NSString * const kNIl_TEXT ;
+UIKIT_EXTERN NSString * const kSeparateStr ;
+UIKIT_EXTERN NSString * const kAsterisk ;
+UIKIT_EXTERN NSString * const kBlankHalf ;
+UIKIT_EXTERN NSString * const kBlankOne ;
+UIKIT_EXTERN NSString * const kBlankTwo ;
+UIKIT_EXTERN NSString * const kBlankFour ;
 
 #pragma mark - - 通用
 

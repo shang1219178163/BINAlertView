@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147B970C21ED8C1E000F5294 /* BNSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 147B970B21ED8C1E000F5294 /* BNSegmentView.m */; };
 		1646A5FC56B213CC8387A325 /* libPods-BN_AlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD792D15229BCD6C9723B97 /* libPods-BN_AlertView.a */; };
 		34098D1919EF962A006806A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1819EF962A006806A6 /* Foundation.framework */; };
 		34098D1B19EF962A006806A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1A19EF962A006806A6 /* CoreGraphics.framework */; };
@@ -120,6 +121,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		147B970A21ED8C1E000F5294 /* BNSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNSegmentView.h; sourceTree = "<group>"; };
+		147B970B21ED8C1E000F5294 /* BNSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNSegmentView.m; sourceTree = "<group>"; };
 		1A43B02D5157152C6D783B28 /* Pods-BN_AlertView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BN_AlertView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BN_AlertView/Pods-BN_AlertView.debug.xcconfig"; sourceTree = "<group>"; };
 		2179D080F2520C94DD5D7F50 /* Pods-BN_AlertViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BN_AlertViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BN_AlertViewTests/Pods-BN_AlertViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		34098D1519EF962A006806A6 /* BN_AlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BN_AlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -599,6 +602,8 @@
 				51797C3A2178224200FF05E7 /* ContactListController.m */,
 				5180563B218C4B92002EC155 /* CycleViewController.h */,
 				5180563C218C4B92002EC155 /* CycleViewController.m */,
+				147B970A21ED8C1E000F5294 /* BNSegmentView.h */,
+				147B970B21ED8C1E000F5294 /* BNSegmentView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				5181E9F5207B132900F6C895 /* PopoverAction.m in Sources */,
 				518FD863204803C100FD7ADA /* AppDelegate.m in Sources */,
 				518373481F7E22FD00248179 /* BINTextField.m in Sources */,
+				147B970C21ED8C1E000F5294 /* BNSegmentView.m in Sources */,
 				5183733A1F7E22FD00248179 /* BINGuidePageView.m in Sources */,
 				51862E4B20BB8F3F0080BD4E /* DesignPatternsController.m in Sources */,
 				517D3911206CDD04005BC021 /* DKSButton.m in Sources */,

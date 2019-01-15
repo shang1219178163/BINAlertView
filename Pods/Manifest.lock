@@ -1,6 +1,6 @@
 PODS:
   - AESCrypt-ObjC (1.0.2)
-  - BN_Category (1.8.4.4):
+  - BN_Category (1.8.4.6):
     - AESCrypt-ObjC
     - BN_Globle
     - BN_Kit
@@ -12,7 +12,7 @@ PODS:
     - SDWebImage
     - Toast
     - YYModel
-  - BN_Globle (1.3.1)
+  - BN_Globle (1.3.1.2)
   - BN_Kit (1.2.8.2):
     - BN_Globle
   - FLAnimatedImage (1.0.12)
@@ -51,8 +51,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AESCrypt-ObjC: 6d930ff891a61b90505855e9447959a84be80715
-  BN_Category: 5ef16037413e50a6aa716e2fd029d3eda96fdc81
-  BN_Globle: a04efc839bbf3b90c5ae4c650f2754f52c5483c6
+  BN_Category: 663fddc9609ee48b01b030e6b9f44a48875ca973
+  BN_Globle: 651f91e8c6b7ef96cbb7ae95313b5ef32e83404a
   BN_Kit: 91f883282176247b8580bd1d122e15e5ee8148fe
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GTMBase64: f0f91be06a7a20b84c8e4fee30c0430395091d82
@@ -64,6 +64,6 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 4c325435cb07357dd71f1006637196013d1fc1c6
+PODFILE CHECKSUM: 45e6e9e04e78dcf0d735fe0838ed8569093a5ca9
 
 COCOAPODS: 1.5.3

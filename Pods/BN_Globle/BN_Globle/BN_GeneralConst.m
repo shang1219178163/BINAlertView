@@ -8,9 +8,6 @@
 
 #import "BN_GeneralConst.h"
 
-
-NSString * const kNIl_TEXT            =   @"--";
-
 #pragma mark - - kSet
 
 NSString * const kSetNumber            =   @"0123456789";
@@ -177,6 +174,13 @@ NSString * const kActionTitle_Update = @"立即升级";
 NSString * const kActionTitle_Collect = @"收藏";
 NSString * const kActionTitle_Recover = @"恢复";
 
+NSString * const kNIl_TEXT            = @"--";
+NSString * const kSeparateStr         = @",";
+NSString * const kAsterisk            = @"*";
+NSString * const kBlankHalf           = @"  ";
+NSString * const kBlankOne            = @"    ";
+NSString * const kBlankTwo            = @"        ";
+NSString * const kBlankFour           = @"                ";
 
 #pragma mark - - 通用
 

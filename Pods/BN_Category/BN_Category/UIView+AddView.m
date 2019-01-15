@@ -884,17 +884,14 @@
             segmentCtrl.backgroundColor = UIColor.whiteColor;
             
             NSDictionary *attDic_N = @{
-                                         NSFontAttributeName:[UIFont boldSystemFontOfSize:15],
-                                         NSForegroundColorAttributeName:UIColor.themeColor,
-                                         NSBackgroundColorAttributeName:UIColor.whiteColor,
-                                         };
+                                       NSFontAttributeName:[UIFont boldSystemFontOfSize:15],
+                                       NSForegroundColorAttributeName:UIColor.blackColor,
+                                       };
             
             NSDictionary *attDic_H = @{
-                                           NSFontAttributeName:[UIFont boldSystemFontOfSize:18],
-                                        
-                                           NSForegroundColorAttributeName:UIColor.whiteColor,
-                                           NSBackgroundColorAttributeName:UIColor.themeColor,
-                                           };
+                                       NSFontAttributeName:[UIFont boldSystemFontOfSize:18],
+                                       NSForegroundColorAttributeName:UIColor.themeColor,
+                                       };
             
             [segmentCtrl setTitleTextAttributes:attDic_N forState:UIControlStateNormal];
             [segmentCtrl setTitleTextAttributes:attDic_H forState:UIControlStateSelected];
@@ -907,14 +904,13 @@
             // 去掉颜色,现在整个segment偶看不到,可以相应点击事件
             segmentCtrl.tintColor = UIColor.clearColor;
             segmentCtrl.backgroundColor = UIColor.lineColor;
-
+            
             // 正常状态下
             NSDictionary * attDic_N = @{
                                         NSForegroundColorAttributeName : UIColor.blackColor,
                                         NSFontAttributeName:[UIFont systemFontOfSize:15.0f],
                                         
                                         };
-            [segmentCtrl setTitleTextAttributes:attDic_N forState:UIControlStateNormal];
             
             // 选中状态下
             NSDictionary * attDic_H = @{
@@ -922,6 +918,7 @@
                                         NSFontAttributeName : [UIFont boldSystemFontOfSize:18.0f],
                                         
                                         };
+            [segmentCtrl setTitleTextAttributes:attDic_N forState:UIControlStateNormal];
             [segmentCtrl setTitleTextAttributes:attDic_H forState:UIControlStateSelected];
         }
             break;

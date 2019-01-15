@@ -19,6 +19,8 @@
 #import "BN_AlertViewOne.h"
 #import "BN_AlertViewTwo.h"
 
+#import "BNSegmentView.h"
+
 #define kCOUNT_IMAGEVIEW 6
 #define kTAG_IMGVIEW 300
 
@@ -31,6 +33,8 @@
 
 @property (nonatomic, strong) BN_RangeDateView * dateView;
 @property (nonatomic, strong) UISegmentedControl * segmentedCtl;
+
+@property (nonatomic, strong) BNSegmentView * segmentView;
 
 @end
 
@@ -65,12 +69,18 @@
     self.dateView.frame = CGRectMake(containView.minX, containView.maxY+20, kScreen_width - 40, 40);
     [self.view addSubview:self.dateView];
     
+    //
     self.segmentedCtl = [UIView createSegmentRect:CGRectZero items:@[] selectedIndex:1 type:@3];
     self.segmentedCtl.itemList = @[@"one",@"two",@"three"];
     self.segmentedCtl.selectedSegmentIndex = 1;
     self.segmentedCtl.frame = CGRectMake(self.dateView.minX, self.dateView.maxY+20, kScreen_width - 40, 40);
     [self.view addSubview:self.segmentedCtl];
     
+    //
+    self.segmentView.frame = CGRectMake(20, self.segmentedCtl.maxY + 20, kScreen_width - 40, 40);
+    [self.view addSubview:self.segmentView];
+    self.segmentView.layer.borderWidth = kW_LayerBorder;
+    self.segmentView.layer.borderColor = UIColor.grayColor.CGColor;
 //    [self.view getViewLayer];
     
 }
@@ -404,7 +414,7 @@
     return _dateView;
 }
 
-- (UISegmentedControl *)segmentedCtl{
+-(UISegmentedControl *)segmentedCtl{
     if (!_segmentedCtl){
         _segmentedCtl = ({
             NSArray * array = @[@"第一段",@"第二段",@"第三段",@"第四段"];
@@ -436,5 +446,17 @@
     }
     return _segmentedCtl;
 }
+
+-(BNSegmentView *)segmentView{
+    if (!_segmentView) {
+        _segmentView = [[BNSegmentView alloc]initWithFrame: CGRectZero];
+        _segmentView.segmentCtl.itemList = @[@"one",@"two",@"three",@"four"];
+        _segmentView.indicatorHeight = 1;
+        _segmentView.type = 2;
+
+    }
+    return _segmentView;
+}
+
 
 @end
