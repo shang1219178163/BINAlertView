@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		147B970C21ED8C1E000F5294 /* BNSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 147B970B21ED8C1E000F5294 /* BNSegmentView.m */; };
+		147B970F21EDC521000F5294 /* BNTopSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 147B970E21EDC521000F5294 /* BNTopSheetView.m */; };
 		1646A5FC56B213CC8387A325 /* libPods-BN_AlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD792D15229BCD6C9723B97 /* libPods-BN_AlertView.a */; };
 		34098D1919EF962A006806A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1819EF962A006806A6 /* Foundation.framework */; };
 		34098D1B19EF962A006806A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34098D1A19EF962A006806A6 /* CoreGraphics.framework */; };
@@ -123,6 +124,8 @@
 /* Begin PBXFileReference section */
 		147B970A21ED8C1E000F5294 /* BNSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNSegmentView.h; sourceTree = "<group>"; };
 		147B970B21ED8C1E000F5294 /* BNSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNSegmentView.m; sourceTree = "<group>"; };
+		147B970D21EDC521000F5294 /* BNTopSheetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNTopSheetView.h; sourceTree = "<group>"; };
+		147B970E21EDC521000F5294 /* BNTopSheetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTopSheetView.m; sourceTree = "<group>"; };
 		1A43B02D5157152C6D783B28 /* Pods-BN_AlertView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BN_AlertView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BN_AlertView/Pods-BN_AlertView.debug.xcconfig"; sourceTree = "<group>"; };
 		2179D080F2520C94DD5D7F50 /* Pods-BN_AlertViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BN_AlertViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BN_AlertViewTests/Pods-BN_AlertViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		34098D1519EF962A006806A6 /* BN_AlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BN_AlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -604,6 +607,8 @@
 				5180563C218C4B92002EC155 /* CycleViewController.m */,
 				147B970A21ED8C1E000F5294 /* BNSegmentView.h */,
 				147B970B21ED8C1E000F5294 /* BNSegmentView.m */,
+				147B970D21EDC521000F5294 /* BNTopSheetView.h */,
+				147B970E21EDC521000F5294 /* BNTopSheetView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -656,9 +661,9 @@
 		51E6643F217579B200855503 /* CellModel */ = {
 			isa = PBXGroup;
 			children = (
+				51E66442217579B200855503 /* WHKTableViewZeroCell.h */,
 				51E66440217579B200855503 /* WHKTableViewZeroCell.m */,
 				51E66441217579B200855503 /* WHKTableViewFiftyFiveCell.h */,
-				51E66442217579B200855503 /* WHKTableViewZeroCell.h */,
 				51E66443217579B200855503 /* WHKTableViewFiftyFiveCell.m */,
 			);
 			path = CellModel;
@@ -900,6 +905,7 @@
 				518373441F7E22FD00248179 /* BINShareDataModel.m in Sources */,
 				516CFD4920B7BAEA0029C40D /* BN_AlertViewOne.m in Sources */,
 				518373471F7E22FD00248179 /* BINShareView.m in Sources */,
+				147B970F21EDC521000F5294 /* BNTopSheetView.m in Sources */,
 				518373461F7E22FD00248179 /* BINShareModelView.m in Sources */,
 				5183734A1F7E22FD00248179 /* WHKLeftMenuView.m in Sources */,
 				517D3904206CBEA8005BC021 /* BN_TabBarView.m in Sources */,

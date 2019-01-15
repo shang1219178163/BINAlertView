@@ -20,6 +20,8 @@
 #import "BN_AlertViewTwo.h"
 
 #import "BNSegmentView.h"
+#import "BNTopSheetView.h"
+#import "WHKTableViewZeroCell.h"
 
 #define kCOUNT_IMAGEVIEW 6
 #define kTAG_IMGVIEW 300
@@ -35,6 +37,7 @@
 @property (nonatomic, strong) UISegmentedControl * segmentedCtl;
 
 @property (nonatomic, strong) BNSegmentView * segmentView;
+@property (nonatomic, strong) BNTopSheetView * topView;
 
 @end
 
@@ -82,6 +85,28 @@
     self.segmentView.layer.borderWidth = kW_LayerBorder;
     self.segmentView.layer.borderColor = UIColor.grayColor.CGColor;
 //    [self.view getViewLayer];
+    
+
+    [self.topView setupTitleView];
+    self.topView.indexP = NSIndexPathFromIndex(0, 0);
+    self.topView.block = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+        WHKTableViewZeroCell * cell = [WHKTableViewZeroCell cellWithTableView:tableView];
+        cell.imageView.image = [UIImage imageNamed:@"dragon"];
+        cell.textLabel.text = NSStringFromIndexPath(indexPath);
+        cell.accessoryType = self.topView.indexP == indexPath ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+
+        return cell;
+    };
+ 
+    @weakify(self);
+    self.topView.blockOne = ^(UITableView *tableView, NSIndexPath *indexPath) {
+        @strongify(self);
+        DDLog(@"%@",NSStringFromIndexPath(indexPath));
+        UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.topView.btn setTitle:cell.textLabel.text forState:UIControlStateNormal];
+        
+    };
+    
     
 }
 
@@ -458,5 +483,13 @@
     return _segmentView;
 }
 
+-(BNTopSheetView *)topView{
+    if (!_topView) {
+        _topView = [[BNTopSheetView alloc]initWithFrame:CGRectZero];
+        _topView.parController = self;
+        
+    }
+    return _topView;
+}
 
 @end
