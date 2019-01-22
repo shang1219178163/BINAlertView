@@ -83,32 +83,26 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 
 - (UIViewController *)addChildControllerView:(NSString *)className;
 
-
 /**
  系统弹窗__按钮默认(知道了)
  */
-- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg;
+- (void)showAlertTitle:(NSString *_Nullable)title msg:(NSString *_Nullable)msg;
 
 /**
  系统弹窗__按钮默认(取消,确认)
  */
-- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg handler:(void(^_Nullable)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler;
+- (void)showAlertTitle:(NSString *_Nullable)title msg:(NSString *_Nullable)msg handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler;
 
 /**
  系统弹窗__按钮自定义(actionTitleList传入按钮标题)
  */
-- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg actionTitleList:(NSArray *_Nonnull)actionTitleList handler:(void(^_Nullable)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler;
+- (void)showAlertTitle:(nullable NSString *)title msg:(nullable NSString *)msg actionTitles:(NSArray *_Nonnull)actionTitles handler:(void(^_Nullable)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler;
 
 /**
  弹窗源方法
  placeholderList或者 msg  其中一个必须为nil
  */
-- (void)showAlertTitle:(nullable NSString *)title placeholderList:(NSArray *_Nullable)placeholderList msg:(NSString *_Nullable)msg actionTitleList:(NSArray *_Nonnull)actionTitleList handler:(void(^_Nullable)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler;
-
-/**
- 系统Sheet弹窗__按钮默认(取消按钮)
- */
-- (void)showSheetWithTitle:(nullable NSString *)title msgList:(NSArray * _Nonnull)msgList handler:(void(^_Nullable)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nullable action))handler;
+- (void)showAlertTitle:(NSString *_Nullable)title placeholders:(NSArray *_Nullable)placeholders msg:(NSString *)msg actionTitles:(NSArray *_Nonnull)actionTitles handler:(void(^)(UIAlertController * _Nonnull alertVC, UIAlertAction * _Nonnull action))handler;
 
 //app星际评价,自定义app链接
 - (void)dispalyAppEvalutionStarLevelAppID:(NSString *_Nonnull)appID;

@@ -10,13 +10,11 @@
 
 #if __has_include(<BN_Kit/BN_Kit.h>)
 #import <BN_Kit/BN_TextField.h>
-#import <BN_Kit/BN_TextView.h>
 #import <BN_Kit/BN_RadioView.h>
 #import <BN_Kit/BN_RadioViewZero.h>
 #import <BN_Kit/BN_CricleProgressView.h>
 #else
 #import "BN_TextField.h"
-#import "BN_TextView.h"
 #import "BN_RadioView.h"
 #import "BN_RadioViewZero.h"
 #import "BN_CricleProgressView.h"

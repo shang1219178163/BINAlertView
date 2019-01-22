@@ -50,9 +50,9 @@
     [super layoutSubviews];
     
     //文字+segment
-    CGSize labLeftSize = [self sizeWithText:self.labelLeft.text font:self.labelLeft.font width:kScreen_width];
+    CGSize labLeftSize = [self sizeWithText:self.labelLeft.text font:self.labelLeft.font width:kScreenWidth];
     if (self.labelLeft.attributedText) {
-        labLeftSize = [self sizeWithText:self.labelLeft.attributedText font:self.labelLeft.font width:kScreen_width];
+        labLeftSize = [self sizeWithText:self.labelLeft.attributedText font:self.labelLeft.font width:kScreenWidth];
     }
     //控件>
     CGFloat YGap = kY_GAP;
@@ -89,12 +89,12 @@
 
 -(UISegmentedControl *)segmentCtrl{
     if (!_segmentCtrl) {
-//        _segmentCtrl = [UIView createSegmentCtlWithRect:CGRectMake(0, 0, kScreen_width, 44) items:@[@"item0",@"item1",@"item2",@"item3"] selectedIndex:0 type:@0];
+//        _segmentCtrl = [UIView createSegmentCtlWithRect:CGRectMake(0, 0, kScreenWidth, 44) items:@[@"item0",@"item1",@"item2",@"item3"] selectedIndex:0 type:@0];
 //        _segmentCtrl.selectedSegmentIndex = 0;
         //        _segmentCtrl.frame = CGRectZero;
         
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"item0",@"item1"]];
-        _segmentCtrl.frame = CGRectMake(0, 0, kScreen_width, 44);
+        _segmentCtrl.frame = CGRectMake(0, 0, kScreenWidth, 44);
         
         _segmentCtrl.backgroundColor = UIColor.whiteColor;
         _segmentCtrl.tintColor = UIColor.themeColor;

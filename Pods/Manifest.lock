@@ -1,6 +1,6 @@
 PODS:
   - AESCrypt-ObjC (1.0.2)
-  - BN_Category (1.8.4.6):
+  - BN_Category (1.8.5.9):
     - AESCrypt-ObjC
     - BN_Globle
     - BN_Kit
@@ -12,8 +12,8 @@ PODS:
     - SDWebImage
     - Toast
     - YYModel
-  - BN_Globle (1.3.1.2)
-  - BN_Kit (1.2.8.2):
+  - BN_Globle (1.3.4)
+  - BN_Kit (1.2.9):
     - BN_Globle
   - FLAnimatedImage (1.0.12)
   - GTMBase64 (1.0.1)
@@ -51,9 +51,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AESCrypt-ObjC: 6d930ff891a61b90505855e9447959a84be80715
-  BN_Category: 663fddc9609ee48b01b030e6b9f44a48875ca973
-  BN_Globle: 651f91e8c6b7ef96cbb7ae95313b5ef32e83404a
-  BN_Kit: 91f883282176247b8580bd1d122e15e5ee8148fe
+  BN_Category: 139352e382cf01ee5fbd6d1ca13748d344a84877
+  BN_Globle: a28891ed8d1e766e414e0d4d5dbd71b573f9ebbe
+  BN_Kit: 5dc15cc671dea4aa5ad3687019cd0fc3b9fd861f
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GTMBase64: f0f91be06a7a20b84c8e4fee30c0430395091d82
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804

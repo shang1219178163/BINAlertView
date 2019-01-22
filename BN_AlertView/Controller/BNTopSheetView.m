@@ -8,6 +8,8 @@
 
 #import "BNTopSheetView.h"
 
+#import "BN_Category.h"
+
 @implementation BNTopSheetView
 
 -(void)dealloc{
@@ -59,8 +61,8 @@
     cell.hidden = isHidden;
     cell.accessoryType = self.indexP == indexPath ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
-    if (self.block != nil) {
-        return self.block(tableView, indexPath);
+    if (self.blockCellForRow != nil) {
+        return self.blockCellForRow(tableView, indexPath);
     }
     return cell;
 }
@@ -78,8 +80,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     [self dismiss];
-    if (self.blockOne != nil) {
-        self.blockOne(tableView, self.indexP);
+    if (self.blockDidSelectRow != nil) {
+        self.blockDidSelectRow(tableView, self.indexP);
     }
 }
 

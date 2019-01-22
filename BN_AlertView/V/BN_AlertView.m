@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
 
-        self.frame = CGRectMake(0, 0, kScreen_width, kScreen_height);
+        self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
 
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleActionTap:)];
@@ -73,7 +73,7 @@
         self.alpha = 1;
         
 //        CGRect tempFrame = self.tableView.frame;
-//        tempFrame.size.height = kScreen_height/2.0;
+//        tempFrame.size.height = kScreenHeight/2.0;
 //        self.tableView.frame = tempFrame;
         
     } completion:nil];

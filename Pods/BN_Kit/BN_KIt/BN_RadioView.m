@@ -112,7 +112,7 @@ NSString *const kRadio_imageN = @"kRadio_imageN";
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.userInteractionEnabled = YES;
     }

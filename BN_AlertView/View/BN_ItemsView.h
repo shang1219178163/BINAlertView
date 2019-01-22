@@ -12,14 +12,10 @@
 
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, assign) NSInteger numberOfRow;
-@property (nonatomic, assign) CGFloat itemHeight;
 @property (nonatomic, assign) CGFloat padding;
 @property (nonatomic, strong) NSNumber *type;
 
 @property (nonatomic, copy) void(^blockView)(id obj, id item, NSInteger idx);
-
-+ (BN_ItemsView *)viewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler;
-
 
 
 @end

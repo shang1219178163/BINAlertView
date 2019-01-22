@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP*2, 0);
+        self.frame = CGRectMake(0, 0, kScreenWidth - kX_GAP*2, 0);
         self.center = self.superview.center;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
@@ -33,7 +33,7 @@
 
 -(id)initWithTitle:(NSString *)title message:(NSString *)msg orCustomeView:(UIView *)customeView delegate:(id)delegate buttonTitles:(NSArray *)buttonTitles{
     
-//    UIView * alertView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width - kX_GAP*2, 0)];
+//    UIView * alertView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth - kX_GAP*2, 0)];
 //    alertView.center = self.superview.center;
     
     CGSize  titleSize = CGSizeZero;
@@ -58,7 +58,7 @@
         
         btnSize.height = kH_BTN;
         
-        CGFloat buttonWidth = (kScreen_width - 2 * kX_GAP) / buttonTitles.count;
+        CGFloat buttonWidth = (kScreenWidth - 2 * kX_GAP) / buttonTitles.count;
         
         for (int i = 0; i < [buttonTitles count]; i++) {
             
@@ -82,10 +82,10 @@
     
     if (customeView != nil) {
         
-        self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP * 2, titleSize.height + customeViewSize.height + btnSize.height);
+        self.frame = CGRectMake(0, 0, kScreenWidth - kX_GAP * 2, titleSize.height + customeViewSize.height + btnSize.height);
     }else{
         
-        self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP * 2, titleSize.height + msgSize.height + btnSize.height);
+        self.frame = CGRectMake(0, 0, kScreenWidth - kX_GAP * 2, titleSize.height + msgSize.height + btnSize.height);
     }
 
     self.backgroundColor = [UIColor clearColor];

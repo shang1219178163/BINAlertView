@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
+/**
+ 导航栏点击出现下拉菜单
+ */
 @interface BNTopSheetView : UIView<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UIButton * btn;
@@ -20,8 +22,8 @@
 @property (nonatomic, strong) NSIndexPath * indexP;
 @property (nonatomic, strong) UIViewController * parController;
 
-@property (nonatomic, copy) UITableViewCell *(^block)(UITableView *tableView, NSIndexPath *indexPath);
-@property (nonatomic, copy) void(^blockOne)(UITableView* tableView, NSIndexPath* indexPath);
+@property (nonatomic, copy) UITableViewCell *(^blockCellForRow)(UITableView *tableView, NSIndexPath *indexPath);
+@property (nonatomic, copy) void(^blockDidSelectRow)(UITableView* tableView, NSIndexPath* indexPath);
 
 - (void)setupTitleView;
 

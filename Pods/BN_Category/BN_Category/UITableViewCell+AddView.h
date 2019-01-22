@@ -10,7 +10,7 @@
 
 #import "BN_Kit.h"
 
-@class BN_TextField,BN_TextView,BN_RadioView;
+@class BN_TextField;
 
 @interface UITableViewCell (AddView)
 
@@ -33,11 +33,11 @@
 @property (nonatomic, strong) UIImageView * imgViewRight;
 
 @property (nonatomic, strong) UIButton * btn;
+@property (nonatomic, strong) UIButton * radioView;
+
 //@property (nonatomic, strong) UITextField * textField;
-//@property (nonatomic, strong) UITextView * textView;
+@property (nonatomic, strong) UITextView * textView;
 
 @property (nonatomic, strong) BN_TextField * textField;
-@property (nonatomic, strong) BN_TextView * textView;
-@property (nonatomic, strong) BN_RadioView * radioView;
 
 @end

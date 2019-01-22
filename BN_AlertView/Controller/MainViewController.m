@@ -59,9 +59,12 @@
     self.title = @"Main";
     self.view.backgroundColor = [UIColor cyanColor];
     
-    [self addRightBtn];
+    [self createBarItemTitle:@"Next" imageName:nil isLeft:false isHidden:false handler:^(id obj, UIButton *item, NSInteger idx) {
+        NextViewController * viewController = [NextViewController new];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }];
     
-    CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
+    CGRect rect = CGRectMake(20, 20, kScreenWidth - 20*2, 0);
     UIView * containView = [UIView createViewRect:rect items:self.itemList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
         [self handleActionBtn:item];
         
@@ -69,25 +72,25 @@
     containView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:containView];
     
-    self.dateView.frame = CGRectMake(containView.minX, containView.maxY+20, kScreen_width - 40, 40);
+    self.dateView.frame = CGRectMake(containView.minX, containView.maxY+20, kScreenWidth - 40, 40);
     [self.view addSubview:self.dateView];
     
     //
     self.segmentedCtl = [UIView createSegmentRect:CGRectZero items:@[] selectedIndex:1 type:@3];
     self.segmentedCtl.itemList = @[@"one",@"two",@"three"];
     self.segmentedCtl.selectedSegmentIndex = 1;
-    self.segmentedCtl.frame = CGRectMake(self.dateView.minX, self.dateView.maxY+20, kScreen_width - 40, 40);
+    self.segmentedCtl.frame = CGRectMake(self.dateView.minX, self.dateView.maxY+20, kScreenWidth - 40, 40);
     [self.view addSubview:self.segmentedCtl];
     
     //
-    self.segmentView.frame = CGRectMake(20, self.segmentedCtl.maxY + 20, kScreen_width - 40, 40);
+    self.segmentView.frame = CGRectMake(20, self.segmentedCtl.maxY + 20, kScreenWidth - 40, 40);
     [self.view addSubview:self.segmentView];
     self.segmentView.layer.borderWidth = kW_LayerBorder;
     self.segmentView.layer.borderColor = UIColor.grayColor.CGColor;
 //    [self.view getViewLayer];
     
 
-    self.topView.block = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
+    self.topView.blockCellForRow = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
         WHKTableViewZeroCell * cell = [WHKTableViewZeroCell cellWithTableView:tableView];
         cell.imageView.image = [UIImage imageNamed:@"dragon"];
         cell.textLabel.text = NSStringFromIndexPath(indexPath);
@@ -97,7 +100,7 @@
     };
  
     @weakify(self);
-    self.topView.blockOne = ^(UITableView *tableView, NSIndexPath *indexPath) {
+    self.topView.blockDidSelectRow = ^(UITableView *tableView, NSIndexPath *indexPath) {
         @strongify(self);
         DDLog(@"%@",NSStringFromIndexPath(indexPath));
         UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -220,18 +223,6 @@
     
 }
 
-- (void)addRightBtn {
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedOKbtn)];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-}
-
-- (void)onClickedOKbtn {
-    NSLog(@"onClickedOKbtn");
-    NextViewController * viewController = [NextViewController new];
-    [self.navigationController pushViewController:viewController animated:YES];
-    
-}
-
 //createSpeakStartView
 -(UIView *)createStarsWithStarCount:(NSInteger)starCount hasGesture:(BOOL)hasGesture target:(id)target aSelector:(SEL)aSelector{
     
@@ -291,7 +282,7 @@
 //加tableview
 -(UIView *)createView{
     
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, kScreen_height)];
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     view.backgroundColor = [UIColor redColor];
     
     UITableView * tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame)) style:UITableViewStylePlain];
@@ -363,7 +354,7 @@
 //createSpeakStartView
 -(UIView *)createSpeakStartView{
     
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, 30)];
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
     //    UIView * view = [[UIView alloc]initWithFrame:CGRectZero];
     
     view.backgroundColor = [UIColor clearColor];
@@ -375,8 +366,8 @@
     
     
     NSInteger count = kCOUNT_IMAGEVIEW;
-    CGFloat imgWH = (kScreen_width - 25 * 2 - (kCOUNT_IMAGEVIEW - 1) * 5)/kCOUNT_IMAGEVIEW;
-    view.frame = CGRectMake(0, 0, kScreen_width, imgWH+5);
+    CGFloat imgWH = (kScreenWidth - 25 * 2 - (kCOUNT_IMAGEVIEW - 1) * 5)/kCOUNT_IMAGEVIEW;
+    view.frame = CGRectMake(0, 0, kScreenWidth, imgWH+5);
     for (int i = 0; i < count; i++) {
         
         UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(10 + (imgWH + 5) * i , 0, imgWH, imgWH)];
@@ -426,7 +417,7 @@
 #pragma mark - - lazy
 -(BN_RangeDateView *)dateView{
     if (!_dateView) {
-        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(20, 250, kScreen_width*0.66, 44)];
+        _dateView = [[BN_RangeDateView alloc]initWithFrame:CGRectMake(20, 250, kScreenWidth*0.66, 44)];
         _dateView.block = ^(BN_RangeDateView *view, NSString *dateStart, NSString *dateEnd) {
             //        DDLog(@"_%@___%@_",[dateStart toTimestampShort], [dateEnd toTimestampFull]);
             //        DDLog(@"_%@___%@_",[view.dateStart toTimestampShort], [view.dateEnd toTimestampFull]);

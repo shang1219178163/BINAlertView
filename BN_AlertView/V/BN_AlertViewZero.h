@@ -10,7 +10,7 @@
 
 static const CGFloat kX_GAP_OF_WINDOW = 30;//弹窗距离屏幕边界距离
 //弹窗内容宽度
-#define kWidth_customView  (kScreen_width - (kX_GAP_OF_WINDOW + kX_GAP)*2)
+#define kWidth_customView  (kScreenWidth - (kX_GAP_OF_WINDOW + kX_GAP)*2)
 
 static const CGFloat kH_BTN = 40;//底下按钮高度
 
@@ -30,7 +30,7 @@ typedef void (^BlockAlertView)(BN_AlertViewZero * alertView,  NSInteger btnIndex
  @param btnTitles 底部按钮,支持2个以上
  @return 返回BN_AlertViewZero
  
- 注意:customView宽度应为 kScreen_width - (kX_GAP_OF_WINDOW + kX_GAP)*2
+ 注意:customView宽度应为 kScreenWidth - (kX_GAP_OF_WINDOW + kX_GAP)*2
  
  */
 + (BN_AlertViewZero *)alertViewWithTitle:(NSString *)title message:(NSString *)msg customView:(UIView *)customView btnTitles:(NSArray *)btnTitles;

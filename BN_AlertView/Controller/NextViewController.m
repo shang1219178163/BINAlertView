@@ -12,6 +12,9 @@
 
 #import "DKSButton.h"
 
+#import "WHKTableViewFiftyFiveCell.h"
+#import "BNTablePlainView.h"
+
 NSString *const BN_ItemTitle = @"BN_ItemTitle";
 NSString *const BN_ItemTitleColor_N = @"BN_ItemTitleColor_N";
 NSString *const BN_ItemTitleColor_H = @"BN_ItemTitleColor_H";
@@ -27,6 +30,7 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
 
 
 @property (nonatomic, strong) NSArray *itemList;
+@property (nonatomic, strong) BNTablePlainView *plainView;
 
 @end
 
@@ -37,6 +41,8 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = UIColor.whiteColor;
+    
+    [self.view addSubview:self.plainView];
     
     self.itemList = @[
                       @{
@@ -83,7 +89,7 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
                       ];
     
     
-    UIView * view = [self createViewRect:CGRectMake(0, 80, kScreen_width, 60) items:self.itemList];
+    UIView * view = [self createViewRect:CGRectMake(0, 80, kScreenWidth, 60) items:self.itemList];
     [self.view addSubview:view];
     
 }
@@ -131,7 +137,7 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
     CGSize imageSize = btn.imageView.frame.size;
     CGSize titleSize = btn.titleLabel.frame.size;
     
-    CGSize textSize = [self sizeWithText:btn.titleLabel.text font:btn.titleLabel.font width:kScreen_width];
+    CGSize textSize = [self sizeWithText:btn.titleLabel.text font:btn.titleLabel.font width:kScreenWidth];
     CGSize frameSize = CGSizeMake(ceilf(textSize.width), ceilf(textSize.height));
     if (titleSize.width + 0.5 < frameSize.width) {
         titleSize.width = frameSize.width;
@@ -142,6 +148,25 @@ NSString *const BN_ItemControlName = @"BN_ItemControlName";
     
 }
 
+
+- (BNTablePlainView *)plainView{
+    if (!_plainView) {
+        _plainView = [[BNTablePlainView alloc]initWithFrame:self.view.bounds];
+        
+        NSMutableArray * marr = @[@"111",@"222",@"333",@"444",].mutableCopy;
+        _plainView.list = marr;
+        _plainView.blockCellForRow = ^UITableViewCell * _Nonnull(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
+            WHKTableViewFiftyFiveCell * cell = [WHKTableViewFiftyFiveCell cellWithTableView:tableView];
+            cell.labelLeft.text = marr[indexPath.row];
+            return cell;
+        };
+        
+        _plainView.blockDidSelectRow = ^(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
+            DDLog(@"223")
+        };
+    }
+    return _plainView;
+}
 
 
 

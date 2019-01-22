@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B125E11AD65FF66F986C94CCDE7B2F5D"
+               BlueprintIdentifier = "E75C88E8EBD7106EFC0ECC4F47C29626"
                BlueprintName = "GTMBase64"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libGTMBase64.a">

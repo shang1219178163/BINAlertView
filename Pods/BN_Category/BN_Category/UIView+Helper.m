@@ -15,11 +15,51 @@
 #import "NSBundle+Helper.h"
 #import "UIControl+Helper.h"
 #import "UIGestureRecognizer+Helper.h"
+#import "UITextView+Helper.h"
 
 #import "BN_TextField.h"
-#import "BN_TextView.h"
 
 @implementation UIView (Helper)
+
+- (CGFloat)originX{
+    return CGRectGetMinX(self.frame);
+}
+
+- (void)setOriginX:(CGFloat)originX{
+    CGRect rect = self.frame;
+    rect.origin.x = originX;
+    self.frame = rect;
+}
+
+-(CGFloat)originY{
+    return CGRectGetMinY(self.frame);
+}
+
+- (void)setOriginY:(CGFloat)originY{
+    CGRect rect = self.frame;
+    rect.origin.y = originY;
+    self.frame = rect;
+}
+
+- (CGFloat)sizeWidth{
+    return CGRectGetWidth(self.frame);
+}
+
+- (void)setSizeWidth:(CGFloat)sizeWidth{
+    CGRect rect = self.frame;
+    rect.size.width = sizeWidth;
+    self.frame = rect;
+}
+
+- (CGFloat)sizeHeight{
+    return CGRectGetHeight(self.frame);
+}
+
+-(void)setSizeHeight:(CGFloat)sizeHeight{
+    CGRect rect = self.frame;
+    rect.size.height = sizeHeight;
+    self.frame = rect;
+}
 
 - (CGPoint)origin{
     return self.frame.origin;
@@ -131,7 +171,7 @@
 /**
  手势 - 单指点击
  */
-- (UITapGestureRecognizer *)addGestureTap:(void(^)(id sender))block{
+- (UITapGestureRecognizer *)addGestureTap:(void(^)(UIGestureRecognizer * sender))block{
     NSString *funcAbount = NSStringFromSelector(_cmd);
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
     
@@ -156,7 +196,7 @@
 /**
  手势 - 长按
  */
-- (UILongPressGestureRecognizer *)addGestureLongPress:(void(^)(id sender))block forDuration:(NSTimeInterval)minimumPressDuration{
+- (UILongPressGestureRecognizer *)addGestureLongPress:(void(^)(UIGestureRecognizer * sender))block forDuration:(NSTimeInterval)minimumPressDuration{
     NSString *funcAbount = [NSStringFromSelector(_cmd) stringByAppendingFormat:@",%@",@(minimumPressDuration)];
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
 
@@ -177,7 +217,7 @@
 /**
  手势 - 拖动
  */
-- (UIPanGestureRecognizer *)addGesturePan:(void(^)(id sender))block{
+- (UIPanGestureRecognizer *)addGesturePan:(void(^)(UIGestureRecognizer * sender))block{
     NSString *funcAbount = NSStringFromSelector(_cmd);
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
 
@@ -199,7 +239,7 @@
 /**
  手势 - 边缘拖动
  */
-- (UIScreenEdgePanGestureRecognizer *)addGestureEdgPan:(void(^)(id sender))block forEdges:(UIRectEdge)edges{
+- (UIScreenEdgePanGestureRecognizer *)addGestureEdgPan:(void(^)(UIGestureRecognizer * sender))block forEdges:(UIRectEdge)edges{
     NSString *funcAbount = [NSStringFromSelector(_cmd) stringByAppendingFormat:@",%@",@(edges)];
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
 
@@ -219,7 +259,7 @@
 /**
  手势 - 轻扫
  */
-- (UISwipeGestureRecognizer *)addGestureSwipe:(void(^)(id sender))block forDirection:(UISwipeGestureRecognizerDirection)direction{
+- (UISwipeGestureRecognizer *)addGestureSwipe:(void(^)(UIGestureRecognizer * sender))block forDirection:(UISwipeGestureRecognizerDirection)direction{
     NSString *funcAbount = [NSStringFromSelector(_cmd) stringByAppendingFormat:@",%@",@(direction)];
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
 
@@ -240,7 +280,7 @@
 /**
  手势 - 捏合
  */
-- (UIPinchGestureRecognizer *)addGesturePinch:(void(^)(id sender))block{
+- (UIPinchGestureRecognizer *)addGesturePinch:(void(^)(UIGestureRecognizer * sender))block{
     NSString *funcAbount = NSStringFromSelector(_cmd);
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
 
@@ -261,7 +301,7 @@
 /**
  手势 - 旋转
  */
-- (UIRotationGestureRecognizer *)addGestureRotation:(void(^)(id sender))block{
+- (UIRotationGestureRecognizer *)addGestureRotation:(void(^)(UIGestureRecognizer * sender))block{
     NSString *funcAbount = NSStringFromSelector(_cmd);
     NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
 
@@ -432,7 +472,7 @@
     for (UIView *subview in subviews) {
         subview.layer.borderWidth = kW_LayerBorder;
         subview.layer.borderColor = UIColor.blueColor.CGColor;
-        subview.layer.borderColor = UIColor.clearColor.CGColor;
+//        subview.layer.borderColor = UIColor.clearColor.CGColor;
 
         [subview getViewLayer];
         
@@ -547,13 +587,13 @@
     return textField;
 }
 
-+ (BN_TextView *)createTextViewRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType{
++ (UITextView *)createTextViewRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder font:(CGFloat)fontSize textAlignment:(NSTextAlignment)textAlignment keyType:(UIKeyboardType)keyboardType{
     
-    BN_TextView *textView = [[BN_TextView alloc] initWithFrame:rect];
+    UITextView *textView = [[UITextView alloc] initWithFrame:rect];
     
     textView.text = text;
-    textView.placeholder = placeholder;
-    textView.placeholderColor = UIColor.titleSubColor;
+    textView.placeHolderTextView.text = placeholder;
+    textView.placeHolderTextView.textColor = UIColor.titleSubColor;
 
     textView.font = [UIFont systemFontOfSize:fontSize];
     textView.textAlignment = NSTextAlignmentLeft;
@@ -937,7 +977,7 @@
         return imgView;
     }
     
-    CGSize size = [self sizeWithText:unitString font:@(kFZ_Third) width:kScreen_width];
+    CGSize size = [self sizeWithText:unitString font:@(kFZ_Third) width:kScreenWidth];
     UILabel * label = [UIView createLabelRect:CGRectMake(0, 0, size.width+2, 25) text:unitString textColor:UIColor.titleColor tag:kTAG_LABEL type:@2 font:kFZ_Third backgroudColor:UIColor.clearColor alignment:NSTextAlignmentCenter];
     return label;
     

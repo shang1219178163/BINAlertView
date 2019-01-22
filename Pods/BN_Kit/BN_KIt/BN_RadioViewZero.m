@@ -84,7 +84,7 @@ static  NSString *const kObserveKeyPath = @"isSelected";
 //    if (!_imgView) {
 //        _imgView = ({
 //            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
-//            imgView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+//            imgView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 //            imgView.contentMode = UIViewContentModeScaleAspectFit;
 //            imgView.userInteractionEnabled = YES;
 //

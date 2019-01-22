@@ -39,7 +39,7 @@
     if (!_segmentCtrl) {
         /*********************************************************************/
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天",@"item"]];
-        _segmentCtrl.frame = CGRectMake(0, kScreen_height/2.0, kScreen_width, 44);
+        _segmentCtrl.frame = CGRectMake(0, kScreenHeight/2.0, kScreenWidth, 44);
         _segmentCtrl.backgroundColor = UIColor.whiteColor;
         _segmentCtrl.tintColor = [UIColor cyanColor];
         _segmentCtrl.selectedSegmentIndex = 0;

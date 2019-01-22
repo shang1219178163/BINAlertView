@@ -33,7 +33,7 @@ static CGFloat kH_title = 45;
 -(instancetype)init{
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(0, 0, kScreen_width, kScreen_height);
+        self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleActionTap:)];

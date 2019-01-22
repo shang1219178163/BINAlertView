@@ -141,7 +141,7 @@
         
         if (CGRectEqualToRect(self.frame, CGRectZero)) {
             
-            self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP_OF_WINDOW * 2, 180);
+            self.frame = CGRectMake(0, 0, kScreenWidth - kX_GAP_OF_WINDOW * 2, 180);
         }
         /*
         if (title != nil) {
@@ -167,7 +167,7 @@
 
         */
         CGSize  titleSize = CGSizeZero;
-        CGFloat maxWidth = kScreen_width - (kX_GAP_OF_WINDOW + kX_GAP)*2;
+        CGFloat maxWidth = kScreenWidth - (kX_GAP_OF_WINDOW + kX_GAP)*2;
         if (title != nil) {
             
             titleSize = [self sizeWithText:title font:@(kFONTSIZE) width:maxWidth];
@@ -214,7 +214,7 @@
                 
                 self.frame = CGRectMake(0, 0, self.frame.size.width,kX_GAP + titleSize.height + 5 + customeViewSize.height + btnSize.height);
                 
-                CGFloat maxHeight = kScreen_height - 64 * 2;
+                CGFloat maxHeight = kScreenHeight - 64 * 2;
                 if (CGRectGetHeight(self.frame) > maxHeight) {
                     
                     self.frame = CGRectMake(0, 0, self.frame.size.width,maxHeight);

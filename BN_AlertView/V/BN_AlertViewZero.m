@@ -42,12 +42,12 @@ static const CGFloat padding = 10;
 }
 
 -(CGFloat)maxWidth{
-    CGFloat width = kScreen_width - kX_GAP_OF_WINDOW * 2 - kX_GAP*2;
+    CGFloat width = kScreenWidth - kX_GAP_OF_WINDOW * 2 - kX_GAP*2;
     return width;
 }
 
 -(CGFloat)maxHeight{
-    CGFloat heigth = kScreen_height - 64 * 2 - kH_LABEL - kH_BTN - padding*2;
+    CGFloat heigth = kScreenHeight - 64 * 2 - kH_LABEL - kH_BTN - padding*2;
     return heigth;
 }
 
@@ -70,7 +70,7 @@ static const CGFloat padding = 10;
         self.layer.borderWidth = 1.0 ;
         
         if (CGRectEqualToRect(self.frame, CGRectZero)) {
-            self.frame = CGRectMake(0, 0, kScreen_width - kX_GAP_OF_WINDOW * 2, 180);
+            self.frame = CGRectMake(0, 0, kScreenWidth - kX_GAP_OF_WINDOW * 2, 180);
         }
         
         CGFloat maxWidth = self.maxWidth;
@@ -334,7 +334,7 @@ static const CGFloat padding = 10;
     for (NSInteger i = 0; i<items.count; i++) {
         ElementModel * modol = items[i];
         
-        CGSize size = [self sizeWithText:modol.title font:@15 width:kScreen_width];
+        CGSize size = [self sizeWithText:modol.title font:@15 width:kScreenWidth];
         if (CGRectEqualToRect(rectLab, CGRectZero)) {
             rectLab = CGRectMake(labelGapX, CGRectGetMaxY(rectLab), size.width, viewHeight);
             

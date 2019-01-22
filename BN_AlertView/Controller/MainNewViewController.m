@@ -46,11 +46,10 @@
 }
 
 -(UISegmentedControl *)segmentCtrl{
-    
     if (!_segmentCtrl) {
         /*********************************************************************/
         _segmentCtrl = [[UISegmentedControl alloc] initWithItems:@[@"今天",@"昨天",@"前天"]];
-        _segmentCtrl.frame = CGRectMake(0, kScreen_height/2.0, kScreen_width, 44);
+        _segmentCtrl.frame = CGRectMake(0, kScreenHeight/2.0, kScreenWidth, 44);
         _segmentCtrl.backgroundColor = UIColor.whiteColor;
         _segmentCtrl.tintColor = [UIColor cyanColor];
         _segmentCtrl.selectedSegmentIndex = 0;
@@ -105,7 +104,7 @@
     }];
 
 
-    CGRect rect = CGRectMake(20, 20, kScreen_width - 20*2, 0);
+    CGRect rect = CGRectMake(20, 20, kScreenWidth - 20*2, 0);
     UIView * containView = [UIView createViewRect:rect items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@0 handler:^(id obj, id item, NSInteger idx) {
         [self handleActionBtn:item];
         
@@ -115,7 +114,7 @@
 
     self.containView = containView;
     
-    CGRect rectNew = CGRectMake(20, CGRectGetMaxY(self.containView.frame) + 20, kScreen_width - 20*2, 0);
+    CGRect rectNew = CGRectMake(20, CGRectGetMaxY(self.containView.frame) + 20, kScreenWidth - 20*2, 0);
     UIView * containViewNew = [UIView createViewRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
         DDLog(@"%ld",((UIView *)item).tag);
 
@@ -138,9 +137,7 @@
     [self.view addSubview:self.itemsView];
     self.itemsView.blockView = ^(id obj, id item, NSInteger idx) {
         DDLog(@"%ld",((UIView *)item).tag);
-
     };
-    
 
     [self.view getViewLayer];
 }
@@ -267,10 +264,9 @@
             break;
         case 4:
         {
-            UIWindow * window = UIApplication.sharedApplication.keyWindow;
             
-            [self showAlertTitle:@"添加猪品种" placeholderList:@[@"(必填)品种名称(汉字)",@"(选填)品种代号(英文字母)"] msg:nil
-                     actionTitleList:@[kActionTitle_Cancell,kActionTitle_Sure] handler:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nullable action) {
+            [self showAlertTitle:@"添加猪品种" placeholders:@[@"(必填)品种名称(汉字)",@"(选填)品种代号(英文字母)"] msg:nil
+                     actionTitles:@[kActionTitle_Cancell,kActionTitle_Sure] handler:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nullable action) {
                          DDLog(@"___%@",alertController.textFields.firstObject);
                          DDLog(@"________%@",alertController.textFields.lastObject);
 
@@ -279,7 +275,7 @@
             break;
         case 5:
         {
-            CGRect rect = CGRectMake(20, (kScreen_height - 64)/2.0, kScreen_width - 20*2, 0);
+            CGRect rect = CGRectMake(20, (kScreenHeight - 64)/2.0, kScreenWidth - 20*2, 0);
    
             NSArray * selectedList = @[_elementList[1],_elementList[3]];
             BINGroupView * groupView = [[BINGroupView alloc]initRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
@@ -295,7 +291,7 @@
             break;
         case 6:
         {
-            CGRect rect = CGRectMake(20, (kScreen_height - 64)/2.0, kScreen_width - 20*2, 0);
+            CGRect rect = CGRectMake(20, (kScreenHeight - 64)/2.0, kScreenWidth - 20*2, 0);
             
             NSArray * selectedList = @[_elementList[1],_elementList[3]];
             BINGroupView * groupView = [BINGroupView viewRect:rect items:_elementList numberOfRow:4 itemHeight:30 padding:15 selectedList:selectedList];
@@ -316,7 +312,7 @@
             NSArray * textTaps = @[@"*"];
             NSAttributedString * attString = [self getAttString:string textTaps:textTaps font:@15 tapFont:@15 tapColor:[UIColor clearColor] alignment:NSTextAlignmentCenter];
             
-            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreen_width, 50)];
+            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
             label.attributedText = attString;
             label.font = [UIFont systemFontOfSize:15];
             
@@ -411,7 +407,7 @@
             //个性推荐 歌单 主播电台 排行榜
             NSArray* promoteArray=@[@"个性推荐",@"歌单",@"主播电台",@"排行榜"];
             UISegmentedControl* promoteSgement=[[UISegmentedControl alloc]initWithItems:promoteArray];
-            promoteSgement.frame=CGRectMake(0, kScreen_width/2.0+80, kScreen_width, 40);
+            promoteSgement.frame=CGRectMake(0, kScreenWidth/2.0+80, kScreenWidth, 40);
             [promoteSgement setSelectedSegmentIndex:0];//默认选择第一个
             promoteSgement.tintColor = [UIColor yellowColor];//去掉颜色 现在整个segment都看不见
             promoteSgement.backgroundColor = UIColor.whiteColor;
@@ -512,7 +508,7 @@
 
 - (UIView *)getCodeViewWithSize:(CGSize)viewSize count:(NSInteger)count{
     
-    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width - 50, viewSize.height + kPadding *2)];
+    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth - 50, viewSize.height + kPadding *2)];
     
     CGSize verCodeViewSize = CGSizeMake(viewSize.height * count + kX_GAP * (count - 1), viewSize.height);
     CGFloat minX = (CGRectGetWidth(backgroudView.frame) - verCodeViewSize.width)/2.0;
@@ -608,12 +604,12 @@
 //
 //    CGFloat viewHeight = 30;
 //    CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
-//    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, height)];
+//    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height)];
 //
 //    CGRect rectLab = CGRectZero;
 //    for (NSInteger i = 0; i<items.count; i++) {
 //
-//        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreen_width];
+//        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreenWidth];
 //        if (CGRectEqualToRect(rectLab, CGRectZero)) {
 //            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
 //

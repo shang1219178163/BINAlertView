@@ -22,7 +22,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-    BN_SegmentControl *control = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 40, kScreen_width - 20, 40)];
+    BN_SegmentControl *control = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 40, kScreenWidth - 20, 40)];
     control.titles = @[@"Library", @"Trending", @"News"];
     control.tag = 1;
     control.isIndicatorTop = YES;
@@ -30,7 +30,7 @@
     [self.view addSubview:control];
     
     
-    BN_SegmentControl *control2 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(0, 100, kScreen_width, 50)];
+    BN_SegmentControl *control2 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, 50)];
     control2.titles = @[@"One", @"Two", @"Three", @"4", @"Five", @"Six",
                         @"Seven",@"Eight",@"Nine",@"Ten",@"eleven",@"twelve",
                         @"thirteen",@"fourteen",@"fifteen",@"sixteen",@"seventeen",
@@ -61,13 +61,13 @@
     control2.isIndicatorTop = NO;
     control2.isScroll = YES;
 //    control2.segmentEdgeInset = UIEdgeInsetsMake(0, 6, 0, 6);
-    control2.center = CGPointMake((kScreen_width)/2, 120);
+    control2.center = CGPointMake((kScreenWidth)/2, 120);
     control2.tag = 2;
     [self.view addSubview:control2];
     
     
     
-    BN_SegmentControl *control3 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 150, kScreen_width - 20, 50)];
+    BN_SegmentControl *control3 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 150, kScreenWidth - 20, 50)];
     NSLog(@"!!!framY:%.2f,    H:%.2f",control3.frame.origin.y,control3.frame.size.height);
     control3.titles = @[@"Worldwide", @"Local", @"Headlines"];
     control3.selectedIndex = 1;
@@ -83,7 +83,7 @@
     NSArray *selectedImages = @[@"1-selected",@"2-selected",@"3-selected",@"4-selected"];
 
     
-    BN_SegmentControl *control4 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 220, kScreen_width - 20, 50)];
+    BN_SegmentControl *control4 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 220, kScreenWidth - 20, 50)];
     control4.titles = titles;
     control4.images = images;
     control4.selectedImages = selectedImages;
@@ -109,7 +109,7 @@
     NSArray *images5 = @[@"1",@"2",@"3",@"4"];
     NSArray *selectedImages5 = @[@"1-selected",@"2-selected",@"3-selected",@"4-selected"];
     
-    BN_SegmentControl *control5 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 300, kScreen_width - 20, 50)];
+    BN_SegmentControl *control5 = [[BN_SegmentControl alloc] initWithFrame:CGRectMake(10, 300, kScreenWidth - 20, 50)];
     control5.titles = titles5;
     control5.images = images5;
     control5.selectedImages = selectedImages5;
