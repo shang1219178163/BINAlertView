@@ -12,6 +12,8 @@ target 'BN_AlertView' do
 #  pod 'BN_TableViewCell'
 
     pod 'Masonry'
+#    pod 'PPNumberButton'
+
 
   
   target 'BN_AlertViewTests' do
