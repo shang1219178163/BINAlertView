@@ -24,7 +24,6 @@
 @implementation TmpViewController
 
 -(UIView *)containView{
-    
     if (!_containView) {
         _containView = ({
             UIView * view = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 60, 60)];

@@ -1,5 +1,5 @@
 //
-//  BN_ItemsView.h
+//  BNItemsView.h
 //  BN_AlertViewZero
 //
 //  Created by hsf on 2018/5/8.
@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BN_ItemsView : UIView
+@interface BNItemsView : UIView
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray<NSString *> *items;
 @property (nonatomic, assign) NSInteger numberOfRow;
 @property (nonatomic, assign) CGFloat padding;
-@property (nonatomic, strong) NSNumber *type;
+//@property (nonatomic, strong) NSNumber *type;
 
-@property (nonatomic, copy) void(^blockView)(id obj, id item, NSInteger idx);
-
+@property (nonatomic, copy) void(^block)(BNItemsView *view, UIButton * sender);
 
 @end

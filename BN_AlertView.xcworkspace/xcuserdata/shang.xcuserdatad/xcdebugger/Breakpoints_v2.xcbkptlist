@@ -13,5 +13,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BN_AlertView/Controller/MainNewViewController.m"
+            timestampString = "569848404.137863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-handleActionBtn:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MainNewViewController handleActionBtn:]"
+                  moduleName = "BN_AlertView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shang/Documents/GitHub/BN_AlertView/BN_AlertView/Controller/MainNewViewController.m"
+                  timestampString = "569848404.224519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "89">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MainNewViewController handleActionBtn:]"
+                  moduleName = "BN_AlertView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shang/Documents/GitHub/BN_AlertView/BN_AlertView/Controller/MainNewViewController.m"
+                  timestampString = "569848404.227922"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "97">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

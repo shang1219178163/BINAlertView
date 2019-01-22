@@ -16,7 +16,7 @@
 
 #import "BINGroupView.h"
 
-#import "BN_ItemsView.h"
+#import "BNItemsView.h"
 
 #import "NextViewController.h"
 
@@ -26,20 +26,15 @@
 @property (nonatomic ,strong) NSMutableArray * elementList;
 
 @property (nonatomic, strong) UISegmentedControl *segmentCtrl;
-@property (nonatomic ,strong) BN_ItemsView * itemsView;
+@property (nonatomic ,strong) BNItemsView * itemsView;
 
 @end
 
 @implementation MainNewViewController
 
--(BN_ItemsView *)itemsView{
+-(BNItemsView *)itemsView{
     if (!_itemsView) {
-        _itemsView = [[BN_ItemsView alloc]initWithFrame:CGRectZero];
-        
-        _itemsView.numberOfRow = 4;
-        _itemsView.itemHeight = 0.0;
-        _itemsView.padding = 10;
-        _itemsView.type = @0;
+        _itemsView = [[BNItemsView alloc]initWithFrame:CGRectZero];
 
     }
     return _itemsView;
@@ -73,7 +68,6 @@
 }
 
 -(NSMutableArray *)elementList{
-    
     if (!_elementList) {
         _elementList = [NSMutableArray arrayWithCapacity:0];
         for (NSInteger i = 0; i< 16; i++) {
@@ -90,9 +84,7 @@
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-
     self.view.backgroundColor = [UIColor greenColor];
-    
     self.title = self.controllerName;
     
     
@@ -109,36 +101,16 @@
         [self handleActionBtn:item];
         
     }];
-    containView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:containView];
+ 
 
-    self.containView = containView;
-    
-    CGRect rectNew = CGRectMake(20, CGRectGetMaxY(self.containView.frame) + 20, kScreenWidth - 20*2, 0);
-    UIView * containViewNew = [UIView createViewRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
-        DDLog(@"%ld",((UIView *)item).tag);
-
-    }];
-    containViewNew.backgroundColor = [UIColor cyanColor];
-//    [self.view addSubview:containViewNew];
-    
-    
-    BN_ItemsView * itemsView = [BN_ItemsView viewRect:rectNew items:self.elementList numberOfRow:4 itemHeight:30 padding:10 type:@2 handler:^(id obj, id item, NSInteger idx) {
-        DDLog(@"%ld",((UIView *)item).tag);
-        
-    }];
-//    [self.view addSubview:itemsView];
-    
-    
-    
-    self.itemsView.frame = rectNew;
+    self.itemsView.frame = CGRectMake(20, 20, kScreenWidth - 20*2, kScreenWidth - 20*2);
     self.itemsView.items = self.elementList;
-    self.itemsView.type = @1;
+    self.itemsView.numberOfRow = 4;
     [self.view addSubview:self.itemsView];
-    self.itemsView.blockView = ^(id obj, id item, NSInteger idx) {
-        DDLog(@"%ld",((UIView *)item).tag);
+    self.itemsView.block = ^(BNItemsView *view, UIButton *sender) {
+        DDLog(@"%ld",sender.tag);
+        
     };
-
     [self.view getViewLayer];
 }
 
@@ -148,65 +120,9 @@
     
 }
 
-- (UIView *)createViewRect:(CGRect)rect items:(NSArray *)items numberOfRow:(NSInteger)numberOfRow itemHeight:(CGFloat)itemHeight padding:(CGFloat)padding type:(NSNumber *)type handler:(void(^)(id obj, id item, NSInteger idx))handler{
-    
-    //    CGFloat padding = 15;
-    //    CGFloat viewHeight = 30;
-    //    NSInteger numberOfRow = 4;
-    NSInteger rowCount = items.count % numberOfRow == 0 ? items.count/numberOfRow : items.count/numberOfRow + 1;
-    CGFloat itemWidth = (CGRectGetWidth(rect) - (numberOfRow-1)*padding)/numberOfRow;
-    itemHeight = itemHeight == 0.0 ? itemWidth : itemHeight;;
-    
-    //
-    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), rowCount * itemHeight + (rowCount - 1) * padding)];
-    backgroudView.backgroundColor = [UIColor greenColor];
-    
-    for (NSInteger i = 0; i< items.count; i++) {
-        
-        CGFloat w = itemWidth;
-        CGFloat h = itemHeight;
-        CGFloat x = (i % numberOfRow) * (w + padding);
-        CGFloat y = (i / numberOfRow) * (h + padding);
-        
-        NSString * title = items[i];
-        CGRect itemRect = CGRectMake(x, y, w, h);
-        
-        UIView * view = nil;
-        switch ([type integerValue] ) {
-            case 0://uibutton
-            {
-                view = [UIView createBtnRect:itemRect title:title font:15 image:nil tag:kTAG_BTN+i type:@"5" target:nil aSelector:nil];
-            }
-                break;
-            case 1://UIImageVIew
-            {
-                view = [UIView createImgViewRect:itemRect image:title tag:kTAG_IMGVIEW+i type:@0];
-                
-            }
-                break;
-            case 2://UILabel
-            {
-                view = [UIView createLabelRect:itemRect text:title textColor:nil tag:kTAG_LABEL+i type:@0 font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
-                
-            }
-                break;
-            default:
-                break;
-        }
-        [backgroudView addSubview:view];
-        [view addActionHandler:^(id obj, id item, NSInteger idx) {
-            handler(obj, item, idx);
-            
-        }];
-        
-    }
-    return backgroudView;
-}
-
 - (void)handleActionBtn:(UIButton *)sender{
     
     for (UIButton * btn in sender.superview.subviews) {
-        
         if ([btn isEqual:sender]) {
             [btn setBackgroundImage:[UIImage imageWithColor:UIColor.themeColor] forState:UIControlStateNormal];
             [btn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
@@ -218,7 +134,6 @@
 
         }
     }
-    
     
     switch (sender.tag-kTAG_BTN) {
         case 0:

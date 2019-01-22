@@ -1,5 +1,5 @@
 //
-//  SegmentControlController.h
+//  SegmentController.h
 //  BN_AlertView
 //
 //  Created by hsf on 2018/9/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SegmentControlController : UIViewController
+@interface SegmentController : UIViewController
 
 @end

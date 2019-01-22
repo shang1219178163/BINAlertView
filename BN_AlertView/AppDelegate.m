@@ -13,9 +13,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     // Override point for customization after application launch.
-    NSString * control = @"MainViewController";
+    NSString * control = @"HomeViewController";
     
-//    control = @"SegmentControlController";
+//    control = @"SegmentController";
 //    control = @"AnimationController";
 //    control = @"ContactListController";
 //    control = @"CycleViewController";

@@ -1,20 +1,20 @@
 //
-//  SegmentControlController.m
+//  SegmentController.m
 //  BN_AlertView
 //
 //  Created by hsf on 2018/9/10.
 //  Copyright © 2018年 SouFun. All rights reserved.
 //
 
-#import "SegmentControlController.h"
+#import "SegmentController.h"
 
 #import "BN_SegmentControl.h"
 
-@interface SegmentControlController ()
+@interface SegmentController ()
 
 @end
 
-@implementation SegmentControlController
+@implementation SegmentController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
