@@ -1,6 +1,6 @@
 //
 //  BINGroupView.m
-//  BN_AlertViewZero
+//  BNAlertViewZero
 //
 //  Created by hsf on 2018/3/23.
 //  Copyright © 2018年 SouFun. All rights reserved.
@@ -60,8 +60,9 @@
             NSString * title = items[i];
             CGRect btnRect = CGRectMake(x, y, w, h);
             NSString * type = [selectedList containsObject:title] ? @"8": @"0";
-            UIButton * btn = [UIView createBtnRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i type:type target:self aSelector:@selector(handleActionBtn:)];
-            
+            UIButton * btn = [UIView createBtnRect:btnRect title:title font:15 image:nil tag:kTAG_BTN+i type:type];
+            [btn addTarget:self action:@selector(handleBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+
             if ([self.selectedList containsObject:title]) {
                 [self handleSender:btn backgroudColor:UIColor.themeColor textColor:UIColor.whiteColor layerColor:UIColor.themeColor];
                 

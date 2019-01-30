@@ -38,11 +38,11 @@
     //    [self.view addSubview:self.tableView];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
     
-    [self createBarItemTitle:@"+" imageName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
+    [self createBarItemTitle:@"+" imgName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
         [self add:item];
     }];
     
-//    [self createBarItemTitle:@"+" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
+//    [self createBarItemTitle:@"+" imgName:nil isLeft:YES isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
 //        [self jian:item];
 //    }];
     self.itemList = [NSMutableArray arrayWithCapacity:0];

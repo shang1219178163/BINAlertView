@@ -1,0 +1,6 @@
+framework module BNKit {
+  umbrella header "BNKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

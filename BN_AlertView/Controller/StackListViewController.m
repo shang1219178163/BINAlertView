@@ -12,7 +12,6 @@
 #import "UIView+AddView.h"
 
 #import "WHKTableViewZeroCell.h"
-#import "WHKTableViewFiftyFiveCell.h"
 
 #import "BINTabBarView.h"
 
@@ -72,13 +71,13 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
     
     
-    [self createBarItemTitle:@"+" imageName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
+    [self createBarItemTitle:@"+" imgName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton *item, NSInteger idx) {
         NSString * element = [NSString stringWithFormat:@"item%@",@(self.itemList.count)];
         [self.itemList addObject:element];
         
         [self initSlideWithCount];
     }];
-
+    
 
     self.itemList = [NSMutableArray arrayWithCapacity:0];
     

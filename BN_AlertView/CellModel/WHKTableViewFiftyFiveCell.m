@@ -82,7 +82,7 @@
 
 -(UILabel *)labelLeft{
     if (!_labelLeft) {
-        _labelLeft = [UILabel createLabelRect:CGRectZero text:@"" textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_Second backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentLeft];
+        _labelLeft = [UILabel createLabelRect:CGRectZero text:@"" font:16 tag:kTAG_LABEL type:@2];
     }
     return _labelLeft;
 }

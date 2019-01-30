@@ -74,7 +74,8 @@
                 break;
         }
         
-        UILabel * label = [UIView createLabelRect:rect text:title textColor:nil tag:kTAG_LABEL+i type:@2 font:15 backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+        UILabel * label = [UIView createLabelRect:rect text:title font:15 tag:kTAG_LABEL+i type:@2];
+        label.textAlignment = NSTextAlignmentCenter;
         if (i%2 == 1) {
             label.text = [title toDateShort];
             label.layer.borderColor = UIColor.lightGrayColor.CGColor;
@@ -113,11 +114,11 @@
     datePicker.title = @"请选择时间";
     datePicker.tag = tag;
     
-    if ([date isKindOfClass:[NSString class]]) date = [NSDate dateWithString:date];
+    if ([date isKindOfClass:[NSString class]]) date = [NSDateFormatter dateFromString:date format:kFormatDate];
     datePicker.date = date ? date: [NSDate date];
     [datePicker show];
     datePicker.block = ^(UIDatePicker *datePicker, NSInteger btnIndex) {
-        NSString * dateStr = [self stringWithDate:datePicker.date];
+        NSString * dateStr = [NSDateFormatter stringFromDate:datePicker.date format:kFormatDate];
         DDLog(@"dateStr_%@_%ld",dateStr,btnIndex);
         if (btnIndex == 1) {
             NSInteger idx = tag - kTAG_DATE_PICKER;

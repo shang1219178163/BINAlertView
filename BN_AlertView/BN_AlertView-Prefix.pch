@@ -10,12 +10,12 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
-    #import "BN_Globle.h"
-    #import "BN_Kit.h"
-    #import "BN_Category.h"
+    #import "BNGloble.h"
+    #import "BNKit.h"
+    #import "BNCategory.h"
 
-    #define MAS_SHORTHAND
-    #define MAS_SHORTHAND_GLOBALS
+//    #define MAS_SHORTHAND
+//    #define MAS_SHORTHAND_GLOBALS
 
     #import "Masonry.h"
 

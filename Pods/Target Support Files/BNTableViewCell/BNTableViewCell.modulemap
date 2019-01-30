@@ -1,0 +1,6 @@
+framework module BNTableViewCell {
+  umbrella header "BNTableViewCell-umbrella.h"
+
+  export *
+  module * { export * }
+}

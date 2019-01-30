@@ -1,6 +1,6 @@
 //
 //  BNSegmentView.m
-//  BN_AlertView
+//  BNAlertView
 //
 //  Created by Bin Shang on 2019/1/15.
 //  Copyright © 2019 SouFun. All rights reserved.
@@ -92,7 +92,7 @@
             UISegmentedControl * sender = (UISegmentedControl *)obj;
             CGFloat segmentWidth = CGRectGetWidth(self.bounds)/self.segmentCtl.numberOfSegments;
 
-            [UIView animateWithDuration:kAnimDuration animations:^{
+            [UIView animateWithDuration:kDurationShow animations:^{
                 CGRect rect = self.indicator.frame;
                 rect.origin.x = sender.minX + sender.selectedSegmentIndex * segmentWidth;
                 self.indicator.frame = rect;

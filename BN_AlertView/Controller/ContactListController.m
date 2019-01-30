@@ -1,6 +1,6 @@
 //
 //  ContactListController.m
-//  BN_AlertView
+//  BNAlertView
 //
 //  Created by hsf on 2018/10/18.
 //  Copyright © 2018年 SouFun. All rights reserved.

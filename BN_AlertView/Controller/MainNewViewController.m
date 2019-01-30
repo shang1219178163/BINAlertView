@@ -12,8 +12,6 @@
 #import "MQVerCodeInputView.h"
 #import "BN_AlertViewZero.h"
 
-#import "MyView.h"
-
 #import "BINGroupView.h"
 
 #import "BNItemsView.h"
@@ -90,7 +88,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
 
-    [self createBarItemTitle:@"Right" imageName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
+    [self createBarItemTitle:@"Right" imgName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
         [self goController:@"LeftMenuViewController" title:nil obj:nil];
         
     }];
@@ -172,9 +170,7 @@
             break;
         case 3:
         {
-            //MyView初代代码,用于新功能测试开发
-            MyView * grayView = [[MyView alloc]initWithFrame:CGRectZero Title:@"测试视图" message:@"msg" orCustomeView:[self createTableView] delegate:self buttonTitles:[NSArray arrayWithObjects:@"cancell",@"ok", nil]];
-            [grayView showMyView];
+          
         }
             break;
         case 4:
@@ -384,7 +380,7 @@
     CGSize size = [self sizeWithText:text font:@15 width:CGRectGetWidth(view.frame)];
     
     CGRect rect = CGRectMake(0, CGRectGetMaxY(imgView.frame)+kY_GAP, CGRectGetWidth(view.frame), size.height);
-    UILabel * label = [UIView createLabelRect:rect text:text textColor:nil tag:kTAG_LABEL type:@0 font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+    UILabel * label = [UIView createLabelRect:rect text:text font:15 tag:kTAG_LABEL type:@0];
     [view addSubview:label];
     
     
@@ -396,30 +392,6 @@
     return view;
     
 }
-
-//-(NSArray *)getAttListByString:(NSString *)string titleList:(NSArray *)titleList mustList:(NSArray *)mustList{
-//    
-//    NSMutableArray * marr = [NSMutableArray arrayWithCapacity:0];
-//
-//    for (NSString * item in titleList) {
-//        NSString * title = item;
-//        if (![title hasPrefix:string]) title = [string stringByAppendingString:title];
-//        if (![marr containsObject:title]) [marr addObject:title];
-//        
-//        UIColor * colorMust = [mustList containsObject:title] ? [UIColor redColor] : [UIColor clearColor];
-//        
-//        NSArray * textTaps = @[string];
-//        NSAttributedString * attString = [self getAttString:title textTaps:textTaps font:@15 tapFont:@15 tapColor:colorMust alignment:NSTextAlignmentCenter];
-//        
-//        if (![marr containsObject:attString]) {
-//            NSUInteger index = [marr indexOfObject:title];
-//            [marr replaceObjectAtIndex:index withObject:attString];
-//            
-//        }
-//    }
-//    return marr.copy;
-//    
-//}
 
 - (UIView *)getCodeViewWithSize:(CGSize)viewSize count:(NSInteger)count{
     
@@ -499,10 +471,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSLog(@"%ld",(long)indexPath.row);
-    
-//    UIWindow * window = UIApplication.sharedApplication.keyWindow;
-//    MyView * myView = (MyView *)[window viewWithTag:105];
-//    [myView dismissMyView];
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -513,39 +482,6 @@
     
     return 0.1;
 }
-
-
-//- (UIView *)createViewByItems:(NSArray *)items itemDict:(NSDictionary *)itemDict{
-//
-//    CGFloat viewHeight = 30;
-//    CGFloat height = items.count *viewHeight + (items.count - 1)*kPadding;
-//    UIView * backgroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, height)];
-//
-//    CGRect rectLab = CGRectZero;
-//    for (NSInteger i = 0; i<items.count; i++) {
-//
-//        CGSize size = [self sizeWithText:items[i] font:@15 width:kScreenWidth];
-//        if (CGRectEqualToRect(rectLab, CGRectZero)) {
-//            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab), size.width, viewHeight);
-//
-//        }else{
-//            rectLab = CGRectMake(0, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
-//
-//        }
-//        UILabel * label = [UIView createLabelRect:rectLab text:items[i] textColor:nil tag:kTAG_LABEL+i type:@2 font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
-//
-//        CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding, viewHeight);
-//        UITextField * textField = [UIView createTextFieldRect:rectTextField text:@"" placeholder:itemDict[items[i]] font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault];
-//        [backgroudView addSubview:label];
-//        [backgroudView addSubview:textField];
-//
-//        textField.borderStyle = UITextBorderStyleNone;
-//        [textField.layer addSublayer:[textField createLayerBytype:@2]];//下线条
-//
-//    }
-//    return backgroudView;
-//
-//}
 
 
 - (void)didReceiveMemoryWarning {

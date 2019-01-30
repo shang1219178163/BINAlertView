@@ -226,12 +226,12 @@ extern const NSString * CSToastPositionBottom;
 @property (strong, nonatomic) UIColor *backgroundColor;
 
 /**
- The title color. Default is `UIColor.whiteColor`.
+ The title color. Default is `[UIColor whiteColor]`.
  */
 @property (strong, nonatomic) UIColor *titleColor;
 
 /**
- The message color. Default is `UIColor.whiteColor`.
+ The message color. Default is `[UIColor whiteColor]`.
  */
 @property (strong, nonatomic) UIColor *messageColor;
 

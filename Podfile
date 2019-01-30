@@ -3,13 +3,13 @@
 
 target 'BN_AlertView' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+   use_frameworks!
 
   # Pods for BN_AlertView
-    pod 'BN_Globle'
-    pod 'BN_Kit'
-    pod 'BN_Category'
-#  pod 'BN_TableViewCell'
+    pod 'BNGloble'
+    pod 'BNKit'
+    pod 'BNCategory'
+    pod 'BNTableViewCell'
 
     pod 'Masonry'
 #    pod 'PPNumberButton'

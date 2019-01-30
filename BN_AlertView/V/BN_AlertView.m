@@ -34,7 +34,7 @@
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        self.dataList = [NSArray arrayWithItemPrefix:@"工厂_" startIndex:1 count:26 type:@0];
+        self.dataList = [NSArray arrayItemPrefix:@"工厂_" startIndex:1 count:26 type:@0];
 
     }
     return self;

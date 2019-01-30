@@ -1,6 +1,6 @@
 //
 //  BNTopSheetView.m
-//  BN_AlertView
+//  BNAlertView
 //
 //  Created by Bin Shang on 2019/1/15.
 //  Copyright © 2019 SouFun. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import "BNTopSheetView.h"
 
-#import "BN_Category.h"
+#import "BNCategory.h"
 
 @implementation BNTopSheetView
 
@@ -131,7 +131,7 @@
     self.tableView.frame = rect;
     
     self.containView.alpha = 0;
-    [UIView animateWithDuration:kAnimDuration animations:^{
+    [UIView animateWithDuration:kDurationShow animations:^{
         self.containView.alpha = 1.0;
         self.btn.imageView.transform = CGAffineTransformRotate(self.btn.imageView.transform, M_PI);
         
@@ -142,7 +142,7 @@
 }
 
 - (void)dismiss{
-    [UIView animateWithDuration:kAnimDuration animations:^{
+    [UIView animateWithDuration:kDurationShow animations:^{
         self.containView.alpha = 0.0;
         self.btn.imageView.transform = CGAffineTransformIdentity;
         

@@ -329,7 +329,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Indicator progress color.
- * Defaults to white UIColor.whiteColor.
+ * Defaults to white [UIColor whiteColor].
  */
 @property (nonatomic, strong) UIColor *progressTintColor;
 
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Bar border line color.
- * Defaults to white UIColor.whiteColor.
+ * Defaults to white [UIColor whiteColor].
  */
 @property (nonatomic, strong) UIColor *lineColor;
 
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Bar progress color.
- * Defaults to white UIColor.whiteColor.
+ * Defaults to white [UIColor whiteColor].
  */
 @property (nonatomic, strong) UIColor *progressColor;
 

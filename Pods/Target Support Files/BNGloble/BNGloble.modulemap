@@ -1,0 +1,6 @@
+framework module BNGloble {
+  umbrella header "BNGloble-umbrella.h"
+
+  export *
+  module * { export * }
+}

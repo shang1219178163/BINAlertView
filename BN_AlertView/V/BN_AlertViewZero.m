@@ -82,7 +82,7 @@ static const CGFloat padding = 10;
         CGSize customeViewSize = CGSizeZero;
         
         if (title != nil) {
-            UILabel * lableTitle = [UIView createLabelRect:labelRectTitle text:title textColor:nil tag:kTAG_LABEL type:@2 font:kFZ_First backgroudColor:UIColor.whiteColor alignment:NSTextAlignmentCenter];
+            UILabel * lableTitle = [UIView createLabelRect:labelRectTitle text:title font:kFZ_First tag:kTAG_LABEL type:@2];
             [self addSubview:lableTitle];
             self.labTitle = lableTitle;
             
@@ -164,7 +164,7 @@ static const CGFloat padding = 10;
         for (NSInteger i = 0; i < btnCount; i++) {
             
             CGRect btnRect = CGRectMake(CGRectGetWidth(self.frame)/btnCount * i, CGRectGetHeight(self.frame) - kH_BTN, CGRectGetWidth(self.frame)/btnCount, kH_BTN);
-            UIButton * btn = [UIView createBtnRect:btnRect title:btnTitles[i] font:kFZ_First image:nil tag:kTAG_BTN+i type:@2 target:self aSelector:@selector(handleBtnAction:)];
+            UIButton * btn = [UIView createBtnRect:btnRect title:btnTitles[i] font:kFZ_First image:nil tag:i type:@2];
             [self addSubview:btn];
             [self.btnMarr addObject:btn];
             
@@ -342,12 +342,13 @@ static const CGFloat padding = 10;
             rectLab = CGRectMake(labelGapX, CGRectGetMaxY(rectLab)+kPadding, size.width, viewHeight);
             
         }
-        UILabel * label = [UIView createLabelRect:rectLab text:modol.title textColor:nil tag:kTAG_LABEL+i type:@2 font:15 backgroudColor:[UIColor greenColor] alignment:NSTextAlignmentCenter];
+        UILabel * label = [UIView createLabelRect:rectLab text:modol.title font:15 tag:kTAG_LABEL+i type:@2];
+        label.textAlignment = NSTextAlignmentCenter;
         
         CGRect rectTextField = CGRectMake(CGRectGetMaxX(rectLab)+kPadding, CGRectGetMinY(rectLab), CGRectGetWidth(backgroudView.frame) - CGRectGetMaxX(rectLab) - kPadding - labelGapX, viewHeight);
         
         
-        UITextField * textField = [UIView createTextFieldRect:rectTextField text:modol.content placeholder:modol.placeHolder font:15 textAlignment:NSTextAlignmentLeft keyboardType:UIKeyboardTypeDefault tag:i];
+        UITextField * textField = [UIView createTextFieldRect:rectTextField text:modol.placeHolder tag:i];
         [backgroudView addSubview:label];
         [backgroudView addSubview:textField];
         

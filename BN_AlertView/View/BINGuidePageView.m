@@ -103,8 +103,9 @@ static NSString *const kC_CurrentColor = @"PageControlCurrentColor";
                    
                     CGRect btnRect = CGRectMake(btnPadding + (btnWith + btnPadding)*i,  CGRectGetHeight(self.scrollView.frame) * 0.8, btnWith, btnHeight);
                     
-                    UIButton * btn = [UIButton createBtnRect:btnRect title:btnTitleArr[i] font:kFZ_Second image:nil tag:kTAG_BTN+i type:@"4" target:self aSelector:@selector(handleAction:)];
-                    
+                    UIButton * btn = [UIView createBtnRect:btnRect title:btnTitleArr[i] font:kFZ_Second image:nil tag:kTAG_BTN+i type:@"4"];
+                    [btn addTarget:self action:@selector(handleBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+
                     [imageView addSubview:btn];
                 }
             }

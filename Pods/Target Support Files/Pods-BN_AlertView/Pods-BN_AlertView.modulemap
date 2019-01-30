@@ -1,0 +1,6 @@
+framework module Pods_BNAlertView {
+  umbrella header "Pods-BNAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

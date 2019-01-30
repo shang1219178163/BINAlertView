@@ -22,7 +22,7 @@
     // Do any additional setup after loading the view.
     [self configureTableView];
     
-    [self createBarItemTitle:@"Tap" imageName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton * item, NSInteger idx) {
+    [self createBarItemTitle:@"Tap" imgName:nil isLeft:NO isHidden:NO handler:^(id obj, UIButton * item, NSInteger idx) {
        
     }];
     

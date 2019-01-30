@@ -1,0 +1,6 @@
+framework module BNView {
+  umbrella header "BNView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,6 +1,6 @@
 //
 //  SegmentController.h
-//  BN_AlertView
+//  BNAlertView
 //
 //  Created by hsf on 2018/9/10.
 //  Copyright © 2018年 SouFun. All rights reserved.

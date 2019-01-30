@@ -1,6 +1,6 @@
 //
 //  BNItemsView.m
-//  BN_AlertViewZero
+//  BNAlertViewZero
 //
 //  Created by hsf on 2018/5/8.
 //  Copyright © 2018年 SouFun. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import "BNItemsView.h"
 
-//#import "BN_Category.h"
+//#import "BNCategory.h"
 #import "UIView+Helper.h"
 
 @interface BNItemsView()

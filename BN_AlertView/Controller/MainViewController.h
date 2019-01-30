@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomAlertView.h"
-#import "MyView.h"
 
-@interface MainViewController : UIViewController<MyViewDelegate,UITableViewDataSource,UITableViewDelegate>
-
-@property (strong, nonatomic) MyView * myView;
+@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

@@ -11,7 +11,6 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-#import "MyView.h"
 #import "BN_AlertViewZero.h"
 #import "BN_RangeDateView.h"
 
@@ -45,7 +44,7 @@
 
 -(NSArray *)itemList{
     if (!_itemList) {
-        _itemList = [NSArray arrayWithItemPrefix:@"btn_" startIndex:0 count:16 type:@0];
+        _itemList = [NSArray arrayItemPrefix:@"btn_" startIndex:0 count:16 type:@0];
     }
     return _itemList;
 }
@@ -59,7 +58,7 @@
     self.title = @"Main";
     self.view.backgroundColor = [UIColor cyanColor];
     
-    [self createBarItemTitle:@"Next" imageName:nil isLeft:false isHidden:false handler:^(id obj, UIButton *item, NSInteger idx) {
+    [self createBarItemTitle:@"Next" imgName:nil isLeft:false isHidden:false handler:^(id obj, UIButton *item, NSInteger idx) {
         NextViewController * viewController = [NextViewController new];
         [self.navigationController pushViewController:viewController animated:YES];
     }];
@@ -144,7 +143,7 @@
         case 2:
         {
             BN_AlertView * alertView = [[BN_AlertView alloc]init];
-            alertView.dataList = [NSArray arrayWithItemPrefix:@"测试_" startIndex:1 count:22 type:@0];
+            alertView.dataList = [NSArray arrayItemPrefix:@"测试_" startIndex:1 count:22 type:@0];
 
             [alertView show];
             
@@ -153,7 +152,7 @@
         case 3:
         {
             BN_AlertViewOne * alertView = [[BN_AlertViewOne alloc]init];
-//            alertView.dataList = [NSArray arrayWithItemPrefix:@"测试_" startIndex:1 count:22 type:@0];
+//            alertView.dataList = [NSArray arrayItemPrefix:@"测试_" startIndex:1 count:22 type:@0];
             
             [alertView show];
             alertView.block = ^(BN_AlertViewOne *view, NSIndexPath *indexPath) {
@@ -257,20 +256,7 @@
 }
 
 - (void)launchDialog:(UIButton *)sender{
-    
-//    CustomAlertView * alert = [[CustomAlertView alloc]initWithTitle:@"11111" message:@"222" orCustomeView:nil delegate:self buttonTitles:[NSArray arrayWithObjects:@"cancell",@"ok", nil]];
-//
-//    alert.parView = self.view;
-//    [alert showCustomAlertView];
-    
-    
-//    MyView * grayView = [[MyView alloc]initWithFrame:CGRectZero Title:@"title" message:@"msg" orCustomeView:[self createView] delegate:self buttonTitles:[NSArray arrayWithObjects:@"cancell",@"ok", nil]];
-    MyView * grayView = [[MyView alloc]initWithFrame:CGRectZero Title:@"title" message:@"msg" orCustomeView:[self createSpeakStartView] delegate:self buttonTitles:[NSArray arrayWithObjects:@"cancell",@"ok", nil]];
-
-    [grayView showMyView];
-    grayView.tag = 105;
-    
-    return;
+ 
 
 }
 
@@ -338,9 +324,6 @@
     
     NSLog(@"%ld",(long)indexPath.row);
     
-    UIWindow * window = UIApplication.sharedApplication.keyWindow;
-    MyView * myView = (MyView *)[window viewWithTag:105];
-    [myView dismissMyView];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
