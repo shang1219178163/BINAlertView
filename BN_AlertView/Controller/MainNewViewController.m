@@ -85,12 +85,10 @@
     self.view.backgroundColor = [UIColor greenColor];
     self.title = self.controllerName;
     
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Left" style:UIBarButtonItemStyleDone target:self action:@selector(handleActionItem:)];
 
-    [self createBarItemTitle:@"Right" imgName:nil isLeft:YES isHidden:NO handler:^(id obj, id item, NSInteger idx) {
-        [self goController:@"LeftMenuViewController" title:nil obj:nil];
-        
+    [self createBarItemTitle:@"Right" imgName:nil isLeft:false isHidden:false handler:^(id obj, id item, NSInteger idx) {
+        [self goController:@"StackListViewController" title:nil obj:nil];
+
     }];
 
 
@@ -110,12 +108,6 @@
         
     };
     [self.view getViewLayer];
-}
-
-- (void)handleActionItem:(UIBarButtonItem *)sender{
-    [self goController:@"StackListViewController" title:nil obj:nil];
-
-    
 }
 
 - (void)handleActionBtn:(UIButton *)sender{
