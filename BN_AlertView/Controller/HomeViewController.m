@@ -52,10 +52,6 @@
                           @"AnimationController",@"AnimationController",
                           
                           ],
-                      @[
-                          @"CalenderView",@"CalenderViewController",
-                          
-                          ],
                       
                     
                       ].mutableCopy;

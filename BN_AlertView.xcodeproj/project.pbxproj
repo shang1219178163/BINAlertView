@@ -23,7 +23,6 @@
 		14E42D4822013F8200606AD0 /* BINTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E42D3522013F8200606AD0 /* BINTabBarView.m */; };
 		14E42D4922013F8200606AD0 /* BN_TabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E42D3A22013F8200606AD0 /* BN_TabBarView.m */; };
 		14E42D4A22013F8200606AD0 /* BN_RangeDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E42D3C22013F8200606AD0 /* BN_RangeDateView.m */; };
-		14E42D4D2201429400606AD0 /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E42D4C2201429400606AD0 /* CalenderViewController.m */; };
 		14E8F76021F6F8A4004317B5 /* BNTablePlainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8F75F21F6F8A4004317B5 /* BNTablePlainView.m */; };
 		14E8F76F21F72E5A004317B5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8F76E21F72E5A004317B5 /* HomeViewController.m */; };
 		1D4303D92ADB388EDF9425E9 /* Pods_BN_AlertViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218B9F283DC4C1BAC9E0B259 /* Pods_BN_AlertViewTests.framework */; };
@@ -167,8 +166,6 @@
 		14E42D3B22013F8200606AD0 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
 		14E42D3C22013F8200606AD0 /* BN_RangeDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BN_RangeDateView.m; sourceTree = "<group>"; };
 		14E42D3D22013F8200606AD0 /* BN_AlertViewOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BN_AlertViewOne.h; sourceTree = "<group>"; };
-		14E42D4B2201429400606AD0 /* CalenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
-		14E42D4C2201429400606AD0 /* CalenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalenderViewController.m; sourceTree = "<group>"; };
 		14E8F75E21F6F8A4004317B5 /* BNTablePlainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNTablePlainView.h; sourceTree = "<group>"; };
 		14E8F75F21F6F8A4004317B5 /* BNTablePlainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNTablePlainView.m; sourceTree = "<group>"; };
 		14E8F76D21F72E5A004317B5 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -684,8 +681,6 @@
 				147B970E21EDC521000F5294 /* BNTopSheetView.m */,
 				14E8F75E21F6F8A4004317B5 /* BNTablePlainView.h */,
 				14E8F75F21F6F8A4004317B5 /* BNTablePlainView.m */,
-				14E42D4B2201429400606AD0 /* CalenderViewController.h */,
-				14E42D4C2201429400606AD0 /* CalenderViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1036,7 +1031,6 @@
 				518A034320AEDD1000B6142C /* BN_ShareView.m in Sources */,
 				5181E9F7207B132900F6C895 /* PopoverViewCell.m in Sources */,
 				51070E2E2110624A00CAE45E /* BN_MonthView.m in Sources */,
-				14E42D4D2201429400606AD0 /* CalenderViewController.m in Sources */,
 				512861DF1F95ADBC00CD1372 /* MainNewViewController.m in Sources */,
 				51797C3B2178224200FF05E7 /* ContactListController.m in Sources */,
 				518373391F7E22FD00248179 /* BN_DatePicker.m in Sources */,
