@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2A3C67C9EEC5146B2E905CD9BD2A67E6"
+               BuildableName = "YYModel.framework"
                BlueprintName = "YYModel"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "YYModel.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

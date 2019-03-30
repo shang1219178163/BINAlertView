@@ -109,14 +109,14 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>Pods-BN_AlertView.xcscheme</key>
+		<key>Pods-BNAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
-		<key>Pods-BN_AlertViewTests.xcscheme</key>
+		<key>Pods-BNAlertViewTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

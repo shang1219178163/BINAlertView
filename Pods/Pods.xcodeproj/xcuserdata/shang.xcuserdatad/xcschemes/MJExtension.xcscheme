@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5DA0B9CE2A53961BCF191973853CE145"
+               BuildableName = "MJExtension.framework"
                BlueprintName = "MJExtension"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "MJExtension.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

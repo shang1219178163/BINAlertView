@@ -1,6 +1,0 @@
-framework module Pods_BN_AlertViewTests {
-  umbrella header "Pods-BN_AlertViewTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

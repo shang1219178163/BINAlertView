@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "56E7F7C0BCDA24F1AD44447D2A9D2403"
+               BuildableName = "Toast.framework"
                BlueprintName = "Toast"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Toast.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "41DC5F39918DF565EE2C62DCEEE2F31C"
+               BuildableName = "BNKit.framework"
                BlueprintName = "BNKit"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "BNKit.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

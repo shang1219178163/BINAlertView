@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3A721966C12B516276F7CBDD97D04723"
+               BlueprintIdentifier = "EF44E3F7C1275AF0A2AF748EF2244086"
+               BuildableName = "BNTableViewCell.framework"
                BlueprintName = "BNTableViewCell"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "BNTableViewCell.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
