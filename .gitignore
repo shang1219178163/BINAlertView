@@ -19,7 +19,7 @@ DerivedData
 *.xcworkspace
 !default.xcworkspace
 
-BNAlertView/Pods
+*/Pods
 
 #CocoaPods
 Pods
