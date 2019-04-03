@@ -48,6 +48,12 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 
 - (UIView *)addCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii width:(CGFloat)width color:(UIColor *)color;
 
+- (UIImage *)drawCorners:(UIRectCorner)corners
+             cornerRadii:(CGFloat)radius
+             borderWidth:(CGFloat)borderWidth
+             borderColor:(UIColor *)borderColor
+                 bgColor:(UIColor*)bgColor;
+    
 - (UIView *)addCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
 
 - (UIView *)addCorners:(UIRectCorner)corners width:(CGFloat)width color:(UIColor *)color;
@@ -79,6 +85,8 @@ typedef void(^BlockView)(UIView * view,id item, id obj);
 - (void)getViewLayer;
 
 - (void)showLayerColor:(UIColor *)layerColor;
+
+- (void)imageToSavedPhotosAlbum:(void(^)(NSError *error))block;
 
 + (UIView *)createSectionView:(UITableView *)tableView text:(NSString *)text textAlignment:(NSTextAlignment)textAlignment height:(CGFloat)height;
 

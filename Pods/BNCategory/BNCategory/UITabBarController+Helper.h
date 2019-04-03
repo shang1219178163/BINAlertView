@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+UIKIT_EXTERN NSString * const kUIBadgeView;
 UIKIT_EXTERN NSString * const kUITabBarButton;
 UIKIT_EXTERN NSString * const kUITabBarSwappableImageView;
 
@@ -15,7 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITabBarController (Helper)
 
+FOUNDATION_EXPORT NSArray * UINavListFromList(NSArray *list);
+FOUNDATION_EXPORT UITabBarController * UITarBarCtrFromList(NSArray *list);
+
 - (NSArray *)getSubviewsForName:(NSString *)name;
+
+- (void)reloadTabarItems:(NSArray *)list;
 
 @end
 

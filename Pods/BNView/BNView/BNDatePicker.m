@@ -12,9 +12,9 @@
 
 @interface BNDatePicker()
 
-@property(nonatomic,strong) UIView *maskView;
-@property(nonatomic,strong) UIView *containView;
-@property(nonatomic,strong,readwrite) UILabel *titleLabel;// 中间标题Label;
+@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) UIView *containView;
+@property (nonatomic, strong, readwrite) UILabel *titleLabel;// 中间标题Label;
 
 @end
 
@@ -33,13 +33,13 @@
         self.maskView = [[UIView alloc] initWithFrame:window.bounds];
         self.maskView.backgroundColor = UIColor.blackColor;
         self.maskView.alpha = 0.5;
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDatePicker)];
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
         [self.maskView addGestureRecognizer:tap];
         
         // custom DatePicker height
-        CGFloat lineHeight = 1;
-        CGFloat height = kH_PickerView + kH_NaviagtionBar + lineHeight;
-        self.containView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(window.frame), CGRectGetWidth(window.frame), height)];
+        CGFloat lineHeight = 0.5;
+        CGFloat containViewHeight = kH_PickerView + kH_NaviagtionBar + lineHeight;
+        self.containView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(window.frame) - containViewHeight, CGRectGetWidth(window.frame), containViewHeight)];
         self.containView.backgroundColor = UIColor.lightGrayColor;
         
         //config UIToolbar
@@ -61,7 +61,7 @@
         [toolBar setItems:items];
         [self.containView addSubview:toolBar];
         
-        UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, kH_NaviagtionBar, CGRectGetWidth(self.containView.frame), lineHeight)];
+        UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(toolBar.frame), CGRectGetWidth(self.containView.frame), lineHeight)];
         lineView.backgroundColor = UIColor.lightGrayColor;
         [self.containView addSubview:lineView];
         
@@ -93,27 +93,20 @@
     [window addSubview:self.maskView];
     [window addSubview:self.containView];
     
-    CGRect tempFrame = self.containView.frame;
-    tempFrame.origin.y = CGRectGetMinY(tempFrame) - CGRectGetHeight(tempFrame);
+    self.containView.transform = CGAffineTransformMakeTranslation(self.containView.transform.tx, self.containView.transform.ty + CGRectGetHeight(self.containView.frame));
     
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:kDurationShow animations:^{
         self.maskView.alpha = 0.5;
-        self.containView.frame = tempFrame;
+        self.containView.transform = CGAffineTransformIdentity;
         
     } completion:nil];
 }
 
-
-#pragma mark UITapGestureRecognizer Sel
-
--(void)dismissDatePicker{
-    CGRect tempFrame = self.containView.frame;
-    tempFrame.origin.y = CGRectGetMinY(tempFrame) + CGRectGetHeight(tempFrame);
-    
-    [UIView animateWithDuration:0.5f animations:^{
+-(void)dismiss{
+    [UIView animateWithDuration:kDurationShow animations:^{
         self.maskView.alpha = 0;
-        self.containView.frame = tempFrame;
-        
+        self.containView.transform = CGAffineTransformMakeTranslation(self.containView.transform.tx, self.containView.transform.ty + CGRectGetHeight(self.containView.frame));
+
     } completion:^(BOOL finished) {
         [self.containView removeFromSuperview];
         [self.maskView removeFromSuperview];
@@ -126,7 +119,7 @@
     if (self.block) {
         self.block(self, 0);
     }
-    [self dismissDatePicker];
+    [self dismiss];
 }
 
 
@@ -134,7 +127,7 @@
     if (self.block) {
         self.block(self, 1);
     }
-    [self dismissDatePicker];
+    [self dismiss];
 }
 
 

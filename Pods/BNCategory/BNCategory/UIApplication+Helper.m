@@ -9,6 +9,7 @@
 
 #import "UIApplication+Helper.h"
 #import <objc/runtime.h>
+#import "UIImage+Helper.h"
 
 @implementation UIApplication (Helper)
 
@@ -115,66 +116,77 @@
     
 }
 
-+ (void)setupAppearance{
-    [self setupAppearanceNavigationBar];
-    [self setupAppearanceTabBar];
-    UIButton.appearance.exclusiveTouch = NO;
 
+/**
+ 导航栏默认白色主题色
+ */
++ (void)setupAppearanceDefault:(BOOL)isDefault{
+    UIColor *barTintColor = isDefault ? UIColor.whiteColor : UIColor.themeColor;
+    [UIApplication setupAppearanceNavigationBar:barTintColor];
+    [UIApplication setupAppearanceScrollView];
+    [UIApplication setupAppearanceOthers];
+}
+
++ (void)setupAppearanceScrollView{
     UITableViewCell.appearance.separatorInset = UIEdgeInsetsZero;
     UITableViewCell.appearance.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UIScrollView.appearance.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-
+    
     if (@available(iOS 11.0, *)) {
         UITableView.appearance.estimatedRowHeight = 0.0;
         UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
         UITableView.appearance.estimatedSectionFooterHeight = 0.0;
-
+        
         UICollectionView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-
+        
     }
-    
+}
+
++ (void)setupAppearanceOthers{
+    UIButton.appearance.exclusiveTouch = NO;
+
     UITabBar.appearance.tintColor = UIColor.themeColor;
     UITabBar.appearance.barTintColor = UIColor.whiteColor;
-    
+    UITabBar.appearance.translucent = NO;
+
     if (@available(iOS 10.0, *)) {
         UITabBar.appearance.unselectedItemTintColor = UIColor.grayColor;
     } else {
         // Fallback on earlier versions
     }
     
-    
-//    UITabBarItem *selectedItem = UITabBar.appearance.selectedItem;
-//    selectedItem.image = [selectedItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//
-//    NSArray *items = UITabBar.appearance.items;
-//    for (UITabBarItem * item in items) {
-//        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    }
+    UITabBarItem.appearance.titlePositionAdjustment = UIOffsetMake(0, -5.0);
 
-//    UITabBarItem.appearance setTitleTextAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#> forState:<#(UIControlState)#>
+    //    UITabBarItem *selectedItem = UITabBar.appearance.selectedItem;
+    //    selectedItem.image = [selectedItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //
+    //    NSArray *items = UITabBar.appearance.items;
+    //    for (UITabBarItem * item in items) {
+    //        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //    }
+    
+    //    UITabBarItem.appearance setTitleTextAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#> forState:<#(UIControlState)#>
 }
 
-+ (void)setupAppearanceNavigationBar{
-    UINavigationBar.appearance.tintColor = UIColor.whiteColor;
-    UINavigationBar.appearance.barTintColor = UIColor.themeColor;
+/**
+ 定义导航栏背景色
+ */
++ (void)setupAppearanceNavigationBar:(UIColor *)barTintColor{
+    BOOL isDefault = CGColorEqualToColor(UIColor.whiteColor.CGColor, barTintColor.CGColor);
+    UIColor *tintColor = isDefault ? UIColor.blackColor : UIColor.whiteColor;
+//    UIColor *barTintColor = isDefault ? UIColor.whiteColor : UIColor.themeColor;
+    
+    UINavigationBar.appearance.tintColor = tintColor;
+    UINavigationBar.appearance.barTintColor = barTintColor;
+    [UINavigationBar.appearance setBackgroundImage:UIImageColor(barTintColor) forBarMetrics:UIBarMetricsDefault];
+    [UINavigationBar.appearance setShadowImage:UIImageColor(barTintColor)];
+    
     NSDictionary * dic = @{
-                           NSForegroundColorAttributeName   :   UIColor.whiteColor,
-                           NSFontAttributeName  :   [UIFont boldSystemFontOfSize:UIFont.systemFontSize+1.0],
+                           NSForegroundColorAttributeName   :   tintColor,
                            };
     UINavigationBar.appearance.titleTextAttributes = dic;
-
-//    [UINavigationBar.appearance setBarTintColor:UIColor.themeColor];
-//    [UINavigationBar.appearance setTintColor:UIColor.whiteColor];
-//    [UINavigationBar.appearance setTitleTextAttributes:@{
-//                                                         NSForegroundColorAttributeName  :   UIColor.whiteColor,
-//                                            
-//                                                         }];
-   
-    //    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
-    //    [navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
-    
     if (iOSVer(11)) {
 //        UIImage *origImage = [UIImage imageNamed:@"img_btnBack.png"];
 //        //系统返回按钮处的title偏移到可视范围之外
@@ -189,13 +201,8 @@
         
     }
     else{
-
+        
     }
-}
-
-+ (void)setupAppearanceTabBar{
-    UITabBarItem.appearance.titlePositionAdjustment = UIOffsetMake(0, -5.0);
-    UITabBar.appearance.translucent = NO;
 }
 
 + (BOOL)openURL:(NSString *)urlStr tips:(NSString *)tips{

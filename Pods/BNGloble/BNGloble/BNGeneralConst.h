@@ -12,217 +12,235 @@
 typedef UITableViewCell *(^BlockCellForRow)(UITableView *tableView, NSIndexPath *indexPath);
 typedef void(^BlockDidSelectRow)(UITableView *tableView, NSIndexPath *indexPath);
 
+#pragma mark - - kLanguage
+
+FOUNDATION_EXPORT NSString * const kLanguageCN ;
+FOUNDATION_EXPORT NSString * const kLanguageEN ;
+
+#pragma mark - - kArr
+FOUNDATION_EXPORT NSString * const kArr_avg_float ;
+FOUNDATION_EXPORT NSString * const kArr_sum_inter ;
+FOUNDATION_EXPORT NSString * const kArr_max_inter ;
+FOUNDATION_EXPORT NSString * const kArr_min_inter ;
+FOUNDATION_EXPORT NSString * const kArr_sum_float ;
+FOUNDATION_EXPORT NSString * const kArr_max_float ;
+FOUNDATION_EXPORT NSString * const kArr_min_float ;
+FOUNDATION_EXPORT NSString * const kArr_upper_list ;//大小写转换
+FOUNDATION_EXPORT NSString * const kArr_lower_list ;//大小写转换
+FOUNDATION_EXPORT NSString * const kArrs_unionDist_list ;//数组内部去重
+FOUNDATION_EXPORT NSString * const kArrs_union_list ;
+
 #pragma mark - - kSet
 
-UIKIT_EXTERN NSString * const kSet_number ;
-UIKIT_EXTERN NSString * const kSet_alpha ;
-UIKIT_EXTERN NSString * const kSet_alpha_num ;
+FOUNDATION_EXPORT NSString * const kSet_number ;
+FOUNDATION_EXPORT NSString * const kSet_alpha ;
+FOUNDATION_EXPORT NSString * const kSet_alpha_num ;
 
 #pragma mark - - File
 
-UIKIT_EXTERN const NSInteger kPageSize ;
-UIKIT_EXTERN const NSInteger kFileSize_image ;
+FOUNDATION_EXPORT const NSInteger kPageSize ;
+FOUNDATION_EXPORT const NSInteger kFileSize_image ;
 
 //plist文件路径
-UIKIT_EXTERN NSString * const kPlistFilePath ;
+FOUNDATION_EXPORT NSString * const kPlistFilePath ;
 //plist文件名
-UIKIT_EXTERN NSString * const kPlistName_common ;
+FOUNDATION_EXPORT NSString * const kPlistName_common ;
 
 #pragma mark - - kTag
 
-UIKIT_EXTERN const NSInteger kTAG_LABEL ;
-UIKIT_EXTERN const NSInteger kTAG_BTN ;
-UIKIT_EXTERN const NSInteger kTAG_BTN_RightItem ;
-UIKIT_EXTERN const NSInteger kTAG_BTN_BackItem ;
+FOUNDATION_EXPORT const NSInteger kTAG_LABEL ;
+FOUNDATION_EXPORT const NSInteger kTAG_BTN ;
+FOUNDATION_EXPORT const NSInteger kTAG_BTN_RightItem ;
+FOUNDATION_EXPORT const NSInteger kTAG_BTN_BackItem ;
 
-UIKIT_EXTERN const NSInteger kTAG_IMGVIEW ;
-UIKIT_EXTERN const NSInteger kTAG_TEXTFIELD ;
-UIKIT_EXTERN const NSInteger kTAG_TEXTVIEW ;
-UIKIT_EXTERN const NSInteger kTAG_ALERT_VIEW ;
-UIKIT_EXTERN const NSInteger kTAG_ACTION_SHEET ;
-UIKIT_EXTERN const NSInteger kTAG_PICKER_VIEW ;
-UIKIT_EXTERN const NSInteger kTAG_DATE_PICKER ;
+FOUNDATION_EXPORT const NSInteger kTAG_IMGVIEW ;
+FOUNDATION_EXPORT const NSInteger kTAG_TEXTFIELD ;
+FOUNDATION_EXPORT const NSInteger kTAG_TEXTVIEW ;
+FOUNDATION_EXPORT const NSInteger kTAG_ALERT_VIEW ;
+FOUNDATION_EXPORT const NSInteger kTAG_ACTION_SHEET ;
+FOUNDATION_EXPORT const NSInteger kTAG_PICKER_VIEW ;
+FOUNDATION_EXPORT const NSInteger kTAG_DATE_PICKER ;
 
-UIKIT_EXTERN const NSInteger kTAG_VIEW ;
-UIKIT_EXTERN const NSInteger kTAG_VIEW_Segment ;
-UIKIT_EXTERN const NSInteger kTAG_VIEW_RADIO ;
-UIKIT_EXTERN const NSInteger kTAG_VIEW_Picture ;
+FOUNDATION_EXPORT const NSInteger kTAG_VIEW ;
+FOUNDATION_EXPORT const NSInteger kTAG_VIEW_Segment ;
+FOUNDATION_EXPORT const NSInteger kTAG_VIEW_RADIO ;
+FOUNDATION_EXPORT const NSInteger kTAG_VIEW_Picture ;
 
-UIKIT_EXTERN const NSInteger kTAG_UItableViewCell ;
+FOUNDATION_EXPORT const NSInteger kTAG_UItableViewCell ;
 
-UIKIT_EXTERN const NSInteger kTAG_ICAROUSEL ;
-UIKIT_EXTERN const NSInteger kTAG_PAGE_CONTROL ;
+FOUNDATION_EXPORT const NSInteger kTAG_ICAROUSEL ;
+FOUNDATION_EXPORT const NSInteger kTAG_PAGE_CONTROL ;
 
-UIKIT_EXTERN const NSInteger kComponent_0 ;
-UIKIT_EXTERN const NSInteger kComponent_1 ;
-UIKIT_EXTERN const NSInteger kComponent_2 ;
+FOUNDATION_EXPORT const NSInteger kComponent_0 ;
+FOUNDATION_EXPORT const NSInteger kComponent_1 ;
+FOUNDATION_EXPORT const NSInteger kComponent_2 ;
 
 
 #pragma mark - -MacroGeometry与计算有关的尺寸属性
 
-UIKIT_EXTERN const CGFloat kH_StatusBar ;
-UIKIT_EXTERN const CGFloat kH_NaviagtionBar ;
-UIKIT_EXTERN const CGFloat kH_TabBar ;
-UIKIT_EXTERN const CGFloat kH_PickerView;
-UIKIT_EXTERN const CGFloat kH_SegmentOfCustom ;
-UIKIT_EXTERN const CGFloat kH_SegmentControl;
+FOUNDATION_EXPORT const CGFloat kH_StatusBar ;
+FOUNDATION_EXPORT const CGFloat kH_NaviagtionBar ;
+FOUNDATION_EXPORT const CGFloat kH_TabBar ;
+FOUNDATION_EXPORT const CGFloat kH_PickerView;
+FOUNDATION_EXPORT const CGFloat kH_SegmentOfCustom ;
+FOUNDATION_EXPORT const CGFloat kH_SegmentControl;
 
-UIKIT_EXTERN const CGFloat kH_searchBar;
-UIKIT_EXTERN const CGFloat kH_searchBarBackgroud;
+FOUNDATION_EXPORT const CGFloat kH_searchBar;
+FOUNDATION_EXPORT const CGFloat kH_searchBarBackgroud;
 
-UIKIT_EXTERN const CGFloat kH_topView;
-UIKIT_EXTERN const CGFloat kH_slideView;
-UIKIT_EXTERN const CGFloat kH_CellHeight ;
+FOUNDATION_EXPORT const CGFloat kH_topView;
+FOUNDATION_EXPORT const CGFloat kH_slideView;
+FOUNDATION_EXPORT const CGFloat kH_CellHeight ;
 
-UIKIT_EXTERN const CGFloat kX_GAP ;
-UIKIT_EXTERN const CGFloat kY_GAP ;
-UIKIT_EXTERN const CGFloat kPadding ;
-UIKIT_EXTERN const CGFloat kW_LayerBorder ;
-UIKIT_EXTERN const CGFloat kWH_ArrowRight ;
-UIKIT_EXTERN const CGFloat kTimerValue ;
-UIKIT_EXTERN const CGFloat kRatio_IDCard ;
-UIKIT_EXTERN const CGFloat kRatio_LeftMenu ;
+FOUNDATION_EXPORT const CGFloat kX_GAP ;
+FOUNDATION_EXPORT const CGFloat kY_GAP ;
+FOUNDATION_EXPORT const CGFloat kPadding ;
+FOUNDATION_EXPORT const CGFloat kW_LayerBorder ;
+FOUNDATION_EXPORT const CGFloat kWH_ArrowRight ;
+FOUNDATION_EXPORT const CGFloat kTimerValue ;
+FOUNDATION_EXPORT const CGFloat kRatio_IDCard ;
+FOUNDATION_EXPORT const CGFloat kRatio_LeftMenu ;
 
-UIKIT_EXTERN const CGFloat kDurationShow;
-UIKIT_EXTERN const CGFloat kDurationToast ;
-UIKIT_EXTERN const CGFloat kDurationDrop ;
+FOUNDATION_EXPORT const CGFloat kDurationShow;
+FOUNDATION_EXPORT const CGFloat kDurationToast ;
+FOUNDATION_EXPORT const CGFloat kDurationDrop ;
 
-UIKIT_EXTERN const CGFloat kW_item ;
-UIKIT_EXTERN const CGFloat kW_progressView ;
+FOUNDATION_EXPORT const CGFloat kW_item ;
+FOUNDATION_EXPORT const CGFloat kW_progressView ;
 
-UIKIT_EXTERN const CGFloat kH_LABEL ;
-UIKIT_EXTERN const CGFloat kH_LABEL_TITLE ;
-UIKIT_EXTERN const CGFloat kH_LABEL_SMALL ;
+FOUNDATION_EXPORT const CGFloat kH_LABEL ;
+FOUNDATION_EXPORT const CGFloat kH_LABEL_TITLE ;
+FOUNDATION_EXPORT const CGFloat kH_LABEL_SMALL ;
 
-UIKIT_EXTERN const CGFloat kH_TEXTFIELD ;
-UIKIT_EXTERN const CGFloat kH_LINE_VIEW ;
-UIKIT_EXTERN const CGFloat kW_LINE_Vert ;
+FOUNDATION_EXPORT const CGFloat kH_TEXTFIELD ;
+FOUNDATION_EXPORT const CGFloat kH_LINE_VIEW ;
+FOUNDATION_EXPORT const CGFloat kW_LINE_Vert ;
 
 #pragma mark - -font
 
-UIKIT_EXTERN const CGFloat kFZ_First ;
-UIKIT_EXTERN const CGFloat kFZ_Second ;
-UIKIT_EXTERN const CGFloat kFZ_Third ;
-UIKIT_EXTERN const CGFloat kFZ_Fouth ;
-UIKIT_EXTERN const CGFloat kFZ_Fifth ;
+FOUNDATION_EXPORT const CGFloat kFZ_First ;
+FOUNDATION_EXPORT const CGFloat kFZ_Second ;
+FOUNDATION_EXPORT const CGFloat kFZ_Third ;
+FOUNDATION_EXPORT const CGFloat kFZ_Fouth ;
+FOUNDATION_EXPORT const CGFloat kFZ_Fifth ;
 
 #pragma mark - -视图
 
-UIKIT_EXTERN NSString * const kIMG_arrowRight ;
-UIKIT_EXTERN NSString * const kIMG_arrowDown ;
-UIKIT_EXTERN NSString * const kIMG_arrowBack ;
-UIKIT_EXTERN NSString * const kIMG_arrowUp ;
+FOUNDATION_EXPORT NSString * const kIMG_arrowRight ;
+FOUNDATION_EXPORT NSString * const kIMG_arrowDown ;
+FOUNDATION_EXPORT NSString * const kIMG_arrowBack ;
+FOUNDATION_EXPORT NSString * const kIMG_arrowUp ;
 
-UIKIT_EXTERN NSString * const kIMG_portrait ;
-UIKIT_EXTERN NSString * const kIMG_portrait_N ;
-UIKIT_EXTERN NSString * const kIMG_portrait_H ;
-UIKIT_EXTERN NSString * const kIMG_pictureAdd ;
-UIKIT_EXTERN NSString * const kIMG_pictureDelete ;
+FOUNDATION_EXPORT NSString * const kIMG_portrait ;
+FOUNDATION_EXPORT NSString * const kIMG_portrait_N ;
+FOUNDATION_EXPORT NSString * const kIMG_portrait_H ;
+FOUNDATION_EXPORT NSString * const kIMG_pictureAdd ;
+FOUNDATION_EXPORT NSString * const kIMG_pictureDelete ;
 
-UIKIT_EXTERN NSString * const kIMG_defaultFailed ;
-UIKIT_EXTERN NSString * const kIMG_defaultFailed_S ;
+FOUNDATION_EXPORT NSString * const kIMG_defaultFailed ;
+FOUNDATION_EXPORT NSString * const kIMG_defaultFailed_S ;
 
-UIKIT_EXTERN NSString * const kIMG_sexBoy ;
-UIKIT_EXTERN NSString * const kIMG_sexGril ;
+FOUNDATION_EXPORT NSString * const kIMG_sexBoy ;
+FOUNDATION_EXPORT NSString * const kIMG_sexGril ;
 
-UIKIT_EXTERN NSString * const kIMG_elemetDec ;
-UIKIT_EXTERN NSString * const kIMG_elemetInc ;
+FOUNDATION_EXPORT NSString * const kIMG_elemetDec ;
+FOUNDATION_EXPORT NSString * const kIMG_elemetInc ;
 
-UIKIT_EXTERN NSString * const kIMG_scan ;
-UIKIT_EXTERN NSString * const kIMG_NFC ;
+FOUNDATION_EXPORT NSString * const kIMG_scan ;
+FOUNDATION_EXPORT NSString * const kIMG_NFC ;
 
-UIKIT_EXTERN NSString * const kIMG_inquiry ;
-UIKIT_EXTERN NSString * const kIMG_update ;
-UIKIT_EXTERN NSString * const kIMG_warning ;
+FOUNDATION_EXPORT NSString * const kIMG_inquiry ;
+FOUNDATION_EXPORT NSString * const kIMG_update ;
+FOUNDATION_EXPORT NSString * const kIMG_warning ;
 
-UIKIT_EXTERN NSString * const kIMG_notice ;
-UIKIT_EXTERN NSString * const kIMG_location_H ;
-UIKIT_EXTERN NSString * const kIMG_more ;
+FOUNDATION_EXPORT NSString * const kIMG_notice ;
+FOUNDATION_EXPORT NSString * const kIMG_location_H ;
+FOUNDATION_EXPORT NSString * const kIMG_more ;
 
-UIKIT_EXTERN NSString * const kIMG_selected_NO ;
-UIKIT_EXTERN NSString * const kIMG_selected_YES ;
-UIKIT_EXTERN NSString * const kIMG_Add ;
+FOUNDATION_EXPORT NSString * const kIMG_selected_NO ;
+FOUNDATION_EXPORT NSString * const kIMG_selected_YES ;
+FOUNDATION_EXPORT NSString * const kIMG_Add ;
 
-UIKIT_EXTERN NSString * const kIMG_like_H ;
-UIKIT_EXTERN NSString * const kIMG_like_W ;
+FOUNDATION_EXPORT NSString * const kIMG_like_H ;
+FOUNDATION_EXPORT NSString * const kIMG_like_W ;
 
-UIKIT_EXTERN NSString * const kMsg_NetWorkRequesting;
-UIKIT_EXTERN NSString * const kMsg_NetWorkFailed;
-UIKIT_EXTERN NSString * const kMsg_NetWorkNodata;
-UIKIT_EXTERN NSString * const kMsg_NetWorkNoMoredata;
-UIKIT_EXTERN NSString * const kMsg_NetWorkFailed_Params;
+FOUNDATION_EXPORT NSString * const kMsg_NetWorkRequesting;
+FOUNDATION_EXPORT NSString * const kMsg_NetWorkFailed;
+FOUNDATION_EXPORT NSString * const kMsg_NetWorkNodata;
+FOUNDATION_EXPORT NSString * const kMsg_NetWorkNoMoredata;
+FOUNDATION_EXPORT NSString * const kMsg_NetWorkFailed_Params;
 
-UIKIT_EXTERN NSString * const kMsg_Locationing;
-UIKIT_EXTERN NSString * const kMsg_LocationSuccess;
-UIKIT_EXTERN NSString * const kMsg_LocationFailed;
-UIKIT_EXTERN NSString * const kMsg_IDCardFailed;
-UIKIT_EXTERN NSString * const kMsg_IDCardSuccess;
+FOUNDATION_EXPORT NSString * const kMsg_Locationing;
+FOUNDATION_EXPORT NSString * const kMsg_LocationSuccess;
+FOUNDATION_EXPORT NSString * const kMsg_LocationFailed;
+FOUNDATION_EXPORT NSString * const kMsg_IDCardFailed;
+FOUNDATION_EXPORT NSString * const kMsg_IDCardSuccess;
 
 
-UIKIT_EXTERN NSString * const kActionTitle_Know;
-UIKIT_EXTERN NSString * const kActionTitle_Sure;
-UIKIT_EXTERN NSString * const kActionTitle_Cancell;
-UIKIT_EXTERN NSString * const kActionTitle_Delete;
-UIKIT_EXTERN NSString * const kActionTitle_Drop;
-UIKIT_EXTERN NSString * const kActionTitle_Call;
-UIKIT_EXTERN NSString * const kActionTitle_Update;
+FOUNDATION_EXPORT NSString * const kActionTitle_Know;
+FOUNDATION_EXPORT NSString * const kActionTitle_Sure;
+FOUNDATION_EXPORT NSString * const kActionTitle_Cancell;
+FOUNDATION_EXPORT NSString * const kActionTitle_Delete;
+FOUNDATION_EXPORT NSString * const kActionTitle_Drop;
+FOUNDATION_EXPORT NSString * const kActionTitle_Call;
+FOUNDATION_EXPORT NSString * const kActionTitle_Update;
 
-UIKIT_EXTERN NSString * const kActionTitle_Collect;
-UIKIT_EXTERN NSString * const kActionTitle_Recover;
+FOUNDATION_EXPORT NSString * const kActionTitle_Collect;
+FOUNDATION_EXPORT NSString * const kActionTitle_Recover;
 
-UIKIT_EXTERN NSString * const kNIl_TEXT ;
-UIKIT_EXTERN NSString * const kSeparateStr ;
-UIKIT_EXTERN NSString * const kAsterisk ;
-UIKIT_EXTERN NSString * const kBlankHalf ;
-UIKIT_EXTERN NSString * const kBlankOne ;
-UIKIT_EXTERN NSString * const kBlankTwo ;
-UIKIT_EXTERN NSString * const kBlankFour ;
+FOUNDATION_EXPORT NSString * const kNIl_TEXT ;
+FOUNDATION_EXPORT NSString * const kSeparateStr ;
+FOUNDATION_EXPORT NSString * const kAsterisk ;
+FOUNDATION_EXPORT NSString * const kBlankHalf ;
+FOUNDATION_EXPORT NSString * const kBlankOne ;
+FOUNDATION_EXPORT NSString * const kBlankTwo ;
+FOUNDATION_EXPORT NSString * const kBlankFour ;
 
 #pragma mark - - 通用
 
-UIKIT_EXTERN NSString * const kDes_week ;
-UIKIT_EXTERN NSString * const kDes_month ;
-UIKIT_EXTERN NSString * const kDes_day ;
+FOUNDATION_EXPORT NSString * const kDes_week ;
+FOUNDATION_EXPORT NSString * const kDes_month ;
+FOUNDATION_EXPORT NSString * const kDes_day ;
 
-UIKIT_EXTERN NSString * const kItem_obj ;
-UIKIT_EXTERN NSString * const kItem_objSeleted ;
-UIKIT_EXTERN NSString * const kItem_block ;
+FOUNDATION_EXPORT NSString * const kItem_obj ;
+FOUNDATION_EXPORT NSString * const kItem_objSeleted ;
+FOUNDATION_EXPORT NSString * const kItem_block ;
 
-UIKIT_EXTERN NSString * const kItem_title ;
-UIKIT_EXTERN NSString * const kItem_titleColor ;
-UIKIT_EXTERN NSString * const kItem_textField ;
+FOUNDATION_EXPORT NSString * const kItem_title ;
+FOUNDATION_EXPORT NSString * const kItem_titleColor ;
+FOUNDATION_EXPORT NSString * const kItem_textField ;
 
-UIKIT_EXTERN NSString * const kItem_titleSub ;
-UIKIT_EXTERN NSString * const kItem_titleSubColor ;
-UIKIT_EXTERN NSString * const kItem_titleSection ;
+FOUNDATION_EXPORT NSString * const kItem_titleSub ;
+FOUNDATION_EXPORT NSString * const kItem_titleSubColor ;
+FOUNDATION_EXPORT NSString * const kItem_titleSection ;
 
-UIKIT_EXTERN NSString * const kItem_image ;
-UIKIT_EXTERN NSString * const kItem_image_H ;
+FOUNDATION_EXPORT NSString * const kItem_image ;
+FOUNDATION_EXPORT NSString * const kItem_image_H ;
 
-UIKIT_EXTERN NSString * const kItem_controller ;
-UIKIT_EXTERN NSString * const kItem_controller_Title ;
+FOUNDATION_EXPORT NSString * const kItem_controller ;
+FOUNDATION_EXPORT NSString * const kItem_controller_Title ;
 
-UIKIT_EXTERN NSString * const kItem_Height ;
-UIKIT_EXTERN NSString * const kItem_dataList ;
-UIKIT_EXTERN NSString * const kItem_finished ;
+FOUNDATION_EXPORT NSString * const kItem_Height ;
+FOUNDATION_EXPORT NSString * const kItem_dataList ;
+FOUNDATION_EXPORT NSString * const kItem_finished ;
 
-UIKIT_EXTERN NSString * const kItem_header ;
-UIKIT_EXTERN NSString * const kItem_footer ;
+FOUNDATION_EXPORT NSString * const kItem_header ;
+FOUNDATION_EXPORT NSString * const kItem_footer ;
 /**
  推送通知
  */
-UIKIT_EXTERN NSString * const kNoti_title;
-UIKIT_EXTERN NSString * const kNoti_subtitle;
-UIKIT_EXTERN NSString * const kNoti_body;
-UIKIT_EXTERN NSString * const kNoti_badge;
+FOUNDATION_EXPORT NSString * const kNoti_title;
+FOUNDATION_EXPORT NSString * const kNoti_subtitle;
+FOUNDATION_EXPORT NSString * const kNoti_body;
+FOUNDATION_EXPORT NSString * const kNoti_badge;
 
 
 /**
  通知
  */
-UIKIT_EXTERN NSString * const kNotiPost_logIn;
-UIKIT_EXTERN NSString * const kNotiPost_logOut;
-UIKIT_EXTERN NSString * const kNotiPost_backgroudUploadLocation ;
+FOUNDATION_EXPORT NSString * const kNotiPost_logIn;
+FOUNDATION_EXPORT NSString * const kNotiPost_logOut;
+FOUNDATION_EXPORT NSString * const kNotiPost_backgroudUploadLocation ;
 
 @interface BNGeneralConst : NSObject
 

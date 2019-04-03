@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "79D0DC32D6D21B12D1472B85C911F9B5"
+               BlueprintIdentifier = "6735B3EAAFA440E73E6A1130A8B7C441"
                BuildableName = "AESCrypt_ObjC.framework"
                BlueprintName = "AESCrypt-ObjC"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "79D0DC32D6D21B12D1472B85C911F9B5"
+            BlueprintIdentifier = "6735B3EAAFA440E73E6A1130A8B7C441"
             BuildableName = "AESCrypt_ObjC.framework"
             BlueprintName = "AESCrypt-ObjC"
             ReferencedContainer = "container:Pods.xcodeproj">

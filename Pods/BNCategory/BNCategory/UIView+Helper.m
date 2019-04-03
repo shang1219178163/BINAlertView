@@ -152,6 +152,37 @@
     return self;
 }
 
+/**
+ 上下文绘制圆角矩形
+ */
+- (UIImage *)drawCorners:(UIRectCorner)corners
+            cornerRadii:(CGFloat)radius
+            borderWidth:(CGFloat)borderWidth
+            borderColor:(UIColor *)borderColor
+                 bgColor:(UIColor*)bgColor{
+    CGSize size = self.bounds.size;
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    CGContextRef contextRef =  UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(contextRef, borderWidth);
+    CGContextSetStrokeColorWithColor(contextRef, borderColor.CGColor);
+    CGContextSetFillColorWithColor(contextRef, bgColor.CGColor);
+    
+    CGFloat halfBorderWidth = borderWidth / 2.0;
+    CGFloat width = size.width;
+    CGFloat height = size.height;
+    
+    CGContextMoveToPoint(contextRef, width - halfBorderWidth, radius + halfBorderWidth);
+    CGContextAddArcToPoint(contextRef, width - halfBorderWidth, height - halfBorderWidth, width - radius - halfBorderWidth, height - halfBorderWidth, radius);  // 右下角角度
+    CGContextAddArcToPoint(contextRef, halfBorderWidth, height - halfBorderWidth, halfBorderWidth, height - radius - halfBorderWidth, radius); // 左下角角度
+    CGContextAddArcToPoint(contextRef, halfBorderWidth, halfBorderWidth, width - halfBorderWidth, halfBorderWidth, radius); // 左上角
+    CGContextAddArcToPoint(contextRef, width - halfBorderWidth, halfBorderWidth, width - halfBorderWidth, radius + halfBorderWidth, radius); // 右上角
+    CGContextDrawPath(contextRef, kCGPathFillStroke);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 - (UIView *)addCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii{
     return [self addCorners:corners cornerRadii:cornerRadii width:1.0 color:UIColor.whiteColor];
 }
@@ -499,6 +530,36 @@
         
     }
     self.layer.cornerRadius = cornerRadius;
+}
+
+/**
+ 保存图像到相册
+ */
+- (void)imageToSavedPhotosAlbum:(void(^)(NSError *error))block{
+    NSString *funcAbount = NSStringFromSelector(_cmd);
+    NSString *runtimeKey = RuntimeKeyFromParams(self, funcAbount);
+    
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    CGContextRef ctx =  UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:ctx];
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    if ([self isKindOfClass:UIImageView.class]) {
+        image = ((UIImageView *)self).image;
+    }
+    UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),nil);
+    image.runtimeKey = runtimeKey;
+    
+    id obj = objc_getAssociatedObject(self, CFBridgingRetain(image.runtimeKey));
+    if (!obj) {
+        objc_setAssociatedObject(self, CFBridgingRetain(runtimeKey), block, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    void(^block)(NSError *error) = objc_getAssociatedObject(self, CFBridgingRetain(image.runtimeKey));
+    if (block) {
+        block(error);
+    }
 }
 
 + (UIView *)createSectionView:(UITableView *)tableView text:(NSString *)text textAlignment:(NSTextAlignment)textAlignment height:(CGFloat)height{

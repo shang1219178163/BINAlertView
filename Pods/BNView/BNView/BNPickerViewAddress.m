@@ -30,7 +30,6 @@
 @implementation BNPickerViewAddress
 
 +(BNPickerViewAddress *)pickerViewCancelBtnTitle:(NSString *)cancelBtnTitle confirmBtnTitle:(NSString *)confirmBtnTitle{
-    
     BNPickerViewAddress * addressPickerView = [[BNPickerViewAddress alloc]initWithCancelBtnTitle:cancelBtnTitle confirmBtnTitle:confirmBtnTitle];
     return addressPickerView;
 }
@@ -45,7 +44,7 @@
         self.maskView = [[UIView alloc] initWithFrame:window.bounds];
         self.maskView.backgroundColor = UIColor.blackColor;
         self.maskView.alpha = 0.5;
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPickerView)];
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
         [self.maskView addGestureRecognizer:tap];
         
         // custom DatePicker height
@@ -125,7 +124,6 @@
 }
 
 - (void)actionSelectAddress:(NSString *)address{
-    
     if (![address containsString:kString_Separate]) {
         if ([address containsString:@"省"]) {
             NSString * stringRe = [@"省" stringByAppendingString:kString_Separate];
@@ -188,7 +186,7 @@
 
 #pragma mark --UITapGestureRecognizer Sel
 
--(void)dismissPickerView
+-(void)dismiss
 {
     CGRect tempFrame = self.containView.frame;
     tempFrame.origin.y = CGRectGetMinY(tempFrame) + CGRectGetHeight(tempFrame);
@@ -207,7 +205,7 @@
     if (self.block) {
         self.block(self.pickerView, @" ",[@"0" integerValue]);
     }
-    [self dismissPickerView];
+    [self dismiss];
 }
 
 -(void)confirm
@@ -233,7 +231,7 @@
     if (self.block) {
         self.block(self.pickerView, showMsg,[@"1" integerValue]);
     }
-    [self dismissPickerView];
+    [self dismiss];
 }
 
 

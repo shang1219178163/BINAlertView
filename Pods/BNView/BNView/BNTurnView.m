@@ -70,7 +70,7 @@
         self.labelTwo.text = _list[1];
         
 //        [NSTimer stopTimer:_timer];
-//        _timer = [NSTimer BNtimeInterval:2 block:^(NSTimer *timer) {
+//        _timer = [NSTimer scheduledTimer:2 block:^(NSTimer *timer) {
 //            [self updateLabs];
 //
 //        } repeats:YES];
@@ -88,7 +88,7 @@
     _interval = _interval > 0.0 ? _interval : 2.0;
     
     [NSTimer stopTimer:_timer];
-    _timer = [NSTimer BNtimeInterval:_interval block:^(NSTimer *timer) {
+    _timer = [NSTimer scheduledTimer:_interval block:^(NSTimer *timer) {
         [self updateLabs];
         
     } repeats:YES];

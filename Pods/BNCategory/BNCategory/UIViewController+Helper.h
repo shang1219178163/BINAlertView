@@ -21,6 +21,8 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 
 @interface UIViewController (Helper)
 
+FOUNDATION_EXPORT UIViewController * UICtrFromString(NSString *obj);
+
 - (BOOL)isCurrentVisibleViewController;
 
 - (void)addFailRefreshViewWithTitle:(NSString *_Nonnull)title;
@@ -48,10 +50,13 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 
 - (void)configureDefault;
 
+
 /**
   导航栏按钮
  */
 - (UIButton *)createBarItemTitle:(NSString *)title imgName:(NSString *)imageName isLeft:(BOOL)isLeft isHidden:(BOOL)isHidden handler:(void(^)(id obj, UIButton * item, NSInteger idx))handler;
+
+- (UIView *)createBarItem:(NSString *)obj isLeft:(BOOL)isLeft handler:(void(^)(id obj, UIView *item, NSInteger idx))handler;
 
 - (UITableViewCell *_Nonnull)cellByClickView:(UIView *_Nonnull)view;
 
@@ -71,8 +76,11 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 - (void)goController:(NSString *_Nonnull)contollerName title:(NSString *_Nullable)title obj:(id _Nullable)obj objOne:(id _Nullable)objOne;
 
 - (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *_Nullable)title;
+- (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *_Nullable)title animated:(BOOL)animated;
+
 - (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *_Nullable)title obj:(id _Nullable)obj;
 - (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *_Nullable)title obj:(id _Nullable)obj objOne:(id _Nullable)objOne;
+- (void)presentController:(NSString *_Nonnull)contollerName title:(NSString * _Nullable)title obj:(id _Nullable)obj objOne:(id _Nullable)objOne animated:(BOOL)animated;
 
 /**
  堆栈中查找控制器,找到返回,没有创建
@@ -109,5 +117,6 @@ typedef void(^BlockAlertController)(UIAlertController * _Nonnull alertController
 
 - (void)callPhone:(NSString *_Nonnull)phoneNumber;
 
+- (UIButton *)createBackItem:(UIImage *)image;
 
 @end

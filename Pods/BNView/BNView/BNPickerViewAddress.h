@@ -61,6 +61,6 @@
 - (void)actionSelectAddress:(NSString *)address;
 
 - (void)show;
-- (void)dismissPickerView;
+- (void)dismiss;
 
 @end

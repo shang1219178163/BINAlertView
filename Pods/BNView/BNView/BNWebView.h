@@ -27,13 +27,9 @@
 /**
  进度条颜色
  */
-@property (nonatomic,strong) UIColor *loadingProgressColor;
-
-/**
- 是否下拉重新加载
- */
-@property (nonatomic, assign) BOOL canDownRefresh;
+@property (nonatomic,strong) UIColor *progressColor;
 
 - (void)loadRequest;
+- (void)loadRequest:(NSString *)urlString;
 
 @end

@@ -13,6 +13,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     // Override point for customization after application launch.
+    [UIApplication setupAppearanceDefault:false];
+
     NSString * control = @"HomeViewController";
     
 //    control = @"SegmentController";
@@ -21,7 +23,6 @@
 //    control = @"CycleViewController";
 
     [UIApplication setupRootController:control];
-    [UIApplication setupAppearance];
     return YES;
 }
 

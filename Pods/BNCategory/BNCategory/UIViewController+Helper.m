@@ -20,11 +20,19 @@
 #import "UIView+Helper.h"
 #import "UIButton+Helper.h"
 #import "UIScreen+Helper.h"
+#import "UIControl+Helper.h"
 
 
 @implementation UIViewController (Helper)
 
 @dynamic delegate;
+
+/**
+ 字符串->UIViewController
+ */
+UIViewController * UICtrFromString(NSString *obj){
+    return [[NSClassFromString(obj) alloc]init];
+}
 
 - (void)configureDefault{
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -225,6 +233,10 @@
     return view;
 }
 
+
+/**
+ [弃用]可隐藏的导航按钮
+ */
 - (UIButton *)createBarItemTitle:(NSString *)title imgName:(NSString *)imgName isLeft:(BOOL)isLeft isHidden:(BOOL)isHidden handler:(void(^)(id obj, UIButton * item, NSInteger idx))handler{
     UIButton * btn = nil;
     if (imgName) {
@@ -233,6 +245,8 @@
     }
     else{
         btn = [UIButton buttonWithSize:CGSizeMake(40, 40) title:title font:15 titleColor_N:nil titleColor_H:nil titleEdgeInsets:UIEdgeInsetsZero];
+        btn.titleLabel.textColor = UINavigationBar.appearance.tintColor;
+
     }
     btn.tag = isLeft  ? kTAG_BTN_BackItem : kTAG_BTN_RightItem;
     btn.hidden = isHidden;
@@ -272,6 +286,41 @@
     return btn;
 }
 
+/**
+ 可隐藏的导航栏按钮
+ */
+- (UIView *)createBarItem:(NSString *)obj isLeft:(BOOL)isLeft handler:(void(^)(id obj, UIView *item, NSInteger idx))handler{
+    UIView * item = nil;
+    if ([UIImage imageNamed:obj]) {
+        item = [UIView createImgViewRect:CGRectMake(0, 0, 32, 32) image:[UIImage imageNamed:obj] tag:0 type:0];
+    }
+    else{
+        item = [UIView createLabelRect:CGRectMake(0, 0, 72, 20) text:obj font:16 tag:0 type:@1];
+        ((UILabel *)item).textAlignment = NSTextAlignmentCenter;
+        ((UILabel *)item).textColor = UINavigationBar.appearance.tintColor;
+    }
+    
+    item.tag = isLeft ? kTAG_BTN_BackItem : kTAG_BTN_RightItem;
+    //
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    item.center = view.center;
+    [view addSubview:item];
+    
+    [view addGestureTap:^(UIGestureRecognizer *sender) {
+        if (view.isHidden == 1) return;
+        handler((UITapGestureRecognizer *)obj, item, item.tag);
+        
+    }];
+   
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc]initWithCustomView:view];
+    if (isLeft) {
+        self.navigationItem.leftBarButtonItem = barItem;
+    }
+    else{
+        self.navigationItem.rightBarButtonItem = barItem;
+    }
+    return view;
+}
 
 - (UITableViewCell *)cellByClickView:(UIView *)view{
     UIView * supView = [view superview];
@@ -351,25 +400,33 @@
 }
 
 - (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *)title{
-    [self presentController:contollerName title:title obj:nil objOne:nil];
+    [self presentController:contollerName title:title obj:nil objOne:nil animated:true];
+}
+
+- (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *)title animated:(BOOL)animated{
+    [self presentController:contollerName title:title obj:nil objOne:nil animated:animated];
 }
 
 - (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *)title obj:(id)obj{
-    [self presentController:contollerName title:title obj:obj objOne:nil];
+    [self presentController:contollerName title:title obj:obj objOne:nil animated:true];
 }
 
 - (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *)title obj:(id)obj objOne:(id)objOne{
+    [self presentController:contollerName title:title obj:obj objOne:nil animated:true];
+}
+
+- (void)presentController:(NSString *_Nonnull)contollerName title:(NSString *)title obj:(id)obj objOne:(id)objOne animated:(BOOL)animated{
     UIViewController * controller = [NSClassFromString(contollerName) new];
     controller.title = title;
     controller.obj = obj;
     controller.objOne = objOne;
-
+    
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navController animated:YES completion:^{
+    [self presentViewController:navController animated:animated completion:^{
         
     }];
-    
 }
+
 
 - (UIViewController *)getController:(NSString *)contollerName navController:(UINavigationController *)navController{
     if (!navController) {
@@ -507,6 +564,27 @@
     }];
 }
 
+
+/**
+ 返回按钮专用
+ */
+- (UIButton *)createBackItem:(UIImage *)image{
+    NSParameterAssert(image != nil);
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 30, 40);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+    
+    [btn setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    btn.imageView.tintColor = UINavigationBar.appearance.tintColor != nil ? UINavigationBar.appearance.tintColor : UIColor.redColor;
+    [btn addActionHandler:^(UIControl * _Nonnull control) {
+        [self.navigationController popViewControllerAnimated:true];
+        
+    } forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem * backItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = backItem;
+    return btn;
+}
 
 @end
 

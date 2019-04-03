@@ -71,7 +71,7 @@ static NSTimeInterval kDurationCycle = 20;
     
     [NSTimer stopTimer:_timer];
     
-    _timer = [NSTimer BNtimeInterval:kDurationCycle block:^(NSTimer *timer) {
+    _timer = [NSTimer scheduledTimer:kDurationCycle block:^(NSTimer *timer) {
         [self handleActionTimer];
 
     } repeats:YES];

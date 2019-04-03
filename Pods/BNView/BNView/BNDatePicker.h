@@ -54,6 +54,6 @@ typedef void(^BlockDatePicker)(UIDatePicker *datePicker,NSInteger btnIndex);
 
 -(void)show;
 
--(void)dismissDatePicker;
+-(void)dismiss;
 
 @end
